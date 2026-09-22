@@ -1,0 +1,18 @@
+{
+  "source": "WAREHOUSE_AI_CODEX_SPEC.md v1.1 §8",
+  "source_status": "user_supplied_unverified",
+  "site_approved": false,
+  "runtime_approved": false,
+  "settings": {
+    "pedestrian_forklift_separation_m": 3,
+    "loaded_speed_kmh": 10,
+    "unloaded_speed_kmh": 20,
+    "fork_travel_height_cm": 20,
+    "shelf_protrusion_cm": 5
+  },
+  "claims": [
+    "Forward uphill and reverse downhill: applicability unknown.",
+    "Perfume leakage disrupts sensors/microclimate: not an established incident fact."
+  ],
+  "usage": "Provenance/configuration draft only; excluded from retrieval and operational authorization."
+}

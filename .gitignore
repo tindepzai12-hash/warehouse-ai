@@ -1,0 +1,11 @@
+.env
+.venv/
+data/
+.local-token*
+__pycache__/
+.pytest_cache/
+*.sqlite3*
+.env.*
+!.env.example
+*.log
+deploy-dist/

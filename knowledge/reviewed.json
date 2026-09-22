@@ -1,0 +1,329 @@
+[
+  {
+    "documentId": "SOP-SHORT-PICK",
+    "sectionId": "reporting",
+    "version": "1.0",
+    "source": "WAREHOUSE_AI_CODEX_SPEC.md v1.1 §7/S1",
+    "source_status": "spec_confirmed_project_policy",
+    "runtime_approved": true,
+    "site_approved": false,
+    "review_status": "implementation_reviewed_against_spec; site/language reviewer pending",
+    "keywords": [
+      "short pick",
+      "shortage",
+      "five",
+      "three",
+      "sunscreen",
+      "thiếu",
+      "ba hộp",
+      "kem chống nắng",
+      "缺货",
+      "防晒"
+    ],
+    "exceptionCode": "EXC-001",
+    "text": {
+      "en": "Record the actual eligible quantity: in the five-requested/three-present example, record 3 and report a shortage of 2 through Short Pick. The WMS must validate and commit once, create a remainder task, source-location hold and urgent ICQA count, and seek eligible reserve stock. These are future workflow effects, not completed transactions. No replacement means pending/supervisor handling; use another route only after approved allocation and route. Receiving, put-away or picking errors are possible causes, not proven findings.",
+      "vi": "Ghi số lượng thực tế đủ điều kiện: ví dụ yêu cầu 5/có 3 thì ghi 3, báo thiếu 2 qua Short Pick. WMS phải xác thực và ghi nhận một lần, tạo nhiệm vụ phần thiếu, giữ vị trí để điều tra, tạo kiểm đếm ICQA khẩn và tìm tồn dự phòng hợp lệ. Đây là tác động của quy trình sau này, chưa phải giao dịch hoàn tất. Không có hàng thay thế thì chờ/quản lý xử lý; chỉ đi tuyến khác khi có phân bổ và tuyến được duyệt. Lỗi nhập kho, cất hàng hoặc lấy hàng chỉ là nguyên nhân có thể, chưa được chứng minh.",
+      "zh": "记录符合条件的实际数量：要求5盒但只有3盒时，记录3盒并通过 Short Pick 报告缺少2盒。WMS须验证并仅提交一次，创建剩余任务、货位调查冻结及紧急ICQA盘点，并查找合格备用库存。这些是后续流程效果，并非已完成交易。无替代库存时等待主管处理；只有获得批准的分配及路线后才能改道。收货、上架或拣货错误只是可能原因。"
+    }
+  },
+  {
+    "documentId": "SOP-DAMAGED",
+    "sectionId": "quality-hold",
+    "version": "1.0",
+    "source": "WAREHOUSE_AI_CODEX_SPEC.md v1.1 §7/S2",
+    "source_status": "spec_confirmed_project_policy",
+    "runtime_approved": true,
+    "site_approved": false,
+    "review_status": "implementation_reviewed_against_spec; site/language reviewer pending",
+    "keywords": [
+      "damaged",
+      "perfume",
+      "leak",
+      "broken cap",
+      "nước hoa",
+      "rò rỉ",
+      "hư hỏng",
+      "香水",
+      "泄漏",
+      "破损"
+    ],
+    "exceptionCode": "EXC-002",
+    "text": {
+      "en": "Do not perform a normal pick scan of the leaking bottle or put it with normal goods. Open Damaged using trusted task/location/lot and affected quantity; if identity is ambiguous, request authorized identification. Only successful WMS processing may change that quantity from Available to Quality Hold and allocate replacement. Quality Hold is not scrap or disposal. Contact the Team Lead; spill tray/Trouble Basket handling requires authorized training, equipment and site procedure. Leakage disrupting sensors or microclimate is not an established fact.",
+      "vi": "Không quét lấy hàng thông thường chai đang rò rỉ, không để cùng hàng bình thường. Mở Damaged dựa trên nhiệm vụ/vị trí/lô đáng tin cậy và số lượng bị ảnh hưởng; nếu chưa rõ danh tính hàng, yêu cầu người có thẩm quyền xác minh. Chỉ khi WMS xử lý thành công mới báo số lượng đó chuyển Available sang Quality Hold và có hàng thay thế. Quality Hold không phải phế phẩm hay cho phép tiêu hủy. Liên hệ Team Lead; dùng khay tràn/Trouble Basket chỉ khi được đào tạo, có thiết bị và SOP cho phép. Chưa có bằng chứng rò rỉ làm hỏng cảm biến hoặc vi khí hậu.",
+      "zh": "不要对泄漏瓶执行正常拣货扫描，也不要混入正常货物。使用可信任务、货位、批次及受影响数量打开 Damaged；身份不明确时请授权人员核实。只有WMS成功处理后才可报告该数量由 Available 转为 Quality Hold 及替代分配。Quality Hold不代表报废或销毁。联系组长；只有经过授权培训、配备设备并符合现场规程时才可使用接漏盘。泄漏影响传感器或微气候尚未证实。"
+    }
+  },
+  {
+    "documentId": "SOP-RELABEL",
+    "sectionId": "manual-entry",
+    "version": "1.0",
+    "source": "WAREHOUSE_AI_CODEX_SPEC.md v1.1 §7/S3",
+    "source_status": "spec_confirmed_project_policy",
+    "runtime_approved": true,
+    "site_approved": false,
+    "review_status": "implementation_reviewed_against_spec; site/language reviewer pending",
+    "keywords": [
+      "barcode",
+      "faded",
+      "t-shirt",
+      "relabel",
+      "mã vạch",
+      "nhập tay",
+      "áo",
+      "条码",
+      "手动",
+      "褪色"
+    ],
+    "exceptionCode": "EXC-005",
+    "text": {
+      "en": "Manually enter a readable known identifier, then verify size, color and brand against trusted description/reference image and current task records. Barcode and internal SKU may differ; use configured mappings. Never guess unreadable digits. If identity remains uncertain, use Relabel/pending identification and notify Inbound through available channels. Link any Short Pick to avoid deducting the same unit twice. AI image interpretation and manual entry do not prove identity.",
+      "vi": "Được nhập tay mã định danh đã biết và còn đọc rõ; đối chiếu kích cỡ, màu, thương hiệu với mô tả/ảnh tham chiếu đáng tin và nhiệm vụ. Barcode có thể khác SKU nội bộ, phải dùng ánh xạ cấu hình. Không đoán chữ số bị mờ. Chưa xác minh được thì dùng Relabel/chờ định danh và báo Inbound qua kênh hiện có. Liên kết Short Pick nếu có để không trừ cùng đơn vị hai lần. Nhập tay hay AI xem ảnh không chứng minh danh tính hàng.",
+      "zh": "可手动输入清晰可读的已知标识，再对照可信描述、参考图片及当前任务核实尺码、颜色和品牌。条码可能不同于内部SKU，须使用配置的映射。不要猜测模糊数字。无法确认身份时使用 Relabel/待识别流程并通过现有渠道通知收货区；关联 Short Pick 以免重复扣减。同样，手工输入或AI识图都不能证明商品身份。"
+    }
+  },
+  {
+    "documentId": "SOP-WRONG-BIN",
+    "sectionId": "mismatch",
+    "version": "1.0",
+    "source": "WAREHOUSE_AI_CODEX_SPEC.md v1.1 §7/S4",
+    "source_status": "spec_confirmed_project_policy",
+    "runtime_approved": true,
+    "site_approved": false,
+    "review_status": "implementation_reviewed_against_spec; site/language reviewer pending",
+    "keywords": [
+      "wrong bin",
+      "55",
+      "65",
+      "television",
+      "tv",
+      "sai vị trí",
+      "tivi",
+      "a01",
+      "电视",
+      "错位"
+    ],
+    "exceptionCode": "EXC-003",
+    "text": {
+      "en": "Do not substitute a 65-inch TV for the required 55-inch TV or search/pick another location without authorization. Report Wrong Bin. The WMS workflow must suspend/skip the pick, create ICQA investigation and configured location hold. Navigate elsewhere only after verified eligible allocation and approved route. Do not invent a shelf, assert a route is physically safe or blame a previous worker.",
+      "vi": "Không thay TV 55 inch bằng 65 inch, không tự tìm/lấy ở vị trí khác khi chưa được giao. Báo Wrong Bin. Quy trình WMS phải tạm dừng/bỏ qua lượt lấy, tạo điều tra ICQA và giữ vị trí theo cấu hình. Chỉ di chuyển sang nơi khác khi có phân bổ hợp lệ và tuyến được duyệt. Không tự tạo vị trí, khẳng định tuyến an toàn hay đổ lỗi nhân viên trước.",
+      "zh": "不要以65英寸电视替代要求的55英寸电视，也不要擅自到其他货位寻找或拣货。报告 Wrong Bin。WMS流程须暂停或跳过拣货、创建ICQA调查并按配置冻结货位。只有核实合格分配和批准路线后才可前往其他位置。不得编造货位、断言路线安全或指责之前的员工。"
+    }
+  },
+  {
+    "documentId": "SOP-BLOCKED-PATH",
+    "sectionId": "clearance",
+    "version": "1.0",
+    "source": "WAREHOUSE_AI_CODEX_SPEC.md v1.1 §7/S5",
+    "source_status": "spec_confirmed_project_policy",
+    "runtime_approved": true,
+    "site_approved": false,
+    "review_status": "implementation_reviewed_against_spec; site/language reviewer pending",
+    "keywords": [
+      "pallet",
+      "obstruct",
+      "blocked aisle",
+      "skip",
+      "pass",
+      "chặn",
+      "lối đi",
+      "堵塞",
+      "通道",
+      "托盘"
+    ],
+    "exceptionCode": "EXC-004",
+    "text": {
+      "en": "Stop before the obstruction; park the cart only where site rules permit without blocking pedestrians, intersections or visibility. Notify supervisor/maintenance through available channels. Do not step over or attempt untrained removal. Submit Skip / Pass with the location; WMS must exclude blocked paths and seek an approved alternative. Resume only with a valid route. Return only after an authorized clearance event; elapsed time is not clearance.",
+      "vi": "Dừng trước vật cản; chỉ đặt xe nơi SOP cho phép, không che lối người đi bộ, giao lộ hay tầm nhìn. Báo giám sát/bảo trì qua kênh hiện có. Không bước qua hoặc tự dọn khi chưa được đào tạo. Gửi Skip / Pass kèm vị trí; WMS phải loại đường bị chặn và tìm tuyến thay thế được duyệt. Chỉ tiếp tục khi có tuyến hợp lệ; chỉ quay lại sau sự kiện xác nhận giải tỏa có thẩm quyền, không dựa vào thời gian trôi qua.",
+      "zh": "在障碍物前停止；按现场规程停放推车，不妨碍行人、路口或视线。通过现有渠道通知主管或维修人员。不要跨越障碍或在未经培训时自行清理。提交带位置的 Skip / Pass；WMS须排除受阻路径并寻找批准的替代路线。仅在路线有效时恢复，且只有获得授权清障记录后才能返回；时间经过不代表已清障。"
+    }
+  },
+  {
+    "documentId": "SOP-LOT",
+    "sectionId": "fifo-fefo",
+    "version": "1.0",
+    "source": "WAREHOUSE_AI_CODEX_SPEC.md v1.1 §8/FIFO-FEFO",
+    "source_status": "spec_confirmed_project_policy",
+    "runtime_approved": true,
+    "site_approved": false,
+    "review_status": "implementation_reviewed_against_spec; site/language reviewer pending",
+    "keywords": [
+      "fifo",
+      "fefo",
+      "expiry",
+      "expiration",
+      "lot",
+      "hạn dùng",
+      "lô hàng",
+      "先入先出",
+      "先到期",
+      "批次"
+    ],
+    "exceptionCode": null,
+    "text": {
+      "en": "FIFO uses configured receipt/entry date for apparel and electronics/appliances in this project. FEFO uses expiration for date-controlled cosmetics/food. WMS chooses an eligible lot and rejects wrong-lot scans; AI only explains supplied dates and policy. Lot/expiry come from supported GS1 data if present or trusted records, not arbitrary barcodes or front/deep shelf placement. Without lot dates and eligibility data, no specific lot can be selected.",
+      "vi": "FIFO dựa ngày nhận/nhập cấu hình cho may mặc và điện tử/điện gia dụng trong dự án. FEFO dựa hạn dùng cho mỹ phẩm/thực phẩm có quản lý hạn. WMS chọn lô hợp lệ và chặn quét sai lô; AI chỉ giải thích ngày và chính sách được cung cấp. Lô/hạn lấy từ GS1 được hỗ trợ khi có hoặc hồ sơ đáng tin, không suy từ mã vạch bất kỳ hay vị trí ngoài/trong kệ. Thiếu ngày và điều kiện hợp lệ thì chưa chọn được lô cụ thể.",
+      "zh": "本项目中FIFO按服装及电子家电配置的收货或入库日期排序；FEFO按化妆品及食品等受控品类的到期日排序。WMS选择合格批次并拒绝错误批次扫描，AI仅解释已提供的日期与规则。批次及效期仅来自实际存在且受支持的GS1数据或可信记录，不能从任意条码或货架前后位置推断。缺少日期及资格资料时无法指定批次。"
+    }
+  },
+  {
+    "documentId": "SOP-PUT-AWAY",
+    "sectionId": "unavailable-location",
+    "version": "1.0",
+    "source": "WAREHOUSE_AI_CODEX_SPEC.md v1.1 §5.1,15.7",
+    "source_status": "spec_confirmed_project_policy",
+    "runtime_approved": true,
+    "site_approved": false,
+    "review_status": "implementation_reviewed_against_spec; site/language reviewer pending",
+    "keywords": [
+      "put-away",
+      "put away",
+      "occupied",
+      "unavailable",
+      "b-12-03",
+      "cất hàng",
+      "hết chỗ",
+      "上架",
+      "占用",
+      "无可用"
+    ],
+    "exceptionCode": null,
+    "text": {
+      "en": "Accept the assigned task, scan inbound pallet/tote, use the WMS-assigned location, scan its Location ID, place goods under approved SOP, scan product, enter actual quantity and explicitly confirm. A location mismatch blocks confirmation. If the trusted location is unavailable and no alternative is approved, pause and ask authorized handling; do not invent a shelf or holding area. The SKU-2048/B-12-03 case is synthetic; no movement has completed.",
+      "vi": "Nhận nhiệm vụ, quét pallet/tote đầu vào, dùng vị trí WMS giao, quét Location ID, đặt hàng theo SOP, quét sản phẩm, nhập số thực và xác nhận rõ ràng. Sai vị trí phải chặn xác nhận. Khi vị trí không khả dụng và chưa có nơi thay thế được duyệt, tạm dừng và yêu cầu xử lý có thẩm quyền; không tự tạo kệ hay khu chờ. SKU-2048/B-12-03 là dữ liệu giả lập; chưa có di chuyển hàng hoàn tất.",
+      "zh": "接收任务、扫描入库托盘或周转箱、使用WMS分配货位并扫描货位ID，按批准规程放货、扫描商品、输入实际数量并明确确认。货位不符时必须阻止确认。可信货位不可用且无批准替代位置时暂停并请授权人员处理，不得编造货架或暂存区。SKU-2048/B-12-03仅为模拟案例，尚未完成移库。"
+    }
+  },
+  {
+    "documentId": "SOP-PICKING",
+    "sectionId": "handoff",
+    "version": "1.0",
+    "source": "WAREHOUSE_AI_CODEX_SPEC.md v1.1 §5.2",
+    "source_status": "spec_confirmed_project_policy",
+    "runtime_approved": true,
+    "site_approved": false,
+    "review_status": "implementation_reviewed_against_spec; site/language reviewer pending",
+    "keywords": [
+      "picking",
+      "packing",
+      "checklist",
+      "lấy hàng",
+      "đóng gói",
+      "拣货",
+      "包装"
+    ],
+    "exceptionCode": null,
+    "text": {
+      "en": "Picking supports individual, batch and wave organization controlled by WMS. Follow an approved route; scan assigned location and expected product/variant/lot/owner, inspect condition, enter actual quantity, explicitly confirm into the identified tote and hand off to Packing/Fulfillment. Reject mismatches deterministically. Packing handoff is not shipment dispatch. Damaged goods follow the exception SOP.",
+      "vi": "Picking hỗ trợ đơn lẻ, batch và wave do WMS cấu hình. Theo tuyến được duyệt; quét vị trí và sản phẩm/biến thể/lô/chủ sở hữu dự kiến, kiểm tra tình trạng, nhập số thực, xác nhận vào tote định danh rồi bàn giao Packing/Fulfillment. Luật xác định phải chặn sai lệch. Bàn giao đóng gói không phải xuất vận chuyển. Hàng hỏng đi theo SOP ngoại lệ.",
+      "zh": "拣货支持由WMS控制的单件、批量及波次组织。沿批准路线扫描指定货位和预期商品、变体、批次、货主，检查状况，输入实际数量并明确确认进入指定周转箱，随后交接包装履约区。确定性规则须拒绝不匹配。包装交接不等于发运；损坏商品走异常流程。"
+    }
+  },
+  {
+    "documentId": "SOP-COUNT",
+    "sectionId": "blind-count",
+    "version": "1.0",
+    "source": "WAREHOUSE_AI_CODEX_SPEC.md v1.1 §5.3",
+    "source_status": "spec_confirmed_project_policy",
+    "runtime_approved": true,
+    "site_approved": false,
+    "review_status": "implementation_reviewed_against_spec; site/language reviewer pending",
+    "keywords": [
+      "count",
+      "icqa",
+      "kiểm đếm",
+      "盘点"
+    ],
+    "exceptionCode": null,
+    "text": {
+      "en": "Authorized ICQA/count staff scan assigned location and SKUs and submit physical counts without seeing expected quantity. A discrepancy requests a second blind count. The specified auditable WMS rule finalizes after a confirmed second discrepancy; inconsistent physical counts or intervening movements remain unresolved for reconciliation (proposed engineering safeguard). Store previous balance, observations, worker, timestamps, adjustment and variance report. AI never decides adjustments.",
+      "vi": "Nhân viên kiểm đếm/ICQA được phép quét vị trí và SKU, gửi số đếm thực mà không thấy số kỳ vọng. Chênh lệch yêu cầu đếm mù lần hai. Quy tắc WMS có kiểm toán theo specification chốt sau lần hai chênh lệch đã xác nhận; hai lần đếm không nhất quán hoặc có biến động xen giữa thì chờ đối soát (biện pháp kỹ thuật đề xuất). Lưu số cũ, quan sát, người, thời gian, điều chỉnh và báo cáo. AI không quyết định điều chỉnh.",
+      "zh": "授权盘点或ICQA人员扫描指定货位和SKU，在不知预期数量的情况下提交实物数量。差异触发第二次盲盘。规范中的可审计WMS规则在确认第二次差异后完成处理；两次实物计数不一致或期间有库存移动时应保留待核对状态（工程防护建议）。记录原余额、观察、人员、时间、调整及差异报告。AI不决定库存调整。"
+    }
+  },
+  {
+    "documentId": "SOP-5S",
+    "sectionId": "project-interpretation",
+    "version": "1.0",
+    "source": "WAREHOUSE_AI_CODEX_SPEC.md v1.1 §8/5S",
+    "source_status": "spec_confirmed_project_policy",
+    "runtime_approved": true,
+    "site_approved": false,
+    "review_status": "implementation_reviewed_against_spec; site/language reviewer pending",
+    "keywords": [
+      "5s",
+      "sort",
+      "整理",
+      "sắp xếp"
+    ],
+    "exceptionCode": null,
+    "text": {
+      "en": "5S means Sort, Set in Order, Shine, Standardize and Sustain. This project's interpretation includes scan discipline, orderly locations, clean camera/labels and clear work areas. It is not a universal database governance standard.",
+      "vi": "5S gồm Sàng lọc, Sắp xếp, Sạch sẽ, Săn sóc và Sẵn sàng. Dự án vận dụng vào kỷ luật quét, vị trí ngăn nắp, camera/nhãn sạch và khu làm việc thông thoáng; không coi đây là chuẩn quản trị cơ sở dữ liệu phổ quát.",
+      "zh": "5S为整理、整顿、清扫、清洁及素养。本项目将其用于规范扫描、货位整齐、清洁相机和标签以及保持作业区畅通；这并非通用数据库治理标准。"
+    }
+  },
+  {
+    "documentId": "SOP-SAFETY",
+    "sectionId": "source-limits",
+    "version": "1.0",
+    "source": "WAREHOUSE_AI_CODEX_SPEC.md v1.1 §8/source-status",
+    "source_status": "spec_confirmed_project_policy",
+    "runtime_approved": true,
+    "site_approved": false,
+    "review_status": "implementation_reviewed_against_spec; site/language reviewer pending",
+    "keywords": [
+      "forklift",
+      "speed",
+      "safety",
+      "3 m",
+      "10 km",
+      "20 km",
+      "20 cm",
+      "5 cm",
+      "xe nâng",
+      "an toàn",
+      "tốc độ",
+      "叉车",
+      "安全",
+      "速度",
+      "uphill",
+      "downhill"
+    ],
+    "exceptionCode": null,
+    "text": {
+      "en": "No externally verified numeric vehicle/shelf safety rules are available in this corpus. Obtain applicable approved site/equipment procedures and authorized operator guidance. User-supplied numbers and slope-travel statements are unverified and cannot authorize operation.",
+      "vi": "Kho tài liệu chưa có quy tắc số về xe nâng/kệ được kiểm chứng bên ngoài. Cần SOP hiện trường/thiết bị được duyệt và hướng dẫn cho người vận hành có thẩm quyền. Số liệu và nhận định đi dốc do người dùng cung cấp chưa được kiểm chứng, không cho phép vận hành dựa vào chúng.",
+      "zh": "此资料库尚无经外部核实的车辆或货架数值安全规则。须取得适用且经批准的现场及设备规程，并由授权人员操作。用户提供的数值及坡道行驶说法未经核实，不能据此授权操作。"
+    }
+  },
+  {
+    "documentId": "SOP-ZONES",
+    "sectionId": "discipline",
+    "version": "1.0",
+    "source": "WAREHOUSE_AI_CODEX_SPEC.md v1.1 §8/zones",
+    "source_status": "spec_confirmed_project_policy",
+    "runtime_approved": true,
+    "site_approved": false,
+    "review_status": "implementation_reviewed_against_spec; site/language reviewer pending",
+    "keywords": [
+      "zones",
+      "temperature",
+      "heavy",
+      "bulky",
+      "khu vực",
+      "nhiệt độ",
+      "hàng nặng",
+      "温控",
+      "重物",
+      "区域"
+    ],
+    "exceptionCode": null,
+    "text": {
+      "en": "Electronics uses configured extra authentication/scans; heavy/bulky zones require pedestrian discipline, vehicle separation and approved handling. Apparel requires size/color/brand verification. FMCG hazards use site spill/emergency procedures. Temperature-controlled storage follows door discipline, configured environment requirements and applicable FEFO. No dimensions, temperatures or real coordinates are supplied.",
+      "vi": "Điện tử dùng kiểm tra xác thực/quét bổ sung theo cấu hình; hàng nặng/cồng kềnh cần kỷ luật lối đi bộ, tách xe và cách xử lý được duyệt. May mặc xác minh cỡ/màu/thương hiệu. Nguy cơ FMCG theo SOP tràn đổ/khẩn cấp. Kho kiểm soát nhiệt độ tuân thủ cửa, yêu cầu môi trường cấu hình và FEFO phù hợp. Chưa có kích thước, nhiệt độ hay tọa độ thật.",
+      "zh": "电子区使用配置的额外认证和扫描；重物区遵守人行路线、车人分离及批准搬运程序。服装核实尺码、颜色和品牌；快消品危险遵循现场泄漏及应急规程；温控区遵守门管理、配置的环境要求及适用FEFO。尚未提供尺寸、温度或真实坐标。"
+    }
+  }
+]
