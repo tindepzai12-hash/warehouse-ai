@@ -61,4 +61,4 @@ Tạo Web Service từ repository và dùng đúng cấu hình:
 
 Kho kiến thức chạy lexical RAG từ `knowledge/reviewed.json` và các SOP `official_release` có `runtime_approved: true` trong `knowledge/warehouse-sops.json`; SOP draft và `knowledge/unverified.json` không được dùng. Prototype không có WMS live, không thay đổi tồn kho, không tạo route và không xác nhận transaction. Cần đánh giá người thật, identity provider, phân quyền WMS, retention và audit trước production.
 
-Chạy `npm test` trước khi deploy. Xem [runbook hiện tại](docs/RUNBOOK_VI.md), [hợp đồng Unity tương lai](docs/UNITY_API_CONTRACT.md), [docs/RENDER.md](docs/RENDER.md) và [docs/ROADMAP.md](docs/ROADMAP.md). Nếu tài liệu cũ mâu thuẫn với code, ưu tiên `server.js`, `render.yaml`, tests và runbook.
+Chạy `npm run verify` và `npm run validate:knowledge` trước khi deploy. Xem [runbook hiện tại](docs/RUNBOOK_VI.md), [hợp đồng Unity tương lai](docs/UNITY_API_CONTRACT.md), [docs/RENDER.md](docs/RENDER.md) và [docs/ROADMAP.md](docs/ROADMAP.md). Nếu tài liệu cũ mâu thuẫn với code, ưu tiên `server.js`, `render.yaml`, tests và runbook.

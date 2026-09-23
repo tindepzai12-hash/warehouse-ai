@@ -112,6 +112,8 @@ node --test --test-isolation=none tests\*.test.cjs
 git diff --check
 ```
 
+Khi có `npm` trên máy, lệnh gọn tương đương là `npm run verify`; dùng `npm run validate:knowledge` để xem chính xác SOP nào được phép runtime và SOP nào vẫn bị chặn.
+
 Kiểm thử thủ công UI:
 
 1. Chọn Việt, English, 中文 và xác nhận title, lời chào, placeholder, nút gửi, micro, đọc câu trả lời và trạng thái đổi ngay không reload.
