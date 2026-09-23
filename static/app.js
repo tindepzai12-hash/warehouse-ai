@@ -2,7 +2,7 @@ const $=id=>document.getElementById(id);
 const t=(key,values)=>window.JarvisI18n.t(key,values);
 let session=null,lastPayload=null,busy=false;
 function bubble(text,kind){const p=document.createElement('div');p.className='bubble '+kind;p.textContent=text;$('chat').append(p);$('chat').scrollTop=$('chat').scrollHeight;}
-function reset(){window.dispatchEvent(new Event('chat-reset'));session=null;lastPayload=null;const empty=document.createElement('p');empty.textContent=t('chatEmpty');$('chat').replaceChildren(empty);$('sources').replaceChildren();$('proposal').replaceChildren();$('session').textContent=t('noSession');$('retry').disabled=true;}
+function reset(){window.dispatchEvent(new Event('chat-reset'));session=null;lastPayload=null;const empty=document.createElement('p');empty.dataset.i18n='chatEmpty';empty.textContent=t('chatEmpty');$('chat').replaceChildren(empty);$('sources').replaceChildren();$('proposal').replaceChildren();$('session').textContent=t('noSession');$('retry').disabled=true;}
 $('new').onclick=reset;$('task').onchange=reset;$('token').onchange=reset;
 async function send(retry=false){
  if(busy)return;
