@@ -1,5 +1,6 @@
 .env
 .venv/
+node_modules/
 data/
 .local-token*
 __pycache__/

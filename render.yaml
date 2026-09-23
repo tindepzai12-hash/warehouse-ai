@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: warehouse-ai-1
+    runtime: node
+    region: singapore
+    plan: free
+    branch: main
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: AI_MODE
+        value: openai
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        sync: false
+      - key: PROTOTYPE_TOKEN_SHA256
+        sync: false
+      - key: DATABASE_PATH
+        value: data/warehouse.sqlite3
+      - key: MAX_REQUESTS_PER_MINUTE
+        value: "20"
+      - key: MAX_REQUESTS_PER_DAY
+        value: "100"
+      - key: MAX_OUTPUT_TOKENS
+        value: "1200"
+      - key: REQUEST_TIMEOUT_SECONDS
+        value: "30"

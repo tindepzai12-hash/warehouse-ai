@@ -1,69 +1,59 @@
-# Deploy lên Render — hướng dẫn, chưa thực hiện
+# Deploy lên Render bằng Node.js
 
-Ứng dụng đã tạo: **`run.py`**, **`requirements.txt`**, factory **`app.main:create_app`**. Không upload riêng specification để deploy. Không tạo tài nguyên trả phí trong đợt triển khai Milestone A này.
-
-## Chuẩn bị repository
-
-Tạo Git repository với nội dung thư mục `E:\warehouse-ai` ở root. Không commit `.env`, `.venv`, `data`, `.local-token*`. Xem danh sách file trước khi push; project chưa tự push lên Git provider của bạn. Nếu bạn đặt cả thư mục vào repository lớn hơn, Root Directory trên Render phải là `warehouse-ai`.
+Backend đã migrate sang Express tại `server.js`; `static/` được phục vụ bằng `express.static`. Không cần Python, Uvicorn hoặc frontend build step.
 
 ## Web Service
 
-Trong Render Dashboard: New → Web Service → liên kết repository → chọn branch.
+Trong Render Dashboard chọn **New -> Web Service**, liên kết repository và branch. Dùng đúng các giá trị sau:
 
-| Trường | Giá trị chính xác |
+| Trường | Giá trị |
 |---|---|
-| Runtime | Python 3 |
-| Root Directory | Để trống nếu `run.py` ở root; nếu không, `warehouse-ai` |
-| Build Command | `pip install -r requirements.txt` |
-| Start Command | `python run.py` |
+| Environment | **Node** |
+| Root Directory | Trống nếu `package.json` ở root; nếu đặt project trong thư mục con thì nhập thư mục đó |
+| Build Command | `npm install` |
+| Start Command | `npm start` |
 | Health Check Path | `/api/health` |
 | Instances | 1 (SQLite) |
 
-`run.py` đọc PORT do Render cung cấp và bind `0.0.0.0`. Lệnh tương đương nếu dùng Uvicorn trực tiếp: `uvicorn app.main:create_app --factory --host 0.0.0.0 --port $PORT --workers 1`. Render chạy shell Linux nên `$PORT` đúng ở đây; trên PowerShell dùng `run.py` như README.
+Render tự cấp `PORT`; server bind `0.0.0.0` và đọc biến này khi khởi động.
 
-Đặt Environment Variables qua Dashboard, không đưa secret vào Build/Start command:
+## Environment variables
+
+Đặt trong Dashboard, không đưa secret vào command:
 
 ```dotenv
-PYTHON_VERSION=3.12.14
 AI_MODE=mock
 DATABASE_PATH=/var/data/warehouse.sqlite3
 MAX_REQUESTS_PER_MINUTE=20
 MAX_REQUESTS_PER_DAY=100
 MAX_OUTPUT_TOKENS=1200
 REQUEST_TIMEOUT_SECONDS=30
+CHINESE_LOCALE=
+PROTOTYPE_TOKEN_SHA256=
 ```
 
-`OPENAI_API_KEY` và `OPENAI_MODEL` để trống/chưa tạo khi chạy mock. `CHINESE_LOCALE` tùy chọn. Không đặt key trong static JS hoặc Unity.
+Chỉ khi đã kiểm tra quyền model mới đặt `AI_MODE=openai`, `OPENAI_API_KEY` và `OPENAI_MODEL`. Không đặt key trong `static/`.
 
-## Lưu trữ bền vững và lựa chọn chi phí
+## SQLite persistence
 
-Để giữ users/sessions/quota/cache qua restart và deploy, ứng dụng SQLite này cần **Persistent Disk gắn tại `/var/data`**. Render yêu cầu service hỗ trợ disk (có chi phí); chỉ lựa chọn khi bạn chủ động triển khai sau này. Tạo disk trong Dashboard, đặt mount path `/var/data`, chọn dung lượng phù hợp. Disk chỉ xuất hiện lúc runtime, không phải build. Giữ một instance; disk cũng ảnh hưởng khả năng deploy không gián đoạn theo tài liệu Render.
+Để giữ user, session, quota và response cache qua deploy, tạo Persistent Disk và mount tại `/var/data`, sau đó dùng `DATABASE_PATH=/var/data/warehouse.sqlite3`. Không có disk, dữ liệu Render Free là ephemeral. Chạy một instance duy nhất.
 
-Nếu chỉ thử Web Service không có disk, đổi `DATABASE_PATH=data/warehouse.sqlite3`: dữ liệu ephemeral có thể mất khi restart/deploy. Phương án này **không đạt tiêu chí persistence Milestone C**, user token/quota cũng có thể mất. Không có cam kết lưu bền vững miễn phí với cấu hình hiện tại. Muốn dùng PostgreSQL sau này cần viết adapter persistence; không thể chỉ thay DATABASE_PATH bằng URL PostgreSQL.
+## Tạo user demo
 
-## Tạo người dùng sau khi deploy
-
-Nếu dùng Render Free không có Shell, xem `UPDATING.md`: cấu hình `PROTOTYPE_TOKEN_SHA256` để tạo user demo quyền staff lúc khởi động. Đây chỉ khôi phục đăng nhập; lịch sử/quota vẫn mất cùng SQLite ephemeral. Cách dùng Shell dưới đây dành cho service hỗ trợ Shell.
-
-Với service có Render Shell và persistent disk, mở Shell:
+Nếu service có Shell:
 
 ```bash
-python -m app.cli create-user --user worker-demo --token-file /var/data/.local-token-worker-demo
+npm run create-user -- create-user --user worker-demo --token-file /var/data/.local-token-worker-demo
 cat /var/data/.local-token-worker-demo
 ```
 
-Đọc token riêng trong Shell rồi dán vào UI HTTPS của service; không gửi qua chat hay commit. Lệnh `cat` hiển thị token cá nhân trong Shell của bạn; không đưa vào build log. Có thể chạy lại CLI để rotate/revoke token cũ. Chưa có màn hình đăng ký công khai hoặc admin endpoint cấp token.
+Nếu không có Shell, tính SHA-256 lowercase của một token riêng rồi đặt vào `PROTOTYPE_TOKEN_SHA256`. Lúc boot, server tạo hoặc cập nhật user `render-demo` với role `staff`; raw token không được lưu.
 
-## Kiểm tra trước khi kết luận deploy thành công
+## Kiểm tra sau deploy
 
-1. Mở `https://<service>.onrender.com/api/health`: mode mock, database OK.
-2. Mở trang `/`, thử không có/sai token: feedback phải bị từ chối.
-3. Dùng token đúng, hỏi năm tình huống, FIFO/FEFO và câu ngoài kiến thức; xem ID nguồn thực tế.
-4. Hỏi tiếp trong cùng session; đổi user phải không đọc được phiên cũ.
-5. Restart service rồi dùng cùng token/session; phải giữ ngữ cảnh nếu disk cấu hình đúng.
-6. Khi sẵn sàng trả phí OpenAI: thêm key/model có quyền vào Environment, đổi `AI_MODE=openai`, redeploy, thử một yêu cầu thật có nguồn và follow-up. Health không chứng minh bước này.
-7. Kiểm tra lỗi key/model/quota được che dữ liệu nhạy cảm, logs chỉ có request ID/status/source ID/latency. Ghi riêng rằng paid API test đã hoặc chưa chạy.
+1. Mở `https://<service>.onrender.com/api/health` và xác nhận `status=ok`, `mode=mock`.
+2. Mở `/`, dùng token hợp lệ và thử các câu hỏi trong README.
+3. Kiểm tra token sai trả `401`, task không được cấp trả `403`, request trùng payload được cache và request trùng `requestId` nhưng khác payload trả `409`.
+4. Nếu bật OpenAI, kiểm tra riêng lỗi key/model/quota; health không chứng minh provider đã hoạt động.
 
-Thử nghiệm ở repo hiện tại chỉ dùng transport giả lập, **chưa xác minh bước 1–7 trên Render**. Milestone C vẫn còn nguyên.
-
-Nguồn: [Render FastAPI](https://render.com/docs/deploy-fastapi), [Web Services](https://render.com/docs/web-services), [Environment Variables](https://render.com/docs/configure-environment-variables), [Persistent Disks](https://render.com/docs/disks).
+Render Node runtime docs: https://render.com/docs/node-express-app

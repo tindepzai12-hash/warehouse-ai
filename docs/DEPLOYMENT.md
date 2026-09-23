@@ -11,9 +11,9 @@ Render Dashboard: https://dashboard.render.com/web/srv-dapi78navr4c738ooqu0
 - Region: Singapore
 - Instance plan: Free
 - Branch: main; auto-deploy on commit enabled
-- Build: `pip install -r requirements.txt`
-- Start: `python run.py`
-- Runtime: Python 3.12.14
+- Build: `npm install`
+- Start: `npm start`
+- Runtime: Node 18+
 - Config: server-side Render environment, AI_MODE=openai; no secrets committed
 - Prototype auth: same local demo token, verified by its SHA-256 on Render; cloud identity render-demo, staff role
 - SQLite is ephemeral. This deployment does not satisfy durable production storage requirements. Session/quota/retry cache can reset on redeploy/restart/spin-down. Do not use for real inventory transactions.

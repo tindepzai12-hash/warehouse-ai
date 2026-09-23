@@ -1,0 +1,21 @@
+{
+  "name": "warehouse-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Warehouse AI Milestone A Express service",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "create-user": "node provision.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "sqlite3": "^5.1.7"
+  }
+}

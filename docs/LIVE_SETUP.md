@@ -15,4 +15,4 @@ cd E:\warehouse-ai
 
 Tải lại trang localhost:8000, chọn Phiên mới để tránh ngữ cảnh mock trước đó. Trạng thái đầu trang phải hiện OPENAI. `liveApiVerified` chỉ chuyển true sau một phản hồi model qua kiểm tra trong tiến trình hiện tại; restart đặt lại false.
 
-Kiểm thử tích hợp giả lập: `python -m pytest -q`. File `smoke_live.py` là kiểm thử tự chọn có phí, cần requirements-dev.txt; chạy `python smoke_live.py` để thử ba câu tiếng Việt gồm thiếu hàng, hỏi tiếp và chào hỏi. Script không hiển thị key. Không tự chạy script như một phần test/build/deploy.
+Kiểm thử frontend hiện có thể chạy bằng `node --test tests/*.test.cjs`. Kiểm thử provider thật là tùy chọn, có thể phát sinh phí; không tự chạy như một phần build/deploy.
