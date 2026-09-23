@@ -116,6 +116,6 @@ Xem `docs/TEST_REPORT.md` và `docs/EVALUATION.md`. Tests dùng database tạm v
 
 RAG lexical nhỏ, không phải tìm kiếm semantic toàn diện; cách diễn đạt ngoài bộ từ khóa có thể trả thiếu nguồn. Schema/citation/action checks không chứng minh mọi câu do LLM viết đều đúng: cần đánh giá con người trước dùng thực tế. Không gửi ảnh, không có video/voice/Unity/AR ở A. Không có endpoint thay đổi tồn kho. SQLite dùng một instance; token tĩnh theo người là giải pháp prototype, cần identity provider/token hết hạn, phân quyền WMS, retention và audit đầy đủ trước production. Database hiện lưu hội thoại để tái lập ngữ cảnh, không có job xóa theo thời hạn; không đưa dữ liệu cá nhân không cần thiết vào thử nghiệm.
 
-Phạm vi B–D giữ ở `docs/ROADMAP.md`. Hướng dẫn deploy chính xác: **`docs/RENDER.md`**. Chưa deploy Render.
+Phạm vi B–D giữ ở `docs/ROADMAP.md`. Hướng dẫn deploy: **`docs/RENDER.md`**. Website thử nghiệm: https://warehouse-ai-fmjc.onrender.com. Repository private và cấu hình triển khai được ghi trong `docs/DEPLOYMENT.md`; quy trình cập nhật ở `docs/UPDATING.md`. Render Free dùng SQLite ephemeral, chưa đáp ứng persistence cho vận hành thực tế.
 
 Tài liệu chính thức đã đối chiếu: [OpenAI Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs), [Render FastAPI](https://render.com/docs/deploy-fastapi), [Render Persistent Disks](https://render.com/docs/disks).

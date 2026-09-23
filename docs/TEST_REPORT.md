@@ -4,7 +4,7 @@ Ngày cập nhật: 2026-09-23. Windows, Python 3.12.14, dependencies theo requi
 
 `python -m pytest -q --tb=short`: **50 passed**. Một DeprecationWarning từ Starlette TestClient/AnyIO, không gây failure.
 
-Chuẩn bị deploy: kiểm tra user demo quyền staff được khôi phục từ SHA-256 cấu hình khi filesystem mới, token sai bị từ chối và hash không đúng định dạng chặn khởi động. Chưa tạo service Render; còn cần đăng nhập GitHub và đẩy repository.
+Chuẩn bị deploy: kiểm tra user demo quyền staff được khôi phục từ SHA-256 cấu hình khi filesystem mới, token sai bị từ chối và hash không đúng định dạng chặn khởi động. Đã đẩy repository private lên GitHub và tạo service Render Free tại Singapore; chi tiết ở DEPLOYMENT.md. Kiểm thử model cục bộ bên dưới không tự chứng minh model hoạt động trên Render.
 
 Bổ sung regression cho câu “cần 5 hộp kem nhưng chỉ có 3 tôi phải làm gì ?”: truy xuất SOP-SHORT-PICK và đề xuất EXC-001. Thông báo 401 trên UI hướng dẫn nhập lại token ứng dụng.
 
