@@ -3,6 +3,7 @@ const assert = require('node:assert/strict');
 const vm = require('node:vm');
 const fs = require('node:fs');
 const source = fs.readFileSync(require('node:path').join(__dirname,'../static/voice.js'),'utf8');
+const i18nSource = fs.readFileSync(require('node:path').join(__dirname,'../static/i18n.js'),'utf8');
 function setup({supported=true, voices=[{lang:'vi-VN',name:'Vietnamese'}]}={}) {
  const elements = new Map(), events = {}, docEvents = {}, timers = new Map();
  let timerId = 0;
@@ -21,7 +22,9 @@ function setup({supported=true, voices=[{lang:'vi-VN',name:'Vietnamese'}]}={}) {
  const synth={getVoices:()=>voices,cancel(){},speak:u=>spoken.push(u)};
  const document={hidden:false,getElementById:get,addEventListener:(k,v)=>docEvents[k]=v};
  const window={SpeechRecognition:supported?Recognition:undefined,speechSynthesis:synth,addEventListener:(k,v)=>events[k]=v};
- vm.runInNewContext(source,{window,document,SpeechSynthesisUtterance:class {constructor(text){this.text=text;}},setTimeout:fn=>{timers.set(++timerId,fn);return timerId;},clearTimeout:id=>timers.delete(id)});
+ const context={window,document,SpeechSynthesisUtterance:class {constructor(text){this.text=text;}},setTimeout:fn=>{timers.set(++timerId,fn);return timerId;},clearTimeout:id=>timers.delete(id)};
+ vm.runInNewContext(i18nSource,context);
+ vm.runInNewContext(source,context);
  const emit=(name,detail)=>events[name]({detail});
  const result=(r,text)=>r.onresult({resultIndex:0,results:[Object.assign([{transcript:text}],{isFinal:true})]});
  return {get,instances,spoken,emit,result,document,docEvents,timers};

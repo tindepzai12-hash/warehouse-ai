@@ -3,6 +3,7 @@ const assert=require('node:assert/strict');
 const vm=require('node:vm');
 const fs=require('node:fs');
 const path=require('node:path');
+const i18nSource=fs.readFileSync(path.join(__dirname,'../static/i18n.js'),'utf8');
 function setup() {
  const elements={},handlers={},timers=new Map();
  let nextId=0,calls=0,resolve,reject,stops=0,closed=0;
@@ -16,12 +17,15 @@ function setup() {
  }
  const stream={getTracks:()=>[{stop(){stops++;}}]};
  const schedule=fn=>{timers.set(++nextId,fn);return nextId;};
- vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../static/mic-check.js'),'utf8'),{
-  document,window:{AudioContext,dispatchEvent(){},addEventListener:(k,v)=>handlers[k]=v},
+ const window={AudioContext,dispatchEvent(){},addEventListener:(k,v)=>handlers[k]=v};
+ const context={
+  document,window,
   navigator:{mediaDevices:{getUserMedia(){calls++;return promise;}}},
   CustomEvent:class{},Event:class{},Float32Array,setTimeout:schedule,setInterval:schedule,
   clearTimeout:id=>timers.delete(id),clearInterval:id=>timers.delete(id)
- });
+ };
+ vm.runInNewContext(i18nSource,context);
+ vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../static/mic-check.js'),'utf8'),context);
  return {elements,handlers,timers,document,resolve:()=>resolve(stream),reject,
   stats:()=>({calls,stops,closed})};
 }

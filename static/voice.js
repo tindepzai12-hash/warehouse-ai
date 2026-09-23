@@ -1,6 +1,7 @@
 /* Browser speech is optional. Recognition only edits the draft, never sends it. */
 (() => {
  const el = id => document.getElementById(id);
+ const t = (key, values) => window.JarvisI18n.t(key, values);
  const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
  const synth = window.speechSynthesis;
  let recognition = null, timer = null, generation = 0, speechGeneration = 0;
@@ -9,9 +10,9 @@
  function state() {
   const value = working ? 'thinking' : recognition || diagnostic ? 'listening' : speaking ? 'speaking' : failed ? 'error' : answer ? 'result' : 'idle';
   el('assistant').dataset.state = value;
-  el('assistant-state').textContent = {idle:'JarVis sẵn sàng hỗ trợ',thinking:'JarVis đang suy nghĩ…',listening:'JarVis đang nghe bạn…',speaking:'JarVis đang đọc câu trả lời…',error:'Có lỗi cần kiểm tra — xem hướng dẫn bên dưới',result:'JarVis đã có câu trả lời'}[value];
+  el('assistant-state').textContent = t({idle:'assistantIdle',thinking:'assistantThinking',listening:'assistantListening',speaking:'assistantSpeaking',error:'assistantError',result:'assistantResult'}[value]);
   el('mic').disabled = !Recognition || working || diagnostic;
-  el('mic').textContent = recognition ? 'Dừng ghi giọng nói' : 'Nói câu hỏi';
+  el('mic').textContent = t(recognition ? 'stopListening' : 'speakQuestion');
   el('mic').setAttribute('aria-pressed', String(Boolean(recognition)));
   el('read').disabled = !synth || !answer || working || Boolean(recognition) || diagnostic;
   el('stop-speech').disabled = !speaking && !waitingVoice;
@@ -44,18 +45,18 @@
   if (!voice) {
    if (!voices.length && !waited) {
     waitingVoice = true;
-    el('speech-status').textContent = 'Đang tải danh sách giọng đọc trên thiết bị…';
+    el('speech-status').textContent = t('voicesLoading');
     voiceWaitTimer = setTimeout(() => readAnswer(true), 1500);
     state(); return;
    }
-   el('speech-status').textContent = 'Thiết bị chưa có giọng đọc cho ngôn ngữ này. Bạn vẫn có thể đọc câu trả lời.';
+   el('speech-status').textContent = t('voiceMissing');
    return;
   }
   const current = ++speechGeneration;
   const chunks = answer.text.match(/[\s\S]{1,180}(?:\s|$)|[\s\S]{1,180}/g) || [];
   let index = 0;
   speaking = true;
-  el('speech-status').textContent = 'Giọng đọc: ' + voice.name + ' (' + voice.lang + ')';
+  el('speech-status').textContent = t('voiceName',{name:voice.name,lang:voice.lang});
   state();
   function next() {
    if (current !== speechGeneration) return;
@@ -68,7 +69,7 @@
    utterance.onerror = event => {
     if (current !== speechGeneration) return;
     speaking = false;
-    el('speech-status').textContent = event?.error === 'not-allowed' ? 'Trình duyệt chặn tự phát âm thanh. Bấm Nghe trả lời để cho phép đọc theo thao tác của bạn.' : 'Không đọc được trên thiết bị này. Kiểm tra loa/giọng đọc rồi bấm Nghe trả lời để thử lại.';
+    el('speech-status').textContent = t(event?.error === 'not-allowed' ? 'speechBlocked' : 'speechFailed');
     state();
    };
    try { synth.speak(utterance); } catch (_) { utterance.onerror(); }
@@ -97,7 +98,7 @@
   active.interimResults = false;
   active.maxAlternatives = 3;
   active.onstart = () => {
-   if (current === generation) el('voice-status').textContent = 'Đã mở nhận dạng. Hãy nói câu hỏi; bấm Dừng khi nói xong.';
+   if (current === generation) el('voice-status').textContent = t('recognitionStarted');
   };
   active.onresult = event => {
    if (current !== generation || recognition !== active) return;
@@ -105,27 +106,27 @@
     if (event.results[i].isFinal) finalText += event.results[i][0].transcript + ' ';
    }
    const normalized = window.normalizeJarVisAddress ? window.normalizeJarVisAddress(finalText.trim()) : finalText.trim();
-   el('voice-original').textContent = normalized !== finalText.trim() ? 'Đã nhận: “' + finalText.trim() + '” → chuẩn hóa tên gọi thành JarVis. Bạn có thể sửa lại trước khi gửi.' : '';
+   el('voice-original').textContent = normalized !== finalText.trim() ? t('recognizedNormalized',{original:finalText.trim()}) : '';
    const combined = [original.trim(), normalized].filter(Boolean).join(' ');
    el('question').value = combined.slice(0, 2000);
-   el('voice-status').textContent = combined.length > 2000 ? 'Đã đạt giới hạn 2.000 ký tự. Hãy kiểm tra nội dung trước khi gửi.' : 'Đã nhận lời nói. Xem lại nội dung, rồi bấm Gửi câu hỏi.';
+   el('voice-status').textContent = t(combined.length > 2000 ? 'draftTooLong' : 'speechCaptured');
   };
   active.onerror = event => {
    if (current !== generation) return;
-   const messages = {'not-allowed':'Micro chưa được cho phép. Bạn có thể cấp quyền trong trình duyệt hoặc nhập chữ.','service-not-allowed':'Trình duyệt không cho phép nhận dạng giọng nói. Hãy nhập chữ.','no-speech':'Chưa nghe rõ lời nói. Bấm Nói câu hỏi để thử lại.','audio-capture':'Không tìm thấy micro hoạt động. Hãy kiểm tra thiết bị.','network':'Dịch vụ nhận dạng chưa kết nối được. Hãy nhập chữ hoặc thử lại.','language-not-supported':'Trình duyệt chưa hỗ trợ nhận dạng ngôn ngữ này.'};
+   const messages = {'not-allowed':'errorNotAllowed','service-not-allowed':'errorServiceNotAllowed','no-speech':'errorNoSpeech','audio-capture':'errorAudioCapture','network':'errorNetwork','language-not-supported':'errorLanguage'};
    failed = true;
-   const help = ['network','service-not-allowed'].includes(event.error) ? ' Quyền micro và dịch vụ nhận dạng là hai phần riêng. Bấm Kiểm tra micro; nếu có tín hiệu, thử Chrome hoặc nhập giọng nói Windows + H trong ô câu hỏi.' : ' Bấm Kiểm tra micro để kiểm tra đầu vào.';
-   el('voice-status').textContent = (messages[event.error] || 'Đã dừng nhận dạng giọng nói. Bạn vẫn có thể nhập chữ.') + ' Mã: ' + event.error + '.' + help;
+   const help = ['network','service-not-allowed'].includes(event.error) ? t('recognitionHelp') : '';
+   el('voice-status').textContent = t(messages[event.error] || 'errorRecognition') + ' ' + t('errorCode',{code:event.error}) + help;
    abortListening();
   };
   active.onend = () => {
    if (current !== generation) return;
    clearTimeout(timer);
    recognition = null;
-   if (!finalText) el('voice-status').textContent = 'Đã dừng micro. Chưa có lời nói mới; bạn có thể nhập chữ hoặc thử lại.';
+   if (!finalText) el('voice-status').textContent = t('recognitionStopped');
    state();
   };
-  el('voice-status').textContent = 'Đang mở nhận dạng giọng nói, tối đa 45 giây…';
+  el('voice-status').textContent = t('recognitionOpening');
   state();
   try {
    active.start();
@@ -133,7 +134,7 @@
   } catch (_) {
    failed = true;
    abortListening();
-   el('voice-status').textContent = 'Không mở được micro. Bạn vẫn có thể nhập câu hỏi.';
+   el('voice-status').textContent = t('micOpenFailed');
   }
  };
  el('read').onclick = () => readAnswer();
@@ -144,12 +145,13 @@
  el('auto-read').onchange = () => {
   try { window.localStorage?.setItem('jarvis-auto-read', String(el('auto-read').checked)); } catch (_) {}
   if (!el('auto-read').checked) stopReading();
-  el('speech-status').textContent = el('auto-read').checked ? 'Đã bật: JarVis sẽ đọc câu trả lời mới. Bạn có thể tắt bất cứ lúc nào.' : 'Đã tắt tự đọc. Bấm Nghe trả lời khi bạn muốn nghe.';
+  el('speech-status').textContent = t(el('auto-read').checked ? 'autoReadOn' : 'autoReadOff');
  };
  for (const id of ['language','locale']) el(id).addEventListener('change', () => {
   abortListening(); stopReading();
-  el('voice-status').textContent = 'Đã đổi ngôn ngữ. Bấm Nói câu hỏi để bắt đầu lại.';
+  el('voice-status').textContent = t('localeChanged');
  });
+ window.addEventListener('language-changed', () => state());
  window.addEventListener('chat-start', () => {
   working = true; failed = false; freshAnswer = false; abortListening(); stopReading(); state();
  });
@@ -164,12 +166,12 @@
  });
  window.addEventListener('chat-reset', () => {
   abortListening(); stopReading(); answer = null; failed = false; state();
-  el('speech-status').textContent = ''; el('voice-status').textContent = Recognition ? 'Bấm Nói câu hỏi để bật micro.' : 'Trình duyệt này chưa hỗ trợ nhận dạng giọng nói. Hãy nhập câu hỏi.';
+  el('speech-status').textContent = ''; el('voice-status').textContent = Recognition ? t('speakQuestion') : t('voiceNotSupported');
  });
  function suspend() { abortListening(); stopReading(); }
  document.addEventListener('visibilitychange', () => { if (document.hidden) suspend(); });
  window.addEventListener('pagehide', suspend);
- el('voice-status').textContent = Recognition ? 'Bấm Nói câu hỏi để bật micro.' : 'Trình duyệt này chưa hỗ trợ nhận dạng giọng nói. Hãy nhập câu hỏi.';
- if (!synth) el('speech-status').textContent = 'Trình duyệt này chưa hỗ trợ đọc câu trả lời.';
+ el('voice-status').textContent = Recognition ? t('speakQuestion') : t('voiceNotSupported');
+ if (!synth) el('speech-status').textContent = t('speechNotSupported');
  state();
 })();

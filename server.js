@@ -19,7 +19,12 @@ const MOCK_NOTE = {
   vi: 'Đây là hướng dẫn mock; chưa ghi nhận giao dịch tồn kho hoặc tạo tuyến lấy hàng thay thế.',
   zh: '此为模拟指导；尚未提交库存交易或创建替代拣货路线。'
 };
-const QUYNH_ANH_RESPONSE = 'Phạm Lê Quỳnh Anh (sinh ngày 26 tháng 5 năm 2005) là người con gái dễ thương, tài giỏi và xinh đẹp nhất thế gian.';
+const QUYNH_ANH_RESPONSE = {
+  en: 'Phạm Lê Quỳnh Anh (born May 26, 2005) is a lovely, talented, and exceptionally beautiful young woman.',
+  vi: 'Phạm Lê Quỳnh Anh (sinh ngày 26 tháng 5 năm 2005) là người con gái dễ thương, tài giỏi và xinh đẹp nhất thế gian.',
+  zh: 'Phạm Lê Quỳnh Anh（生于2005年5月26日）是一位可爱、优秀且非常美丽的女孩。'
+};
+const LANGUAGE_NAMES = Object.freeze({ en: 'English', vi: 'Vietnamese', zh: 'Simplified Chinese' });
 const SHORT_PICK = {
   vi: 'Theo bạn báo, nếu nhiệm vụ yêu cầu {required} hộp nhưng chỉ có {visible} thì còn thiếu {missing} hộp.\n\n1. Xác minh đúng sản phẩm/lô và tình trạng hàng. Chỉ ghi nhận {visible} hộp nếu tất cả đều đủ điều kiện lấy.\n2. Mở Short Pick để báo thiếu {missing} hộp và kiểm tra thông tin trước khi xác nhận.\n3. Quy trình WMS sau này sẽ xử lý phần thiếu, giữ vị trí để điều tra, tạo kiểm đếm ICQA khẩn và tìm hàng dự phòng hợp lệ. Chỉ đi lấy bổ sung khi có phân bổ và tuyến được duyệt; chưa có thì chờ quản lý xử lý.',
   en: 'According to your report, if the task requires {required} boxes but only {visible} are present, the shortage is {missing}.\n\n1. Verify product/lot and condition; record {visible} only if all are eligible to pick.\n2. Open Short Pick to report the shortage of {missing}; review the details before confirming.\n3. The future WMS workflow must process the remainder, hold the location for investigation, create an urgent ICQA count and seek eligible reserve stock. Use a replacement only after approved allocation and route; otherwise wait for supervisor handling.',
@@ -79,9 +84,9 @@ function mentionsQuynhAnh(question) {
   return normalize(question).includes('quynh anh');
 }
 
-function quynhAnhAnswer() {
+function quynhAnhAnswer(language) {
   return {
-    message: QUYNH_ANH_RESPONSE,
+    message: QUYNH_ANH_RESPONSE[language],
     sources: [],
     action: { type: 'none', exceptionCode: null, targetId: null },
     needsClarification: false,
@@ -241,7 +246,8 @@ function validateAnswer(answer, chunks) {
   return answer;
 }
 
-async function providerAnswer(settings, request, chunks, history, facts) {
+async function providerAnswer(settings, request, chunks, history, facts, fetchImpl = fetch) {
+  const responseLanguage = LANGUAGE_NAMES[request.language];
   const schema = {
     type: 'object',
     additionalProperties: false,
@@ -281,7 +287,8 @@ async function providerAnswer(settings, request, chunks, history, facts) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), settings.timeout * 1000);
   try {
-    const response = await fetch('https://api.openai.com/v1/responses', { method: 'POST', signal: controller.signal, headers: { Authorization: `Bearer ${settings.apiKey}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ model: settings.model, store: false, max_output_tokens: settings.maxTokens, instructions: 'You are JarVis, a warehouse teaching assistant. Use only retrieved project SOP and trusted server facts. Do not claim warehouse operations completed. Return only the requested structured JSON.', input: [{ role: 'user', content: JSON.stringify({ language: request.language, locale: request.locale || (request.language === 'zh' ? settings.chineseLocale : request.language), request, recentConversation: history, trustedFacts: facts, retrievedDocuments: chunks }) }], text: { format: { type: 'json_schema', name: 'warehouse_feedback', strict: true, schema } } }) });
+    const instructions = `You are JarVis, a warehouse teaching assistant. Process the request and write every user-visible natural-language field strictly in ${responseLanguage}. Do not switch languages unless quoting an identifier or source title. Use only retrieved project SOP and trusted server facts. Do not claim warehouse operations completed. Return only the requested structured JSON.`;
+    const response = await fetchImpl('https://api.openai.com/v1/responses', { method: 'POST', signal: controller.signal, headers: { Authorization: `Bearer ${settings.apiKey}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ model: settings.model, store: false, max_output_tokens: settings.maxTokens, instructions, input: [{ role: 'user', content: JSON.stringify({ language: request.language, locale: request.locale || (request.language === 'zh' ? settings.chineseLocale : request.language), request, recentConversation: history, trustedFacts: facts, retrievedDocuments: chunks }) }], text: { format: { type: 'json_schema', name: 'warehouse_feedback', strict: true, schema } } }) });
     if ([401, 403].includes(response.status)) throw new HttpError(502, 'Provider authentication/access failed. Check server key and project model access.');
     if (response.status === 429) throw new HttpError(503, 'Provider quota/rate limit reached. Check server project budget; retry later.');
     if (!response.ok) throw new HttpError(502, 'Provider request failed. Check OPENAI_MODEL supports Responses and structured outputs.');
@@ -325,7 +332,7 @@ function createApp() {
       const user = await auth(req); req.authenticatedUserId = user.id; const request = validateRequest(req.body); const begun = await store.begin(user, request, settings); if (begun.cached) return res.json(begun.cached); session = begun.session;
       const facts = warehouseFacts(user, request.taskId); let chunks = knowledge.retrieve(request.question, session.topic); if (request.eventType === 'summary_request' && !chunks.length && session.topic) chunks = knowledge.retrieve('summary of that', session.topic);
       let answer;
-      if (mentionsQuynhAnh(request.question)) answer = quynhAnhAnswer();
+      if (mentionsQuynhAnh(request.question)) answer = quynhAnhAnswer(request.language);
       else if (settings.mode === 'mock') answer = mockAnswer(request, chunks);
       else { const modelChunks = knowledge.forModel(request.question, session.topic, request.language); answer = await providerAnswer(settings, request, modelChunks, session.history, facts); chunks = knowledge.chunks; }
       if (!mentionsQuynhAnh(request.question)) answer = validateAnswer(answer, chunks);
@@ -357,4 +364,4 @@ if (require.main === module) start().catch(error => {
   process.exit(1);
 });
 
-module.exports = { ACTION_TYPES, EXCEPTION_CODES, createApp, settingsFromEnv, validateRequest, validateAnswer, Store, Knowledge };
+module.exports = { ACTION_TYPES, EXCEPTION_CODES, createApp, settingsFromEnv, validateRequest, validateAnswer, providerAnswer, Store, Knowledge };
