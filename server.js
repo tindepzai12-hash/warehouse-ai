@@ -45,7 +45,8 @@ class HttpError extends Error {
 function settingsFromEnv() {
   const settings = {
     database: process.env.DATABASE_PATH || 'data/warehouse.sqlite3',
-    mode: process.env.AI_MODE || 'openai',
+    // Production always uses the real OpenAI provider.
+    mode: 'openai',
     apiKey: process.env.OPENAI_API_KEY || '',
     model: process.env.OPENAI_MODEL || 'gpt-4o-mini',
     rpm: Number(process.env.MAX_REQUESTS_PER_MINUTE || 20),
@@ -55,7 +56,6 @@ function settingsFromEnv() {
     chineseLocale: process.env.CHINESE_LOCALE || '',
     prototypeTokenSha256: (process.env.PROTOTYPE_TOKEN_SHA256 || '').trim()
   };
-  if (settings.mode !== 'openai') throw new Error('AI_MODE must be openai; the mock phase is disabled');
   if (!settings.apiKey || !settings.model) throw new Error('Set OPENAI_API_KEY and OPENAI_MODEL in server environment');
   if ([settings.rpm, settings.daily, settings.maxTokens, settings.timeout].some(value => value <= 0) || settings.timeout > 60) throw new Error('Positive limits required; timeout must be <=60 seconds');
   return settings;

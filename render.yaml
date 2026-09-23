@@ -12,8 +12,6 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
-      - key: AI_MODE
-        value: openai
       - key: OPENAI_API_KEY
         sync: false
       - key: OPENAI_MODEL
