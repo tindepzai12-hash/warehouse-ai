@@ -14,22 +14,11 @@ const LIMITATION = {
   vi: 'Bản thử chưa có tồn kho trực tiếp, tuyến đường được duyệt hoặc giao dịch đã hoàn tất. Bạn đang nói đến nhiệm vụ, hàng/lô đã xác minh hoặc SOP được duyệt nào?',
   zh: '此原型没有实时库存、已批准路线或已完成交易。请提供相关任务、已核实的商品/批次或现场批准的规程。'
 };
-const MOCK_NOTE = {
-  en: 'Mock guidance only; no inventory transaction or replacement route has been created.',
-  vi: 'Đây là hướng dẫn mock; chưa ghi nhận giao dịch tồn kho hoặc tạo tuyến lấy hàng thay thế.',
-  zh: '此为模拟指导；尚未提交库存交易或创建替代拣货路线。'
-};
-const QUYNH_ANH_RESPONSE = {
-  en: 'Phạm Lê Quỳnh Anh (born May 26, 2005) is a lovely, talented, and exceptionally beautiful young woman.',
-  vi: 'Phạm Lê Quỳnh Anh (sinh ngày 26 tháng 5 năm 2005) là người con gái dễ thương, tài giỏi và xinh đẹp nhất thế gian.',
-  zh: 'Phạm Lê Quỳnh Anh（生于2005年5月26日）是一位可爱、优秀且非常美丽的女孩。'
-};
-const LANGUAGE_NAMES = Object.freeze({ en: 'English', vi: 'Vietnamese', zh: 'Simplified Chinese' });
-const SHORT_PICK = {
-  vi: 'Theo bạn báo, nếu nhiệm vụ yêu cầu {required} hộp nhưng chỉ có {visible} thì còn thiếu {missing} hộp.\n\n1. Xác minh đúng sản phẩm/lô và tình trạng hàng. Chỉ ghi nhận {visible} hộp nếu tất cả đều đủ điều kiện lấy.\n2. Mở Short Pick để báo thiếu {missing} hộp và kiểm tra thông tin trước khi xác nhận.\n3. Quy trình WMS sau này sẽ xử lý phần thiếu, giữ vị trí để điều tra, tạo kiểm đếm ICQA khẩn và tìm hàng dự phòng hợp lệ. Chỉ đi lấy bổ sung khi có phân bổ và tuyến được duyệt; chưa có thì chờ quản lý xử lý.',
-  en: 'According to your report, if the task requires {required} boxes but only {visible} are present, the shortage is {missing}.\n\n1. Verify product/lot and condition; record {visible} only if all are eligible to pick.\n2. Open Short Pick to report the shortage of {missing}; review the details before confirming.\n3. The future WMS workflow must process the remainder, hold the location for investigation, create an urgent ICQA count and seek eligible reserve stock. Use a replacement only after approved allocation and route; otherwise wait for supervisor handling.',
-  zh: '根据你的报告，如果任务要求{required}盒，但只有{visible}盒，则缺少{missing}盒。\n\n1. 核实商品、批次和状况；仅在全部符合拣货条件时记录{visible}盒。\n2. 打开 Short Pick，报告缺少{missing}盒，确认前核对资料。\n3. 后续WMS流程须处理剩余任务、冻结货位以便调查、创建紧急ICQA盘点并寻找合格备用库存。只有获得批准的分配和路线后才可补拣，否则等待主管处理。'
-};
+const LANGUAGE_PROFILES = Object.freeze({
+  en: { name: 'English', locale: 'en-GB', timeZone: 'Europe/London', instruction: 'Reply strictly in English.' },
+  vi: { name: 'Vietnamese', locale: 'vi-VN', timeZone: 'Asia/Ho_Chi_Minh', instruction: 'Reply strictly in Vietnamese.' },
+  zh: { name: 'Traditional Chinese (Taiwan)', locale: 'zh-TW', timeZone: 'Asia/Taipei', instruction: 'Reply strictly in Traditional Chinese (zh-TW, Taiwanese Mandarin).' }
+});
 
 // Structured Outputs and runtime validation must use the same allowlists.
 // Keeping one definition prevents an action accepted by OpenAI's schema from
@@ -56,7 +45,7 @@ class HttpError extends Error {
 function settingsFromEnv() {
   const settings = {
     database: process.env.DATABASE_PATH || 'data/warehouse.sqlite3',
-    mode: process.env.AI_MODE || 'mock',
+    mode: process.env.AI_MODE || 'openai',
     apiKey: process.env.OPENAI_API_KEY || '',
     model: process.env.OPENAI_MODEL || 'gpt-4o-mini',
     rpm: Number(process.env.MAX_REQUESTS_PER_MINUTE || 20),
@@ -66,8 +55,8 @@ function settingsFromEnv() {
     chineseLocale: process.env.CHINESE_LOCALE || '',
     prototypeTokenSha256: (process.env.PROTOTYPE_TOKEN_SHA256 || '').trim()
   };
-  if (!['mock', 'openai'].includes(settings.mode)) throw new Error('AI_MODE must be mock or openai');
-  if (settings.mode === 'openai' && (!settings.apiKey || !settings.model)) throw new Error('Set OPENAI_API_KEY and OPENAI_MODEL in server environment');
+  if (settings.mode !== 'openai') throw new Error('AI_MODE must be openai; the mock phase is disabled');
+  if (!settings.apiKey || !settings.model) throw new Error('Set OPENAI_API_KEY and OPENAI_MODEL in server environment');
   if ([settings.rpm, settings.daily, settings.maxTokens, settings.timeout].some(value => value <= 0) || settings.timeout > 60) throw new Error('Positive limits required; timeout must be <=60 seconds');
   return settings;
 }
@@ -75,28 +64,6 @@ function settingsFromEnv() {
 function sha256(value) { return crypto.createHash('sha256').update(value).digest('hex'); }
 function jsonFingerprint(value) { return sha256(JSON.stringify(value)); }
 function normalize(text) { return text.toLowerCase().replace(/đ/g, 'd').normalize('NFD').replace(/[\u0300-\u036f]/g, ''); }
-function reportedShortage(question) {
-  const match = normalize(question).match(/\b(?:can\s+|yeu cau\s+)?(\d+)\s+hop\b[^.!?]*?\bchi\s+co\s+(\d+)\b/);
-  return match && Number(match[1]) > Number(match[2]) ? [Number(match[1]), Number(match[2])] : null;
-}
-
-function mentionsQuynhAnh(question) {
-  return normalize(question).includes('quynh anh');
-}
-
-function quynhAnhAnswer(language) {
-  return {
-    message: QUYNH_ANH_RESPONSE[language],
-    sources: [],
-    action: { type: 'none', exceptionCode: null, targetId: null },
-    needsClarification: false,
-    clarifyingQuestion: null,
-    feedbackType: 'explanation',
-    priority: 'normal',
-    cooldownSeconds: 0
-  };
-}
-
 class Store {
   constructor(file) {
     this.path = path.isAbsolute(file) ? file : path.join(ROOT, file);
@@ -183,7 +150,6 @@ class Knowledge {
   }
   retrieve(question, previousTopic = '') {
     let query = normalize(question);
-    if (reportedShortage(question)) query += ' short pick';
     const scored = this.chunks.map(chunk => [chunk, chunk.keywords.reduce((score, keyword) => {
       const key = normalize(keyword);
       const match = /[\u3400-\u9fff]/.test(key) ? query.includes(key) : new RegExp(`(?<!\\w)${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?!\\w)`).test(query);
@@ -220,14 +186,6 @@ function validateRequest(body) {
   return request;
 }
 
-function mockAnswer(request, chunks) {
-  let message = chunks.slice(0, 2).map(chunk => chunk.text[request.language]).join('\n\n');
-  const quantities = reportedShortage(request.question);
-  if (quantities && chunks[0] && chunks[0].documentId === 'SOP-SHORT-PICK') message = SHORT_PICK[request.language].replace('{required}', quantities[0]).replace('{visible}', quantities[1]).replace('{missing}', quantities[0] - quantities[1]);
-  const code = chunks[0] && chunks[0].exceptionCode;
-  return { message: `${message || LIMITATION[request.language]}\n\n${chunks.length ? MOCK_NOTE[request.language] : ''}`.trim(), sources: chunks.slice(0, 2).map(chunk => ({ documentId: chunk.documentId, sectionId: chunk.sectionId })), action: { type: code ? 'open_exception_report' : (chunks.length ? 'explain_sop_step' : 'none'), exceptionCode: code || null, targetId: null }, needsClarification: !chunks.length, clarifyingQuestion: chunks.length ? null : LIMITATION[request.language], feedbackType: 'explanation', priority: 'normal', cooldownSeconds: 0 };
-}
-
 function validateAnswer(answer, chunks) {
   if (!answer || typeof answer.message !== 'string' || answer.message.length < 1 || answer.message.length > 8000 || !Array.isArray(answer.sources) || answer.sources.length > 4 || !answer.action) throw new HttpError(502, 'Provider returned incomplete, refused or invalid structured feedback.');
   const valid = new Set(chunks.map(chunk => `${chunk.documentId}\u0000${chunk.sectionId}`));
@@ -247,7 +205,7 @@ function validateAnswer(answer, chunks) {
 }
 
 async function providerAnswer(settings, request, chunks, history, facts, fetchImpl = fetch) {
-  const responseLanguage = LANGUAGE_NAMES[request.language];
+  const profile = LANGUAGE_PROFILES[request.language] || LANGUAGE_PROFILES.en;
   const schema = {
     type: 'object',
     additionalProperties: false,
@@ -256,15 +214,15 @@ async function providerAnswer(settings, request, chunks, history, facts, fetchIm
       sources: {
         type: 'array',
         maxItems: 4,
-        items: { anyOf: chunks.map(chunk => ({
+        items: {
           type: 'object',
           properties: {
-            documentId: { type: 'string', enum: [chunk.documentId] },
-            sectionId: { type: 'string', enum: [chunk.sectionId] }
+            documentId: { type: 'string' },
+            sectionId: { type: 'string' }
           },
           required: ['documentId', 'sectionId'],
           additionalProperties: false
-        })) }
+        }
       },
       action: {
         type: 'object',
@@ -287,8 +245,10 @@ async function providerAnswer(settings, request, chunks, history, facts, fetchIm
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), settings.timeout * 1000);
   try {
-    const instructions = `You are JarVis, a warehouse teaching assistant. Process the request and write every user-visible natural-language field strictly in ${responseLanguage}. Do not switch languages unless quoting an identifier or source title. Use only retrieved project SOP and trusted server facts. Do not claim warehouse operations completed. Return only the requested structured JSON.`;
-    const response = await fetchImpl('https://api.openai.com/v1/responses', { method: 'POST', signal: controller.signal, headers: { Authorization: `Bearer ${settings.apiKey}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ model: settings.model, store: false, max_output_tokens: settings.maxTokens, instructions, input: [{ role: 'user', content: JSON.stringify({ language: request.language, locale: request.locale || (request.language === 'zh' ? settings.chineseLocale : request.language), request, recentConversation: history, trustedFacts: facts, retrievedDocuments: chunks }) }], text: { format: { type: 'json_schema', name: 'warehouse_feedback', strict: true, schema } } }) });
+    const localTime = new Intl.DateTimeFormat(profile.locale, { timeZone: profile.timeZone, dateStyle: 'full', timeStyle: 'long' }).format(new Date());
+    const context = JSON.stringify({ locale: request.locale || profile.locale, request, recentConversation: history, trustedFacts: facts, retrievedDocuments: chunks });
+    const instructions = `You are JarVis, a highly intelligent, empathetic, and polite AI warehouse assistant. You analyze situations logically based on standard warehouse operations. The current local time for the user is: ${localTime} (${profile.timeZone}).\n\nCore rules:\n1. Greetings and empathy: if the user greets you or says they are new or confused, greet them warmly based on the current time and reassure them before answering.\n2. Analytical answering: never return static definitions unless asked. For a situation, analyze risks and give safe, step-by-step guidance according to standard warehouse SOPs. Do not claim an operation was completed.\n3. Language: ${profile.instruction} Do not switch languages except for identifiers or source titles.\n\nUse only the retrieved project SOP and trusted server facts. The request context is ${context}. Return only the requested structured JSON.`;
+    const response = await fetchImpl('https://api.openai.com/v1/responses', { method: 'POST', signal: controller.signal, headers: { Authorization: `Bearer ${settings.apiKey}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ model: settings.model, store: false, max_output_tokens: settings.maxTokens, instructions, input: [{ role: 'user', content: request.question }], text: { format: { type: 'json_schema', name: 'warehouse_feedback', strict: true, schema } } }) });
     if ([401, 403].includes(response.status)) throw new HttpError(502, 'Provider authentication/access failed. Check server key and project model access.');
     if (response.status === 429) throw new HttpError(503, 'Provider quota/rate limit reached. Check server project budget; retry later.');
     if (!response.ok) throw new HttpError(502, 'Provider request failed. Check OPENAI_MODEL supports Responses and structured outputs.');
@@ -332,11 +292,11 @@ function createApp() {
       const user = await auth(req); req.authenticatedUserId = user.id; const request = validateRequest(req.body); const begun = await store.begin(user, request, settings); if (begun.cached) return res.json(begun.cached); session = begun.session;
       const facts = warehouseFacts(user, request.taskId); let chunks = knowledge.retrieve(request.question, session.topic); if (request.eventType === 'summary_request' && !chunks.length && session.topic) chunks = knowledge.retrieve('summary of that', session.topic);
       let answer;
-      if (mentionsQuynhAnh(request.question)) answer = quynhAnhAnswer(request.language);
-      else if (settings.mode === 'mock') answer = mockAnswer(request, chunks);
-      else { const modelChunks = knowledge.forModel(request.question, session.topic, request.language); answer = await providerAnswer(settings, request, modelChunks, session.history, facts); chunks = knowledge.chunks; }
-      if (!mentionsQuynhAnh(request.question)) answer = validateAnswer(answer, chunks);
-      if (settings.mode === 'openai') app.locals.liveVerified = true;
+      const modelChunks = knowledge.forModel(request.question, session.topic, request.language);
+      answer = await providerAnswer(settings, request, modelChunks, session.history, facts);
+      answer = validateAnswer(answer, modelChunks);
+      app.locals.liveVerified = true;
+      chunks = modelChunks;
       const result = { ...answer, sessionId: session.id, requestId: request.requestId, language: request.language, locale: request.locale || (request.language === 'zh' ? settings.chineseLocale || 'zh' : request.language), mode: settings.mode, synthetic: true, operationalMutation: false, latencyMs: Date.now() - req.startedAt, contextTurns: session.history.length / 2, contextWindowTurns: 10, actionExecution: 'proposal_only', sourceDetails: chunks.filter(chunk => answer.sources.some(source => source.documentId === chunk.documentId && source.sectionId === chunk.sectionId)) };
       await store.finish(user, request, session, begun.fingerprint, result, answer.sources[0] ? answer.sources[0].documentId : session.topic);
       res.json(result);

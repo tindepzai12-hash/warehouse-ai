@@ -13,7 +13,7 @@ services:
       - key: NODE_ENV
         value: production
       - key: AI_MODE
-        value: mock
+        value: openai
       - key: OPENAI_API_KEY
         sync: false
       - key: OPENAI_MODEL
