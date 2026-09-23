@@ -24,7 +24,8 @@ async function send(retry=false){
   $('status').textContent=`${data.mode.toUpperCase()} · ${data.latencyMs} ms · ${data.contextTurns} lượt ngữ cảnh · ${data.requestId}`;
   lastPayload=null;
   window.dispatchEvent(new CustomEvent('chat-answer',{detail:{text:data.message,lang:payload.locale||payload.language}}));
- }catch(error){$('status').textContent=error.message;$('status').className='error';}
+  const listen=document.createElement('button');listen.className='secondary answer-read';listen.textContent='Nghe câu trả lời này';listen.onclick=()=>window.dispatchEvent(new CustomEvent('read-message',{detail:{text:data.message,lang:payload.locale||payload.language}}));$('chat').lastElementChild.append(document.createElement('br'),listen);
+ }catch(error){$('status').textContent=error.message;$('status').className='error';window.dispatchEvent(new Event('chat-error'));}
  finally{busy=false;window.dispatchEvent(new Event('chat-end'));$('send').disabled=false;$('new').disabled=false;$('task').disabled=false;$('token').disabled=false;$('retry').disabled=!lastPayload;$('language').disabled=false;$('locale').disabled=false;}
 }
 $('send').onclick=()=>send();$('retry').onclick=()=>send(true);

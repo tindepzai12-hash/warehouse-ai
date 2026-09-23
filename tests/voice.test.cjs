@@ -63,7 +63,7 @@ test('speech only on opt-in; stop invalidates queued callbacks',()=>{
  assert.equal(t.spoken.length,0);t.get('read').onclick();assert.equal(t.spoken.length,1);
  assert.equal(t.get('assistant').dataset.state,'speaking');
  t.get('stop-speech').onclick();t.spoken[0].onend();
- assert.equal(t.get('assistant').dataset.state,'idle');assert.equal(t.spoken.length,1);
+ assert.equal(t.get('assistant').dataset.state,'result');assert.equal(t.spoken.length,1);
 });
 test('missing matching voice never reads in unrelated language',()=>{
  const t=setup({voices:[{lang:'en-US',name:'English'}]});
@@ -75,4 +75,41 @@ test('hiding page stops recording and reading; no auto speech while hidden',()=>
  assert.equal(t.instances[0].aborted,true);
  t.get('auto-read').checked=true;t.emit('chat-answer',{text:'Answer',lang:'vi'});t.emit('chat-end');
  assert.equal(t.spoken.length,0);
+});
+test('Vietnamese recognition uses full locale and network error retains diagnostics',()=>{
+ const t=setup();t.get('mic').onclick();const r=t.instances[0];
+ assert.equal(r.lang,'vi-VN');r.onerror({error:'network'});r.onend();
+ assert.match(t.get('voice-status').textContent,/Mã: network/);
+ assert.match(t.get('voice-status').textContent,/Kiểm tra micro/);
+ assert.equal(t.get('assistant').dataset.state,'error');
+});
+test('request error uses error art, next success uses result art',()=>{
+ const t=setup();t.emit('chat-start');t.emit('chat-error');t.emit('chat-end');
+ assert.equal(t.get('assistant').dataset.state,'error');
+ t.emit('chat-start');assert.equal(t.get('assistant').dataset.state,'thinking');
+ t.emit('chat-answer',{text:'OK',lang:'vi'});t.emit('chat-end');
+ assert.equal(t.get('assistant').dataset.state,'result');
+});
+test('diagnostic excludes recognition and speech',()=>{
+ const t=setup();t.emit('mic-test-start');t.get('mic').onclick();
+ assert.equal(t.instances.length,0);
+ t.emit('chat-answer',{text:'OK',lang:'vi'});t.get('read').onclick();
+ assert.equal(t.spoken.length,0);t.emit('mic-test-end',{error:false});
+ assert.equal(t.get('mic').disabled,false);
+});
+test('empty voice list waits then can be cancelled',()=>{
+ const t=setup({voices:[]});t.emit('chat-answer',{text:'OK',lang:'vi'});
+ t.get('read').onclick();assert.equal(t.timers.size,1);
+ t.get('stop-speech').onclick();assert.equal(t.timers.size,0);
+ assert.equal(t.spoken.length,0);
+});
+test('known JarVis addresses normalize without changing quantities or product text',()=>{
+ const context={window:{}};
+ vm.runInNewContext(fs.readFileSync(require('node:path').join(__dirname,'../static/jarvis.js'),'utf8'),context);
+ const normalize=context.window.normalizeJarVisAddress;
+ assert.equal(normalize('Chào gia vít ơi, cần 5 hộp nhưng có 3'),'Chào JarVis ơi, cần 5 hộp nhưng có 3');
+ assert.equal(normalize('cha vít giúp tôi'),'JarVis giúp tôi');
+ assert.equal(normalize('Jarvis, hello'),'JarVis, hello');
+ assert.equal(normalize('cần 5 hộp gia vít'),'cần 5 hộp gia vít');
+ assert.equal(normalize('giá vịt là bao nhiêu'),'giá vịt là bao nhiêu');
 });
