@@ -119,3 +119,6 @@ RAG lexical nhỏ, không phải tìm kiếm semantic toàn diện; cách diễn
 Phạm vi B–D giữ ở `docs/ROADMAP.md`. Hướng dẫn deploy: **`docs/RENDER.md`**. Website thử nghiệm: https://warehouse-ai-fmjc.onrender.com. Repository private và cấu hình triển khai được ghi trong `docs/DEPLOYMENT.md`; quy trình cập nhật ở `docs/UPDATING.md`. Render Free dùng SQLite ephemeral, chưa đáp ứng persistence cho vận hành thực tế.
 
 Tài liệu chính thức đã đối chiếu: [OpenAI Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs), [Render FastAPI](https://render.com/docs/deploy-fastapi), [Render Persistent Disks](https://render.com/docs/disks).
+# Giao diện và giọng nói
+
+Bản thử có nhập câu hỏi bằng giọng nói, nghe/dừng câu trả lời và nhân vật minh họa trạng thái. Xem [hướng dẫn sử dụng và giới hạn](docs/VOICE.md). Mô phỏng sự kiện được đưa vào cài đặt nâng cao; mặc định người dùng chỉ cần hỏi trực tiếp.

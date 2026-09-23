@@ -1,13 +1,13 @@
 const $=id=>document.getElementById(id);
 let session=null,lastPayload=null,busy=false;
 function bubble(text,kind){const p=document.createElement('div');p.className='bubble '+kind;p.textContent=text;$('chat').append(p);$('chat').scrollTop=$('chat').scrollHeight;}
-function reset(){session=null;lastPayload=null;$('chat').replaceChildren();$('sources').replaceChildren();$('proposal').replaceChildren();$('session').textContent='Phiên mới';$('retry').disabled=true;}
+function reset(){window.dispatchEvent(new Event('chat-reset'));session=null;lastPayload=null;$('chat').replaceChildren();$('sources').replaceChildren();$('proposal').replaceChildren();$('session').textContent='Phiên mới';$('retry').disabled=true;}
 $('new').onclick=reset;$('task').onchange=reset;$('token').onchange=reset;
 async function send(retry=false){
  if(busy)return;
  if(!$('token').value.trim()||(!retry&&!$('question').value.trim())){$('status').textContent='Nhập token thử nghiệm và câu hỏi.';return;}
  const payload=retry?lastPayload:{requestId:crypto.randomUUID(),sessionId:session,taskId:$('task').value,language:$('language').value,locale:$('locale').value.trim()||null,eventType:$('event').value,occurredAtUtc:new Date().toISOString(),question:$('question').value.trim(),observation:{}};
- if(!payload)return;lastPayload=payload;busy=true;$('send').disabled=true;$('new').disabled=true;$('task').disabled=true;$('token').disabled=true;$('retry').disabled=true;
+ if(!payload)return;lastPayload=payload;busy=true;window.dispatchEvent(new Event('chat-start'));$('send').disabled=true;$('new').disabled=true;$('task').disabled=true;$('token').disabled=true;$('retry').disabled=true;$('language').disabled=true;$('locale').disabled=true;
  $('status').textContent='Đang truy xuất / xử lý…';$('status').className='';$('request').textContent=JSON.stringify(payload,null,2);
  if(!retry)bubble(payload.question,'question');
  try{
@@ -23,8 +23,10 @@ async function send(retry=false){
   }
   $('status').textContent=`${data.mode.toUpperCase()} · ${data.latencyMs} ms · ${data.contextTurns} lượt ngữ cảnh · ${data.requestId}`;
   lastPayload=null;
+  window.dispatchEvent(new CustomEvent('chat-answer',{detail:{text:data.message,lang:payload.locale||payload.language}}));
  }catch(error){$('status').textContent=error.message;$('status').className='error';}
- finally{busy=false;$('send').disabled=false;$('new').disabled=false;$('task').disabled=false;$('token').disabled=false;$('retry').disabled=!lastPayload;}
+ finally{busy=false;window.dispatchEvent(new Event('chat-end'));$('send').disabled=false;$('new').disabled=false;$('task').disabled=false;$('token').disabled=false;$('retry').disabled=!lastPayload;$('language').disabled=false;$('locale').disabled=false;}
 }
 $('send').onclick=()=>send();$('retry').onclick=()=>send(true);
+$('example').onclick=()=>{$('question').value='Đơn cần năm hộp kem mà trên kệ còn ba, tôi làm gì?';$('question').focus();};
 fetch('/api/health').then(r=>r.json()).then(d=>$('mode').textContent=d.mode.toUpperCase()+' · SYNTHETIC').catch(()=>$('mode').textContent='Không kết nối được');
