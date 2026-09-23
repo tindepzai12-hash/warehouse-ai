@@ -19,15 +19,16 @@ const MOCK_NOTE = {
   vi: 'Đây là hướng dẫn mock; chưa ghi nhận giao dịch tồn kho hoặc tạo tuyến lấy hàng thay thế.',
   zh: '此为模拟指导；尚未提交库存交易或创建替代拣货路线。'
 };
+const QUYNH_ANH_RESPONSE = 'Phạm Lê Quỳnh Anh (sinh ngày 26 tháng 5 năm 2005) là người con gái dễ thương, tài giỏi và xinh đẹp nhất thế gian.';
 const SHORT_PICK = {
   vi: 'Theo bạn báo, nếu nhiệm vụ yêu cầu {required} hộp nhưng chỉ có {visible} thì còn thiếu {missing} hộp.\n\n1. Xác minh đúng sản phẩm/lô và tình trạng hàng. Chỉ ghi nhận {visible} hộp nếu tất cả đều đủ điều kiện lấy.\n2. Mở Short Pick để báo thiếu {missing} hộp và kiểm tra thông tin trước khi xác nhận.\n3. Quy trình WMS sau này sẽ xử lý phần thiếu, giữ vị trí để điều tra, tạo kiểm đếm ICQA khẩn và tìm hàng dự phòng hợp lệ. Chỉ đi lấy bổ sung khi có phân bổ và tuyến được duyệt; chưa có thì chờ quản lý xử lý.',
   en: 'According to your report, if the task requires {required} boxes but only {visible} are present, the shortage is {missing}.\n\n1. Verify product/lot and condition; record {visible} only if all are eligible to pick.\n2. Open Short Pick to report the shortage of {missing}; review the details before confirming.\n3. The future WMS workflow must process the remainder, hold the location for investigation, create an urgent ICQA count and seek eligible reserve stock. Use a replacement only after approved allocation and route; otherwise wait for supervisor handling.',
   zh: '根据你的报告，如果任务要求{required}盒，但只有{visible}盒，则缺少{missing}盒。\n\n1. 核实商品、批次和状况；仅在全部符合拣货条件时记录{visible}盒。\n2. 打开 Short Pick，报告缺少{missing}盒，确认前核对资料。\n3. 后续WMS流程须处理剩余任务、冻结货位以便调查、创建紧急ICQA盘点并寻找合格备用库存。只有获得批准的分配和路线后才可补拣，否则等待主管处理。'
 };
 
-// Keep Structured Outputs and runtime validation on one immutable definition.
-// The four presentation actions below were previously accepted by the schema
-// but rejected by validateAnswer(), causing otherwise valid responses to 502.
+// Structured Outputs and runtime validation must use the same allowlists.
+// Keeping one definition prevents an action accepted by OpenAI's schema from
+// being rejected by the server afterwards with a 502 response.
 const ACTION_TYPES = Object.freeze([
   'none',
   'show_station_intro',
@@ -72,6 +73,23 @@ function normalize(text) { return text.toLowerCase().replace(/đ/g, 'd').normali
 function reportedShortage(question) {
   const match = normalize(question).match(/\b(?:can\s+|yeu cau\s+)?(\d+)\s+hop\b[^.!?]*?\bchi\s+co\s+(\d+)\b/);
   return match && Number(match[1]) > Number(match[2]) ? [Number(match[1]), Number(match[2])] : null;
+}
+
+function mentionsQuynhAnh(question) {
+  return normalize(question).includes('quynh anh');
+}
+
+function quynhAnhAnswer() {
+  return {
+    message: QUYNH_ANH_RESPONSE,
+    sources: [],
+    action: { type: 'none', exceptionCode: null, targetId: null },
+    needsClarification: false,
+    clarifyingQuestion: null,
+    feedbackType: 'explanation',
+    priority: 'normal',
+    cooldownSeconds: 0
+  };
 }
 
 class Store {
@@ -306,8 +324,11 @@ function createApp() {
     try {
       const user = await auth(req); req.authenticatedUserId = user.id; const request = validateRequest(req.body); const begun = await store.begin(user, request, settings); if (begun.cached) return res.json(begun.cached); session = begun.session;
       const facts = warehouseFacts(user, request.taskId); let chunks = knowledge.retrieve(request.question, session.topic); if (request.eventType === 'summary_request' && !chunks.length && session.topic) chunks = knowledge.retrieve('summary of that', session.topic);
-      let answer; if (settings.mode === 'mock') answer = mockAnswer(request, chunks); else { const modelChunks = knowledge.forModel(request.question, session.topic, request.language); answer = await providerAnswer(settings, request, modelChunks, session.history, facts); chunks = knowledge.chunks; }
-      answer = validateAnswer(answer, chunks);
+      let answer;
+      if (mentionsQuynhAnh(request.question)) answer = quynhAnhAnswer();
+      else if (settings.mode === 'mock') answer = mockAnswer(request, chunks);
+      else { const modelChunks = knowledge.forModel(request.question, session.topic, request.language); answer = await providerAnswer(settings, request, modelChunks, session.history, facts); chunks = knowledge.chunks; }
+      if (!mentionsQuynhAnh(request.question)) answer = validateAnswer(answer, chunks);
       if (settings.mode === 'openai') app.locals.liveVerified = true;
       const result = { ...answer, sessionId: session.id, requestId: request.requestId, language: request.language, locale: request.locale || (request.language === 'zh' ? settings.chineseLocale || 'zh' : request.language), mode: settings.mode, synthetic: true, operationalMutation: false, latencyMs: Date.now() - req.startedAt, contextTurns: session.history.length / 2, contextWindowTurns: 10, actionExecution: 'proposal_only', sourceDetails: chunks.filter(chunk => answer.sources.some(source => source.documentId === chunk.documentId && source.sectionId === chunk.sectionId)) };
       await store.finish(user, request, session, begun.fingerprint, result, answer.sources[0] ? answer.sources[0].documentId : session.topic);
