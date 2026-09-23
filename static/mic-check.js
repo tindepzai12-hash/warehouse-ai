@@ -4,6 +4,7 @@
  const status = document.getElementById('mic-diagnostic');
  const meter = document.getElementById('mic-level');
  const t = (key, values) => window.JarvisI18n.t(key, values);
+ button.textContent = t('micTest');
  let stream = null, context = null, interval = null, deadline = null, epoch = 0, running = false;
  function stop(error = false) {
   epoch++;
