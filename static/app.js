@@ -33,4 +33,4 @@ $('send').onclick=()=>send();$('retry').onclick=()=>send(true);
 $('example').onclick=()=>{$('question').value=t('exampleShortage');$('question').focus();};
 window.addEventListener('language-changed',event=>{$('locale').value=event.detail.locale;$('status').textContent=t('ready');});
 if(!$('locale').value)$('locale').value=window.JarvisI18n.defaults[$('language').value];
-fetch('/api/health').then(r=>r.json()).then(d=>$('mode').textContent=d.mode.toUpperCase()+' · SYNTHETIC').catch(()=>$('mode').textContent=t('healthFailed'));
+fetch('/api/health').then(r=>r.json()).then(d=>{delete $('mode').dataset.i18n;$('mode').textContent=d.mode.toUpperCase()+' · SYNTHETIC';}).catch(()=>{delete $('mode').dataset.i18n;$('mode').textContent=t('healthFailed');});
