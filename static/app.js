@@ -8,6 +8,7 @@ async function send(retry=false){
  if(busy)return;
  if(!$('token').value.trim()||(!retry&&!$('question').value.trim())){$('status').textContent=t('missingInput');return;}
  const payload=retry?lastPayload:{requestId:crypto.randomUUID(),sessionId:session,taskId:$('task').value,language:$('language').value,locale:$('locale').value.trim()||null,eventType:$('event').value,occurredAtUtc:new Date().toISOString(),question:$('question').value.trim(),observation:{}};
+ if(!retry)$('question').value='';
  if(!payload)return;lastPayload=payload;busy=true;window.dispatchEvent(new Event('chat-start'));$('send').disabled=true;$('new').disabled=true;$('task').disabled=true;$('token').disabled=true;$('retry').disabled=true;$('language').disabled=true;$('locale').disabled=true;
  $('status').textContent=t('processing');$('status').className='';$('request').textContent=JSON.stringify(payload,null,2);
  if(!retry)bubble(payload.question,'question');
