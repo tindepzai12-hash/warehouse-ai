@@ -19,6 +19,33 @@ const LANGUAGE_PROFILES = Object.freeze({
   vi: { name: 'Vietnamese', locale: 'vi-VN', timeZone: 'Asia/Ho_Chi_Minh', instruction: 'Reply strictly in Vietnamese.' },
   zh: { name: 'Traditional Chinese (Taiwan)', locale: 'zh-TW', timeZone: 'Asia/Taipei', instruction: 'Reply strictly in Traditional Chinese (zh-TW, Taiwanese Mandarin).' }
 });
+const RUNTIME_SOURCE_STATUSES = new Set(['spec_confirmed_project_policy', 'official_release']);
+function responseLocale(request) {
+  // Chinese output is always Traditional Chinese for Taiwan, even if an older client sends zh-CN.
+  return request.language === 'zh' ? LANGUAGE_PROFILES.zh.locale : (request.locale || LANGUAGE_PROFILES[request.language].locale);
+}
+function parseCorsOrigins(value = '') {
+  const origins = new Set();
+  for (const rawOrigin of value.split(',').map(item => item.trim()).filter(Boolean)) {
+    let parsed;
+    try { parsed = new URL(rawOrigin); } catch (_) { throw new Error('CORS_ALLOWED_ORIGINS must contain comma-separated http(s) origins'); }
+    if (!['http:', 'https:'].includes(parsed.protocol)) throw new Error('CORS_ALLOWED_ORIGINS must contain comma-separated http(s) origins');
+    if (parsed.origin !== rawOrigin.replace(/\/$/, '')) throw new Error('CORS_ALLOWED_ORIGINS must contain origins without paths');
+    origins.add(parsed.origin);
+  }
+  return origins;
+}
+function corsOptions(allowedOrigins) {
+  return {
+    origin(origin, callback) {
+      if (!origin || allowedOrigins.has(origin)) return callback(null, true);
+      return callback(new HttpError(403, 'Origin is not allowed'));
+    },
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Authorization', 'Content-Type'],
+    maxAge: 86400
+  };
+}
 
 // Structured Outputs and runtime validation must use the same allowlists.
 // Keeping one definition prevents an action accepted by OpenAI's schema from
@@ -53,7 +80,7 @@ function settingsFromEnv() {
     daily: Number(process.env.MAX_REQUESTS_PER_DAY || 100),
     maxTokens: Number(process.env.MAX_OUTPUT_TOKENS || 1200),
     timeout: Number(process.env.REQUEST_TIMEOUT_SECONDS || 30),
-    chineseLocale: process.env.CHINESE_LOCALE || '',
+    corsAllowedOrigins: parseCorsOrigins(process.env.CORS_ALLOWED_ORIGINS || ''),
     prototypeTokenSha256: (process.env.PROTOTYPE_TOKEN_SHA256 || '').trim()
   };
   if (!settings.apiKey || !settings.model) throw new Error('Set OPENAI_API_KEY and OPENAI_MODEL in server environment');
@@ -64,6 +91,12 @@ function settingsFromEnv() {
 function sha256(value) { return crypto.createHash('sha256').update(value).digest('hex'); }
 function jsonFingerprint(value) { return sha256(JSON.stringify(value)); }
 function normalize(text) { return text.toLowerCase().replace(/đ/g, 'd').normalize('NFD').replace(/[\u0300-\u036f]/g, ''); }
+function retrievalQuery(question) {
+  const query = normalize(question);
+  // This only broadens retrieval; it never generates a hard-coded warehouse answer.
+  const reportedQuantityGap = /\b\d+\s+(?:hop|box(?:es)?|unit(?:s)?)\b[\s\S]{0,80}\b(?:chi co|only|but only)\s+\d+\b/.test(query);
+  return reportedQuantityGap ? `${query} short pick shortage thieu` : query;
+}
 class Store {
   constructor(file) {
     this.path = path.isAbsolute(file) ? file : path.join(ROOT, file);
@@ -145,11 +178,49 @@ class Store {
 
 class Knowledge {
   constructor() {
-    this.chunks = JSON.parse(fs.readFileSync(path.join(ROOT, 'knowledge', 'reviewed.json'), 'utf8'));
-    if (this.chunks.some(chunk => chunk.source_status !== 'spec_confirmed_project_policy' || !chunk.runtime_approved)) throw new Error('Knowledge corpus contains unapproved content');
+    const reviewedChunks = JSON.parse(fs.readFileSync(path.join(ROOT, 'knowledge', 'reviewed.json'), 'utf8'));
+    const localDocuments = JSON.parse(fs.readFileSync(path.join(ROOT, 'knowledge', 'warehouse-sops.json'), 'utf8'));
+    if (!Array.isArray(reviewedChunks) || !Array.isArray(localDocuments)) throw new Error('Knowledge files must contain JSON arrays');
+    for (const document of localDocuments) {
+      if (!document || typeof document !== 'object' ||
+        !['documentId', 'sectionId', 'title', 'content', 'source_status', 'runtime_approved', 'language'].every(key => Object.hasOwn(document, key)) ||
+        typeof document.documentId !== 'string' || typeof document.sectionId !== 'string' || typeof document.title !== 'string' ||
+        typeof document.content !== 'string' || typeof document.source_status !== 'string' || typeof document.runtime_approved !== 'boolean' ||
+        typeof document.language !== 'string' || !Array.isArray(document.keywords)) {
+        throw new Error('Local SOP catalog contains an invalid document');
+      }
+    }
+    this.catalog = localDocuments;
+    this.unverifiedDocuments = localDocuments.filter(document => !document.runtime_approved);
+    const localRuntimeChunks = localDocuments.filter(document => document.runtime_approved).map(document => ({
+      documentId: document.documentId,
+      sectionId: document.sectionId,
+      title: document.title,
+      version: 'user-supplied-1.0',
+      source: `Local SOP catalog · ${document.title}`,
+      source_status: document.source_status,
+      runtime_approved: true,
+      // An official release is allowed for RAG, but no site-level operational approval is inferred.
+      site_approved: false,
+      review_status: `runtime-approved ${document.source_status}; original language: ${document.language}`,
+      sourceLanguage: document.language,
+      keywords: document.keywords,
+      exceptionCode: null,
+      // Preserve the supplied Vietnamese source verbatim. The model translates its answer, not the SOP record.
+      text: { en: document.content, vi: document.content, zh: document.content }
+    }));
+    this.chunks = reviewedChunks.concat(localRuntimeChunks);
+    const identifiers = new Set();
+    for (const chunk of this.chunks) {
+      const identifier = `${chunk.documentId}\u0000${chunk.sectionId}`;
+      if (identifiers.has(identifier) || !RUNTIME_SOURCE_STATUSES.has(chunk.source_status) || !chunk.runtime_approved || !Array.isArray(chunk.keywords) || !chunk.text) {
+        throw new Error('Knowledge corpus contains invalid, duplicate, or unapproved runtime content');
+      }
+      identifiers.add(identifier);
+    }
   }
   retrieve(question, previousTopic = '') {
-    let query = normalize(question);
+    const query = retrievalQuery(question);
     const scored = this.chunks.map(chunk => [chunk, chunk.keywords.reduce((score, keyword) => {
       const key = normalize(keyword);
       const match = /[\u3400-\u9fff]/.test(key) ? query.includes(key) : new RegExp(`(?<!\\w)${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?!\\w)`).test(query);
@@ -161,7 +232,7 @@ class Knowledge {
   }
   forModel(question, previousTopic, language) {
     const ranked = this.retrieve(question, previousTopic);
-    return ranked.concat(this.chunks.filter(chunk => !ranked.includes(chunk))).map(chunk => { const copy = { ...chunk }; delete copy.keywords; delete copy.text; copy.text = chunk.text[language]; return copy; });
+    return ranked.map(chunk => { const copy = { ...chunk }; delete copy.keywords; delete copy.text; copy.text = chunk.text[language] || chunk.text[chunk.sourceLanguage] || chunk.text.vi; return copy; });
   }
 }
 
@@ -191,7 +262,8 @@ function validateAnswer(answer, chunks) {
   const valid = new Set(chunks.map(chunk => `${chunk.documentId}\u0000${chunk.sectionId}`));
   const cited = new Set(answer.sources.map(source => `${source.documentId}\u0000${source.sectionId}`));
   const clarificationOnly = !cited.size && answer.needsClarification && answer.clarifyingQuestion && answer.action.type === 'none';
-  if ((!cited.size && !clarificationOnly) || [...cited].some(item => !valid.has(item))) throw new HttpError(502, 'Feedback source validation failed');
+  const noRetrievedEvidence = !cited.size && !chunks.length && answer.action.type === 'none';
+  if ((!cited.size && !clarificationOnly && !noRetrievedEvidence) || [...cited].some(item => !valid.has(item))) throw new HttpError(502, 'Feedback source validation failed');
   const actionKeys = Object.keys(answer.action).sort();
   if (actionKeys.length !== 3 || actionKeys[0] !== 'exceptionCode' || actionKeys[1] !== 'targetId' || actionKeys[2] !== 'type') throw new HttpError(502, 'Provider returned an invalid action shape');
   if (!ACTION_TYPES.includes(answer.action.type)) throw new HttpError(502, 'Provider returned an unsupported action type');
@@ -246,7 +318,7 @@ async function providerAnswer(settings, request, chunks, history, facts, fetchIm
   const timer = setTimeout(() => controller.abort(), settings.timeout * 1000);
   try {
     const localTime = new Intl.DateTimeFormat(profile.locale, { timeZone: profile.timeZone, dateStyle: 'full', timeStyle: 'long' }).format(new Date());
-    const context = JSON.stringify({ locale: request.locale || profile.locale, request, recentConversation: history, trustedFacts: facts, retrievedDocuments: chunks });
+    const context = JSON.stringify({ locale: responseLocale(request), request, recentConversation: history, trustedFacts: facts, retrievedDocuments: chunks });
     const instructions = `You are JarVis, a highly intelligent, empathetic, and polite AI warehouse assistant. You analyze situations logically based on standard warehouse operations. The current local time for the user is: ${localTime} (${profile.timeZone}).\n\nCore rules:\n1. Greetings and empathy: if the user greets you or says they are new or confused, greet them warmly based on the current time and reassure them before answering.\n2. Analytical answering: never return static definitions unless asked. For a situation, analyze risks and give safe, step-by-step guidance according to standard warehouse SOPs. Do not claim an operation was completed.\n3. Language: ${profile.instruction} Do not switch languages except for identifiers or source titles.\n\nUse only the retrieved project SOP and trusted server facts. The request context is ${context}. Return only the requested structured JSON.`;
     const response = await fetchImpl('https://api.openai.com/v1/responses', { method: 'POST', signal: controller.signal, headers: { Authorization: `Bearer ${settings.apiKey}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ model: settings.model, store: false, max_output_tokens: settings.maxTokens, instructions, input: [{ role: 'user', content: request.question }], text: { format: { type: 'json_schema', name: 'warehouse_feedback', strict: true, schema } } }) });
     if ([401, 403].includes(response.status)) throw new HttpError(502, 'Provider authentication/access failed. Check server key and project model access.');
@@ -278,7 +350,7 @@ function createApp() {
   app.locals.settings = settings;
   app.locals.liveVerified = false;
   app.locals.bootstrapPromise = store.ready.then(() => settings.prototypeTokenSha256 ? store.bootstrapDemo(settings.prototypeTokenSha256) : undefined);
-  app.use(cors());
+  app.use(cors(corsOptions(settings.corsAllowedOrigins)));
   app.use(bodyParser.json({ limit: '16kb', verify: (req, res, buffer) => { if (buffer.length > 16384) throw new HttpError(413, 'Request body exceeds 16 KiB'); } }));
   app.use((req, res, next) => { req.traceId = crypto.randomUUID(); req.startedAt = Date.now(); res.set('X-Request-ID', req.traceId).set('Cache-Control', 'no-store').set('X-Content-Type-Options', 'nosniff').set('Content-Security-Policy', "default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'"); res.on('finish', () => console.log(`request=${req.traceId} status=${res.statusCode} latency_ms=${Date.now() - req.startedAt}`)); next(); });
   app.use((req, res, next) => app.locals.bootstrapPromise.then(() => next()).catch(next));
@@ -297,7 +369,7 @@ function createApp() {
       answer = validateAnswer(answer, modelChunks);
       app.locals.liveVerified = true;
       chunks = modelChunks;
-      const result = { ...answer, sessionId: session.id, requestId: request.requestId, language: request.language, locale: request.locale || (request.language === 'zh' ? settings.chineseLocale || 'zh' : request.language), mode: settings.mode, synthetic: true, operationalMutation: false, latencyMs: Date.now() - req.startedAt, contextTurns: session.history.length / 2, contextWindowTurns: 10, actionExecution: 'proposal_only', sourceDetails: chunks.filter(chunk => answer.sources.some(source => source.documentId === chunk.documentId && source.sectionId === chunk.sectionId)) };
+      const result = { ...answer, sessionId: session.id, requestId: request.requestId, language: request.language, locale: responseLocale(request), mode: settings.mode, synthetic: true, operationalMutation: false, latencyMs: Date.now() - req.startedAt, contextTurns: session.history.length / 2, contextWindowTurns: 10, actionExecution: 'proposal_only', sourceDetails: chunks.filter(chunk => answer.sources.some(source => source.documentId === chunk.documentId && source.sectionId === chunk.sectionId)) };
       await store.finish(user, request, session, begun.fingerprint, result, answer.sources[0] ? answer.sources[0].documentId : session.topic);
       res.json(result);
     } catch (error) { next(error); } finally { if (session) { try { const userId = req.authenticatedUserId; if (userId) await store.release(session.id, userId, req.body && req.body.requestId); } catch (_) {} } }
@@ -324,4 +396,4 @@ if (require.main === module) start().catch(error => {
   process.exit(1);
 });
 
-module.exports = { ACTION_TYPES, EXCEPTION_CODES, createApp, settingsFromEnv, validateRequest, validateAnswer, providerAnswer, Store, Knowledge };
+module.exports = { ACTION_TYPES, EXCEPTION_CODES, createApp, settingsFromEnv, validateRequest, validateAnswer, providerAnswer, Store, Knowledge, parseCorsOrigins, corsOptions };

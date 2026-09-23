@@ -4,7 +4,7 @@ Nguồn đầy đủ: `WAREHOUSE_AI_CODEX_SPEC.md` trong thư mục này. Bản 
 
 ## Đã làm ở A
 
-FastAPI, browser lab, health/authenticated feedback, mock, Responses integration với transport test, RAG cục bộ, citations, SQLite phiên theo user/task, allowlist/schema/target validation, giới hạn body/quota/timeout, API language/locale, tài liệu và tests. Không có live warehouse hoặc model được chọn sẵn. Tự động trigger/cooldown hành vi, tóm tắt phiên dài, hình ảnh và Unity action router thuộc tích hợp tiếp theo; hiện cooldown schema bị chặn trong khoảng 0–60 và mock không tự kích hoạt sự kiện.
+Node.js/Express, browser UI, health/authenticated feedback, OpenAI Responses integration với transport test, RAG cục bộ có citations, SQLite phiên theo user/task, allowlist/schema/target validation, giới hạn body/quota/timeout, API language/locale, voice browser, tài liệu và tests. Không có live warehouse. Tự động trigger/cooldown hành vi, tóm tắt phiên dài, hình ảnh và Unity action router thuộc tích hợp tiếp theo; hiện cooldown schema bị chặn trong khoảng 0–60.
 
 ## B — dịch vụ kho có giao dịch, không chuyển quyết định cho AI
 

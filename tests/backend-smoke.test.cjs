@@ -7,13 +7,40 @@ const path = require('node:path');
 
 const token = 'local-smoke-test-token';
 const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'warehouse-ai-smoke-'));
-process.env.AI_MODE = 'mock';
 process.env.DATABASE_PATH = path.join(tempRoot, 'warehouse.sqlite3');
 process.env.PROTOTYPE_TOKEN_SHA256 = crypto.createHash('sha256').update(token).digest('hex');
+process.env.OPENAI_API_KEY = 'test-api-key';
+process.env.OPENAI_MODEL = 'test-model';
+process.env.CORS_ALLOWED_ORIGINS = '';
 
 const { createApp } = require('../server');
 
-test('Node service serves the UI and authenticated mock API end to end', async t => {
+test('Node service serves the UI and authenticated OpenAI RAG API end to end', async t => {
+  const nativeFetch = global.fetch;
+  global.fetch = async (url, options) => {
+    if (String(url) !== 'https://api.openai.com/v1/responses') return nativeFetch(url, options);
+    const body = JSON.parse(options.body);
+    assert.equal(body.input[0].content, 'Cần 5 hộp kem nhưng chỉ có 3 tôi phải làm gì?');
+    return {
+      status: 200,
+      ok: true,
+      async json() {
+        return {
+          status: 'completed',
+          output: [{ type: 'message', content: [{ type: 'output_text', text: JSON.stringify({
+            message: 'Tôi đã phân tích tình huống thiếu hàng theo SOP được truy xuất.',
+            sources: [{ documentId: 'SOP-SHORT-PICK', sectionId: 'reporting' }],
+            action: { type: 'explain_sop_step', exceptionCode: null, targetId: null },
+            needsClarification: false,
+            clarifyingQuestion: null,
+            feedbackType: 'explanation',
+            priority: 'normal',
+            cooldownSeconds: 0
+          }) }] }]
+        };
+      }
+    };
+  };
   const app = createApp();
   await app.locals.bootstrapPromise;
   const server = app.listen(0, '127.0.0.1');
@@ -23,6 +50,7 @@ test('Node service serves the UI and authenticated mock API end to end', async t
   t.after(async () => {
     await new Promise((resolve, reject) => server.close(error => error ? reject(error) : resolve()));
     await new Promise((resolve, reject) => app.locals.store.db.close(error => error ? reject(error) : resolve()));
+    global.fetch = nativeFetch;
     fs.rmSync(tempRoot, { recursive: true, force: true });
   });
 
@@ -30,6 +58,8 @@ test('Node service serves the UI and authenticated mock API end to end', async t
     const response = await fetch(`${base}${route}`);
     assert.equal(response.status, 200, route);
   }
+  const crossOrigin = await fetch(`${base}/api/health`, { headers: { Origin: 'https://untrusted.example' } });
+  assert.equal(crossOrigin.status, 403);
 
   const auth = { Authorization: `Bearer ${token}` };
   const me = await fetch(`${base}/api/me`, { headers: auth });
@@ -53,11 +83,11 @@ test('Node service serves the UI and authenticated mock API end to end', async t
   });
   assert.equal(feedback.status, 200);
   const answer = await feedback.json();
-  assert.equal(answer.mode, 'mock');
+  assert.equal(answer.mode, 'openai');
   assert.equal(answer.language, 'vi');
   assert.equal(answer.locale, 'vi-VN');
   assert.equal(answer.operationalMutation, false);
-  assert.ok(answer.message.includes('thiếu 2 hộp'));
+  assert.ok(answer.message.includes('phân tích tình huống'));
   assert.ok(answer.sources.length > 0);
 
   const conflict = await fetch(`${base}/api/feedback`, {

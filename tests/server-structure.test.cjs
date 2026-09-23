@@ -59,14 +59,14 @@ test('OpenAI instructions require the selected response language', async () => {
     };
   };
   await providerAnswer(
-    { apiKey: 'test', model: 'test-model', maxTokens: 100, timeout: 1, chineseLocale: 'zh-CN' },
-    { language: 'zh', locale: 'zh-CN' },
+    { apiKey: 'test', model: 'test-model', maxTokens: 100, timeout: 1 },
+    { language: 'zh', locale: 'zh-TW', question: '請協助我處理盤點差異。' },
     [{ documentId: 'SOP-TEST', sectionId: '1', text: '测试' }],
     [],
     { synthetic: true },
     fetchImpl
   );
-  assert.match(requestBody.instructions, /strictly in Simplified Chinese/);
-  assert.equal(JSON.parse(requestBody.input[0].content).language, 'zh');
+  assert.match(requestBody.instructions, /strictly in Traditional Chinese \(zh-TW, Taiwanese Mandarin\)/);
+  assert.equal(requestBody.input[0].content, '請協助我處理盤點差異。');
   assert.equal(requestBody.text.format.strict, true);
 });

@@ -27,5 +27,6 @@ test('language state changes translations and interpolates dynamic values', () =
   assert.equal(i18n.t('sessionPrefix', { id: 'abc' }), 'Session: abc');
   i18n.setLanguage('zh', false);
   assert.equal(i18n.t('newSession'), '新会话');
-  assert.equal(i18n.defaults.zh, 'zh-CN');
+  assert.equal(i18n.defaults.zh, 'zh-TW');
+  assert.match(i18n.t('localePlaceholder'), /zh-TW/);
 });

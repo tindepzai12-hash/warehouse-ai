@@ -1,5 +1,7 @@
 # Codex Handoff Prompt - warehouse-ai
 
+> Historical handoff notes: this file contains earlier mock/Python-era records. For the current source of truth, start with [RUNBOOK_VI.md](RUNBOOK_VI.md), then inspect `server.js`, `render.yaml` and tests. Do not reintroduce `AI_MODE` or mock mode from sections below.
+
 ## Role
 
 You are Codex working inside the existing `E:\warehouse-ai` repository. Continue from the current repository state. Do not recreate the project from scratch. Read the actual files before changing behavior, and preserve user changes.

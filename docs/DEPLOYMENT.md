@@ -14,7 +14,7 @@ Render Dashboard: https://dashboard.render.com/web/srv-dapi78navr4c738ooqu0
 - Build: `npm install`
 - Start: `npm start`
 - Runtime: Node 18+
-- Config: server-side Render environment, AI_MODE=openai; no secrets committed
+- Config: server-side Render environment with `OPENAI_API_KEY` and optional `OPENAI_MODEL`; no secrets committed and no `AI_MODE`
 - Prototype auth: same local demo token, verified by its SHA-256 on Render; cloud identity render-demo, staff role
 - SQLite is ephemeral. This deployment does not satisfy durable production storage requirements. Session/quota/retry cache can reset on redeploy/restart/spin-down. Do not use for real inventory transactions.
 

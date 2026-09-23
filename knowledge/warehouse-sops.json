@@ -1,0 +1,82 @@
+[
+  {
+    "documentId": "SOP_INB_001",
+    "sectionId": "RECEIVING_01",
+    "title": "Quy trình nhận hàng vào kho",
+    "content": "Bước 1: Tiếp nhận thông báo giao hàng (ASN) từ nhà cung cấp. Bước 2: Tại cửa Dock, đối chiếu chứng từ giao hàng với thực tế. Bước 3: Dỡ hàng, kiểm tra ngoại quan tình trạng bao bì. Bước 4: Quét mã vạch lô hàng để nhập vào hệ thống WMS. Bước 5: Phân bổ hàng hóa vào vị trí lưu trữ tạm (Staging area) trước khi cất lên kệ.",
+    "source_status": "official_release",
+    "runtime_approved": true,
+    "language": "vi",
+    "keywords": ["nhận hàng", "giao hàng", "asn", "dock", "dỡ hàng", "bao bì", "staging", "receiving", "inbound", "receipt", "收货", "入库", "码头"]
+  },
+  {
+    "documentId": "SOP_OUT_002",
+    "sectionId": "PACKING_01",
+    "title": "Quy trình đóng gói hàng hóa",
+    "content": "Bước 1: Nhận Tote hàng từ bộ phận Picking. Bước 2: Quét mã Tote để hiển thị danh sách đơn hàng. Bước 3: Chọn kích cỡ thùng carton phù hợp theo hướng dẫn của hệ thống. Bước 4: Chèn vật liệu chống sốc (bubble wrap/túi khí) theo tiêu chuẩn 3 lớp cho hàng dễ vỡ. Bước 5: Đóng thùng, dán tem vận đơn (Shipping label) và đẩy ra băng chuyền xuất hàng.",
+    "source_status": "official_release",
+    "runtime_approved": true,
+    "language": "vi",
+    "keywords": ["đóng gói", "packing", "tote", "thùng carton", "bubble wrap", "túi khí", "hàng dễ vỡ", "shipping label", "vận đơn", "包装", "纸箱", "易碎"]
+  },
+  {
+    "documentId": "SOP_INV_003",
+    "sectionId": "CYCLE_COUNT_01",
+    "title": "Quy trình kiểm đếm tồn kho (Kiểm kê định kỳ)",
+    "content": "Bước 1: Nhận danh sách kiểm đếm (Count List) trên thiết bị PDA. Bước 2: Tới đúng vị trí Bin (Location). Bước 3: Quét mã Bin để xác nhận vị trí. Bước 4: Đếm thủ công số lượng hàng hóa thực tế trên kệ. Bước 5: Nhập số lượng vào PDA. Nếu chênh lệch với số liệu WMS, tiến hành đếm lại lần 2. Bước 6: Nếu vẫn chênh lệch, đánh dấu 'Cần kiểm tra chéo' và báo cáo Supervisor.",
+    "source_status": "official_release",
+    "runtime_approved": true,
+    "language": "vi",
+    "keywords": ["kiểm đếm", "kiểm kê", "cycle count", "count list", "pda", "bin", "chênh lệch", "đếm lại", "supervisor", "盘点", "差异", "货位"]
+  },
+  {
+    "documentId": "SOP_EXC_001",
+    "sectionId": "MISPLACE_01",
+    "title": "Xử lý phát hiện hàng sai vị trí",
+    "content": "Nếu phát hiện sản phẩm nằm sai vị trí kệ so với hệ thống: 1. Tuyệt đối không tự ý di chuyển sản phẩm về vị trí đúng nếu chưa có lệnh. 2. Dùng PDA quét mã sản phẩm và chọn chức năng 'Báo cáo hàng lạc vị trí'. 3. Đưa sản phẩm vào giỏ 'Chờ xử lý' (Pending Bin) ở đầu mỗi dãy kệ. 4. Đội Quản lý tồn kho (Inventory Control) sẽ thu gom và thực hiện thao tác chuyển vị trí (Location Transfer) trên WMS.",
+    "source_status": "draft_from_supervisor",
+    "runtime_approved": false,
+    "language": "vi",
+    "keywords": ["sai vị trí", "hàng lạc vị trí", "pending bin", "location transfer", "misplaced"]
+  },
+  {
+    "documentId": "SOP_EXC_002",
+    "sectionId": "SHORTAGE_01",
+    "title": "Xử lý hàng thiếu khi đi Picking",
+    "content": "Khi đến vị trí lấy hàng nhưng số lượng thực tế ít hơn yêu cầu của hệ thống: 1. Đếm lại toàn bộ số lượng đang có trên kệ để chắc chắn. 2. Lấy toàn bộ số lượng hiện có bỏ vào Tote. 3. Trên máy PDA, chọn nút 'Short Pick' (Lấy thiếu). 4. Nhập số lượng thực tế đã lấy. Hệ thống sẽ ghi nhận hàng hụt (Stockout) và tự động tạo tác vụ lấy hàng bổ sung từ kho dự trữ (Reserve Storage).",
+    "source_status": "draft_from_supervisor",
+    "runtime_approved": false,
+    "language": "vi",
+    "keywords": ["short pick", "hàng thiếu", "stockout", "reserve storage", "thiếu hàng"]
+  },
+  {
+    "documentId": "SOP_EXC_003",
+    "sectionId": "DAMAGE_01",
+    "title": "Xử lý hàng hỏng hoặc hàng rơi xuống sàn",
+    "content": "Nếu làm rơi hàng trong quá trình thao tác hoặc phát hiện hàng đã bị rách bao bì, rò rỉ: 1. KHÔNG ĐƯỢC nhặt lên và tiếp tục đóng gói giao cho khách. 2. Quét mã sản phẩm và chọn 'Báo cáo hàng hỏng' (Damaged Item) trên thiết bị. 3. Đặt sản phẩm vào khu vực cách ly (Quarantine Area / Rổ đỏ). 4. Báo cáo bằng bộ đàm cho quản lý ca trực để lập biên bản hủy hoặc đổi trả.",
+    "source_status": "manager_draft",
+    "runtime_approved": false,
+    "language": "vi",
+    "keywords": ["hàng hỏng", "rơi xuống sàn", "rò rỉ", "quarantine", "rổ đỏ", "damaged item"]
+  },
+  {
+    "documentId": "SOP_EXC_004",
+    "sectionId": "SCAN_FAIL_01",
+    "title": "Xử lý khi không thể quét mã vạch",
+    "content": "Nếu thiết bị PDA không nhận diện được mã vạch sau 3 lần thử: 1. Kiểm tra bề mặt tem nhãn (có bị bẩn, rách, dán nhăn nheo không). 2. Nếu tem mờ, tiến hành nhập thủ công dãy số SKU in dưới mã vạch vào PDA. 3. Khi hoàn tất chu kỳ lấy hàng, mang sản phẩm này đến trạm In Tem (Label Station) để yêu cầu in và dán lại mã vạch mới.",
+    "source_status": "manager_draft",
+    "runtime_approved": false,
+    "language": "vi",
+    "keywords": ["không quét được", "mã vạch", "tem mờ", "nhập thủ công", "label station", "scan fail"]
+  },
+  {
+    "documentId": "SOP_MNG_001",
+    "sectionId": "ESCALATION_01",
+    "title": "Quy trình báo cáo quản lý cấp trên",
+    "content": "Nhân viên bắt buộc phải dừng công việc và báo cáo quản lý (Supervisor) ngay lập tức trong các trường hợp sau: 1. Tràn đổ hóa chất hoặc hàng hóa nguy hiểm. 2. Tai nạn lao động hoặc va chạm xe nâng. 3. Hệ thống WMS sập hoặc PDA mất kết nối mạng quá 15 phút. 4. Phát hiện mất cắp hàng hóa giá trị cao.",
+    "source_status": "official_release",
+    "runtime_approved": true,
+    "language": "vi",
+    "keywords": ["báo quản lý", "supervisor", "tràn đổ", "hóa chất", "hàng nguy hiểm", "tai nạn", "xe nâng", "wms sập", "pda mất kết nối", "mất cắp", "主管", "叉车", "危险品"]
+  }
+]

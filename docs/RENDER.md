@@ -22,17 +22,18 @@ Render tự cấp `PORT`; server bind `0.0.0.0` và đọc biến này khi khở
 Đặt trong Dashboard, không đưa secret vào command:
 
 ```dotenv
-AI_MODE=mock
 DATABASE_PATH=/var/data/warehouse.sqlite3
 MAX_REQUESTS_PER_MINUTE=20
 MAX_REQUESTS_PER_DAY=100
 MAX_OUTPUT_TOKENS=1200
 REQUEST_TIMEOUT_SECONDS=30
-CHINESE_LOCALE=
+CORS_ALLOWED_ORIGINS=
+OPENAI_API_KEY=
+OPENAI_MODEL=gpt-4o-mini
 PROTOTYPE_TOKEN_SHA256=
 ```
 
-Chỉ khi đã kiểm tra quyền model mới đặt `AI_MODE=openai`, `OPENAI_API_KEY` và `OPENAI_MODEL`. Không đặt key trong `static/`.
+Runtime hiện luôn dùng OpenAI; không đặt `AI_MODE` hoặc `CHINESE_LOCALE`. Đặt `OPENAI_API_KEY` và model có quyền truy cập ở Render Environment. Không đặt key trong `static/`, Unity hoặc Git. Chỉ đặt `CORS_ALLOWED_ORIGINS` khi có frontend khác domain; UI Render cùng domain không cần giá trị này.
 
 ## SQLite persistence
 
@@ -51,9 +52,9 @@ Nếu không có Shell, tính SHA-256 lowercase của một token riêng rồi �
 
 ## Kiểm tra sau deploy
 
-1. Mở `https://<service>.onrender.com/api/health` và xác nhận `status=ok`, `mode=mock`.
+1. Mở `https://<service>.onrender.com/api/health` và xác nhận `status=ok`, `mode=openai`.
 2. Mở `/`, dùng token hợp lệ và thử các câu hỏi trong README.
 3. Kiểm tra token sai trả `401`, task không được cấp trả `403`, request trùng payload được cache và request trùng `requestId` nhưng khác payload trả `409`.
-4. Nếu bật OpenAI, kiểm tra riêng lỗi key/model/quota; health không chứng minh provider đã hoạt động.
+4. Health không chứng minh provider đã hoạt động; chỉ gửi một câu hỏi thật đã được chấp thuận chi phí để kiểm tra key/model/quota.
 
 Render Node runtime docs: https://render.com/docs/node-express-app

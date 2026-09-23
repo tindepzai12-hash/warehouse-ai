@@ -93,7 +93,7 @@
   let finalText = '';
   const active = new Recognition();
   recognition = active;
-  active.lang = el('locale').value.trim() || ({vi:'vi-VN',en:'en-US',zh:'zh'}[el('language').value]);
+  active.lang = el('locale').value.trim() || ({vi:'vi-VN',en:'en-US',zh:'zh-TW'}[el('language').value]);
   active.continuous = false;
   active.interimResults = false;
   active.maxAlternatives = 3;

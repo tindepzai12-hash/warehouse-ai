@@ -21,7 +21,7 @@ cd E:\warehouse-ai
 node -e "const fs=require('fs'),crypto=require('crypto'); console.log(crypto.createHash('sha256').update(fs.readFileSync('.local-token','utf8').trim()).digest('hex'))"
 ```
 
-Thiết lập service: Environment **Node**, region Singapore, plan Free, build `npm install`, start `npm start`, health `/api/health`, database `data/warehouse.sqlite3` hoặc `/var/data/warehouse.sqlite3` khi có Persistent Disk. Environment: `AI_MODE`, `OPENAI_API_KEY`, `OPENAI_MODEL`, `PROTOTYPE_TOKEN_SHA256`; không đặt PORT cố định trên Render.
+Thiết lập service: Environment **Node**, region Singapore, plan Free, build `npm install`, start `npm start`, health `/api/health`, database `data/warehouse.sqlite3` hoặc `/var/data/warehouse.sqlite3` khi có Persistent Disk. Environment: `OPENAI_API_KEY`, `OPENAI_MODEL`, `PROTOTYPE_TOKEN_SHA256`, `CORS_ALLOWED_ORIGINS` nếu có frontend khác domain; không đặt PORT cố định trên Render.
 
 Muốn giữ lịch sử qua cập nhật: bổ sung database bền vững hoặc service có Persistent Disk khi được chấp thuận chi phí. Không coi việc khôi phục tài khoản demo là khôi phục lịch sử/quota.
 

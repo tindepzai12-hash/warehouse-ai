@@ -1,6 +1,6 @@
 # Warehouse AI - Milestone A
 
-Backend Node.js/Express và browser test UI. Chế độ mặc định là `mock`, không cần OpenAI key và không sử dụng dịch vụ trả phí. Frontend trong `static/` được giữ nguyên và được Express phục vụ trực tiếp.
+Backend Node.js/Express và browser test UI cho JarVis. Runtime hiện luôn dùng OpenAI Responses API; không còn `mock` hay `AI_MODE`. Frontend trong `static/` được Express phục vụ trực tiếp.
 
 ## Chạy local
 
@@ -8,8 +8,8 @@ Cài Node.js 18+ rồi chạy PowerShell:
 
 ```powershell
 Set-Location E:\warehouse-ai
-npm install
-Copy-Item .env.example .env
+npm ci
+if (-not (Test-Path .env)) { Copy-Item .env.example .env }
 npm start
 ```
 
@@ -26,9 +26,9 @@ Token này là token ứng dụng prototype, không phải OpenAI key. Có thể
 
 ## Cấu hình
 
-Các biến môi trường nằm trong `.env.example`. `DATABASE_PATH` mặc định là `data/warehouse.sqlite3`. `AI_MODE=mock` dùng RAG cục bộ và câu trả lời mẫu. Để dùng OpenAI, đặt `AI_MODE=openai`, `OPENAI_API_KEY` và `OPENAI_MODEL`; server gọi Responses API với structured output, không gửi raw provider error ra client.
+Các biến môi trường nằm trong `.env.example`. `DATABASE_PATH` mặc định là `data/warehouse.sqlite3`. Đặt `OPENAI_API_KEY` trên máy/Render, không trong frontend hoặc chat; `OPENAI_MODEL` có thể để trống để dùng `gpt-4o-mini`. Server gọi Responses API với structured output và không gửi raw provider error ra client. `CORS_ALLOWED_ORIGINS` chỉ dùng khi cần frontend khác domain; để trống cho UI cùng domain.
 
-Server giữ nguyên token SHA-256, session, idempotent retry theo `requestId`, quota 20 request/phút và 100 request/ngày mặc định, cùng các mã lỗi xác thực, session, quota và provider của phiên bản Python. SQLite lưu users, sessions, replies, usage và inflight requests.
+Server giữ token SHA-256, session, idempotent retry theo `requestId`, quota 20 request/phút và 100 request/ngày mặc định, cùng validation provider. SQLite lưu users, sessions, replies, usage và inflight requests.
 
 ## API
 
@@ -59,6 +59,6 @@ Tạo Web Service từ repository và dùng đúng cấu hình:
 
 ## Giới hạn
 
-Kho kiến thức chạy lexical RAG từ `knowledge/reviewed.json`; `knowledge/unverified.json` không được dùng. Prototype không có WMS live, không thay đổi tồn kho, không tạo route và không xác nhận transaction. Cần đánh giá người thật, identity provider, phân quyền WMS, retention và audit trước production.
+Kho kiến thức chạy lexical RAG từ `knowledge/reviewed.json` và các SOP `official_release` có `runtime_approved: true` trong `knowledge/warehouse-sops.json`; SOP draft và `knowledge/unverified.json` không được dùng. Prototype không có WMS live, không thay đổi tồn kho, không tạo route và không xác nhận transaction. Cần đánh giá người thật, identity provider, phân quyền WMS, retention và audit trước production.
 
-Xem thêm [docs/RENDER.md](docs/RENDER.md), [docs/VOICE.md](docs/VOICE.md) và [docs/ROADMAP.md](docs/ROADMAP.md).
+Chạy `npm test` trước khi deploy. Xem [runbook hiện tại](docs/RUNBOOK_VI.md), [hợp đồng Unity tương lai](docs/UNITY_API_CONTRACT.md), [docs/RENDER.md](docs/RENDER.md) và [docs/ROADMAP.md](docs/ROADMAP.md). Nếu tài liệu cũ mâu thuẫn với code, ưu tiên `server.js`, `render.yaml`, tests và runbook.
