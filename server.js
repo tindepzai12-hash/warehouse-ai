@@ -257,13 +257,16 @@ function validateRequest(body) {
   return request;
 }
 
-function validateAnswer(answer, chunks) {
+function validateAnswer(answer, chunks, { hasHistory = false } = {}) {
   if (!answer || typeof answer.message !== 'string' || answer.message.length < 1 || answer.message.length > 8000 || !Array.isArray(answer.sources) || answer.sources.length > 4 || !answer.action) throw new HttpError(502, 'Provider returned incomplete, refused or invalid structured feedback.');
   const valid = new Set(chunks.map(chunk => `${chunk.documentId}\u0000${chunk.sectionId}`));
   const cited = new Set(answer.sources.map(source => `${source.documentId}\u0000${source.sectionId}`));
   const clarificationOnly = !cited.size && answer.needsClarification && answer.clarifyingQuestion && answer.action.type === 'none';
   const noRetrievedEvidence = !cited.size && !chunks.length && answer.action.type === 'none';
-  if ((!cited.size && !clarificationOnly && !noRetrievedEvidence) || [...cited].some(item => !valid.has(item))) throw new HttpError(502, 'Feedback source validation failed');
+  // A follow-up may rely on the prior turn's retrieved SOP without repeating a citation.
+  // Keep this exception narrow: it only applies to an existing session and a no-op action.
+  const followupWithoutCitation = hasHistory && chunks.length > 0 && !cited.size && answer.action.type === 'none';
+  if ((!cited.size && !clarificationOnly && !noRetrievedEvidence && !followupWithoutCitation) || [...cited].some(item => !valid.has(item))) throw new HttpError(502, 'Feedback source validation failed');
   const actionKeys = Object.keys(answer.action).sort();
   if (actionKeys.length !== 3 || actionKeys[0] !== 'exceptionCode' || actionKeys[1] !== 'targetId' || actionKeys[2] !== 'type') throw new HttpError(502, 'Provider returned an invalid action shape');
   if (!ACTION_TYPES.includes(answer.action.type)) throw new HttpError(502, 'Provider returned an unsupported action type');
@@ -274,6 +277,13 @@ function validateAnswer(answer, chunks) {
   if (answer.action.type !== 'open_exception_report') answer.action.exceptionCode = null;
   if (!['hint', 'explanation', 'warning', 'summary'].includes(answer.feedbackType) || !['normal', 'high'].includes(answer.priority) || !Number.isInteger(answer.cooldownSeconds) || answer.cooldownSeconds < 0 || answer.cooldownSeconds > 60) throw new HttpError(502, 'Provider returned incomplete, refused or invalid structured feedback.');
   return answer;
+}
+
+function buildSystemPrompt(profile, request, localTime, context, chunks) {
+  const citationRule = chunks.length
+    ? 'If this is a follow-up related to a retrieved SOP, include the relevant documentId and sectionId in sources. If the follow-up is only a clarification and no new citation is needed, use action.type = "none" and sources = [].'
+    : 'If no SOP matches and the user asks for a general logistics definition, answer from general knowledge, label it as general knowledge, use action.type = "none" and sources = []. Do not present it as an approved site rule.';
+  return `You are JarVis, a highly intelligent, empathetic, and polite AI warehouse assistant. You analyze situations logically based on standard warehouse operations. The current local time for the user is: ${localTime} (${profile.timeZone}).\n\nCore rules:\n1. Greetings and empathy: if the user greets you or says they are new or confused, greet them warmly based on the current time and reassure them before answering.\n2. Analytical answering: never return static definitions unless asked. For a situation, analyze risks and give safe, step-by-step guidance according to standard warehouse SOPs. Do not claim an operation was completed.\n3. Language: ${profile.instruction} Do not switch languages except for identifiers or source titles.\n4. Evidence and citations: use approved retrieved SOPs for operational guidance. ${citationRule}\n5. General knowledge must never be presented as live inventory, approved route, site policy, or completed transaction.\n\nUse the retrieved project SOP and trusted server facts. The request context is ${context}. Return only the requested structured JSON.`;
 }
 
 async function providerAnswer(settings, request, chunks, history, facts, fetchImpl = fetch) {
@@ -319,7 +329,7 @@ async function providerAnswer(settings, request, chunks, history, facts, fetchIm
   try {
     const localTime = new Intl.DateTimeFormat(profile.locale, { timeZone: profile.timeZone, dateStyle: 'full', timeStyle: 'long' }).format(new Date());
     const context = JSON.stringify({ locale: responseLocale(request), request, recentConversation: history, trustedFacts: facts, retrievedDocuments: chunks });
-    const instructions = `You are JarVis, a highly intelligent, empathetic, and polite AI warehouse assistant. You analyze situations logically based on standard warehouse operations. The current local time for the user is: ${localTime} (${profile.timeZone}).\n\nCore rules:\n1. Greetings and empathy: if the user greets you or says they are new or confused, greet them warmly based on the current time and reassure them before answering.\n2. Analytical answering: never return static definitions unless asked. For a situation, analyze risks and give safe, step-by-step guidance according to standard warehouse SOPs. Do not claim an operation was completed.\n3. Language: ${profile.instruction} Do not switch languages except for identifiers or source titles.\n\nUse only the retrieved project SOP and trusted server facts. The request context is ${context}. Return only the requested structured JSON.`;
+    const instructions = buildSystemPrompt(profile, request, localTime, context, chunks);
     const response = await fetchImpl('https://api.openai.com/v1/responses', { method: 'POST', signal: controller.signal, headers: { Authorization: `Bearer ${settings.apiKey}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ model: settings.model, store: false, max_output_tokens: settings.maxTokens, instructions, input: [{ role: 'user', content: request.question }], text: { format: { type: 'json_schema', name: 'warehouse_feedback', strict: true, schema } } }) });
     if ([401, 403].includes(response.status)) throw new HttpError(502, 'Provider authentication/access failed. Check server key and project model access.');
     if (response.status === 429) throw new HttpError(503, 'Provider quota/rate limit reached. Check server project budget; retry later.');
@@ -366,7 +376,7 @@ function createApp() {
       let answer;
       const modelChunks = knowledge.forModel(request.question, session.topic, request.language);
       answer = await providerAnswer(settings, request, modelChunks, session.history, facts);
-      answer = validateAnswer(answer, modelChunks);
+      answer = validateAnswer(answer, modelChunks, { hasHistory: session.history.length > 0 });
       app.locals.liveVerified = true;
       chunks = modelChunks;
       const result = { ...answer, sessionId: session.id, requestId: request.requestId, language: request.language, locale: responseLocale(request), mode: settings.mode, synthetic: true, operationalMutation: false, latencyMs: Date.now() - req.startedAt, contextTurns: session.history.length / 2, contextWindowTurns: 10, actionExecution: 'proposal_only', sourceDetails: chunks.filter(chunk => answer.sources.some(source => source.documentId === chunk.documentId && source.sectionId === chunk.sectionId)) };
@@ -396,4 +406,4 @@ if (require.main === module) start().catch(error => {
   process.exit(1);
 });
 
-module.exports = { ACTION_TYPES, EXCEPTION_CODES, createApp, settingsFromEnv, validateRequest, validateAnswer, providerAnswer, Store, Knowledge, parseCorsOrigins, corsOptions };
+module.exports = { ACTION_TYPES, EXCEPTION_CODES, createApp, settingsFromEnv, validateRequest, validateAnswer, providerAnswer, buildSystemPrompt, Store, Knowledge, parseCorsOrigins, corsOptions };

@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
-const { ACTION_TYPES, Store, validateAnswer, providerAnswer } = require('../server');
+const { ACTION_TYPES, Store, validateAnswer, providerAnswer, buildSystemPrompt } = require('../server');
 
 const PRESENTATION_ACTIONS = [
   'show_station_intro',
@@ -31,6 +31,13 @@ test('the four presentation actions accepted by Structured Outputs pass runtime 
     assert.ok(ACTION_TYPES.includes(type));
     assert.equal(validateAnswer(answer(type), chunks).action.type, type);
   }
+});
+
+test('follow-up clarification may omit a duplicate citation only with an existing history', () => {
+  const followUp = answer('none');
+  followUp.sources = [];
+  assert.doesNotThrow(() => validateAnswer(followUp, [{ documentId: 'SOP-TEST', sectionId: '1', exceptionCode: null }], { hasHistory: true }));
+  assert.throws(() => validateAnswer(followUp, [{ documentId: 'SOP-TEST', sectionId: '1', exceptionCode: null }]), /Feedback source validation failed/);
 });
 
 test('SQLite creates a missing data directory, database, and all tables before use', async t => {
@@ -67,6 +74,20 @@ test('OpenAI instructions require the selected response language', async () => {
     fetchImpl
   );
   assert.match(requestBody.instructions, /strictly in Traditional Chinese \(zh-TW, Taiwanese Mandarin\)/);
+  assert.match(requestBody.instructions, /follow-up related to a retrieved SOP/);
   assert.equal(requestBody.input[0].content, '請協助我處理盤點差異。');
   assert.equal(requestBody.text.format.strict, true);
+});
+
+test('general-knowledge prompt explicitly permits a source-free explanation', () => {
+  const prompt = buildSystemPrompt(
+    { timeZone: 'Asia/Ho_Chi_Minh', instruction: 'Reply strictly in Vietnamese.' },
+    { question: 'Kho ngoại quan là gì?' },
+    'thứ Tư, 10:00',
+    '{}',
+    []
+  );
+  assert.match(prompt, /general knowledge/);
+  assert.match(prompt, /action.type = "none"/);
+  assert.match(prompt, /sources = \[\]/);
 });
