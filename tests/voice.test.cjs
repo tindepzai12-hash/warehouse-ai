@@ -113,6 +113,8 @@ test('known JarVis addresses normalize without changing quantities or product te
  assert.equal(normalize('Chào gia vít ơi, cần 5 hộp nhưng có 3'),'Chào JarVis ơi, cần 5 hộp nhưng có 3');
  assert.equal(normalize('cha vít giúp tôi'),'JarVis giúp tôi');
  assert.equal(normalize('Jarvis, hello'),'JarVis, hello');
- assert.equal(normalize('cần 5 hộp gia vít'),'cần 5 hộp gia vít');
- assert.equal(normalize('giá vịt là bao nhiêu'),'giá vịt là bao nhiêu');
-});
+  assert.equal(normalize('cần 5 hộp gia vít'),'cần 5 hộp gia vít');
+  assert.equal(normalize('giá vịt là bao nhiêu'),'giá vịt là bao nhiêu');
+  assert.equal(normalize('Travis ơi, giúp tôi'),'JarVis ơi, giúp tôi');
+  assert.equal(normalize('Gia Vis, kho ngoại quan là gì?'),'JarVis, kho ngoại quan là gì?');
+ });

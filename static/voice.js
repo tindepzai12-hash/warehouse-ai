@@ -105,7 +105,7 @@
    for (let i = event.resultIndex; i < event.results.length; i++) {
     if (event.results[i].isFinal) finalText += event.results[i][0].transcript + ' ';
    }
-   const normalized = window.normalizeJarVisAddress ? window.normalizeJarVisAddress(finalText.trim()) : finalText.trim();
+   const normalized = window.normalizeTranscription ? window.normalizeTranscription(finalText.trim()) : finalText.trim();
    el('voice-original').textContent = normalized !== finalText.trim() ? t('recognizedNormalized',{original:finalText.trim()}) : '';
    const combined = [original.trim(), normalized].filter(Boolean).join(' ');
    el('question').value = combined.slice(0, 2000);
