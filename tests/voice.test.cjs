@@ -106,15 +106,14 @@ test('empty voice list waits then can be cancelled',()=>{
  t.get('stop-speech').onclick();assert.equal(t.timers.size,0);
  assert.equal(t.spoken.length,0);
 });
-test('known JarVis addresses normalize without changing quantities or product text',()=>{
+test('spoken JarVis greetings become friendly without changing the question',()=>{
  const context={window:{}};
  vm.runInNewContext(fs.readFileSync(require('node:path').join(__dirname,'../static/jarvis.js'),'utf8'),context);
- const normalize=context.window.normalizeJarVisAddress;
- assert.equal(normalize('Chào gia vít ơi, cần 5 hộp nhưng có 3'),'Chào JarVis ơi, cần 5 hộp nhưng có 3');
- assert.equal(normalize('cha vít giúp tôi'),'JarVis giúp tôi');
- assert.equal(normalize('Jarvis, hello'),'JarVis, hello');
-  assert.equal(normalize('cần 5 hộp gia vít'),'cần 5 hộp gia vít');
-  assert.equal(normalize('giá vịt là bao nhiêu'),'giá vịt là bao nhiêu');
-  assert.equal(normalize('Travis ơi, giúp tôi'),'JarVis ơi, giúp tôi');
-  assert.equal(normalize('Gia Vis, kho ngoại quan là gì?'),'JarVis, kho ngoại quan là gì?');
- });
+ const greeting=context.window.handleSpokenGreeting;
+ assert.equal(greeting('Xin chào Travis'),'Xin chào bạn!');
+ assert.equal(greeting('Chào Gia Vis, kho ngoại quan là gì?'),'Xin chào bạn! kho ngoại quan là gì?');
+ assert.equal(greeting('Ê Ja Vis'),'Xin chào bạn!');
+ assert.equal(greeting('Travis ơi, giúp tôi'),'Xin chào bạn! giúp tôi');
+ assert.equal(greeting('cần 5 hộp gia vít'),'cần 5 hộp gia vít');
+ assert.equal(greeting('giá vịt là bao nhiêu'),'giá vịt là bao nhiêu');
+});

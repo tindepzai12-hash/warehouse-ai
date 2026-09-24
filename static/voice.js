@@ -105,8 +105,9 @@
    for (let i = event.resultIndex; i < event.results.length; i++) {
     if (event.results[i].isFinal) finalText += event.results[i][0].transcript + ' ';
    }
-   const normalized = window.normalizeTranscription ? window.normalizeTranscription(finalText.trim()) : finalText.trim();
-   el('voice-original').textContent = normalized !== finalText.trim() ? t('recognizedNormalized',{original:finalText.trim()}) : '';
+   const spoken = finalText.trim();
+   const normalized = window.handleSpokenGreeting ? window.handleSpokenGreeting(spoken) : spoken;
+   el('voice-original').textContent = normalized !== spoken ? t('recognizedNormalized',{original:spoken}) : '';
    const combined = [original.trim(), normalized].filter(Boolean).join(' ');
    el('question').value = combined.slice(0, 2000);
    el('voice-status').textContent = t(combined.length > 2000 ? 'draftTooLong' : 'speechCaptured');
