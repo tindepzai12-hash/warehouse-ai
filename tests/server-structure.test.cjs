@@ -33,11 +33,16 @@ test('the four presentation actions accepted by Structured Outputs pass runtime 
   }
 });
 
-test('follow-up clarification may omit a duplicate citation only with an existing history', () => {
-  const followUp = answer('none');
-  followUp.sources = [];
-  assert.doesNotThrow(() => validateAnswer(followUp, [{ documentId: 'SOP-TEST', sectionId: '1', exceptionCode: null }], { hasHistory: true }));
-  assert.throws(() => validateAnswer(followUp, [{ documentId: 'SOP-TEST', sectionId: '1', exceptionCode: null }]), /Feedback source validation failed/);
+test('citation-free general answers and follow-ups pass, but invented citations fail', () => {
+  const sourceFree = answer('none');
+  sourceFree.sources = [];
+  const chunks = [{ documentId: 'SOP-TEST', sectionId: '1', exceptionCode: null }];
+  assert.doesNotThrow(() => validateAnswer(sourceFree, []));
+  assert.doesNotThrow(() => validateAnswer(sourceFree, chunks, { hasHistory: true }));
+  assert.doesNotThrow(() => validateAnswer(sourceFree, chunks));
+  const invented = answer('none');
+  invented.sources = [{ documentId: 'NOT-RETRIEVED', sectionId: 'X' }];
+  assert.throws(() => validateAnswer(invented, chunks), /Feedback source validation failed/);
 });
 
 test('SQLite creates a missing data directory, database, and all tables before use', async t => {
