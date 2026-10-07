@@ -7,7 +7,21 @@
     "source_status": "official_release",
     "runtime_approved": true,
     "language": "vi",
-    "keywords": ["nhận hàng", "giao hàng", "asn", "dock", "dỡ hàng", "bao bì", "staging", "receiving", "inbound", "receipt", "收货", "入库", "码头"]
+    "keywords": [
+      "nhận hàng",
+      "giao hàng",
+      "asn",
+      "dock",
+      "dỡ hàng",
+      "bao bì",
+      "staging",
+      "receiving",
+      "inbound",
+      "receipt",
+      "收货",
+      "入库",
+      "码头"
+    ]
   },
   {
     "documentId": "SOP_OUT_002",
@@ -17,7 +31,20 @@
     "source_status": "official_release",
     "runtime_approved": true,
     "language": "vi",
-    "keywords": ["đóng gói", "packing", "tote", "thùng carton", "bubble wrap", "túi khí", "hàng dễ vỡ", "shipping label", "vận đơn", "包装", "纸箱", "易碎"]
+    "keywords": [
+      "đóng gói",
+      "packing",
+      "tote",
+      "thùng carton",
+      "bubble wrap",
+      "túi khí",
+      "hàng dễ vỡ",
+      "shipping label",
+      "vận đơn",
+      "包装",
+      "纸箱",
+      "易碎"
+    ]
   },
   {
     "documentId": "SOP_INV_003",
@@ -27,7 +54,20 @@
     "source_status": "official_release",
     "runtime_approved": true,
     "language": "vi",
-    "keywords": ["kiểm đếm", "kiểm kê", "cycle count", "count list", "pda", "bin", "chênh lệch", "đếm lại", "supervisor", "盘点", "差异", "货位"]
+    "keywords": [
+      "kiểm đếm",
+      "kiểm kê",
+      "cycle count",
+      "count list",
+      "pda",
+      "bin",
+      "chênh lệch",
+      "đếm lại",
+      "supervisor",
+      "盘点",
+      "差异",
+      "货位"
+    ]
   },
   {
     "documentId": "SOP_EXC_001",
@@ -37,7 +77,13 @@
     "source_status": "draft_from_supervisor",
     "runtime_approved": false,
     "language": "vi",
-    "keywords": ["sai vị trí", "hàng lạc vị trí", "pending bin", "location transfer", "misplaced"]
+    "keywords": [
+      "sai vị trí",
+      "hàng lạc vị trí",
+      "pending bin",
+      "location transfer",
+      "misplaced"
+    ]
   },
   {
     "documentId": "SOP_EXC_002",
@@ -47,7 +93,13 @@
     "source_status": "draft_from_supervisor",
     "runtime_approved": false,
     "language": "vi",
-    "keywords": ["short pick", "hàng thiếu", "stockout", "reserve storage", "thiếu hàng"]
+    "keywords": [
+      "short pick",
+      "hàng thiếu",
+      "stockout",
+      "reserve storage",
+      "thiếu hàng"
+    ]
   },
   {
     "documentId": "SOP_EXC_003",
@@ -57,7 +109,14 @@
     "source_status": "manager_draft",
     "runtime_approved": false,
     "language": "vi",
-    "keywords": ["hàng hỏng", "rơi xuống sàn", "rò rỉ", "quarantine", "rổ đỏ", "damaged item"]
+    "keywords": [
+      "hàng hỏng",
+      "rơi xuống sàn",
+      "rò rỉ",
+      "quarantine",
+      "rổ đỏ",
+      "damaged item"
+    ]
   },
   {
     "documentId": "SOP_EXC_004",
@@ -67,7 +126,14 @@
     "source_status": "manager_draft",
     "runtime_approved": false,
     "language": "vi",
-    "keywords": ["không quét được", "mã vạch", "tem mờ", "nhập thủ công", "label station", "scan fail"]
+    "keywords": [
+      "không quét được",
+      "mã vạch",
+      "tem mờ",
+      "nhập thủ công",
+      "label station",
+      "scan fail"
+    ]
   },
   {
     "documentId": "SOP_MNG_001",
@@ -77,6 +143,143 @@
     "source_status": "official_release",
     "runtime_approved": true,
     "language": "vi",
-    "keywords": ["báo quản lý", "supervisor", "tràn đổ", "hóa chất", "hàng nguy hiểm", "tai nạn", "xe nâng", "wms sập", "pda mất kết nối", "mất cắp", "主管", "叉车", "危险品"]
+    "keywords": [
+      "báo quản lý",
+      "supervisor",
+      "tràn đổ",
+      "hóa chất",
+      "hàng nguy hiểm",
+      "tai nạn",
+      "xe nâng",
+      "wms sập",
+      "pda mất kết nối",
+      "mất cắp",
+      "主管",
+      "叉车",
+      "危险品"
+    ]
+  },
+  {
+    "documentId": "SOP_FC_PUT_002_EN",
+    "sectionId": "PUTAWAY_EXECUTION",
+    "title": "Putaway Execution Process",
+    "content": "Step 1: Scan the LPN (License Plate Number) barcode of the tote or basket containing the items. Step 2: Move the trolley to the aisle assigned by the WMS on the PDA screen. Step 3: Scan the Bin Barcode to confirm the correct location. Step 4: Neatly place the items on the shelf with labels facing outward. CRITICAL NOTE: Never mix two batches with different Expiry Dates in the same bin. Step 5: Enter the putaway quantity into the PDA. If the bin is full and cannot accommodate more items, select 'Bin Full' for the system to suggest an alternative location.",
+    "source_status": "official_release",
+    "runtime_approved": true,
+    "language": "en",
+    "keywords": [
+      "putaway",
+      "lpn",
+      "license plate number",
+      "bin barcode",
+      "bin full",
+      "expiry dates",
+      "cất hàng",
+      "mã bin",
+      "đầy vị trí",
+      "hạn sử dụng",
+      "khác lô"
+    ]
+  },
+  {
+    "documentId": "SOP_FC_EXP_002_EN",
+    "sectionId": "EXPIRY_DATE_TRACKING",
+    "title": "Expiry Date (Shelf-life) Tracking Process",
+    "content": "Shelf-life is a critical factor for FMCG products (milk, instant noodles, beverages). 1. During inbound processing or putaway, if the PDA prompts 'Input Expiry Date', operators must accurately check the date on the packaging and input it in the DD/MM/YYYY format. 2. If 'Near-Expiry' items are found (e.g., fresh milk with less than 2 months remaining, noodles with less than 1 month), do not store them with fresh date items. 3. Apply a yellow 'NEAR EXPIRY' sticker to the product and move it to the Clearance Area. Shipping near-expiry goods to customers without authorization will result in an incident report.",
+    "source_status": "official_release",
+    "runtime_approved": true,
+    "language": "en",
+    "keywords": [
+      "expiry date",
+      "shelf-life",
+      "near-expiry",
+      "clearance area",
+      "dd/mm/yyyy",
+      "hạn sử dụng",
+      "cận hạn",
+      "sữa",
+      "mì gói",
+      "khu thanh lý",
+      "ngày hết hạn"
+    ]
+  },
+  {
+    "documentId": "SOP_FC_PAK_002_EN",
+    "sectionId": "PACKING_EXECUTION",
+    "title": "E-commerce Packing Execution Process",
+    "content": "Step 1: At the packing station, scan the Tote barcode to display the order list. Step 2: Scan each item's barcode for cross-checking to prevent missing or incorrect items. Step 3: Assemble the carton box, fold the bottom flaps, and apply one strip of tape. Step 4: Arrange the items properly (heavy or liquid items like milk and shampoo must be placed at the bottom; fragile or light items like instant noodles on top). Step 5: Tightly fill any empty spaces with honeycomb paper or bubble wrap to prevent shifting during transit. Step 6: Close the top flaps and seal the box using the 'H-tape' method (sealing the center seam and both edge seams) to prevent tearing and theft. Step 7: Apply the shipping label flat on the top surface; do not place it over an open flap.",
+    "source_status": "official_release",
+    "runtime_approved": true,
+    "language": "en",
+    "keywords": [
+      "e-commerce packing",
+      "packing station",
+      "tote",
+      "h-tape",
+      "shipping label",
+      "bubble wrap",
+      "honeycomb paper",
+      "đóng gói thương mại điện tử",
+      "băng keo chữ h",
+      "tem vận đơn",
+      "giấy tổ ong",
+      "sữa",
+      "dầu gội",
+      "mì gói"
+    ]
+  },
+  {
+    "documentId": "SOP_FMCG_PK_01_EN",
+    "sectionId": "PACK_CROSS_CONTAM",
+    "title": "Cross-Contamination Prevention in Mixed Orders",
+    "content": "When an order contains both food items (noodles, snacks, milk) and chemical/cosmetic products (shampoo, toilet cleaner, detergent): 1. DIRECT CONTACT between chemicals and food is STRICTLY PROHIBITED. 2. Liquid chemical bottles must be sealed with a strip of tape over the cap and enclosed securely in a separate zip-lock bag. 3. Place the chemical products at the bottom of the carton, and light food items (noodles, snacks) on top to prevent crushing and odor contamination.",
+    "source_status": "official_release",
+    "runtime_approved": true,
+    "language": "en",
+    "keywords": [
+      "cross-contamination",
+      "mixed orders",
+      "chemical",
+      "cosmetic",
+      "zip-lock",
+      "food",
+      "chống nhiễm chéo",
+      "đơn hỗn hợp",
+      "hóa mỹ phẩm",
+      "hóa chất",
+      "thực phẩm",
+      "túi zip",
+      "dầu gội",
+      "chất tẩy rửa",
+      "mì gói",
+      "sữa"
+    ]
+  },
+  {
+    "documentId": "SOP_FMCG_INV_01_EN",
+    "sectionId": "FEFO_CONTROL",
+    "title": "Expiry Date Control (FEFO) for Consumer Goods",
+    "content": "All FMCG products, especially Milk, Instant Noodles, and Beverages, must strictly follow the FEFO (First Expired, First Out) principle. Picking staff must pick the batches located at the front of the shelf. If any product is found with swollen packaging (for noodles/snacks) or has less than 30 days of shelf-life remaining (near-expiry), it must be moved to the 'Defective/Near-Expiry' basket immediately and cannot be packed for customer orders.",
+    "source_status": "official_release",
+    "runtime_approved": true,
+    "language": "en",
+    "keywords": [
+      "fefo",
+      "first expired first out",
+      "near-expiry",
+      "shelf-life",
+      "swollen packaging",
+      "defective",
+      "milk",
+      "instant noodles",
+      "beverages",
+      "hạn dùng trước xuất trước",
+      "cận hạn",
+      "bao bì phồng",
+      "hàng lỗi",
+      "sữa",
+      "mì gói",
+      "đồ uống"
+    ]
   }
 ]

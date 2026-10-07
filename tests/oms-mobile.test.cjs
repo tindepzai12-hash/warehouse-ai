@@ -1,0 +1,86 @@
+const {test}=require('node:test');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const os=require('node:os');
+const path=require('node:path');
+const crypto=require('node:crypto');
+const {createApp}=require('../server');
+
+test('web assignment reaches employee mobile and mobile updates return to web',async t=>{
+  const tempRoot=fs.mkdtempSync(path.join(os.tmpdir(),'jarvis-mobile-sync-'));
+  process.env.DATABASE_PATH=path.join(tempRoot,'warehouse.sqlite3');
+  process.env.NODE_ENV='test';
+  process.env.OMS_DEMO_PASSWORD='123456';
+  process.env.OPENAI_API_KEY='';
+  const app=createApp();
+  await app.locals.bootstrapPromise;
+  const server=app.listen(0,'127.0.0.1');
+  await new Promise(resolve=>server.once('listening',resolve));
+  const base='http://127.0.0.1:'+server.address().port+'/api/oms';
+  t.after(async()=>{
+    await new Promise(resolve=>server.close(resolve));
+    await new Promise(resolve=>app.locals.store.db.close(resolve));
+    fs.rmSync(tempRoot,{recursive:true,force:true});
+  });
+  async function call(route,options={}){
+    const response=await fetch(base+route,options);
+    return {status:response.status,body:await response.json(),cookie:response.headers.get('set-cookie')};
+  }
+  const login=await call('/auth/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:'JustinandJarVis',password:'123456'})});
+  assert.equal(login.status,200);
+  const webHeaders={Cookie:login.cookie.split(';')[0],'X-CSRF-Token':login.body.csrfToken,'Content-Type':'application/json'};
+  const created=await call('/tasks',{method:'POST',headers:webHeaders,body:JSON.stringify({taskType:'RECEIVING',title:'Kiểm đếm lô sữa B',productId:'prod-b',locationId:'loc-b03',expectedQuantity:12})});
+  assert.equal(created.status,201);
+  const assigned=await call('/tasks/'+created.body.id+'/assign',{method:'POST',headers:webHeaders,body:JSON.stringify({employeeCode:'NV-00101'})});
+  assert.equal(assigned.status,200);
+  const mobileLogin=await call('/mobile/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({employeeCode:'NV-00101',password:'123456'})});
+  assert.equal(mobileLogin.status,200);
+  assert.equal(mobileLogin.body.user.employeeCode,'NV-00101');
+  const mobileHeaders={Authorization:'Bearer '+mobileLogin.body.accessToken,'Content-Type':'application/json'};
+  const mobileTasks=await call('/mobile/tasks',{headers:mobileHeaders});
+  assert.equal(mobileTasks.status,200);
+  const task=mobileTasks.body.tasks.find(item=>item.id===created.body.id);
+  assert.equal(task.employeeCode,'NV-00101');
+  assert.equal(task.barcode,'8938500000029');
+  const allInventory=await call('/mobile/inventory',{headers:mobileHeaders});
+  assert.equal(allInventory.status,200);
+  assert.equal(allInventory.body.synthetic,true);
+  assert.ok(allInventory.body.items.length>=5);
+  assert.ok(allInventory.body.items.some(row=>row.lotCode==='LOT-C2401'));
+  const inventory=await call('/mobile/inventory/search?q=8938500000029',{headers:mobileHeaders});
+  assert.equal(inventory.status,200);
+  assert.equal(inventory.body.items.length,2);
+  assert.ok(inventory.body.items.every(row=>row.productId==='prod-b'));
+  const requestId=crypto.randomUUID();
+  const firstEvent={status:'ACCEPTED',requestId};
+  const accepted=await call('/mobile/tasks/'+task.id+'/status',{method:'POST',headers:mobileHeaders,body:JSON.stringify(firstEvent)});
+  assert.equal(accepted.status,200);
+  assert.equal(accepted.body.status,'ACCEPTED');
+  const replay=await call('/mobile/tasks/'+task.id+'/status',{method:'POST',headers:mobileHeaders,body:JSON.stringify(firstEvent)});
+  assert.equal(replay.status,200);
+  const changedReplay=await call('/mobile/tasks/'+task.id+'/status',{method:'POST',headers:mobileHeaders,body:JSON.stringify({status:'IN_PROGRESS',requestId})});
+  assert.equal(changedReplay.status,409);
+  for(const next of ['IN_PROGRESS','COMPLETED']){
+    const result=await call('/mobile/tasks/'+task.id+'/status',{method:'POST',headers:mobileHeaders,body:JSON.stringify({status:next,requestId:crypto.randomUUID()})});
+    assert.equal(result.status,200);
+  }
+  const webTasks=await call('/tasks',{headers:webHeaders});
+  assert.equal(webTasks.body.find(item=>item.id===task.id).status,'COMPLETED');
+  const conversation=await call('/conversations',{method:'POST',headers:webHeaders,body:JSON.stringify({employeeCode:'NV-00101'})});
+  assert.equal(conversation.status,200);
+  const sent=await call('/mobile/conversations/'+conversation.body.id+'/messages',{method:'POST',headers:mobileHeaders,body:JSON.stringify({content:'Em đã hoàn tất kiểm đếm.'})});
+  assert.equal(sent.status,201);
+  const webMessages=await call('/conversations/'+conversation.body.id+'/messages',{headers:webHeaders});
+  assert.ok(webMessages.body.some(row=>row.content==='Em đã hoàn tất kiểm đếm.'));
+  const managerReply=await call('/conversations/'+conversation.body.id+'/messages',{method:'POST',headers:webHeaders,body:JSON.stringify({content:'Đã nhận. Em kiểm tra tiếp kệ D nhé.'})});
+  assert.equal(managerReply.status,201);
+  const mobileMessages=await call('/mobile/conversations/'+conversation.body.id+'/messages',{headers:mobileHeaders});
+  assert.equal(mobileMessages.status,200);
+  assert.ok(mobileMessages.body.messages.some(row=>row.content==='Đã nhận. Em kiểm tra tiếp kệ D nhé.'));
+  const jarvis=await call('/mobile/jarvis/chat',{method:'POST',headers:mobileHeaders,body:JSON.stringify({message:'Barcode 8938500000029 có những lô nào?'})});
+  assert.equal(jarvis.status,200);
+  assert.equal(jarvis.body.mode,'local-data');
+  assert.equal(jarvis.body.sources.length,2);
+  assert.equal((await call('/mobile/logout',{method:'POST',headers:mobileHeaders})).status,200);
+  assert.equal((await call('/mobile/tasks',{headers:mobileHeaders})).status,401);
+});

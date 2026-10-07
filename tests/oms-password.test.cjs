@@ -1,0 +1,23 @@
+const {test}=require('node:test');
+const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path');
+const {createApp}=require('../server');
+test('own password validates current secret and revokes all sessions; stock is untouched',async t=>{
+ const temp=fs.mkdtempSync(path.join(os.tmpdir(),'jarvis-password-')),saved={...process.env};
+ Object.assign(process.env,{DATABASE_PATH:path.join(temp,'db.sqlite'),NODE_ENV:'test',OMS_SEED_DEMO:'true',OMS_DEMO_PASSWORD:'123456',OPENAI_API_KEY:''});
+ const app=createApp();await app.locals.bootstrapPromise;const server=app.listen(0,'127.0.0.1');await new Promise(r=>server.once('listening',r));
+ t.after(async()=>{await new Promise(r=>server.close(r));await new Promise(r=>app.locals.store.db.close(r));fs.rmSync(temp,{recursive:true,force:true});for(const k of Object.keys(process.env))if(!(k in saved))delete process.env[k];Object.assign(process.env,saved);});
+ const base='http://127.0.0.1:'+server.address().port+'/api/oms/mobile';
+ const call=(route,body,token)=>fetch(base+route,{method:'POST',headers:{'Content-Type':'application/json',...(token?{Authorization:'Bearer '+token}:{})},body:JSON.stringify(body)});
+ assert.equal((await call('/account/password',{currentPassword:'123456',newPassword:'new-password-123'})).status,401);
+ const login=await(await call('/login',{employeeCode:'NV-00101',password:'123456'})).json();
+ const login2=await(await call('/login',{employeeCode:'NV-00101',password:'123456'})).json();
+ const stock=await app.locals.omsStore.inventory('');
+ assert.equal((await call('/account/password',{currentPassword:'wrong',newPassword:'new-password-123'},login.accessToken)).status,422);
+ assert.equal((await call('/account/password',{currentPassword:'123456',newPassword:'short'},login.accessToken)).status,422);
+ assert.equal((await call('/account/password',{currentPassword:'123456',newPassword:'new-password-123',userId:'spoof'},login.accessToken)).status,422);
+ assert.equal((await call('/account/password',{currentPassword:'123456',newPassword:'new-password-123'},login.accessToken)).status,200);
+ for(const token of [login.accessToken,login2.accessToken])assert.equal((await fetch(base+'/me',{headers:{Authorization:'Bearer '+token}})).status,401);
+ assert.equal((await call('/login',{employeeCode:'NV-00101',password:'123456'})).status,401);
+ assert.equal((await call('/login',{employeeCode:'NV-00101',password:'new-password-123'})).status,200);
+ assert.deepEqual(await app.locals.omsStore.inventory(''),stock);
+});

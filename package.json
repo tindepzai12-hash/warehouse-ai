@@ -7,15 +7,19 @@
   "scripts": {
     "start": "node server.js",
     "test": "node --test --test-isolation=none",
-    "verify": "node --check server.js && node --check static/app.js && node --check static/i18n.js && node --check static/voice.js && node --test --test-isolation=none",
+    "verify": "node --check server.js && node --check oms/store.js && node --check oms/routes.js && node --check oms/jarvis-local.js && node --check oms-web/app.js && node --check static/app.js && node --check static/i18n.js && node --check static/voice.js && node --test --test-isolation=none",
     "validate:knowledge": "node scripts/validate-knowledge.cjs",
-    "create-user": "node provision.js"
+    "check:knowledge-update": "node scripts/update-knowledge.cjs knowledge/fmcg-sops.json",
+    "update:knowledge": "node scripts/update-knowledge.cjs knowledge/fmcg-sops.json --apply",
+    "create-user": "node provision.js",
+    "bootstrap:oms-admin": "node scripts/bootstrap-oms-admin.cjs"
   },
   "engines": {
     "node": ">=18"
   },
   "dependencies": {
     "body-parser": "^1.20.3",
+    "busboy": "^1.6.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",

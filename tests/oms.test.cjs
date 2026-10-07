@@ -1,0 +1,131 @@
+const { test } = require('node:test');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const os = require('node:os');
+const path = require('node:path');
+const crypto = require('node:crypto');
+
+const root = fs.mkdtempSync(path.join(os.tmpdir(),'jarvis-oms-test-'));
+const { createApp } = require('../server');
+
+test('OMS login, barcode/lot lookup, task assignment, receiving idempotency and chat', async t => {
+  process.env.DATABASE_PATH = path.join(root,'warehouse.sqlite3');
+  process.env.OPENAI_API_KEY = 'test-only';
+  process.env.NODE_ENV = 'test';
+  process.env.OMS_DEMO_PASSWORD = '123456';
+  const app=createApp();
+  await app.locals.bootstrapPromise;
+  const server=app.listen(0,'127.0.0.1');
+  await new Promise(resolve=>server.once('listening',resolve));
+  const base=`http://127.0.0.1:${server.address().port}/api/oms`;
+  t.after(async()=>{
+    await new Promise(resolve=>server.close(resolve));
+    await new Promise(resolve=>app.locals.store.db.close(resolve));
+    fs.rmSync(root,{recursive:true,force:true});
+  });
+  async function req(route,options={}) {
+    const response=await fetch(base+route,options);
+    return { status:response.status,body:await response.json(),cookie:response.headers.get('set-cookie') };
+  }
+  const bad=await req('/auth/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:'JustinandJarVis',password:'wrong'})});
+  assert.equal(bad.status,401);
+  const login=await req('/auth/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:'JustinandJarVis',password:'123456'})});
+  assert.equal(login.status,200);
+  assert.equal(login.body.user.username,'JustinandJarVis');
+  const cookie=login.cookie.split(';')[0];
+  const auth={Cookie:cookie};
+  const writeHeaders={...auth,'Content-Type':'application/json','X-CSRF-Token':login.body.csrfToken};
+  const me=await req('/auth/me',{headers:auth});
+  assert.equal(me.body.user.role,'MANAGER');
+  const dashboard=await req('/dashboard',{headers:auth});
+  assert.equal(dashboard.status,200);
+  assert.equal(dashboard.body.activeReturns,1);
+
+  const byBarcode=await req('/inventory/search?q=8938500000012',{headers:auth});
+  assert.equal(byBarcode.status,200);
+  assert.deepEqual(byBarcode.body.map(row=>row.lotCode),['LOT-A2401','LOT-A2402']);
+  assert.equal(byBarcode.body.reduce((sum,row)=>sum+row.available,0),200);
+  const byLot=await req('/inventory/search?q=LOT-A2402',{headers:auth});
+  assert.equal(byLot.body.length,1);
+  assert.equal(byLot.body[0].locationCode,'A-17');
+
+  const receiving=await req('/receiving',{headers:auth});
+  assert.ok(receiving.body.some(row=>row.receiving_code==='RCV-00101' && row.status==='SHORTAGE' && row.shortage_quantity===4));
+  const requestId=crypto.randomUUID();
+  const confirmation={actualQuantity:46,requestId};
+  const confirmed=await req('/receiving/rec-3/confirm',{method:'POST',headers:writeHeaders,body:JSON.stringify(confirmation)});
+  assert.equal(confirmed.status,200);
+  assert.equal(confirmed.body.shortage_quantity,4);
+  assert.equal(confirmed.body.status,'SHORTAGE');
+  const replay=await req('/receiving/rec-3/confirm',{method:'POST',headers:writeHeaders,body:JSON.stringify(confirmation)});
+  assert.equal(replay.status,200);
+  const movements=await app.locals.omsStore.all('SELECT * FROM oms_inventory_movements WHERE request_id=?',[requestId]);
+  assert.equal(movements.length,1);
+
+  const suggestion=await req('/tasks/task-3/suggestion',{headers:auth});
+  assert.equal(suggestion.status,200);
+  assert.match(suggestion.body.employeeCode,/^NV-\d{5}$/);
+  assert.equal(Object.hasOwn(suggestion.body,'backupEmployee'),false);
+  const noCsrf=await req('/tasks/task-3/assign',{method:'POST',headers:{...auth,'Content-Type':'application/json'},body:JSON.stringify({employeeCode:suggestion.body.employeeCode})});
+  assert.equal(noCsrf.status,403);
+  const assigned=await req('/tasks/task-3/assign',{method:'POST',headers:writeHeaders,body:JSON.stringify({employeeCode:suggestion.body.employeeCode})});
+  assert.equal(assigned.status,200);
+  assert.equal(assigned.body.status,'ASSIGNED');
+
+  const product=await req('/products',{method:'POST',headers:writeHeaders,body:JSON.stringify({sku:'SKU-D004',name:'Nước uống thử nghiệm',barcode:'8938500000043',unit:'chai',lotTrackingRequired:true})});
+  assert.equal(product.status,201);
+  const duplicate=await req('/products',{method:'POST',headers:writeHeaders,body:JSON.stringify({sku:'SKU-D004',name:'Trùng',barcode:'8938500000044',unit:'chai'})});
+  assert.equal(duplicate.status,409);
+  const lot=await req('/lots',{method:'POST',headers:writeHeaders,body:JSON.stringify({productId:product.body.id,lotCode:'LOT-D2401',receivedAt:'2026-09-29',expiryDate:'2027-09-29'})});
+  assert.equal(lot.status,201);
+  const newReceiving=await req('/receiving',{method:'POST',headers:writeHeaders,body:JSON.stringify({productId:product.body.id,lotId:lot.body.id,locationId:'loc-a12',expectedQuantity:10})});
+  assert.equal(newReceiving.status,201);
+  const newConfirmed=await req('/receiving/'+newReceiving.body.id+'/confirm',{method:'POST',headers:writeHeaders,body:JSON.stringify({actualQuantity:10,requestId:crypto.randomUUID()})});
+  assert.equal(newConfirmed.body.status,'COMPLETE');
+
+  const createdReturn=await req('/returns',{method:'POST',headers:writeHeaders,body:JSON.stringify({orderId:'ord-3',orderItemId:'oi-3',quantity:2,reason:'Khách trả hàng còn nguyên vẹn'})});
+  assert.equal(createdReturn.status,201);
+  assert.equal(createdReturn.body.status,'REQUESTED');
+  const returnCode=createdReturn.body.return_code;
+  assert.equal((await req('/returns/'+returnCode+'/status',{method:'POST',headers:writeHeaders,body:JSON.stringify({status:'RECEIVED'})})).body.status,'RECEIVED');
+  assert.equal((await req('/returns/'+returnCode+'/status',{method:'POST',headers:writeHeaders,body:JSON.stringify({status:'INSPECTING'})})).body.status,'INSPECTING');
+  const returnRequestId=crypto.randomUUID();
+  const restockPayload={returnItemId:createdReturn.body.items[0].id,lotId:'lot-c1',locationId:'loc-c02',quantity:2,requestId:returnRequestId};
+  const restocked=await req('/returns/'+returnCode+'/restock',{method:'POST',headers:writeHeaders,body:JSON.stringify(restockPayload)});
+  assert.equal(restocked.status,200);
+  assert.equal(restocked.body.status,'RESTOCKED');
+  const restockReplay=await req('/returns/'+returnCode+'/restock',{method:'POST',headers:writeHeaders,body:JSON.stringify(restockPayload)});
+  assert.equal(restockReplay.status,200);
+  assert.equal((await app.locals.omsStore.all('SELECT id FROM oms_inventory_movements WHERE request_id=?',[returnRequestId])).length,1);
+
+  const conversation=await req('/conversations',{method:'POST',headers:writeHeaders,body:JSON.stringify({employeeCode:'NV-00101'})});
+  assert.equal(conversation.status,200);
+  const sent=await req(`/conversations/${conversation.body.id}/messages`,{method:'POST',headers:writeHeaders,body:JSON.stringify({content:'Xác nhận số thực nhận nhé.'})});
+  assert.equal(sent.status,201);
+  const messages=await req(`/conversations/${conversation.body.id}/messages`,{headers:auth});
+  assert.ok(messages.body.some(message=>message.content==='Xác nhận số thực nhận nhé.'));
+  const jarvis=await req('/jarvis/chat',{method:'POST',headers:writeHeaders,body:JSON.stringify({message:'Barcode 8938500000012 có những lô nào?'})});
+  assert.equal(jarvis.status,200);
+  assert.equal(jarvis.body.mode,'local-data');
+  assert.equal(jarvis.body.externalTransmission,false);
+  assert.match(jarvis.body.message,/LOT-A2401/);
+  assert.match(jarvis.body.message,/LOT-A2402/);
+  assert.equal(jarvis.body.sources.length,2);
+  const aiHistory=await req(`/jarvis/conversations/${jarvis.body.conversationId}/messages`,{headers:auth});
+  assert.equal(aiHistory.body.length,2);
+  const logout=await req('/auth/logout',{method:'POST',headers:writeHeaders});
+  assert.equal(logout.status,200);
+  assert.equal((await req('/dashboard',{headers:auth})).status,401);
+  const workerLogin=await req('/auth/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:'NV-00101',password:'123456'})});
+  assert.equal(workerLogin.status,200);
+  const workerAuth={Cookie:workerLogin.cookie.split(';')[0]};
+  assert.equal((await req('/dashboard',{headers:workerAuth})).status,403);
+  assert.equal((await req('/orders',{headers:workerAuth})).status,403);
+  assert.equal((await req('/returns',{headers:workerAuth})).status,403);
+  assert.equal((await req('/employees',{headers:workerAuth})).status,403);
+  const workerTasks=await req('/tasks',{headers:workerAuth});
+  assert.equal(workerTasks.status,200);
+  assert.ok(workerTasks.body.every(task=>task.employee_id==='emp-101'));
+  const workerConversations=await req('/conversations',{headers:workerAuth});
+  assert.ok(workerConversations.body.every(item=>item.employeeCode==='NV-00101'));
+});
