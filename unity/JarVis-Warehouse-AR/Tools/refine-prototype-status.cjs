@@ -1,0 +1,3 @@
+const fs=require('node:fs');
+const file='Assets/JarVis/Scripts/UI/ImportedPresence.cs';let s=fs.readFileSync(file,'utf8');const before='nav.Show(CanWork?"126:8":"85:14",false);}';if(!s.includes(before))throw Error('Presence state owner changed');s=s.replace(before,'nav.Show(CanWork?"126:8":"85:14",false);Paint();}');fs.writeFileSync(file,s);
+const shader='Assets/Resources/JarVisShaders/UniformSurface.shader';s=fs.readFileSync(shader,'utf8');if(!s.includes('c.a*=coverage;'))throw Error('Surface coverage missing');s=s.replace('c.a*=coverage;','c.rgb=saturate(c.rgb); // UI colors stay inside display range; no HDR bloom halo.\nc.a*=coverage;');fs.writeFileSync(shader,s);

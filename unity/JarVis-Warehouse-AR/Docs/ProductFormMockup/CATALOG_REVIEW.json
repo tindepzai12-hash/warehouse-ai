@@ -1,0 +1,244 @@
+{
+  "checks": [
+    {
+      "label": "Five categories in live prototype",
+      "pass": true
+    },
+    {
+      "label": "drink: all requested templates rendered",
+      "pass": true
+    },
+    {
+      "label": "fashion: all requested templates rendered",
+      "pass": true
+    },
+    {
+      "label": "home: all requested templates rendered",
+      "pass": true
+    },
+    {
+      "label": "care: all requested templates rendered",
+      "pass": true
+    },
+    {
+      "label": "other: all requested templates rendered",
+      "pass": true
+    },
+    {
+      "label": "Drink quantity attribute prefilled",
+      "pass": true
+    },
+    {
+      "label": "Old question removed",
+      "pass": true
+    },
+    {
+      "label": "No SKU-level production or expiry date",
+      "pass": true
+    },
+    {
+      "label": "No duplicate warehouse inputs",
+      "pass": true
+    },
+    {
+      "label": "Unit switch preserves 180ml as 0.18l",
+      "pass": true
+    },
+    {
+      "label": "1l canonical preview is 1000ml",
+      "pass": true
+    },
+    {
+      "label": "Invalid custom quantity rejected",
+      "pass": true
+    },
+    {
+      "label": "Negative count rejected",
+      "pass": true
+    },
+    {
+      "label": "Manufacture after expiry rejected",
+      "pass": true
+    },
+    {
+      "label": "Expired receipt gets warning without stock update",
+      "pass": true
+    },
+    {
+      "label": "Back retains draft quantity",
+      "pass": true
+    },
+    {
+      "label": "Existing fixture SKU reused, not registered again",
+      "pass": true
+    },
+    {
+      "label": "Existing barcode locked against editing",
+      "pass": true
+    },
+    {
+      "label": "Shoe EU system separate from garment sizes",
+      "pass": true
+    },
+    {
+      "label": "Shoe form does not use M",
+      "pass": true
+    },
+    {
+      "label": "Fashion has no expiry",
+      "pass": true
+    },
+    {
+      "label": "Accessory has no redundant garment fields",
+      "pass": true
+    },
+    {
+      "label": "Pan diameter cm",
+      "pass": true
+    },
+    {
+      "label": "Pan is not generic size or oven capacity",
+      "pass": true
+    },
+    {
+      "label": "Microwave capacity litres",
+      "pass": true
+    },
+    {
+      "label": "Microwave body dimensions centimetres",
+      "pass": true
+    },
+    {
+      "label": "Missing appliance model rejected",
+      "pass": true
+    },
+    {
+      "label": "Lipstick supports gram",
+      "pass": true
+    },
+    {
+      "label": "Mass-volume switch clears value instead of fake conversion",
+      "pass": true
+    },
+    {
+      "label": "Cosmetic receipt has lot dates",
+      "pass": true
+    },
+    {
+      "label": "HSD cannot be added as arbitrary SKU attribute",
+      "pass": true
+    },
+    {
+      "label": "Custom typed length canonical value",
+      "pass": true
+    },
+    {
+      "label": "No fake product save",
+      "pass": true
+    },
+    {
+      "label": "Private custom template reusable in session",
+      "pass": true
+    },
+    {
+      "label": "Recover by existing lot fixture",
+      "pass": true
+    },
+    {
+      "label": "Reprint preserves selected barcode",
+      "pass": true
+    },
+    {
+      "label": "Recovery label uses original code",
+      "pass": true
+    },
+    {
+      "label": "Unapproved employee print capability blocked",
+      "pass": true
+    },
+    {
+      "label": "Web print history retains barcode",
+      "pass": true
+    },
+    {
+      "label": "History does not falsely claim physical print",
+      "pass": true
+    },
+    {
+      "label": "Web schema editor displays dynamic drink attributes",
+      "pass": true
+    },
+    {
+      "label": "Admin config only applies to prototype",
+      "pass": true
+    },
+    {
+      "label": "Admin option consumed by form from shared schema",
+      "pass": true
+    },
+    {
+      "label": "Admin brand consumed by form in same prototype",
+      "pass": true
+    },
+    {
+      "label": "No overflow at 390",
+      "pass": true
+    },
+    {
+      "label": "Category touch targets 390",
+      "pass": true
+    },
+    {
+      "label": "No overflow at 412",
+      "pass": true
+    },
+    {
+      "label": "Category touch targets 412",
+      "pass": true
+    },
+    {
+      "label": "No overflow at 768",
+      "pass": true
+    },
+    {
+      "label": "Category touch targets 768",
+      "pass": true
+    },
+    {
+      "label": "No overflow at 1280",
+      "pass": true
+    },
+    {
+      "label": "Category touch targets 1280",
+      "pass": true
+    },
+    {
+      "label": "No browser errors",
+      "pass": true
+    },
+    {
+      "label": "No external requests",
+      "pass": true
+    },
+    {
+      "label": "No mutation requests",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "mutationRequests": [],
+  "screenshots": [
+    "Catalog-Categories.png",
+    "Catalog-Drink.png",
+    "Catalog-Fashion.png",
+    "Catalog-Pan.png",
+    "Catalog-Microwave.png",
+    "Catalog-Cosmetics.png",
+    "Catalog-Other.png",
+    "Catalog-Recovery.png",
+    "Catalog-Web-Labels.png",
+    "Catalog-Web-Catalog.png",
+    "Catalog-Mobile-390.png"
+  ]
+}

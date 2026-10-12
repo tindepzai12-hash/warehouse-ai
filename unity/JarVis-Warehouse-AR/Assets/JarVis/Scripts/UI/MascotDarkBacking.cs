@@ -1,0 +1,2 @@
+using UnityEngine;
+namespace JarVis.Warehouse.UI { public sealed class MascotDarkBacking:MonoBehaviour {ImportedSettings settings;CanvasGroup group;public void Configure(ImportedSettings value){settings=value;group=gameObject.AddComponent<CanvasGroup>();group.blocksRaycasts=false;group.interactable=false;Refresh();}void Update(){Refresh();}void Refresh(){if(group!=null)group.alpha=settings!=null&&settings.Dark?1:0;}} }

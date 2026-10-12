@@ -1,0 +1,65 @@
+[
+  {
+    "selector": ".phone-top",
+    "x": 1,
+    "y": 44,
+    "w": 410,
+    "h": 97
+  },
+  {
+    "selector": ".profile strong",
+    "x": 91,
+    "y": 67.203125,
+    "w": 242,
+    "h": 27
+  },
+  {
+    "selector": ".profile small",
+    "x": 91,
+    "y": 94.203125,
+    "w": 242,
+    "h": 17.59375
+  },
+  {
+    "selector": ".portrait",
+    "x": 29,
+    "y": 65.5,
+    "w": 44,
+    "h": 44
+  },
+  {
+    "selector": ".go-online",
+    "x": 23,
+    "y": 141,
+    "w": 366,
+    "h": 44
+  },
+  {
+    "selector": ".offline-body",
+    "x": 1,
+    "y": 203,
+    "w": 410,
+    "h": 711
+  },
+  {
+    "selector": ".lock-message",
+    "x": 29,
+    "y": 403.3125,
+    "w": 354,
+    "h": 195.375
+  },
+  {
+    "selector": ".lock-message h2",
+    "x": 29,
+    "y": 497.3125,
+    "w": 354,
+    "h": 33
+  },
+  {
+    "selector": ".lock-message p",
+    "x": 29,
+    "y": 548.3125,
+    "w": 354,
+    "h": 50.375
+  }
+]

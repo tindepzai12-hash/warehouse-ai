@@ -1,0 +1,3 @@
+const fs=require('fs'),z=require('zlib');
+const document=JSON.parse(z.gunzipSync(fs.readFileSync('Assets/JarVis/DesignImports/JarVis-App-Imported.figma')));const entries=[];
+function visit(n){const f=(n.fills||[]).find(x=>x.type==='SOLID'&&x.visible!==false);if(f&&['FRAME','RECTANGLE','ELLIPSE'].includes(n.type)&&!(n.fills||[]).some(x=>x.type==='IMAGE'))entries.push({id:n.id,fill:{...f.color,a:(f.color.a??1)*(f.opacity??1)},radius:n.cornerRadius||0});(n.children||[]).forEach(visit);}visit(document.document);fs.writeFileSync('Assets/Resources/JarVisThemeSurfaces.json',JSON.stringify({entries}));console.log(entries.length+' imported surface colors');

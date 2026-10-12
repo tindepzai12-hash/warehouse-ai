@@ -1,0 +1,22 @@
+* text=auto
+*.meta text eol=lf
+*.cs text eol=lf diff=csharp
+*.shader text eol=lf
+*.compute text eol=lf
+*.json text eol=lf
+*.asmdef text eol=lf
+*.unity text eol=lf
+*.prefab text eol=lf
+*.asset text eol=lf
+*.mat text eol=lf
+*.controller text eol=lf
+*.anim text eol=lf
+*.png -text
+*.jpg -text
+*.jpeg -text
+*.psd -text
+*.fbx -text
+*.blend -text
+*.wav -text
+*.mp3 -text
+*.mp4 -text

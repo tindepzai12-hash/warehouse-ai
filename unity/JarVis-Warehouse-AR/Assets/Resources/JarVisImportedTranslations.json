@@ -1,0 +1,1316 @@
+{
+  "entries": [
+    {
+      "vi": "'SIZE: 50x30mm'",
+      "en": "Label size: 50 × 30 mm"
+    },
+    {
+      "vi": "-3 • Cận hạn: 2",
+      "en": "-3 • Near expiry: 2"
+    },
+    {
+      "vi": "0 Hộp",
+      "en": "0 cartons"
+    },
+    {
+      "vi": "0 Thùng",
+      "en": "0 cases"
+    },
+    {
+      "vi": "0 lô",
+      "en": "0 lots"
+    },
+    {
+      "vi": "0/0 Thùng",
+      "en": "0/0 cases"
+    },
+    {
+      "vi": "0/0 hoàn thành",
+      "en": "0/0 completed"
+    },
+    {
+      "vi": "08:45 • Kệ B1-05 • Minh",
+      "en": "08:45 • Rack B1-05 • Minh"
+    },
+    {
+      "vi": "09:12 • Kệ A3-02 • Minh",
+      "en": "09:12 • Rack A3-02 • Minh"
+    },
+    {
+      "vi": "09:41 • JarVis AI",
+      "en": "09:41 • JarVis AI"
+    },
+    {
+      "vi": "09:42 · Quản lý",
+      "en": "09:42 · Manager"
+    },
+    {
+      "vi": "1 giờ",
+      "en": "1 hour"
+    },
+    {
+      "vi": "10 phút trước • Kệ B1-T1-12 • -5 Thùng",
+      "en": "10 min ago • Rack B1-T1-12 • -5 cases"
+    },
+    {
+      "vi": "30 phút",
+      "en": "30 min"
+    },
+    {
+      "vi": "45 phút",
+      "en": "45 min"
+    },
+    {
+      "vi": "50 × 30 mm",
+      "en": "50 × 30 mm"
+    },
+    {
+      "vi": "80 × 120 mm",
+      "en": "80 × 120 mm"
+    },
+    {
+      "vi": "A1",
+      "en": "A1"
+    },
+    {
+      "vi": "A2",
+      "en": "A2"
+    },
+    {
+      "vi": "A3",
+      "en": "A3"
+    },
+    {
+      "vi": "A4",
+      "en": "A4"
+    },
+    {
+      "vi": "B1",
+      "en": "B1"
+    },
+    {
+      "vi": "B2",
+      "en": "B2"
+    },
+    {
+      "vi": "B3",
+      "en": "B3"
+    },
+    {
+      "vi": "B4",
+      "en": "B4"
+    },
+    {
+      "vi": "Báo cáo lệch",
+      "en": "Report discrepancy"
+    },
+    {
+      "vi": "Báo cáo sự cố",
+      "en": "Incident report"
+    },
+    {
+      "vi": "Báo sự cố",
+      "en": "Report incident"
+    },
+    {
+      "vi": "Báo thiếu hàng",
+      "en": "Report shortage"
+    },
+    {
+      "vi": "BẢN XEM TRƯỚC TEM IN",
+      "en": "LABEL PREVIEW"
+    },
+    {
+      "vi": "BẢO MẬT",
+      "en": "SECURITY"
+    },
+    {
+      "vi": "Bản đồ",
+      "en": "Map"
+    },
+    {
+      "vi": "Bản đồ kho",
+      "en": "Warehouse map"
+    },
+    {
+      "vi": "BẬT TRỰC TUYẾN",
+      "en": "GO ONLINE"
+    },
+    {
+      "vi": "Bắt đầu",
+      "en": "Start"
+    },
+    {
+      "vi": "CHI TIẾT NHIỆM VỤ",
+      "en": "TASK DETAILS"
+    },
+    {
+      "vi": "Cao",
+      "en": "High"
+    },
+    {
+      "vi": "Chat quản lý",
+      "en": "Message manager"
+    },
+    {
+      "vi": "Chi tiết kiểm kê",
+      "en": "Stocktake details"
+    },
+    {
+      "vi": "Chi tiết lưu trữ",
+      "en": "Storage details"
+    },
+    {
+      "vi": "Chi tiết nhiệm vụ",
+      "en": "Task details"
+    },
+    {
+      "vi": "Chào Minh, tôi tìm thấy sản phẩm sữa tươi tiệt trùng của bạn:",
+      "en": "Hi Minh, I found your UHT milk product:"
+    },
+    {
+      "vi": "Chênh lệch:",
+      "en": "Variance:"
+    },
+    {
+      "vi": "Chưa có cuộc trò chuyện",
+      "en": "No conversations yet"
+    },
+    {
+      "vi": "Chưa có dữ liệu",
+      "en": "No data yet"
+    },
+    {
+      "vi": "Chưa có hàng hóa",
+      "en": "No products yet"
+    },
+    {
+      "vi": "Chưa có kết quả thực hiện",
+      "en": "No task results yet"
+    },
+    {
+      "vi": "Chưa có mã đã quét",
+      "en": "No scanned codes yet"
+    },
+    {
+      "vi": "Chưa có nhiệm vụ",
+      "en": "No tasks yet"
+    },
+    {
+      "vi": "Chưa có sơ đồ kho",
+      "en": "No warehouse layout yet"
+    },
+    {
+      "vi": "Chưa trực tuyến",
+      "en": "Offline"
+    },
+    {
+      "vi": "Chế độ buổi tối",
+      "en": "Dark mode"
+    },
+    {
+      "vi": "Chế độ chỉ đường trực tiếp",
+      "en": "Live guidance"
+    },
+    {
+      "vi": "Chụp ảnh",
+      "en": "Take photo"
+    },
+    {
+      "vi": "Cài đặt",
+      "en": "Settings"
+    },
+    {
+      "vi": "Còn hạn",
+      "en": "Within shelf life"
+    },
+    {
+      "vi": "Căn giữa mã vạch / QR Code trong khung hình",
+      "en": "Center the barcode / QR code in the frame"
+    },
+    {
+      "vi": "CẤU HÌNH & TÙY CHỌN",
+      "en": "PREFERENCES"
+    },
+    {
+      "vi": "Cỡ chữ",
+      "en": "Text size"
+    },
+    {
+      "vi": "Dùng thử Demo",
+      "en": "Try demo"
+    },
+    {
+      "vi": "EN",
+      "en": "EN"
+    },
+    {
+      "vi": "Em đã kiểm đếm LOT-B2401: 120 hộp tại B-03.",
+      "en": "I counted LOT-B2401: 120 cartons at B-03."
+    },
+    {
+      "vi": "Giao dịch gần đây",
+      "en": "Recent transactions"
+    },
+    {
+      "vi": "GỌI KHẨN CẤP",
+      "en": "EMERGENCY CALL"
+    },
+    {
+      "vi": "Gửi báo cáo sự cố",
+      "en": "Submit incident report"
+    },
+    {
+      "vi": "Hiện tại",
+      "en": "Current"
+    },
+    {
+      "vi": "Hoàn thành:",
+      "en": "Completed:"
+    },
+    {
+      "vi": "Hoàn tất",
+      "en": "Finish"
+    },
+    {
+      "vi": "Hoàn tất & về danh sách",
+      "en": "Finish & return to tasks"
+    },
+    {
+      "vi": "Hoạt động gần đây",
+      "en": "Recent activity"
+    },
+    {
+      "vi": "Hàng hư hỏng",
+      "en": "Damaged goods"
+    },
+    {
+      "vi": "Hàng sữa tươi tiệt trùng còn tồn bao nhiêu và nằm ở vị trí nào?",
+      "en": "How much UHT milk is in stock, and where is it stored?"
+    },
+    {
+      "vi": "Hình ảnh minh chứng",
+      "en": "Photo evidence"
+    },
+    {
+      "vi": "Hôm nay",
+      "en": "Today"
+    },
+    {
+      "vi": "Hôm nay, 09:12 • Thủ kho: Minh",
+      "en": "Today, 09:12 • Warehouse keeper: Minh"
+    },
+    {
+      "vi": "Hôm qua, 14:30 • Thủ kho: Bình",
+      "en": "Yesterday, 14:30 • Warehouse keeper: Bình"
+    },
+    {
+      "vi": "Hạn sử dụng",
+      "en": "Expiry date"
+    },
+    {
+      "vi": "HỆ THỐNG",
+      "en": "SYSTEM"
+    },
+    {
+      "vi": "Hỏi JarVis...",
+      "en": "Ask JarVis..."
+    },
+    {
+      "vi": "Hộp",
+      "en": "Carton"
+    },
+    {
+      "vi": "Hộp (1 Lít)",
+      "en": "Carton (1 liter)"
+    },
+    {
+      "vi": "In tem",
+      "en": "Print labels"
+    },
+    {
+      "vi": "JarVis",
+      "en": "JarVis"
+    },
+    {
+      "vi": "Trợ lý AI JarVis",
+      "en": "JarVis AI Assistant"
+    },
+    {
+      "vi": "JarVis Fulfillment",
+      "en": "JarVis Fulfillment"
+    },
+    {
+      "vi": "Kiểm kê hoàn tất: Lô bia Heineken",
+      "en": "Stocktake completed: Heineken beer lot"
+    },
+    {
+      "vi": "Kiểm tra tồn kho",
+      "en": "Check inventory"
+    },
+    {
+      "vi": "Kích thước tem",
+      "en": "Label size"
+    },
+    {
+      "vi": "KẾT QUẢ NHIỆM VỤ",
+      "en": "TASK RESULTS"
+    },
+    {
+      "vi": "Loại sự cố",
+      "en": "Incident type"
+    },
+    {
+      "vi": "Lô #2847 • Kệ A3, Tầng 2, Ô 05",
+      "en": "Lot #2847 • Rack A3, Level 2, Bin 05"
+    },
+    {
+      "vi": "Lô hàng",
+      "en": "Lots"
+    },
+    {
+      "vi": "Lịch sử dịch chuyển",
+      "en": "Stock movements"
+    },
+    {
+      "vi": "Lối\nra",
+      "en": "Exit"
+    },
+    {
+      "vi": "Lối vào",
+      "en": "Entrance"
+    },
+    {
+      "vi": "Lối đi",
+      "en": "Aisle"
+    },
+    {
+      "vi": "Lớn",
+      "en": "Large"
+    },
+    {
+      "vi": "Mã SKU",
+      "en": "SKU"
+    },
+    {
+      "vi": "Mã nhiệm vụ: —",
+      "en": "Task ID: —"
+    },
+    {
+      "vi": "Mã nhân viên",
+      "en": "Employee ID"
+    },
+    {
+      "vi": "Mô tả chi tiết",
+      "en": "Detailed description"
+    },
+    {
+      "vi": "Mật khẩu",
+      "en": "Password"
+    },
+    {
+      "vi": "Mức độ nghiêm trọng",
+      "en": "Severity"
+    },
+    {
+      "vi": "Ngôn ngữ",
+      "en": "Language"
+    },
+    {
+      "vi": "Nhiệm vụ",
+      "en": "Tasks"
+    },
+    {
+      "vi": "Nhiệm vụ tiếp theo",
+      "en": "Next task"
+    },
+    {
+      "vi": "Nhân viên Vận hành",
+      "en": "Warehouse operator"
+    },
+    {
+      "vi": "Nhân viên kho",
+      "en": "Warehouse staff"
+    },
+    {
+      "vi": "Nhân viên vận hành",
+      "en": "Warehouse operator"
+    },
+    {
+      "vi": "Nhập / Xuất kho",
+      "en": "Goods receipt / dispatch"
+    },
+    {
+      "vi": "Nhập kho",
+      "en": "Goods receipt"
+    },
+    {
+      "vi": "Nhập kho lô mới #2847",
+      "en": "Receive new lot #2847"
+    },
+    {
+      "vi": "Nhập thủ công",
+      "en": "Enter manually"
+    },
+    {
+      "vi": "Nhắn cho quản lý...",
+      "en": "Message your manager..."
+    },
+    {
+      "vi": "Nhỏ",
+      "en": "Small"
+    },
+    {
+      "vi": "Phiên bản 1.0.0.0",
+      "en": "Version 1.0.0.0"
+    },
+    {
+      "vi": "Phím tắt nhanh",
+      "en": "Quick actions"
+    },
+    {
+      "vi": "Quá HSD",
+      "en": "Expired"
+    },
+    {
+      "vi": "Quá HSD (0)",
+      "en": "Expired (0)"
+    },
+    {
+      "vi": "Quá hạn",
+      "en": "Overdue"
+    },
+    {
+      "vi": "Quét gần đây",
+      "en": "Recent scans"
+    },
+    {
+      "vi": "Quét mã",
+      "en": "Scan code"
+    },
+    {
+      "vi": "Quét mã hoặc nhập SKU",
+      "en": "Scan code or enter SKU"
+    },
+    {
+      "vi": "Quét mã hàng hóa",
+      "en": "Scan product code"
+    },
+    {
+      "vi": "Quét mã nhanh",
+      "en": "Quick scan"
+    },
+    {
+      "vi": "Sản phẩm cần xử lý (0)",
+      "en": "Products to handle (0)"
+    },
+    {
+      "vi": "Sản phẩm đang xác nhận (0)",
+      "en": "Products to confirm (0)"
+    },
+    {
+      "vi": "Sắp hết",
+      "en": "Low stock"
+    },
+    {
+      "vi": "Sắp hết (0)",
+      "en": "Low stock (0)"
+    },
+    {
+      "vi": "Sắp hết hạn",
+      "en": "Near expiry"
+    },
+    {
+      "vi": "Số lô",
+      "en": "Lot number"
+    },
+    {
+      "vi": "Số lượng",
+      "en": "Quantity"
+    },
+    {
+      "vi": "Số lượng thực tế sau kiểm đếm",
+      "en": "Actual counted quantity"
+    },
+    {
+      "vi": "Số lượng tồn",
+      "en": "Stock on hand"
+    },
+    {
+      "vi": "Số lượng:",
+      "en": "Quantity:"
+    },
+    {
+      "vi": "Sữa UHT 1L · LOT-B2401",
+      "en": "UHT milk 1L · LOT-B2401"
+    },
+    {
+      "vi": "Sữa tươi tiệt trùng 1L",
+      "en": "UHT milk 1L"
+    },
+    {
+      "vi": "Sữa tươi tiệt trùng có đường",
+      "en": "Sweetened UHT milk"
+    },
+    {
+      "vi": "Thay đổi mật khẩu",
+      "en": "Change password"
+    },
+    {
+      "vi": "Thông tin cá nhân",
+      "en": "Personal details"
+    },
+    {
+      "vi": "Thông tin sản phẩm",
+      "en": "Product details"
+    },
+    {
+      "vi": "Thông tin từ tài khoản",
+      "en": "Account details"
+    },
+    {
+      "vi": "Thông tin ứng dụng",
+      "en": "About the app"
+    },
+    {
+      "vi": "Thùng",
+      "en": "Case"
+    },
+    {
+      "vi": "Thấp",
+      "en": "Low"
+    },
+    {
+      "vi": "Thời gian làm nhiệm vụ: —\nNội dung nhiệm vụ: Chưa có nhiệm vụ.",
+      "en": "Task duration: —\nTask description: No task assigned."
+    },
+    {
+      "vi": "Tin nhắn nội bộ",
+      "en": "Team messages"
+    },
+    {
+      "vi": "Tiến độ ca trực",
+      "en": "Shift progress"
+    },
+    {
+      "vi": "Tiếng Việt (VI)",
+      "en": "English (EN)"
+    },
+    {
+      "vi": "Tiếp tục",
+      "en": "Continue"
+    },
+    {
+      "vi": "Tra cứu",
+      "en": "Look up"
+    },
+    {
+      "vi": "Tra tồn kho",
+      "en": "Inventory lookup"
+    },
+    {
+      "vi": "Trang chủ",
+      "en": "Home"
+    },
+    {
+      "vi": "Trung bình",
+      "en": "Medium"
+    },
+    {
+      "vi": "Trợ lý kho thông minh",
+      "en": "Smart warehouse assistant"
+    },
+    {
+      "vi": "TÀI KHOẢN",
+      "en": "ACCOUNT"
+    },
+    {
+      "vi": "Tên hàng",
+      "en": "Product name"
+    },
+    {
+      "vi": "Tìm barcode, SKU hoặc mã lô...",
+      "en": "Search barcode, SKU or lot number..."
+    },
+    {
+      "vi": "Tìm tên sản phẩm, SKU,..",
+      "en": "Search product name or SKU..."
+    },
+    {
+      "vi": "Tìm vị trí hàng",
+      "en": "Find stock location"
+    },
+    {
+      "vi": "Tính năng đang bị khóa.",
+      "en": "Features are locked."
+    },
+    {
+      "vi": "Tóm tắt xử lý",
+      "en": "Resolution summary"
+    },
+    {
+      "vi": "Tôi đã đến nơi !",
+      "en": "I have arrived!"
+    },
+    {
+      "vi": "Tạo tem hàng",
+      "en": "Create labels"
+    },
+    {
+      "vi": "Tạo tem hàng hóa",
+      "en": "Create product labels"
+    },
+    {
+      "vi": "Tất cả (0)",
+      "en": "All (0)"
+    },
+    {
+      "vi": "Tồn kho",
+      "en": "Inventory"
+    },
+    {
+      "vi": "Tổng SP",
+      "en": "Products"
+    },
+    {
+      "vi": "VI",
+      "en": "VI"
+    },
+    {
+      "vi": "Vai trò & Phân quyền",
+      "en": "Role & permissions"
+    },
+    {
+      "vi": "Vui lòng bật chế độ TRỰC TUYẾN",
+      "en": "Please go ONLINE"
+    },
+    {
+      "vi": "Vui lòng di chuyển đến khu vực A",
+      "en": "Please proceed to area A"
+    },
+    {
+      "vi": "VỊ TRÍ HƯỚNG DẪN",
+      "en": "GUIDANCE LOCATION"
+    },
+    {
+      "vi": "Vị trí",
+      "en": "Location"
+    },
+    {
+      "vi": "Vị trí kho",
+      "en": "Storage location"
+    },
+    {
+      "vi": "Vị trí xảy ra sự cố",
+      "en": "Incident location"
+    },
+    {
+      "vi": "Vừa",
+      "en": "Medium"
+    },
+    {
+      "vi": "Vừa xong • Kệ A3-T2-05 • +4 Thùng",
+      "en": "Just now • Rack A3-T2-05 • +4 cases"
+    },
+    {
+      "vi": "W-4820",
+      "en": "W-4820"
+    },
+    {
+      "vi": "Xem lại",
+      "en": "Review"
+    },
+    {
+      "vi": "Xem lại nhiệm vụ",
+      "en": "Review task"
+    },
+    {
+      "vi": "Xin chào 👋",
+      "en": "Hello 👋"
+    },
+    {
+      "vi": "Xuất PDF",
+      "en": "Export PDF"
+    },
+    {
+      "vi": "Xuất kho",
+      "en": "Goods dispatch"
+    },
+    {
+      "vi": "Xuất kho đơn hàng #9472",
+      "en": "Dispatch order #9472"
+    },
+    {
+      "vi": "XÁC NHẬN SỐ LƯỢNG",
+      "en": "CONFIRM QUANTITY"
+    },
+    {
+      "vi": "Xác nhận nhập kho",
+      "en": "Confirm receipt"
+    },
+    {
+      "vi": "Xác nhận số lượng",
+      "en": "Confirm quantity"
+    },
+    {
+      "vi": "Xác nhận xuất kho",
+      "en": "Confirm dispatch"
+    },
+    {
+      "vi": "Yêu cầu hỗ trợ",
+      "en": "Request support"
+    },
+    {
+      "vi": "Yêu cầu:",
+      "en": "Required:"
+    },
+    {
+      "vi": "gói",
+      "en": "packs"
+    },
+    {
+      "vi": "hộp",
+      "en": "cartons"
+    },
+    {
+      "vi": "v1.0.4 (Build 82)",
+      "en": "v1.0.4 (Build 82)"
+    },
+    {
+      "vi": "ĐANG TRỰC TUYẾN",
+      "en": "ONLINE"
+    },
+    {
+      "vi": "ĐIỂM ĐẾN NHIỆM VỤ",
+      "en": "TASK DESTINATION"
+    },
+    {
+      "vi": "Đang hoạt động",
+      "en": "Active"
+    },
+    {
+      "vi": "Đang làm",
+      "en": "In progress"
+    },
+    {
+      "vi": "Đang làm (0)",
+      "en": "In progress (0)"
+    },
+    {
+      "vi": "Điều khoản dịch vụ",
+      "en": "Terms of service"
+    },
+    {
+      "vi": "Điểm đến",
+      "en": "Destination"
+    },
+    {
+      "vi": "Đã hoàn thành",
+      "en": "Completed"
+    },
+    {
+      "vi": "Đã hoàn thành (0)",
+      "en": "Completed (0)"
+    },
+    {
+      "vi": "Đã nhận",
+      "en": "Accepted"
+    },
+    {
+      "vi": "Đã nhận (0)",
+      "en": "Accepted (0)"
+    },
+    {
+      "vi": "Đã nhận, Lan. Tôi sẽ đối chiếu lô B2401 trên web.",
+      "en": "Understood, Lan. I will reconcile lot B2401 on the web."
+    },
+    {
+      "vi": "Đã trực tuyến 0:00:00",
+      "en": "Online for 0:00:00"
+    },
+    {
+      "vi": "Đăng nhập",
+      "en": "Sign in"
+    },
+    {
+      "vi": "Đăng xuất tài khoản",
+      "en": "Sign out"
+    },
+    {
+      "vi": "Đơn vị tính",
+      "en": "Unit of measure"
+    },
+    {
+      "vi": "Được phát triển bởi Justin Nguyễn",
+      "en": "Developed by Justin Nguyễn"
+    },
+    {
+      "vi": "để truy cập các tính năng.",
+      "en": "to access these features."
+    },
+    {
+      "vi": "Nhập mật khẩu",
+      "en": "Enter password"
+    },
+    {
+      "vi": "NV-00000 hoặc admin",
+      "en": "NV-00000 or admin"
+    },
+    {
+      "vi": "Chọn ảnh",
+      "en": "Choose photo"
+    },
+    {
+      "vi": "Ghi âm",
+      "en": "Record voice"
+    },
+    {
+      "vi": "Nghe",
+      "en": "Listen"
+    },
+    {
+      "vi": "Bỏ ảnh",
+      "en": "Remove photo"
+    },
+    {
+      "vi": "Mở chức năng chat",
+      "en": "Show chat actions"
+    },
+    {
+      "vi": "Hỏi JarVis…",
+      "en": "Ask JarVis…"
+    },
+    {
+      "vi": "Bạn",
+      "en": "You"
+    },
+    {
+      "vi": "Hỏi JarVis về công việc trong kho\n\nNhập câu hỏi bên dưới để bắt đầu.\nDữ liệu kho được tra theo quyền tài khoản.",
+      "en": "Ask JarVis about warehouse work\n\nType a question below to get started.\nWarehouse access follows your account permissions."
+    },
+    {
+      "vi": "Đã dừng gửi — gửi lại khi cần",
+      "en": "Sending stopped — retry when ready"
+    },
+    {
+      "vi": "Sẵn sàng nhận câu hỏi",
+      "en": "Ready for your question"
+    },
+    {
+      "vi": "OpenAI • Chế độ kiểm thử",
+      "en": "OpenAI • Preview mode"
+    },
+    {
+      "vi": "Cần đăng nhập",
+      "en": "Sign-in required"
+    },
+    {
+      "vi": "Đăng nhập để dùng AI",
+      "en": "Sign in to use AI"
+    },
+    {
+      "vi": "Chat cần tài khoản nhân viên.\nVui lòng quay lại Đăng nhập.\nChế độ Demo chỉ xem giao diện khi chưa cấu hình AI.",
+      "en": "Chat requires a signed-in account.\nPlease return to Sign in.\nDemo mode previews the interface without configured AI."
+    },
+    {
+      "vi": "Đăng nhập để gửi ảnh cho JarVis",
+      "en": "Sign in to send a photo to JarVis"
+    },
+    {
+      "vi": "JarVis đang trả lời…",
+      "en": "JarVis is replying…"
+    },
+    {
+      "vi": "JarVis đang suy nghĩ…",
+      "en": "JarVis is thinking…"
+    },
+    {
+      "vi": "Không nhận được câu trả lời. Kiểm tra kết nối hoặc phiên đăng nhập, rồi nhấn Gửi để thử lại.",
+      "en": "No answer received. Check your connection or sign-in session, then tap Send to retry."
+    },
+    {
+      "vi": "Kết nối AI gặp lỗi",
+      "en": "AI connection failed"
+    },
+    {
+      "vi": "Phiên đăng nhập đã hết",
+      "en": "Your session has expired"
+    },
+    {
+      "vi": "OpenAI • Đã kết nối",
+      "en": "OpenAI • Connected"
+    },
+    {
+      "vi": "Tra cứu cục bộ",
+      "en": "Local lookup"
+    },
+    {
+      "vi": "Đang nhận…",
+      "en": "Transcribing…"
+    },
+    {
+      "vi": "Dừng nghe",
+      "en": "Stop playback"
+    },
+    {
+      "vi": "Không mở được trình chọn ảnh Android",
+      "en": "Could not open the Android photo picker"
+    },
+    {
+      "vi": "Chọn ảnh hiện hỗ trợ Android và Unity Editor",
+      "en": "Photo selection supports Android and Unity Editor"
+    },
+    {
+      "vi": "Không đọc được ảnh. Hãy chọn JPG/PNG khác.",
+      "en": "Could not read the photo. Choose another JPG/PNG."
+    },
+    {
+      "vi": "Đường dẫn ảnh không hợp lệ",
+      "en": "Invalid photo path"
+    },
+    {
+      "vi": "Ảnh đã đính kèm — nhấn Gửi để hỏi JarVis",
+      "en": "Photo attached — tap Send to ask JarVis"
+    },
+    {
+      "vi": "Không đọc được ảnh. Chọn JPG/PNG dưới 8 MB.",
+      "en": "Could not read the photo. Choose a JPG/PNG under 8 MB."
+    },
+    {
+      "vi": "Cần quyền micro để ghi âm",
+      "en": "Microphone permission is required to record"
+    },
+    {
+      "vi": "Không tìm thấy micro",
+      "en": "No microphone found"
+    },
+    {
+      "vi": "Không mở được micro",
+      "en": "Could not start the microphone"
+    },
+    {
+      "vi": "Đang ghi âm — Dừng để chuyển thành chữ (tối đa 30s)",
+      "en": "Recording — tap Stop to transcribe (up to 30s)"
+    },
+    {
+      "vi": "Không mở được micro. Kiểm tra quyền ghi âm.",
+      "en": "Could not start the microphone. Check microphone permission."
+    },
+    {
+      "vi": "Bản ghi quá ngắn. Hãy thử lại.",
+      "en": "Recording too short. Please try again."
+    },
+    {
+      "vi": "Đang chuyển giọng nói thành chữ…",
+      "en": "Transcribing your recording…"
+    },
+    {
+      "vi": "Đã nhận giọng nói — kiểm tra chữ rồi nhấn Gửi",
+      "en": "Voice transcribed — review the text, then tap Send"
+    },
+    {
+      "vi": "Không nhận được giọng nói. Hãy thử lại.",
+      "en": "Could not transcribe your recording. Please try again."
+    },
+    {
+      "vi": "Đang tạo giọng đọc AI…",
+      "en": "Generating AI speech…"
+    },
+    {
+      "vi": "Không tải được giọng đọc",
+      "en": "Could not load speech audio"
+    },
+    {
+      "vi": "Đang phát giọng AI của JarVis",
+      "en": "Playing JarVis AI speech"
+    },
+    {
+      "vi": "Chưa có thông báo.",
+      "en": "No notifications yet."
+    },
+    {
+      "vi": "Warehouse Live Navigation — Future\nCần sơ đồ kho, vị trí đích và dữ liệu định vị thật.",
+      "en": "Warehouse Live Navigation — Future\nRequires a warehouse layout, destination and real positioning data."
+    },
+    {
+      "vi": "Chưa có nhiệm vụ hoặc số lượng để xác nhận.",
+      "en": "No task or quantity to confirm."
+    },
+    {
+      "vi": "Chưa chọn hàng hóa, lô hàng và vị trí kho. Không có giao dịch nào được ghi.",
+      "en": "Select a product, lot and storage location first. No stock transaction has been recorded."
+    },
+    {
+      "vi": "Chưa có sản phẩm để tạo tem.",
+      "en": "No product selected for label creation."
+    },
+    {
+      "vi": "Cần nhập mô tả và chọn vị trí. Chưa gửi báo cáo.",
+      "en": "Enter a description and select a location. No report has been submitted."
+    },
+    {
+      "vi": "Chưa có mã hàng. Nhập dữ liệu hàng hóa trên web quản lý trước.",
+      "en": "No product code available. Enter product data on the management website first."
+    },
+    {
+      "vi": "Chức năng tài khoản cần phiên đăng nhập backend. Đây là bản kiểm tra điều hướng Figma.",
+      "en": "Account features require a backend session. This imported screen currently supports navigation preview."
+    },
+    {
+      "vi": "Chưa có nội dung tin nhắn. Chat nhân viên chưa được gắn vào bản import này.",
+      "en": "No message entered. Team chat is not yet connected in this imported app."
+    },
+    {
+      "vi": "Nhập mã nhân viên và mật khẩu để đăng nhập.",
+      "en": "Enter your employee ID and password to sign in."
+    },
+    {
+      "vi": "Chưa cấu hình địa chỉ backend OMS. Không thể đăng nhập hoặc tra dữ liệu kho thật.",
+      "en": "OMS backend address is not configured. Sign-in and live inventory lookup are unavailable."
+    },
+    {
+      "vi": "Nhập mã nhân viên NV-00000 hoặc tài khoản admin.",
+      "en": "Enter an employee ID in NV-00000 format or the admin account."
+    },
+    {
+      "vi": "Đang đăng nhập…",
+      "en": "Signing in…"
+    },
+    {
+      "vi": "Không đăng nhập được. Vui lòng kiểm tra tài khoản và kết nối.",
+      "en": "Could not sign in. Check your account and connection."
+    },
+    {
+      "vi": "Phiên đăng nhập không hợp lệ. Vui lòng thử lại.",
+      "en": "Invalid session. Please try again."
+    },
+    {
+      "vi": "Chạm để đóng",
+      "en": "Tap to dismiss"
+    },
+    {
+      "vi": "Quét & tra cứu",
+      "en": "Scan & look up"
+    },
+    {
+      "vi": "Nhập mã QR / barcode",
+      "en": "Enter QR / barcode"
+    },
+    {
+      "vi": "Tra mã",
+      "en": "Look up code"
+    },
+    {
+      "vi": "Đang mở camera…",
+      "en": "Starting camera…"
+    },
+    {
+      "vi": "Chưa có quyền camera. Bạn vẫn có thể nhập mã bên dưới.",
+      "en": "Camera permission is not granted. You can still enter a code below."
+    },
+    {
+      "vi": "Không tìm thấy camera. Nhập mã bên dưới để tra cứu.",
+      "en": "No camera found. Enter a code below to look it up."
+    },
+    {
+      "vi": "Camera không khởi động. Thử mở lại màn hình hoặc nhập mã.",
+      "en": "Camera did not start. Reopen this screen or enter a code."
+    },
+    {
+      "vi": "Đưa mã QR / barcode vào camera để quét.",
+      "en": "Point the camera at a QR / barcode to scan."
+    },
+    {
+      "vi": "Vui lòng nhập mã trước khi tra cứu.",
+      "en": "Enter a code before looking it up."
+    },
+    {
+      "vi": "Mã quá dài. Chỉ dùng mã hàng hoặc mã vị trí, tối đa 160 ký tự.",
+      "en": "Code is too long. Enter a product or location code, up to 160 characters."
+    },
+    {
+      "vi": "Đã đọc mã: ",
+      "en": "Scanned code: "
+    },
+    {
+      "vi": "\nCần đăng nhập backend để tra hàng thật. Chưa ghi giao dịch kho.",
+      "en": "\nSign in to look up live inventory. No stock transaction has been recorded."
+    },
+    {
+      "vi": "Đang tra mã trong kho…",
+      "en": "Looking up code in the warehouse…"
+    },
+    {
+      "vi": "Không thể tra cứu. Bấm Tra mã để thử lại.",
+      "en": "Lookup failed. Tap Look up code to retry."
+    },
+    {
+      "vi": "Không tìm thấy mã này trong dữ liệu kho: ",
+      "en": "Code not found in warehouse data: "
+    },
+    {
+      "vi": "Dữ liệu thử nghiệm backend\n",
+      "en": "Backend test data\n"
+    },
+    {
+      "vi": "Không kết nối được máy chủ. Kiểm tra mạng rồi thử lại.",
+      "en": "Cannot connect to the server. Check your connection and try again."
+    },
+    {
+      "vi": "Không đăng nhập được. Kiểm tra tài khoản và thử lại.",
+      "en": "Could not sign in. Check your account and try again."
+    },
+    {
+      "vi": "JarVis Fulfillment — Ứng dụng hỗ trợ nhân viên vận hành kho.",
+      "en": "JarVis Fulfillment — An app for warehouse operators."
+    },
+    {
+      "vi": "Chế độ tối chưa được hỗ trợ trong bản hiện tại.",
+      "en": "Dark mode is not supported in this version."
+    },
+    {
+      "vi": "Quay lại",
+      "en": "Back"
+    },
+    {
+      "vi": "Giao diện",
+      "en": "Appearance"
+    },
+    {
+      "vi": "Mật khẩu hiện tại",
+      "en": "Current password"
+    },
+    {
+      "vi": "Mật khẩu mới",
+      "en": "New password"
+    },
+    {
+      "vi": "Xác nhận mật khẩu mới",
+      "en": "Confirm new password"
+    },
+    {
+      "vi": "Dùng ít nhất 12 ký tự. Sau khi đổi, bạn cần đăng nhập lại trên các thiết bị.",
+      "en": "Use at least 12 characters. After changing your password, sign in again on your devices."
+    },
+    {
+      "vi": "Lưu mật khẩu",
+      "en": "Save password"
+    },
+    {
+      "vi": "Vui lòng đăng nhập để đổi mật khẩu.",
+      "en": "Sign in to change your password."
+    },
+    {
+      "vi": "Mật khẩu mới cần từ 12 đến 256 ký tự.",
+      "en": "Your new password must contain 12 to 256 characters."
+    },
+    {
+      "vi": "Mật khẩu xác nhận không khớp.",
+      "en": "The passwords do not match."
+    },
+    {
+      "vi": "Mật khẩu mới phải khác mật khẩu hiện tại.",
+      "en": "Your new password must differ from your current password."
+    },
+    {
+      "vi": "Đang lưu...",
+      "en": "Saving..."
+    },
+    {
+      "vi": "Đã đổi mật khẩu. Vui lòng đăng nhập lại.",
+      "en": "Password changed. Please sign in again."
+    },
+    {
+      "vi": "Mật khẩu hiện tại không đúng.",
+      "en": "Your current password is incorrect."
+    },
+    {
+      "vi": "Bạn đã thử quá nhiều lần. Vui lòng thử lại sau.",
+      "en": "Too many attempts. Please try again later."
+    },
+    {
+      "vi": "Phiên đăng nhập đã hết. Vui lòng đăng nhập lại.",
+      "en": "Your session has expired. Please sign in again."
+    },
+    {
+      "vi": "Không lưu được mật khẩu. Kiểm tra kết nối rồi thử lại.",
+      "en": "Could not save your password. Check your connection and try again."
+    },
+    {
+      "vi": "Lựa chọn được lưu trên thiết bị và áp dụng cho toàn bộ giao diện.",
+      "en": "Your choice is saved on this device and applies throughout the interface."
+    },
+    {
+      "vi": "Xem trước",
+      "en": "Preview"
+    },
+    {
+      "vi": "Kiểm kê vị trí B-03-02",
+      "en": "Count stock at B-03-02"
+    },
+    {
+      "vi": "Quét mã hàng để kiểm tra số lượng tồn kho tại vị trí này.",
+      "en": "Scan the item barcode to check stock at this location."
+    },
+    {
+      "vi": "Sáng",
+      "en": "Light"
+    },
+    {
+      "vi": "Tối",
+      "en": "Dark"
+    },
+    {
+      "vi": "Theo thiết bị",
+      "en": "Use device setting"
+    },
+    {
+      "vi": "Theo thiết bị sử dụng chế độ sáng hoặc tối của điện thoại.",
+      "en": "Use device setting follows your phone's light or dark appearance."
+    },
+    {
+      "vi": "Đang xử lý bản ghi…",
+      "en": "Processing recording…"
+    },
+    {
+      "vi": "Đang gửi giọng nói…",
+      "en": "Uploading voice…"
+    },
+    {
+      "vi": "JarVis đang nghe và trả lời…",
+      "en": "JarVis is listening and replying…"
+    },
+    {
+      "vi": "Loa bật · JarVis sẽ đọc câu trả lời bằng giọng AI",
+      "en": "Speaker on · JarVis will read replies with an AI voice"
+    },
+    {
+      "vi": "Loa tắt · chỉ hiển thị câu trả lời chữ",
+      "en": "Speaker off · text replies only"
+    },
+    {
+      "vi": "Đang ghi âm — chạm micro lần nữa để gửi (tối đa 30s)",
+      "en": "Recording — tap the mic again to send (max 30s)"
+    },
+    {
+      "vi": "Đã dừng giọng nói khi ứng dụng tạm nghỉ",
+      "en": "Voice stopped when the app paused"
+    },
+    {
+      "vi": "NO_AUDIO: Bản ghi quá ngắn. Hãy thử lại.",
+      "en": "NO_AUDIO: Recording too short. Please try again."
+    },
+    {
+      "vi": "NO_AUDIO: Chưa nghe thấy giọng nói. Hãy thử lại.",
+      "en": "NO_AUDIO: No audible speech. Please try again."
+    },
+    {
+      "vi": "Micro đang được sử dụng. Hãy thử lại.",
+      "en": "Microphone is busy. Please try again."
+    },
+    {
+      "vi": "Gửi hoặc bỏ ảnh đính kèm trước khi hỏi bằng giọng nói",
+      "en": "Send or remove the attached photo before asking by voice"
+    }
+  ]
+}

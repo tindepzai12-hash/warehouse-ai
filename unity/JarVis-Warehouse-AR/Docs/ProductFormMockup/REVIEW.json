@@ -1,0 +1,504 @@
+{
+  "version": "five-groups",
+  "checks": [
+    {
+      "label": "Five top-level groups, in requested order",
+      "pass": true
+    },
+    {
+      "label": "Requested category labels and ordering",
+      "pass": true
+    },
+    {
+      "label": "Only drink templates visible initially",
+      "pass": true
+    },
+    {
+      "label": "No form required before choosing a preset",
+      "pass": true
+    },
+    {
+      "label": "Name filled from shirt template",
+      "pass": true
+    },
+    {
+      "label": "Size prefilled and pickable",
+      "pass": true
+    },
+    {
+      "label": "Technical category controls hidden by default",
+      "pass": true
+    },
+    {
+      "label": "SKU not required in simple view",
+      "pass": true
+    },
+    {
+      "label": "Picked variant reaches preview",
+      "pass": true
+    },
+    {
+      "label": "Back retains typed name",
+      "pass": true
+    },
+    {
+      "label": "Milk amount prefilled",
+      "pass": true
+    },
+    {
+      "label": "Amount selected without typing",
+      "pass": true
+    },
+    {
+      "label": "No lot expiry date in product form",
+      "pass": true
+    },
+    {
+      "label": "Unconfirmed expiry not treated as confirmed",
+      "pass": true
+    },
+    {
+      "label": "Existing barcode retains leading zero",
+      "pass": true
+    },
+    {
+      "label": "No fake save or issued code",
+      "pass": true
+    },
+    {
+      "label": "Empty name rejected",
+      "pass": true
+    },
+    {
+      "label": "Invalid custom amount rejected",
+      "pass": true
+    },
+    {
+      "label": "drink available in advanced view",
+      "pass": true
+    },
+    {
+      "label": "drink: category change preserves product name",
+      "pass": true
+    },
+    {
+      "label": "apparel available in advanced view",
+      "pass": true
+    },
+    {
+      "label": "apparel: category change requires new expiry confirmation",
+      "pass": true
+    },
+    {
+      "label": "apparel: category change preserves product name",
+      "pass": true
+    },
+    {
+      "label": "household available in advanced view",
+      "pass": true
+    },
+    {
+      "label": "household: category change requires new expiry confirmation",
+      "pass": true
+    },
+    {
+      "label": "household: category change preserves product name",
+      "pass": true
+    },
+    {
+      "label": "care available in advanced view",
+      "pass": true
+    },
+    {
+      "label": "care: category change requires new expiry confirmation",
+      "pass": true
+    },
+    {
+      "label": "care: category change preserves product name",
+      "pass": true
+    },
+    {
+      "label": "other available in advanced view",
+      "pass": true
+    },
+    {
+      "label": "other: category change requires new expiry confirmation",
+      "pass": true
+    },
+    {
+      "label": "other: category change preserves product name",
+      "pass": true
+    },
+    {
+      "label": "Choosing drink template restores correct category after custom category edit",
+      "pass": true
+    },
+    {
+      "label": "milk: templates scoped to category",
+      "pass": true
+    },
+    {
+      "label": "milk: name prefilled",
+      "pass": true
+    },
+    {
+      "label": "milk: no lot dates in SKU form",
+      "pass": true
+    },
+    {
+      "label": "Milk choices do not include detergent scent",
+      "pass": true
+    },
+    {
+      "label": "milk: prefilled form reaches preview",
+      "pass": true
+    },
+    {
+      "label": "water: templates scoped to category",
+      "pass": true
+    },
+    {
+      "label": "water: name prefilled",
+      "pass": true
+    },
+    {
+      "label": "water: no lot dates in SKU form",
+      "pass": true
+    },
+    {
+      "label": "water: prefilled form reaches preview",
+      "pass": true
+    },
+    {
+      "label": "juice: templates scoped to category",
+      "pass": true
+    },
+    {
+      "label": "juice: name prefilled",
+      "pass": true
+    },
+    {
+      "label": "juice: no lot dates in SKU form",
+      "pass": true
+    },
+    {
+      "label": "juice: prefilled form reaches preview",
+      "pass": true
+    },
+    {
+      "label": "shirt: templates scoped to category",
+      "pass": true
+    },
+    {
+      "label": "shirt: name prefilled",
+      "pass": true
+    },
+    {
+      "label": "shirt: no lot dates in SKU form",
+      "pass": true
+    },
+    {
+      "label": "shirt: prefilled form reaches preview",
+      "pass": true
+    },
+    {
+      "label": "trousers: templates scoped to category",
+      "pass": true
+    },
+    {
+      "label": "trousers: name prefilled",
+      "pass": true
+    },
+    {
+      "label": "trousers: no lot dates in SKU form",
+      "pass": true
+    },
+    {
+      "label": "trousers: prefilled form reaches preview",
+      "pass": true
+    },
+    {
+      "label": "shoes: templates scoped to category",
+      "pass": true
+    },
+    {
+      "label": "shoes: name prefilled",
+      "pass": true
+    },
+    {
+      "label": "shoes: no lot dates in SKU form",
+      "pass": true
+    },
+    {
+      "label": "Shoe size includes system, not apparel size",
+      "pass": true
+    },
+    {
+      "label": "shoes: prefilled form reaches preview",
+      "pass": true
+    },
+    {
+      "label": "pot: templates scoped to category",
+      "pass": true
+    },
+    {
+      "label": "pot: name prefilled",
+      "pass": true
+    },
+    {
+      "label": "pot: no lot dates in SKU form",
+      "pass": true
+    },
+    {
+      "label": "pot: prefilled form reaches preview",
+      "pass": true
+    },
+    {
+      "label": "appliance: templates scoped to category",
+      "pass": true
+    },
+    {
+      "label": "appliance: name prefilled",
+      "pass": true
+    },
+    {
+      "label": "appliance: no lot dates in SKU form",
+      "pass": true
+    },
+    {
+      "label": "appliance: prefilled form reaches preview",
+      "pass": true
+    },
+    {
+      "label": "detergent: templates scoped to category",
+      "pass": true
+    },
+    {
+      "label": "detergent: name prefilled",
+      "pass": true
+    },
+    {
+      "label": "detergent: no lot dates in SKU form",
+      "pass": true
+    },
+    {
+      "label": "Detergent quantity prefilled under household",
+      "pass": true
+    },
+    {
+      "label": "Detergent does not require pot material or clothing size",
+      "pass": true
+    },
+    {
+      "label": "Detergent scent choices do not include drink flavour",
+      "pass": true
+    },
+    {
+      "label": "detergent: prefilled form reaches preview",
+      "pass": true
+    },
+    {
+      "label": "cream: templates scoped to category",
+      "pass": true
+    },
+    {
+      "label": "cream: name prefilled",
+      "pass": true
+    },
+    {
+      "label": "cream: no lot dates in SKU form",
+      "pass": true
+    },
+    {
+      "label": "PAO does not auto-confirm expiry",
+      "pass": true
+    },
+    {
+      "label": "PAO explanation separates expiry",
+      "pass": true
+    },
+    {
+      "label": "cream: prefilled form reaches preview",
+      "pass": true
+    },
+    {
+      "label": "lipstick: templates scoped to category",
+      "pass": true
+    },
+    {
+      "label": "lipstick: name prefilled",
+      "pass": true
+    },
+    {
+      "label": "lipstick: no lot dates in SKU form",
+      "pass": true
+    },
+    {
+      "label": "Cosmetic shade is prefilled and pickable",
+      "pass": true
+    },
+    {
+      "label": "lipstick: prefilled form reaches preview",
+      "pass": true
+    },
+    {
+      "label": "shampoo: templates scoped to category",
+      "pass": true
+    },
+    {
+      "label": "shampoo: name prefilled",
+      "pass": true
+    },
+    {
+      "label": "shampoo: no lot dates in SKU form",
+      "pass": true
+    },
+    {
+      "label": "shampoo: prefilled form reaches preview",
+      "pass": true
+    },
+    {
+      "label": "general: templates scoped to category",
+      "pass": true
+    },
+    {
+      "label": "general: name prefilled",
+      "pass": true
+    },
+    {
+      "label": "general: no lot dates in SKU form",
+      "pass": true
+    },
+    {
+      "label": "General other product has no irrelevant required attributes",
+      "pass": true
+    },
+    {
+      "label": "general: prefilled form reaches preview",
+      "pass": true
+    },
+    {
+      "label": "food: templates scoped to category",
+      "pass": true
+    },
+    {
+      "label": "food: name prefilled",
+      "pass": true
+    },
+    {
+      "label": "food: no lot dates in SKU form",
+      "pass": true
+    },
+    {
+      "label": "food: prefilled form reaches preview",
+      "pass": true
+    },
+    {
+      "label": "electronics: templates scoped to category",
+      "pass": true
+    },
+    {
+      "label": "electronics: name prefilled",
+      "pass": true
+    },
+    {
+      "label": "electronics: no lot dates in SKU form",
+      "pass": true
+    },
+    {
+      "label": "Electronic model missing is rejected",
+      "pass": true
+    },
+    {
+      "label": "electronics: prefilled form reaches preview",
+      "pass": true
+    },
+    {
+      "label": "No horizontal overflow at 390",
+      "pass": true
+    },
+    {
+      "label": "Touch target at 390",
+      "pass": true
+    },
+    {
+      "label": "Category touch targets at 390",
+      "pass": true
+    },
+    {
+      "label": "Prefilled entry at 390",
+      "pass": true
+    },
+    {
+      "label": "No horizontal overflow at 412",
+      "pass": true
+    },
+    {
+      "label": "Touch target at 412",
+      "pass": true
+    },
+    {
+      "label": "Category touch targets at 412",
+      "pass": true
+    },
+    {
+      "label": "Prefilled entry at 412",
+      "pass": true
+    },
+    {
+      "label": "No horizontal overflow at 768",
+      "pass": true
+    },
+    {
+      "label": "Touch target at 768",
+      "pass": true
+    },
+    {
+      "label": "Category touch targets at 768",
+      "pass": true
+    },
+    {
+      "label": "Prefilled entry at 768",
+      "pass": true
+    },
+    {
+      "label": "No horizontal overflow at 1280",
+      "pass": true
+    },
+    {
+      "label": "Touch target at 1280",
+      "pass": true
+    },
+    {
+      "label": "Category touch targets at 1280",
+      "pass": true
+    },
+    {
+      "label": "Prefilled entry at 1280",
+      "pass": true
+    },
+    {
+      "label": "Three simple steps displayed",
+      "pass": true
+    },
+    {
+      "label": "Six examples covering five groups and household detergent",
+      "pass": true
+    },
+    {
+      "label": "No browser runtime errors",
+      "pass": true
+    },
+    {
+      "label": "No external requests",
+      "pass": true
+    },
+    {
+      "label": "No mutation requests",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "mutationRequests": []
+}

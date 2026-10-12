@@ -1,0 +1,48 @@
+# JarVis Warehouse — Codex project context
+
+Current visual authority: approved B prototype at `E:\JarVis-LiquidGlass-Prototype`, implemented as native uGUI over the existing imported scene. Read `Docs/PrototypeParity/LAYOUT_CONTRACT.md` and `VERIFICATION.md`. The owner's 2026-10-07 master prompt supersedes older Figma-row design instructions. For shared OMS contracts, read `E:\warehouse-ai\docs\JARVIS_CHANGE_MAP.md`.
+
+## Goal
+Build an Android-first warehouse assistant for Samsung S20 Ultra using Unity 6.0.4f1. JarVis supports warehouse tasks, barcode scanning, multilingual UI, navigation and an AI assistant.
+
+## Current Unity project
+- Path: `E:\unity of teep\JarVis-Warehouse-AR`
+- Unity version: `6000.4.7f1`
+- Android-first target; AR Foundation/ARCore and AI Navigation are installed.
+- Keep API keys out of Unity assets, source control and logs.
+- Imported Login/Splash, assistant header and bottom JarVis tab use `Resources/Figma/JarVisMascotApproved`, copied from the owner's supplied image: rounded orange hard hat, navy face and cyan eyes. `ImportedUiPolish.Apply` replaces Login/Splash mascot-container graphics at runtime without rebuilding the scene. The header's previous blue disk is disabled. The bottom tab is 28×28 with preserved aspect ratio; selection changes the label, never tints the mascot.
+
+## Current work
+- Unified runtime: ignored `Library/JarvisBackend.local.json` points to `http://127.0.0.1:8000` without a prototype token. Login and chat use the same `OmsMobileSession`; `ImportedJarvisChat` has no unauthenticated Editor preview fallback. The existing live database is `E:/warehouse-ai/data/warehouse-live.sqlite3`; never substitute `oms-preview.sqlite3` when recovering a stopped backend. `LocalOmsBackend` starts that existing live service if local port 8000 is unavailable when entering interactive Play; it does not run in batch QA or on Android. Local backend `.env` PORT is 8000.
+- `PrototypeUi` owns measured presentation primitives, `PrototypeWorkspace` owns Profile/Activity/Tools and the transaction selector, and `PrototypeDialog` owns native prototype overlays. Home uses the approved blue/orange/teal/red colors. Quick Action is Nhập / Xuất kho, routed to existing inbound/outbound screens; the dock scanner remains. `WarehouseMapScreen` now reads the published OMS map and shows same-floor 2D routes from a scanned checkpoint QR to a bin access node; it is not verified AR guidance. See `Docs/WarehouseMap/SETUP_VI.md`.
+- Home hides the online clock; Profile → Activity uses `ImportedPresence.TodayClock` from the existing server snapshot/lease/reset. `PrototypeMascot` and `PrototypeFlame` provide the five-second celebration, blink and flame movement; reduced-motion preferences are respected. The 2026-10-07 voice master prompt supersedes the earlier plus-only composer: chat now uses compact inline photo/mic/speaker icons, a flexible input and send in its existing HorizontalLayoutGroup.
+- `ProjectBootstrap.PrototypeParityReview.Run` opens the saved scene, enters Play and produces UI-only screenshots in `Logs/PrototypeParity`; it exits by itself, so omit `-quit`. No production seed, camera capture, database mutation or model call occurs. The live native scene is visible in Play mode; imported source frames remain intact in Edit mode.
+- Latest owner sequencing: finish current UI fixes first. SF Pro Display download/install/replacement and functional-module audit/upgrades are deferred; see `Docs/PrototypeParity/DEFERRED_WORK.md`.
+- Current app entry: `Assets/Scenes/JarVisFigmaApp.unity`, 22 imported Figma frames, portrait 412×915 logical viewport. Read `UNITY_UI_WORKFLOW.md` for the short owner/test map before editing.
+- `ImportedFigmaNavigation` owns routes and real OMS login; `ImportedCameraScanner` owns camera/ZXing decoding and authenticated inventory lookup. No camera frames or API keys are sent/stored in Unity assets.
+- Fast QR/Settings verification: `ProjectBootstrap.ScannerUiVerification.Run` uses the saved scene without rebuilding it. Only rebuild for source/layout changes.
+- Real Samsung camera, backend credentials and APK behavior still need device/integration verification. ImportedJarvisChat connects AI via the authenticated OMS mobile endpoint; stock mutations, staff chat, printing and settings are not all connected yet.
+- Imported chat media: `ImportedChatMedia` integrates photos/permission/TTS with `VoiceRecorder`, `VoiceRecordingBar`, `VoiceMessageView`, `VoiceWaveform` and exclusive `VoicePlayback`. Mic → ≤30s full PCM16 mono WAV → optimistic playable audio bubble → capability-gated multipart `/api/oms/mobile/jarvis/voice` with a message UUID → STT + same session JarVis history → one AI reply. Transcript stays optional/collapsed; typed draft stays independent. Cancel never sends; Stop does not auto-upload. Speaker defaults OFF. Backend `oms/voice-receipts.js` caches per-session receipt results to prevent duplicate provider execution on manual retry. Read `Docs/VOICE_MESSAGE_SYSTEM.md` for exact limits, changed files, tests and release dependencies. New flow compile/UI/playback and isolated backend tests pass; human mic/STT/Android acceptance remains unverified and the owner postponed Samsung testing. Published backend must receive the new authenticated voice capability and receipt support before the APK can upload audio; old deployment evidence does not verify this protocol. Keep the same live database and credentials, never switch to demo data.
+- Chat toolbar: `ChatActionIcon` draws vector controls; `ImportedJarvisChat` owns keyboard collapse/expand, IME positioning and navigation visibility. Login VI/EN uses `ImportedAppLocalization`; translation source is `Tools/imported-translations.tsv`, generated table is `Docs/APP_TRANSLATIONS_VI_EN.md`. Preserve user/API content; the interface locale does not select the model reply language. Use `ImportedComposerLocalizationReview` for UI-only checks without provider spend.
+- Legacy `WarehouseScene`, mock repositories, Dijkstra routing and `JarvisProjectValidator` remain referenced. They are not evidence that the imported app uses live data; do not delete them or seed production with their demo stock.
+
+## AI/backend
+- The local Node backend is in `E:\warehouse-ai`.
+- Local 9Router endpoint: `http://localhost:20128/v1`.
+- The local JarVis backend can use model `jarvis-efficient` through 9Router.
+- `jarvis-efficient` uses GPT-5.6 Sol first; fallback models are provider/model fallbacks, never account rotation.
+- GPT-6 Astra is reserved for difficult failures and should not be used for routine requests.
+
+## Safety and operating rules
+- Do not rotate multiple accounts to bypass quotas.
+- Do not expose or commit API keys.
+- Prefer small, testable changes and report files changed.
+- Keep mock inventory clearly marked as mock until a real WMS/ERP source exists.
+
+## Useful instruction for Codex
+Before editing, read this file and inspect the current project state. Then make the smallest change that advances the Android prototype, run the relevant Unity or code checks, and report what remains.
+- Login caret repair: `ImportedInputCaretRepair`; small feedback owner: `ImportedSnackbar`, called through `ImportedFigmaNavigation.Notice`. Focused UI-only check: `ImportedLoginFeedbackReview`, results in `Logs/ComposerLocalizationReview/LoginFeedback.txt`. Keep notifications inside the logical viewport and technical network errors out of the form.
+
+- Imported UI polish: `ImportedUiPolish` owns label bounds and shared footer alignment; `ImportedUtilityIcon` owns crisp utility symbols; `ImportedPressFeedback` changes opacity without moving layout. Use `ImportedPolishReview` / Library/JarVisReviewPolish.request for 22-screen VI/EN screenshots without backend/model spend. Follow the existing Figma blue/white identity.
+- Bottom toolbar follows the owner's final 2026-10-06 image reference: warm-white inset pill, raised JarVis blue QR button, blue selected tab and neutral-grey inactive icons/labels; retain Home/Tasks/Map/JarVis routes. Dark mode adapts the pill and label contrast. `ImportedUiPolish.Footer` owns presentation; `ImportedFigmaNavigation` owns selection. `ImportedUiReview` checks footer raycasts and unchanged positions across 22 screens; results in `Logs/UiReview/result.txt`, compile log in `Logs/FooterWhiteBlueReview.log`. Android validator checks the imported app entry when it is the first enabled scene, retaining legacy validation for the old entry.
+- Account/appearance settings: `ImportedSettings` opens real password/language/text-size/theme controls on the imported Settings frame. Password changes use OMS `/mobile/account/password` and invalidate web/mobile sessions; UI preferences persist locally. `ImportedSettingsReview` is the focused UI-only check; Android system theme and IME require device verification. Imported dark surfaces are generated from `Tools/build-imported-theme.cjs`, not painted over brand images.

@@ -1,0 +1,10 @@
+const fs=require('node:fs');const p='Assets/JarVis/Scripts/UI/ImportedPresence.cs';let s=fs.readFileSync(p,'utf8');
+s=s.replace('public void ClearCards(){cards.Clear();}','public string TodayClock {get;private set;}="00:00:00";\n  public void ClearCards(){cards.Clear();}');
+s=s.replace('380,124','366,70').replace('UniformUiSurface.Use(image,16,new Color(.95f,.99f,.98f),new Color(.73f,.91f,.85f),1)','UniformUiSurface.Use(image,19,new Color(.945f,.984f,.969f),new Color(.77f,.91f,.855f),1)');
+s=s.replace('20,21,10,10','17,30,9,9').replace('38,10,195,30,19','35,21,178,30,20').replace('244,8,124,48','216,13,134,44');
+s=s.replace('new Color(1,.9f,.91f),Color.clear,0,false,false','new Color(.945f,.965f,.985f),new Color(.83f,.9f,.96f),1,true,false');
+s=s.replace('new Color(.75f,.08f,.16f)','PrototypeUi.Ink(nav.Settings.Dark)');
+s=s.replace('   JarVisUi.Icon(target,"power",7,16,16)', '   card.today.gameObject.SetActive(false);card.time.gameObject.SetActive(false);card.session.gameObject.SetActive(false);card.reset.gameObject.SetActive(false);divider.gameObject.SetActive(false);\n   JarVisUi.Icon(target,"power",9,12,20)');
+s=s.replace('27,0,92,48,12','33,0,94,44,12');
+s=s.replace('   foreach(var c in cards){','   TodayClock=snapshot==null&&State!=PresenceState.Offline?"--:--:--":Clock(today);\n   foreach(var c in cards){if(c.state==null)continue;');
+fs.writeFileSync(p,s);

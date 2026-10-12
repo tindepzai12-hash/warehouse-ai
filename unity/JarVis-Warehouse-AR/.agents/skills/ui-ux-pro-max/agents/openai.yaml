@@ -1,0 +1,9 @@
+interface:
+  display_name: "UI/UX Pro Max for JarVis"
+  short_description: "Thiết kế UI/UX chuyên nghiệp cho JarVis"
+  brand_color: "#1257C8"
+  default_prompt: "Use $ui-ux-pro-max to redesign this JarVis Warehouse screen for clear Android operation."
+
+policy:
+  allow_implicit_invocation: true
+

@@ -1,0 +1,187 @@
+{
+  "version": 1,
+  "entrypoint": "app-dev-router",
+  "modules": {
+    "app-project-audit": {
+      "path": "../app-project-audit/SKILL.md",
+      "requires": []
+    },
+    "app-root-cause-debug": {
+      "path": "../app-root-cause-debug/SKILL.md",
+      "requires": [
+        "app-project-audit"
+      ]
+    },
+    "app-git-safety": {
+      "path": "../app-git-safety/SKILL.md",
+      "requires": [
+        "app-project-audit"
+      ]
+    },
+    "app-architecture": {
+      "path": "../app-architecture/SKILL.md",
+      "requires": [
+        "app-project-audit"
+      ]
+    },
+    "app-feature-delivery": {
+      "path": "../app-feature-delivery/SKILL.md",
+      "requires": [
+        "app-project-audit"
+      ]
+    },
+    "app-environment-security": {
+      "path": "../app-environment-security/SKILL.md",
+      "requires": [
+        "app-project-audit"
+      ]
+    },
+    "app-backend-data": {
+      "path": "../app-backend-data/SKILL.md",
+      "requires": [
+        "app-project-audit"
+      ]
+    },
+    "app-api-integration": {
+      "path": "../app-api-integration/SKILL.md",
+      "requires": [
+        "app-project-audit"
+      ]
+    },
+    "app-openai-chat": {
+      "path": "../app-openai-chat/SKILL.md",
+      "requires": [
+        "app-project-audit"
+      ]
+    },
+    "app-figma-ui": {
+      "path": "../app-figma-ui/SKILL.md",
+      "requires": [
+        "app-project-audit"
+      ]
+    },
+    "app-ui-navigation": {
+      "path": "../app-ui-navigation/SKILL.md",
+      "requires": [
+        "app-project-audit"
+      ]
+    },
+    "app-unity-app": {
+      "path": "../app-unity-app/SKILL.md",
+      "requires": [
+        "app-project-audit"
+      ]
+    },
+    "app-voice-audio": {
+      "path": "../app-voice-audio/SKILL.md",
+      "requires": [
+        "app-project-audit"
+      ]
+    },
+    "app-testing-regression": {
+      "path": "../app-testing-regression/SKILL.md",
+      "requires": [
+        "app-project-audit"
+      ]
+    },
+    "app-render-deploy": {
+      "path": "../app-render-deploy/SKILL.md",
+      "requires": [
+        "app-project-audit"
+      ]
+    },
+    "app-release-verification": {
+      "path": "../app-release-verification/SKILL.md",
+      "requires": [
+        "app-project-audit"
+      ]
+    },
+    "app-project-memory": {
+      "path": "../app-project-memory/SKILL.md",
+      "requires": [
+        "app-project-audit"
+      ]
+    }
+  },
+  "order": [
+    "app-project-audit",
+    "app-root-cause-debug",
+    "app-git-safety",
+    "app-architecture",
+    "app-feature-delivery",
+    "app-environment-security",
+    "app-backend-data",
+    "app-api-integration",
+    "app-openai-chat",
+    "app-figma-ui",
+    "app-ui-navigation",
+    "app-unity-app",
+    "app-voice-audio",
+    "app-testing-regression",
+    "app-render-deploy",
+    "app-release-verification",
+    "app-project-memory"
+  ],
+  "conditionalEdges": [
+    [
+      "app-root-cause-debug",
+      "app-git-safety"
+    ],
+    [
+      "app-git-safety",
+      "app-architecture"
+    ],
+    [
+      "app-architecture",
+      "app-feature-delivery"
+    ],
+    [
+      "app-feature-delivery",
+      "app-environment-security"
+    ],
+    [
+      "app-environment-security",
+      "app-backend-data"
+    ],
+    [
+      "app-backend-data",
+      "app-api-integration"
+    ],
+    [
+      "app-api-integration",
+      "app-openai-chat"
+    ],
+    [
+      "app-openai-chat",
+      "app-voice-audio"
+    ],
+    [
+      "app-figma-ui",
+      "app-ui-navigation"
+    ],
+    [
+      "app-ui-navigation",
+      "app-unity-app"
+    ],
+    [
+      "app-api-integration",
+      "app-ui-navigation"
+    ],
+    [
+      "app-unity-app",
+      "app-voice-audio"
+    ],
+    [
+      "app-testing-regression",
+      "app-render-deploy"
+    ],
+    [
+      "app-render-deploy",
+      "app-release-verification"
+    ],
+    [
+      "app-release-verification",
+      "app-project-memory"
+    ]
+  ]
+}
