@@ -8,13 +8,14 @@ namespace JarVis.Warehouse.UI
     public sealed class ImportedUtilityIcon : MaskableGraphic
     {
         public string symbol;
+        public float strokeWidth = 1.7f;
         protected override void OnPopulateMesh(VertexHelper vh)
         {
             vh.Clear();var r=rectTransform.rect;float scale=Mathf.Min(r.width,r.height)/24f;
             Vector2 P(float x,float y)=>r.center+new Vector2(x-12,12-y)*scale;
             void L(float x,float y,float a,float b)
             {
-                var p=P(x,y);var q=P(a,b);var n=new Vector2(-(q-p).y,(q-p).x).normalized*scale*.85f;
+                var p=P(x,y);var q=P(a,b);var n=new Vector2(-(q-p).y,(q-p).x).normalized*scale*Mathf.Clamp(strokeWidth,1,3)/2;
                 int i=vh.currentVertCount;vh.AddVert(p-n,color,Vector2.zero);vh.AddVert(p+n,color,Vector2.zero);vh.AddVert(q+n,color,Vector2.zero);vh.AddVert(q-n,color,Vector2.zero);
                 vh.AddTriangle(i,i+1,i+2);vh.AddTriangle(i,i+2,i+3);
             }

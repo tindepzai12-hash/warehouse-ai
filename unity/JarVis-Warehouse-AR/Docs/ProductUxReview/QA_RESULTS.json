@@ -1,0 +1,359 @@
+{
+  "checks": [
+    {
+      "label": "Exactly three primary destinations",
+      "pass": true
+    },
+    {
+      "label": "Novice compact search finds milk",
+      "pass": true
+    },
+    {
+      "label": "Three steps correspond to actual interaction",
+      "pass": true
+    },
+    {
+      "label": "All templates preserved: drink",
+      "pass": true
+    },
+    {
+      "label": "All templates preserved: fashion",
+      "pass": true
+    },
+    {
+      "label": "All templates preserved: home",
+      "pass": true
+    },
+    {
+      "label": "All templates preserved: care",
+      "pass": true
+    },
+    {
+      "label": "All templates preserved: other",
+      "pass": true
+    },
+    {
+      "label": "Template no-result state",
+      "pass": true
+    },
+    {
+      "label": "SKU form has no receipt quantity or lot dates",
+      "pass": true
+    },
+    {
+      "label": "Auto SKU explicitly MOCK",
+      "pass": true
+    },
+    {
+      "label": "Missing required content rejected",
+      "pass": true
+    },
+    {
+      "label": "Similar existing product suggested before new creation",
+      "pass": true
+    },
+    {
+      "label": "Example overwrite asks for confirmation",
+      "pass": true
+    },
+    {
+      "label": "Cancel example overwrite preserves input",
+      "pass": true
+    },
+    {
+      "label": "180ml converts to 0.18l",
+      "pass": true
+    },
+    {
+      "label": "Nonpositive measurement rejected",
+      "pass": true
+    },
+    {
+      "label": "Duplicate SKU blocked",
+      "pass": true
+    },
+    {
+      "label": "Duplicate scanned barcode blocked",
+      "pass": true
+    },
+    {
+      "label": "Invalid EAN check digit rejected",
+      "pass": true
+    },
+    {
+      "label": "A: valid product confirmation",
+      "pass": true
+    },
+    {
+      "label": "Back retains manual SKU",
+      "pass": true
+    },
+    {
+      "label": "Back retains measurement",
+      "pass": true
+    },
+    {
+      "label": "Template revisit restores draft",
+      "pass": true
+    },
+    {
+      "label": "Offline save blocked without draft loss",
+      "pass": true
+    },
+    {
+      "label": "Save error recoverable",
+      "pass": true
+    },
+    {
+      "label": "A: product success",
+      "pass": true
+    },
+    {
+      "label": "Receiving follow-up explicitly separate",
+      "pass": true
+    },
+    {
+      "label": "Fashion identity fields visible and prefilled via explicit example",
+      "pass": true
+    },
+    {
+      "label": "Shoe sizing preserved",
+      "pass": true
+    },
+    {
+      "label": "No invented mass-volume conversion",
+      "pass": true
+    },
+    {
+      "label": "Cookware diameter example",
+      "pass": true
+    },
+    {
+      "label": "D: empty history",
+      "pass": true
+    },
+    {
+      "label": "Label search empty state",
+      "pass": true
+    },
+    {
+      "label": "Copies validated separately",
+      "pass": true
+    },
+    {
+      "label": "Print size caption follows selection",
+      "pass": true
+    },
+    {
+      "label": "B: existing product print preserves barcode",
+      "pass": true
+    },
+    {
+      "label": "C: print failure keeps copies",
+      "pass": true
+    },
+    {
+      "label": "C: reprint preserves original code",
+      "pass": true
+    },
+    {
+      "label": "D: successes and failure logged",
+      "pass": true
+    },
+    {
+      "label": "D: failure filter",
+      "pass": true
+    },
+    {
+      "label": "D: history detail reason and original code",
+      "pass": true
+    },
+    {
+      "label": "Layout loss separate from paper reprint",
+      "pass": true
+    },
+    {
+      "label": "Layout restoration keeps code",
+      "pass": true
+    },
+    {
+      "label": "Missing original barcode cannot be invented",
+      "pass": true
+    },
+    {
+      "label": "Manager-only configuration",
+      "pass": true
+    },
+    {
+      "label": "Employee without capability cannot print",
+      "pass": true
+    },
+    {
+      "label": "E: lot date cannot become SKU custom attribute",
+      "pass": true
+    },
+    {
+      "label": "E: manual product custom attribute confirmed",
+      "pass": true
+    },
+    {
+      "label": "E: proposed template visible for approval",
+      "pass": true
+    },
+    {
+      "label": "Manager config adds option in RAM",
+      "pass": true
+    },
+    {
+      "label": "Management navigation does not overwrite creation draft",
+      "pass": true
+    },
+    {
+      "label": "Proposed draft reusable within session",
+      "pass": true
+    },
+    {
+      "label": "Configured enum used by intended template",
+      "pass": true
+    },
+    {
+      "label": "New brand suggestion consumed by form",
+      "pass": true
+    },
+    {
+      "label": "Packaging count integer validated",
+      "pass": true
+    },
+    {
+      "label": "Packaging definition separate from receipt and copies",
+      "pass": true
+    },
+    {
+      "label": "Unit conversion survives conditional rerender",
+      "pass": true
+    },
+    {
+      "label": "Overview no overflow 1440",
+      "pass": true
+    },
+    {
+      "label": "Form no overflow 1440",
+      "pass": true
+    },
+    {
+      "label": "Visible touch controls >=44px 1440",
+      "pass": true
+    },
+    {
+      "label": "Dialog no internal overflow 1440",
+      "pass": true
+    },
+    {
+      "label": "Overview no overflow 768",
+      "pass": true
+    },
+    {
+      "label": "Form no overflow 768",
+      "pass": true
+    },
+    {
+      "label": "Visible touch controls >=44px 768",
+      "pass": true
+    },
+    {
+      "label": "Dialog no internal overflow 768",
+      "pass": true
+    },
+    {
+      "label": "Overview no overflow 390",
+      "pass": true
+    },
+    {
+      "label": "Form no overflow 390",
+      "pass": true
+    },
+    {
+      "label": "Visible touch controls >=44px 390",
+      "pass": true
+    },
+    {
+      "label": "Dialog no internal overflow 390",
+      "pass": true
+    },
+    {
+      "label": "Overview no overflow 360",
+      "pass": true
+    },
+    {
+      "label": "Form no overflow 360",
+      "pass": true
+    },
+    {
+      "label": "Visible touch controls >=44px 360",
+      "pass": true
+    },
+    {
+      "label": "Dialog no internal overflow 360",
+      "pass": true
+    },
+    {
+      "label": "Keyboard skip link first",
+      "pass": true
+    },
+    {
+      "label": "Skip link focuses main",
+      "pass": true
+    },
+    {
+      "label": "Escape closes dialog",
+      "pass": true
+    },
+    {
+      "label": "No browser JS errors",
+      "pass": true
+    },
+    {
+      "label": "No source/data sent externally",
+      "pass": true
+    },
+    {
+      "label": "GET-only local mockup",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "mutations": [],
+  "screenshots": [
+    "Before-Desktop.png",
+    "Overview-1440.png",
+    "Templates-1440.png",
+    "Form-1440.png",
+    "Confirm-1440.png",
+    "Offline-1440.png",
+    "Success-1440.png",
+    "Pan-1440.png",
+    "Print-1440.png",
+    "Print-Failure-1440.png",
+    "History-1440.png",
+    "Missing-Code-1440.png",
+    "Permission-1440.png",
+    "Management-1440.png",
+    "Overview-1440.png",
+    "Form-1440.png",
+    "Confirm-1440.png",
+    "Print-1440.png",
+    "Overview-768.png",
+    "Form-768.png",
+    "Confirm-768.png",
+    "Print-768.png",
+    "Overview-390.png",
+    "Form-390.png",
+    "Confirm-390.png",
+    "Print-390.png",
+    "Overview-360.png",
+    "Form-360.png",
+    "Confirm-360.png",
+    "Print-360.png"
+  ]
+}

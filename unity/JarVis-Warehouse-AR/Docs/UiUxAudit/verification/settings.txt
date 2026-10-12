@@ -1,0 +1,19 @@
+PASS
+2026-10-12T18:11:30.4378759Z
+PASS Three shared switch components False
+PASS Identical 58x48 touch targets False
+PASS Identical 58x32 visible tracks False
+PASS All switches aligned on one horizontal coordinate False
+PASS Shared on/off palette False
+PASS Three headings use the same text size False
+PASS No duplicate size value beside Text size False
+PASS Switch callback persists correct preference: Dark mode switch
+PASS Switch callback persists correct preference: Reduce transparency
+PASS Switch callback persists correct preference: Reduce motion
+PASS Three shared switch components True
+PASS Identical 58x48 touch targets True
+PASS Identical 58x32 visible tracks True
+PASS All switches aligned on one horizontal coordinate True
+PASS Shared on/off palette True
+PASS Three headings use the same text size True
+PASS No duplicate size value beside Text size True

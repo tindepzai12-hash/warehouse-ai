@@ -1,5 +1,8 @@
 # Sửa giao diện JarVis trong Unity
 
+## Sản phẩm và tem — 2026-10-12
+Owner mới trên route `5:450`: `WarehouseProductWorkspace`, đăng ký bởi `PrototypeWorkspace`. Prototype web đã được duyệt để đưa UI vào Unity sau novice review. Dữ liệu ngành/mẫu: `Assets/Resources/JarVisProductTemplates.json`, 134 mẫu từ schema cũ. Giữ scene và navigation gốc; không chạy Figma builder. Kiểm tra tập trung: `ProjectBootstrap.ProductWorkspaceReview.Run` → `Logs/ProductWorkspace`. Runtime không có fixture hoặc quyền demo; tạo hàng chỉ session draft, API tạo SKU/in/history/quản lý chưa nối. Xem `Docs/ProductUxReview/NOVICE_REVIEW.md` trước khi nâng cấp tiếp.
+
 ## Quy trình hiện tại — đọc phần này trước
 
 **Scene app chính:** `Assets/Scenes/JarVisFigmaApp.unity`. Các hướng dẫn WarehouseScene/InventoryPreview bên dưới là luồng cũ hoặc preview riêng, không phải entry hiện tại. Không đọc lại toàn bộ lịch sử chat để xác định scene.

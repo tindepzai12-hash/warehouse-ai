@@ -92,6 +92,7 @@ namespace JarVis.Warehouse.UI
             if(CurrentScreen=="5:36"||CurrentScreen=="5:11")return;
             if(Settings!=null&&Settings.Panel!=null){Settings.Close();return;}
             if(CurrentScreen!=null&&lookup[CurrentScreen].GetComponent<ImportedWarehouseLists>()?.CloseDetail()==true)return;
+            if(CurrentScreen=="5:450"&&lookup[CurrentScreen].GetComponent<WarehouseProductWorkspace>()?.TryBack()==true)return;
             if (history.Count > 0) Show(history.Pop(), false);
             else Home();
         }
@@ -168,7 +169,7 @@ namespace JarVis.Warehouse.UI
                 if((node.nodeName??"").StartsWith("tab-"))
                 {
                     Color color=node.nodeName==active?(dark?new Color(.45f,.7f,1):JarVisDesignTokens.Accent):(dark?new Color(.65f,.7f,.78f):new Color(.43f,.42f,.41f));
-                    foreach(var text in node.GetComponentsInChildren<TMP_Text>(true)){text.color=color;text.fontStyle=node.nodeName==active?FontStyles.Bold:FontStyles.Normal;}
+                    foreach(var text in node.GetComponentsInChildren<TMP_Text>(true)){text.color=color;text.fontStyle=FontStyles.Bold;}
                     foreach(var icon in node.GetComponentsInChildren<ImportedUtilityIcon>(true))icon.color=color;
                     foreach(var image in node.GetComponentsInChildren<UnityEngine.UI.Image>(true))
                         if(image.gameObject!=node.gameObject && image.sprite!=null)image.color=image.name=="Canonical JarVis mascot"?Color.white:color;
@@ -385,8 +386,9 @@ namespace JarVis.Warehouse.UI
                 var rect = text.rectTransform; rect.anchorMin = Vector2.zero; rect.anchorMax = Vector2.one; rect.offsetMin = new Vector2(34,0); rect.offsetMax = new Vector2(-40,0);
                 field = container.gameObject.AddComponent<TMP_InputField>(); field.textComponent = text; field.textViewport = container.rectTransform; field.placeholder = placeholder;
                 field.contentType = password ? TMP_InputField.ContentType.Password : TMP_InputField.ContentType.Standard;
-                field.characterLimit = password ? 64 : 32; field.text = "";
+                field.text = "";
             }
+            field.characterLimit = password ? 256 : 32;
             var copiedNode=field.textComponent.GetComponent<FigmaNode>();
             if(copiedNode!=null)
             {

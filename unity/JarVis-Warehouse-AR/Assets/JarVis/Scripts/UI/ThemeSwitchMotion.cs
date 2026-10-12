@@ -1,4 +1,21 @@
-using UnityEngine;using UnityEngine.UI;
-namespace JarVis.Warehouse.UI { public sealed class ThemeSwitchMotion:MonoBehaviour { ImportedSettings settings;RectTransform thumb;Image track;public void Configure(ImportedSettings s,RectTransform t,Image image){settings=s;thumb=t;track=image;}void Update(){if(settings==null)return;float target=settings.Dark?34:2;thumb.anchoredPosition=new Vector2(Mathf.Lerp(thumb.anchoredPosition.x,target,1-Mathf.Exp(-Time.unscaledDeltaTime*20)),-12);track.color=settings.Dark?new Color(.16f,.42f,.8f):new Color(.78f,.84f,.94f);} } }
+using System;
+using UnityEngine;
+using UnityEngine.UI;
+namespace JarVis.Warehouse.UI
+{
+    public sealed class ThemeSwitchMotion:MonoBehaviour
+    {
+        Func<bool> value,dark;RectTransform thumb;Image track;
+        public void Configure(Func<bool> current,Func<bool> appearance,RectTransform handle,Image surface)
+        {value=current;dark=appearance;thumb=handle;track=surface;Paint(true);}
+        void Update(){Paint(PrototypeUi.ReducedMotion);}
+        void Paint(bool immediate)
+        {
+            if(value==null)return;bool active=value();float target=active?29:3;
+            thumb.anchoredPosition=new Vector2(immediate?target:Mathf.Lerp(thumb.anchoredPosition.x,target,1-Mathf.Exp(-Time.unscaledDeltaTime*20)),-11);
+            track.color=active?PrototypeUi.Hex("1255d5"):PrototypeUi.Hex(dark()?"35445b":"dce5f0");thumb.GetComponent<Image>().color=Color.white;
+        }
+    }
+}
 
 

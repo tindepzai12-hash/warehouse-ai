@@ -1269,48 +1269,1248 @@
       "en": "Use device setting follows your phone's light or dark appearance."
     },
     {
-      "vi": "Đang xử lý bản ghi…",
-      "en": "Processing recording…"
+      "vi": "Áo",
+      "en": "Tops"
     },
     {
-      "vi": "Đang gửi giọng nói…",
-      "en": "Uploading voice…"
+      "vi": "Áo blazer",
+      "en": "Blazer"
     },
     {
-      "vi": "JarVis đang nghe và trả lời…",
-      "en": "JarVis is listening and replying…"
+      "vi": "Áo cardigan",
+      "en": "Cardigan"
     },
     {
-      "vi": "Loa bật · JarVis sẽ đọc câu trả lời bằng giọng AI",
-      "en": "Speaker on · JarVis will read replies with an AI voice"
+      "vi": "Áo hoodie",
+      "en": "Hoodie"
     },
     {
-      "vi": "Loa tắt · chỉ hiển thị câu trả lời chữ",
-      "en": "Speaker off · text replies only"
+      "vi": "Áo khoác",
+      "en": "Jacket"
     },
     {
-      "vi": "Đang ghi âm — chạm micro lần nữa để gửi (tối đa 30s)",
-      "en": "Recording — tap the mic again to send (max 30s)"
+      "vi": "Áo len",
+      "en": "Knit sweater"
     },
     {
-      "vi": "Đã dừng giọng nói khi ứng dụng tạm nghỉ",
-      "en": "Voice stopped when the app paused"
+      "vi": "Áo polo",
+      "en": "Polo shirt"
     },
     {
-      "vi": "NO_AUDIO: Bản ghi quá ngắn. Hãy thử lại.",
-      "en": "NO_AUDIO: Recording too short. Please try again."
+      "vi": "Áo sơ mi",
+      "en": "Shirt"
     },
     {
-      "vi": "NO_AUDIO: Chưa nghe thấy giọng nói. Hãy thử lại.",
-      "en": "NO_AUDIO: No audible speech. Please try again."
+      "vi": "Áo sweater",
+      "en": "Sweatshirt"
     },
     {
-      "vi": "Micro đang được sử dụng. Hãy thử lại.",
-      "en": "Microphone is busy. Please try again."
+      "vi": "Áo thun",
+      "en": "T-shirt"
     },
     {
-      "vi": "Gửi hoặc bỏ ảnh đính kèm trước khi hỏi bằng giọng nói",
-      "en": "Send or remove the attached photo before asking by voice"
+      "vi": "Ấm siêu tốc",
+      "en": "Electric kettle"
+    },
+    {
+      "vi": "Bàn phím",
+      "en": "Keyboard"
+    },
+    {
+      "vi": "Bánh quy",
+      "en": "Biscuits"
+    },
+    {
+      "vi": "Be",
+      "en": "Beige"
+    },
+    {
+      "vi": "Bếp từ",
+      "en": "Induction hob"
+    },
+    {
+      "vi": "Bình giữ nhiệt",
+      "en": "Insulated bottle"
+    },
+    {
+      "vi": "Bình thường",
+      "en": "Regular sugar"
+    },
+    {
+      "vi": "Bộ sạc",
+      "en": "Charger"
+    },
+    {
+      "vi": "Bột giặt",
+      "en": "Laundry powder"
+    },
+    {
+      "vi": "Cà phê",
+      "en": "Coffee"
+    },
+    {
+      "vi": "Cà phê đóng chai",
+      "en": "Bottled coffee"
+    },
+    {
+      "vi": "Các loại đồ uống",
+      "en": "Beverages"
+    },
+    {
+      "vi": "Cái",
+      "en": "Piece"
+    },
+    {
+      "vi": "Cam",
+      "en": "Orange"
+    },
+    {
+      "vi": "Camera",
+      "en": "Camera"
+    },
+    {
+      "vi": "Can",
+      "en": "Jerrycan"
+    },
+    {
+      "vi": "Chai",
+      "en": "Bottle"
+    },
+    {
+      "vi": "Chanh",
+      "en": "Lemon"
+    },
+    {
+      "vi": "Chảo",
+      "en": "Frying pan"
+    },
+    {
+      "vi": "Chân váy",
+      "en": "Skirt"
+    },
+    {
+      "vi": "Chất liệu",
+      "en": "Material"
+    },
+    {
+      "vi": "Chất tẩy bồn cầu",
+      "en": "Toilet cleaner"
+    },
+    {
+      "vi": "Chất tẩy đa năng",
+      "en": "Multipurpose cleaner"
+    },
+    {
+      "vi": "Chất tẩy rửa",
+      "en": "Cleaning products"
+    },
+    {
+      "vi": "Chiều cao",
+      "en": "Height"
+    },
+    {
+      "vi": "Chiều dài",
+      "en": "Length"
+    },
+    {
+      "vi": "Chiều dài lưỡi dao",
+      "en": "Blade length"
+    },
+    {
+      "vi": "Chiều rộng",
+      "en": "Width"
+    },
+    {
+      "vi": "Chu vi 54 cm",
+      "en": "Circumference 54 cm"
+    },
+    {
+      "vi": "Chu vi 56 cm",
+      "en": "Circumference 56 cm"
+    },
+    {
+      "vi": "Chu vi 58 cm",
+      "en": "Circumference 58 cm"
+    },
+    {
+      "vi": "Chuột máy tính",
+      "en": "Computer mouse"
+    },
+    {
+      "vi": "Cotton",
+      "en": "Cotton"
+    },
+    {
+      "vi": "Công suất (W)",
+      "en": "Power (W)"
+    },
+    {
+      "vi": "Da",
+      "en": "Leather"
+    },
+    {
+      "vi": "Dao",
+      "en": "Knife"
+    },
+    {
+      "vi": "Dâu",
+      "en": "Strawberry"
+    },
+    {
+      "vi": "Dầu gội",
+      "en": "Shampoo"
+    },
+    {
+      "vi": "Dầu xả",
+      "en": "Conditioner"
+    },
+    {
+      "vi": "Dụng cụ nhà bếp",
+      "en": "Kitchen utensils"
+    },
+    {
+      "vi": "Dung tích chứa",
+      "en": "Capacity"
+    },
+    {
+      "vi": "Dung tích trên nhãn",
+      "en": "Labelled volume"
+    },
+    {
+      "vi": "Đậu",
+      "en": "Bean"
+    },
+    {
+      "vi": "Đen",
+      "en": "Black"
+    },
+    {
+      "vi": "Điện thoại",
+      "en": "Phone"
+    },
+    {
+      "vi": "Điện tử",
+      "en": "Electronics"
+    },
+    {
+      "vi": "Định lượng trên nhãn",
+      "en": "Labelled content"
+    },
+    {
+      "vi": "Đỏ",
+      "en": "Red"
+    },
+    {
+      "vi": "Đồ ăn khô",
+      "en": "Dry food"
+    },
+    {
+      "vi": "Đồ gia dụng",
+      "en": "Household goods"
+    },
+    {
+      "vi": "Đồ uống",
+      "en": "Drinks"
+    },
+    {
+      "vi": "Đôi",
+      "en": "Pair"
+    },
+    {
+      "vi": "Đũa",
+      "en": "Chopsticks"
+    },
+    {
+      "vi": "Đường ăn kiêng",
+      "en": "Sweetener"
+    },
+    {
+      "vi": "Đường kính",
+      "en": "Diameter"
+    },
+    {
+      "vi": "Free Size",
+      "en": "One size"
+    },
+    {
+      "vi": "Gang",
+      "en": "Cast iron"
+    },
+    {
+      "vi": "Gạo",
+      "en": "Rice"
+    },
+    {
+      "vi": "Găng tay",
+      "en": "Gloves"
+    },
+    {
+      "vi": "Gia vị",
+      "en": "Seasonings"
+    },
+    {
+      "vi": "Giày",
+      "en": "Footwear"
+    },
+    {
+      "vi": "Giày boots",
+      "en": "Boots"
+    },
+    {
+      "vi": "Giày cao gót",
+      "en": "High heels"
+    },
+    {
+      "vi": "Giày chạy bộ",
+      "en": "Running shoes"
+    },
+    {
+      "vi": "Giày cổ cao",
+      "en": "High-top shoes"
+    },
+    {
+      "vi": "Giày cổ thấp",
+      "en": "Low-top shoes"
+    },
+    {
+      "vi": "Giày da",
+      "en": "Leather shoes"
+    },
+    {
+      "vi": "Giày sandal",
+      "en": "Sandals"
+    },
+    {
+      "vi": "Giày thể thao",
+      "en": "Trainers"
+    },
+    {
+      "vi": "Gỗ",
+      "en": "Wood"
+    },
+    {
+      "vi": "Gốm/sứ",
+      "en": "Ceramic / porcelain"
+    },
+    {
+      "vi": "Hạt dinh dưỡng",
+      "en": "Nuts and seeds"
+    },
+    {
+      "vi": "Hồng",
+      "en": "Pink"
+    },
+    {
+      "vi": "Hũ",
+      "en": "Jar"
+    },
+    {
+      "vi": "Hương hoa",
+      "en": "Floral"
+    },
+    {
+      "vi": "Hương trái cây",
+      "en": "Fruity"
+    },
+    {
+      "vi": "Hương vị",
+      "en": "Flavour"
+    },
+    {
+      "vi": "Inox",
+      "en": "Stainless steel"
+    },
+    {
+      "vi": "Ít đường",
+      "en": "Low sugar"
+    },
+    {
+      "vi": "Kem chống nắng",
+      "en": "Sunscreen"
+    },
+    {
+      "vi": "Kem dưỡng da",
+      "en": "Moisturiser"
+    },
+    {
+      "vi": "Kem dưỡng tay",
+      "en": "Hand cream"
+    },
+    {
+      "vi": "Kem ủ tóc",
+      "en": "Hair mask"
+    },
+    {
+      "vi": "Kéo nhà bếp",
+      "en": "Kitchen scissors"
+    },
+    {
+      "vi": "Keo xịt tóc",
+      "en": "Hairspray"
+    },
+    {
+      "vi": "Khác",
+      "en": "Other"
+    },
+    {
+      "vi": "Khác — Nhập thủ công",
+      "en": "Other — enter manually"
+    },
+    {
+      "vi": "Khay nướng",
+      "en": "Baking tray"
+    },
+    {
+      "vi": "Khăn quàng",
+      "en": "Scarf"
+    },
+    {
+      "vi": "Khối lượng trên nhãn",
+      "en": "Labelled weight"
+    },
+    {
+      "vi": "Không đường",
+      "en": "Sugar-free"
+    },
+    {
+      "vi": "Không mùi",
+      "en": "Unscented"
+    },
+    {
+      "vi": "Kim loại",
+      "en": "Metal"
+    },
+    {
+      "vi": "Laptop",
+      "en": "Laptop"
+    },
+    {
+      "vi": "Lò nướng",
+      "en": "Oven"
+    },
+    {
+      "vi": "Lò vi sóng",
+      "en": "Microwave"
+    },
+    {
+      "vi": "Loa",
+      "en": "Speaker"
+    },
+    {
+      "vi": "Màu / mã màu",
+      "en": "Colour / colour code"
+    },
+    {
+      "vi": "Màu sắc",
+      "en": "Colour"
+    },
+    {
+      "vi": "Máy đánh trứng",
+      "en": "Mixer"
+    },
+    {
+      "vi": "Máy ép trái cây",
+      "en": "Juicer"
+    },
+    {
+      "vi": "Máy pha cà phê",
+      "en": "Coffee machine"
+    },
+    {
+      "vi": "Máy tính bảng",
+      "en": "Tablet"
+    },
+    {
+      "vi": "Máy xay sinh tố",
+      "en": "Blender"
+    },
+    {
+      "vi": "Mì ăn liền",
+      "en": "Instant noodles"
+    },
+    {
+      "vi": "Model / mã phiên bản",
+      "en": "Model / version code"
+    },
+    {
+      "vi": "Mũ",
+      "en": "Headwear"
+    },
+    {
+      "vi": "Mũ beret",
+      "en": "Beret"
+    },
+    {
+      "vi": "Mũ bucket",
+      "en": "Bucket hat"
+    },
+    {
+      "vi": "Mũ len",
+      "en": "Beanie"
+    },
+    {
+      "vi": "Mũ lưỡi trai",
+      "en": "Baseball cap"
+    },
+    {
+      "vi": "Mũ snapback",
+      "en": "Snapback cap"
+    },
+    {
+      "vi": "Mũ vành rộng",
+      "en": "Wide-brimmed hat"
+    },
+    {
+      "vi": "Mùi / dòng",
+      "en": "Scent / range"
+    },
+    {
+      "vi": "Muỗng",
+      "en": "Spoon"
+    },
+    {
+      "vi": "Mức đường",
+      "en": "Sugar level"
+    },
+    {
+      "vi": "Mỹ phẩm",
+      "en": "Cosmetics"
+    },
+    {
+      "vi": "Mỹ phẩm / chăm sóc",
+      "en": "Cosmetics / personal care"
+    },
+    {
+      "vi": "Nâu",
+      "en": "Brown"
+    },
+    {
+      "vi": "Ngũ cốc",
+      "en": "Cereal"
+    },
+    {
+      "vi": "Nguyên bản / không hương vị",
+      "en": "Original / unflavoured"
+    },
+    {
+      "vi": "Nho",
+      "en": "Grape"
+    },
+    {
+      "vi": "Nhôm",
+      "en": "Aluminium"
+    },
+    {
+      "vi": "Nhựa",
+      "en": "Plastic"
+    },
+    {
+      "vi": "Nồi",
+      "en": "Cooking pot"
+    },
+    {
+      "vi": "Nồi chiên không dầu",
+      "en": "Air fryer"
+    },
+    {
+      "vi": "Nồi cơm điện",
+      "en": "Rice cooker"
+    },
+    {
+      "vi": "Nồi hấp",
+      "en": "Steamer"
+    },
+    {
+      "vi": "Nước giặt",
+      "en": "Laundry detergent"
+    },
+    {
+      "vi": "Nước hoa",
+      "en": "Perfume"
+    },
+    {
+      "vi": "Nước lau kính",
+      "en": "Glass cleaner"
+    },
+    {
+      "vi": "Nước lau sàn",
+      "en": "Floor cleaner"
+    },
+    {
+      "vi": "Nước ngọt có gas",
+      "en": "Soft drink"
+    },
+    {
+      "vi": "Nước rửa chén",
+      "en": "Dishwashing liquid"
+    },
+    {
+      "vi": "Nước suối",
+      "en": "Bottled water"
+    },
+    {
+      "vi": "Nước tăng lực",
+      "en": "Energy drink"
+    },
+    {
+      "vi": "Nước tẩy trang",
+      "en": "Makeup remover"
+    },
+    {
+      "vi": "Nước thể thao",
+      "en": "Sports drink"
+    },
+    {
+      "vi": "Nước trái cây",
+      "en": "Fruit juice"
+    },
+    {
+      "vi": "Nước xả vải",
+      "en": "Fabric softener"
+    },
+    {
+      "vi": "Phụ kiện",
+      "en": "Accessories"
+    },
+    {
+      "vi": "Polyester",
+      "en": "Polyester"
+    },
+    {
+      "vi": "Quần",
+      "en": "Trousers and shorts"
+    },
+    {
+      "vi": "Quần dài",
+      "en": "Long trousers"
+    },
+    {
+      "vi": "Quần jeans",
+      "en": "Jeans"
+    },
+    {
+      "vi": "Quần jogger",
+      "en": "Joggers"
+    },
+    {
+      "vi": "Quần kaki",
+      "en": "Chinos"
+    },
+    {
+      "vi": "Quần lửng",
+      "en": "Cropped trousers"
+    },
+    {
+      "vi": "Quần ngắn",
+      "en": "Shorts"
+    },
+    {
+      "vi": "Quần tây",
+      "en": "Formal trousers"
+    },
+    {
+      "vi": "Quần thể thao",
+      "en": "Sports trousers"
+    },
+    {
+      "vi": "Quy cách / mô tả nhận diện",
+      "en": "Specification / identifying details"
+    },
+    {
+      "vi": "Rây lọc",
+      "en": "Strainer"
+    },
+    {
+      "vi": "Rổ",
+      "en": "Colander"
+    },
+    {
+      "vi": "Sản phẩm khác",
+      "en": "Other products"
+    },
+    {
+      "vi": "Serum",
+      "en": "Serum"
+    },
+    {
+      "vi": "Silicone",
+      "en": "Silicone"
+    },
+    {
+      "vi": "Size",
+      "en": "Size"
+    },
+    {
+      "vi": "Son môi",
+      "en": "Lipstick"
+    },
+    {
+      "vi": "Số vùng nấu",
+      "en": "Cooking zones"
+    },
+    {
+      "vi": "Sữa hạt",
+      "en": "Plant-based milk"
+    },
+    {
+      "vi": "Sữa rửa mặt",
+      "en": "Facial cleanser"
+    },
+    {
+      "vi": "Sữa tắm",
+      "en": "Body wash"
+    },
+    {
+      "vi": "Sữa tươi",
+      "en": "Fresh milk"
+    },
+    {
+      "vi": "Tai nghe",
+      "en": "Headphones"
+    },
+    {
+      "vi": "Táo",
+      "en": "Apple"
+    },
+    {
+      "vi": "Tất",
+      "en": "Socks"
+    },
+    {
+      "vi": "Tẩy tế bào chết",
+      "en": "Exfoliator"
+    },
+    {
+      "vi": "Thắt lưng",
+      "en": "Belt"
+    },
+    {
+      "vi": "Thiết bị điện gia dụng",
+      "en": "Household appliances"
+    },
+    {
+      "vi": "Thỏi",
+      "en": "Stick"
+    },
+    {
+      "vi": "Thông số / phiên bản",
+      "en": "Specification / version"
+    },
+    {
+      "vi": "Thời trang",
+      "en": "Clothing"
+    },
+    {
+      "vi": "Thớt",
+      "en": "Chopping board"
+    },
+    {
+      "vi": "Thủy tinh",
+      "en": "Glass"
+    },
+    {
+      "vi": "Tím",
+      "en": "Purple"
+    },
+    {
+      "vi": "Tinh dầu dưỡng tóc",
+      "en": "Hair oil"
+    },
+    {
+      "vi": "Tivi",
+      "en": "Television"
+    },
+    {
+      "vi": "Toner",
+      "en": "Toner"
+    },
+    {
+      "vi": "Trà",
+      "en": "Tea"
+    },
+    {
+      "vi": "Trà đóng chai",
+      "en": "Bottled tea"
+    },
+    {
+      "vi": "Trái cây sấy",
+      "en": "Dried fruit"
+    },
+    {
+      "vi": "Trắng",
+      "en": "White"
+    },
+    {
+      "vi": "Túi",
+      "en": "Bag"
+    },
+    {
+      "vi": "Túi xách",
+      "en": "Handbag"
+    },
+    {
+      "vi": "Tuýp",
+      "en": "Tube"
+    },
+    {
+      "vi": "Vá nấu ăn",
+      "en": "Ladle"
+    },
+    {
+      "vi": "Vải pha",
+      "en": "Blended fabric"
+    },
+    {
+      "vi": "Vàng",
+      "en": "Yellow"
+    },
+    {
+      "vi": "Váy",
+      "en": "Dresses"
+    },
+    {
+      "vi": "Váy body",
+      "en": "Bodycon dress"
+    },
+    {
+      "vi": "Váy chữ A",
+      "en": "A-line dress"
+    },
+    {
+      "vi": "Váy công sở",
+      "en": "Office dress"
+    },
+    {
+      "vi": "Váy dạ hội",
+      "en": "Evening dress"
+    },
+    {
+      "vi": "Váy học sinh",
+      "en": "School dress"
+    },
+    {
+      "vi": "Váy maxi",
+      "en": "Maxi dress"
+    },
+    {
+      "vi": "Váy xòe",
+      "en": "Flared dress"
+    },
+    {
+      "vi": "Vật liệu kết hợp",
+      "en": "Mixed materials"
+    },
+    {
+      "vi": "Xám",
+      "en": "Grey"
+    },
+    {
+      "vi": "Xanh dương",
+      "en": "Blue"
+    },
+    {
+      "vi": "Xanh lá",
+      "en": "Green"
+    },
+    {
+      "vi": "Gói",
+      "en": "Pack"
+    },
+    {
+      "vi": " · mã & quy cách",
+      "en": " · codes & packaging"
+    },
+    {
+      "vi": " · Mở nhóm",
+      "en": " · Expand"
+    },
+    {
+      "vi": " · Thu gọn",
+      "en": " · Collapse"
+    },
+    {
+      "vi": " chiếc trong lốc/thùng",
+      "en": " units per pack/case"
+    },
+    {
+      "vi": ": dùng số dương hợp lệ.",
+      "en": ": use a valid positive number."
+    },
+    {
+      "vi": "<b>Rất tốt, Justin!</b>\nBạn đang giữ nhịp làm việc đều đặn.",
+      "en": "<b>Well done, Justin!</b>\nYou're keeping a steady working rhythm."
+    },
+    {
+      "vi": "1 Chọn mẫu → 2 Điền thông tin → 3 Xác nhận",
+      "en": "1 Template → 2 Information → 3 Confirm"
+    },
+    {
+      "vi": "Admin quản lý nhiệm vụ trên web.",
+      "en": "Admin manages tasks on the web."
+    },
+    {
+      "vi": "API trả dữ liệu mẫu; không dùng để tạo tem hàng thật.",
+      "en": "The API returned synthetic data; it cannot be used for real labels."
+    },
+    {
+      "vi": "Bản nháp trong phiên, chưa lưu OMS. HSD/NSX và số lô điền khi nhận hàng.",
+      "en": "Session draft, not saved to OMS. Enter lot dates at receiving."
+    },
+    {
+      "vi": "Barcode bao bì *",
+      "en": "Package barcode *"
+    },
+    {
+      "vi": "Barcode cần 1–64 ký tự ASCII, không có dấu cách.",
+      "en": "Barcode must use 1–64 ASCII characters without spaces."
+    },
+    {
+      "vi": "Barcode thiếu hoặc đã có. Không ghi đè mã gốc.",
+      "en": "Barcode is missing or exists. Do not overwrite it."
+    },
+    {
+      "vi": "Bắt đầu chuỗi hoạt động",
+      "en": "Start your activity streak"
+    },
+    {
+      "vi": "Bật trực tuyến để ghi nhận hoạt động.",
+      "en": "Go online to record your activity."
+    },
+    {
+      "vi": "Cấp khi lưu OMS",
+      "en": "Allocated by OMS"
+    },
+    {
+      "vi": "Cấu hình dành cho quản lý",
+      "en": "Manager configuration"
+    },
+    {
+      "vi": "Chọn hoặc nhập: ",
+      "en": "Choose or enter: "
+    },
+    {
+      "vi": "Chọn lại: ",
+      "en": "Select again: "
+    },
+    {
+      "vi": "Chờ OMS cấp",
+      "en": "Awaiting OMS allocation"
+    },
+    {
+      "vi": "Chờ OMS cấp mã nội bộ",
+      "en": "Awaiting OMS internal code"
+    },
+    {
+      "vi": "Chưa chọn",
+      "en": "Not selected"
+    },
+    {
+      "vi": "Chưa có dữ liệu chuỗi hoạt động",
+      "en": "Activity streak unavailable"
+    },
+    {
+      "vi": "Chưa có nhiệm vụ được giao",
+      "en": "No tasks assigned yet"
+    },
+    {
+      "vi": "Chưa có sản phẩm phù hợp. Thử tên ngắn hơn hoặc tải lại; đừng tạo lại SKU chỉ vì mất tem.",
+      "en": "No matching product. Try a shorter name or reload; missing labels do not require a new SKU."
+    },
+    {
+      "vi": "Chưa có thông báo mới.",
+      "en": "No new notifications."
+    },
+    {
+      "vi": "Chưa kết nối máy in/encoder. Lịch sử in thật cũng chưa có API; không ghi lượt in giả. Chỉ xem dữ liệu mã gốc ở đây.",
+      "en": "Printer and encoder are not connected. Print history has no mobile API; no fake print events are recorded. This view only shows original codes."
+    },
+    {
+      "vi": "Chưa tải được nhiệm vụ. Chạm để xem lại.",
+      "en": "Couldn't load tasks. Tap to retry in Tasks."
+    },
+    {
+      "vi": "Chưa tải được sản phẩm. Kiểm tra kết nối rồi thử lại.",
+      "en": "Products could not be loaded. Check the connection and retry."
+    },
+    {
+      "vi": "Chưa tạo SKU trên OMS, chưa nhập tồn kho. API mobile chưa hỗ trợ lưu sản phẩm hoặc in; bản nháp chỉ giữ trong phiên app.",
+      "en": "No OMS SKU or stock is created. Mobile product saving and printing are not connected; drafts remain in this app session."
+    },
+    {
+      "vi": "Có",
+      "en": "Yes"
+    },
+    {
+      "vi": "Có — nhập khi nhận lô",
+      "en": "Yes — entered at receiving"
+    },
+    {
+      "vi": "Có hàng tương tự · kiểm tra trước",
+      "en": "Similar items exist · check first"
+    },
+    {
+      "vi": "Có hơn 60 kết quả. Nhập tên/mã cụ thể để thu hẹp.",
+      "en": "More than 60 results. Search a more specific name or code."
+    },
+    {
+      "vi": "Dùng mã trên bao bì nếu có. Không tự tạo GTIN.",
+      "en": "Use the package code if available. Never invent a GTIN."
+    },
+    {
+      "vi": "Đã giữ nháp trong phiên. Chưa lưu OMS; đóng app sẽ mất nháp.",
+      "en": "Draft kept for this session. Not saved to OMS; closing the app loses it."
+    },
+    {
+      "vi": "Đang tải nhiệm vụ…",
+      "en": "Loading tasks…"
+    },
+    {
+      "vi": "Đang tải sản phẩm…",
+      "en": "Loading products…"
+    },
+    {
+      "vi": "Đăng nhập để tra cứu sản phẩm đã có. Bản nháp chưa tạo hàng thật.",
+      "en": "Sign in to find existing products. Drafts do not create real stock."
+    },
+    {
+      "vi": "Đăng nhập để xem nhiệm vụ.",
+      "en": "Sign in to view tasks."
+    },
+    {
+      "vi": "Đơn chiếc",
+      "en": "Single unit"
+    },
+    {
+      "vi": "Đơn vị đo",
+      "en": "Measurement unit"
+    },
+    {
+      "vi": "Đơn vị lấy hàng *",
+      "en": "Picking unit *"
+    },
+    {
+      "vi": "Đơn vị lấy hàng: ",
+      "en": "Picking unit: "
+    },
+    {
+      "vi": "Giữ bản nháp trong phiên",
+      "en": "Keep session draft"
+    },
+    {
+      "vi": "Giữ lựa chọn / quay lại",
+      "en": "Keep selection / back"
+    },
+    {
+      "vi": "Hàng đã có: dùng sản phẩm cũ. Chỉ tạo nháp nếu là hàng mới.",
+      "en": "Use an existing product when possible. Draft only a new product."
+    },
+    {
+      "vi": "In thêm · chưa kết nối",
+      "en": "Print more · unavailable"
+    },
+    {
+      "vi": "Khổ tem dự kiến",
+      "en": "Planned label size"
+    },
+    {
+      "vi": "Không / chưa áp dụng",
+      "en": "No / not configured"
+    },
+    {
+      "vi": "Không có mẫu? Nhập thủ công",
+      "en": "No template? Enter manually"
+    },
+    {
+      "vi": "Không đổi khối lượng thành dung tích. Nhập lại số đo trên nhãn.",
+      "en": "Mass cannot be converted to volume. Re-enter the content shown on the label."
+    },
+    {
+      "vi": "Không tìm thấy mẫu. Thử từ khóa ngắn hơn hoặc nhập thủ công.",
+      "en": "No template found. Try a shorter query or enter manually."
+    },
+    {
+      "vi": "Không tự chọn vai trò. API mobile chưa cấp chức năng cấu hình danh mục hoặc in; quyền phải do backend xác nhận.",
+      "en": "Roles are not self-selected. Mobile catalog and print permissions must be supplied by the backend."
+    },
+    {
+      "vi": "Kiểm tra bản nháp",
+      "en": "Check draft"
+    },
+    {
+      "vi": "Lốc / hộp",
+      "en": "Pack"
+    },
+    {
+      "vi": "Lốc / hộp nhiều chiếc",
+      "en": "Multi-unit pack"
+    },
+    {
+      "vi": "Mã & quy cách · thu gọn",
+      "en": "Codes & packaging · collapse"
+    },
+    {
+      "vi": "Mã kho đang có",
+      "en": "Existing warehouse code"
+    },
+    {
+      "vi": "Mã nội bộ khi lưu OMS",
+      "en": "Internal code from OMS"
+    },
+    {
+      "vi": "Mã trên bao bì",
+      "en": "Package barcode"
+    },
+    {
+      "vi": "Một bước nhỏ hôm nay, giữ nhịp ngày mai.",
+      "en": "A small step today keeps your momentum going."
+    },
+    {
+      "vi": "Nhập tên sản phẩm trước.",
+      "en": "Enter the product name first."
+    },
+    {
+      "vi": "Nhiệm vụ hôm nay",
+      "en": "Today's tasks"
+    },
+    {
+      "vi": "Quản lý",
+      "en": "Manage"
+    },
+    {
+      "vi": "Quay lại chọn mẫu",
+      "en": "Back to templates"
+    },
+    {
+      "vi": "Quay lại tìm sản phẩm",
+      "en": "Back to product search"
+    },
+    {
+      "vi": "Quy cách SKU",
+      "en": "SKU packaging"
+    },
+    {
+      "vi": "Quy cách: ",
+      "en": "Packaging: "
+    },
+    {
+      "vi": "Sai check digit. Kiểm tra barcode trên bao bì.",
+      "en": "Wrong check digit. Check the package barcode."
+    },
+    {
+      "vi": "Sản phẩm",
+      "en": "Products"
+    },
+    {
+      "vi": "Sản phẩm & tem",
+      "en": "Products & labels"
+    },
+    {
+      "vi": "SKU dùng tối đa 64 ký tự chữ không dấu, số, . _ -.",
+      "en": "SKU must use 1–64 letters, digits, . _ -."
+    },
+    {
+      "vi": "SKU kho *",
+      "en": "Warehouse SKU *"
+    },
+    {
+      "vi": "SKU thiếu hoặc đã có. Dùng sản phẩm cũ nếu trùng.",
+      "en": "SKU is missing or exists. Use the existing product."
+    },
+    {
+      "vi": "Soạn sản phẩm mới · bản nháp",
+      "en": "Prepare new product · draft"
+    },
+    {
+      "vi": "Số chiếc trong quy cách *",
+      "en": "Units in this packaging *"
+    },
+    {
+      "vi": "Số chiếc trong quy cách phải là số nguyên từ 2 trở lên.",
+      "en": "Packaging must contain an integer number of at least 2 units."
+    },
+    {
+      "vi": "Số tem giấy (không phải số hàng)",
+      "en": "Paper labels (not stock quantity)"
+    },
+    {
+      "vi": "Sửa thông tin",
+      "en": "Edit information"
+    },
+    {
+      "vi": "Tải lại sản phẩm",
+      "en": "Reload products"
+    },
+    {
+      "vi": "Tem rách? Tìm đúng hàng rồi dùng lại mã gốc.",
+      "en": "Damaged label? Find the item and reuse its original code."
+    },
+    {
+      "vi": "Tem sản phẩm",
+      "en": "Labels"
+    },
+    {
+      "vi": "Tem SKU không tự chứa HSD, số lô, tồn kho hay vị trí. Không tạo mã mới khi tem rách/mất.",
+      "en": "SKU labels do not automatically contain lot dates, stock or locations. Never replace the code just because paper is damaged."
+    },
+    {
+      "vi": "Tên sản phẩm *",
+      "en": "Product name *"
+    },
+    {
+      "vi": "Thay tem rách · chưa kết nối",
+      "en": "Replace label · unavailable"
+    },
+    {
+      "vi": "Theo dõi HSD theo lô",
+      "en": "Track expiry per lot"
+    },
+    {
+      "vi": "Theo dõi HSD theo lô: ",
+      "en": "Track lot expiry: "
+    },
+    {
+      "vi": "Thiếu mã gốc",
+      "en": "Missing original code"
+    },
+    {
+      "vi": "Thiếu mã gốc — cần quản lý xác minh",
+      "en": "Missing original code — ask a manager"
+    },
+    {
+      "vi": "Thông tin bổ sung",
+      "en": "Additional information"
+    },
+    {
+      "vi": "Thu gọn thông tin bổ sung",
+      "en": "Collapse additional information"
+    },
+    {
+      "vi": "Thương hiệu (tùy chọn)",
+      "en": "Brand (optional)"
+    },
+    {
+      "vi": "Thương hiệu: ",
+      "en": "Brand: "
+    },
+    {
+      "vi": "Tiếp tục bản nháp: ",
+      "en": "Resume draft: "
+    },
+    {
+      "vi": "Tìm mẫu trong ngành",
+      "en": "Search templates in category"
+    },
+    {
+      "vi": "Tìm tên, SKU hoặc barcode",
+      "en": "Search name, SKU or barcode"
+    },
+    {
+      "vi": "Tính ngày khi Online đủ 1 phút · Đài Loan",
+      "en": "Day counts after 1 minute online · Taiwan"
+    },
+    {
+      "vi": "Xin chào, Justin",
+      "en": "Hello, Justin"
     }
   ]
 }

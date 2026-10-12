@@ -16,7 +16,8 @@ namespace JarVis.Warehouse.UI
             nav=owner;font=nav.screens[0].root.GetComponentInChildren<TMP_Text>(true).font;
             foreach(string id in new[]{"profile","activity","tools","transactions"})nav.RegisterPrototypeScreen("prototype:"+id,JarVisUi.Rect(nav.screens[0].root.transform.parent,"Prototype "+id,0,0,412,915).gameObject);
             nav.screens.First(s=>s.id=="215:2").root.AddComponent<WarehouseMapScreen>().Configure(nav);
-            string[] ids={"5:935","14:387","5:450","5:1029"},kinds={"inbound","outbound","label","incident"};
+            nav.screens.First(s=>s.id=="5:450").root.AddComponent<WarehouseProductWorkspace>().Configure(nav);
+            string[] ids={"5:935","14:387","5:1029"},kinds={"inbound","outbound","incident"};
             for(int i=0;i<ids.Length;i++)nav.screens.First(s=>s.id==ids[i]).root.AddComponent<PrototypeOperationPresentation>().Configure(nav,kinds[i]);
             nav.screens.First(s=>s.id=="5:331").root.AddComponent<PrototypeScannerPresentation>().Configure(nav);
             nav.IncludePrototypeNavigation("5:331");
@@ -66,7 +67,8 @@ namespace JarVis.Warehouse.UI
             else
             {
                 string[] vi={"Quét mã","Tra tồn kho","Nhiệm vụ","Báo cáo sự cố","Tạo tem hàng","Nhập kho","Xuất kho","AI JarVis"},en={"Scan code","Check inventory","Tasks","Report issue","Create label","Inbound","Outbound","AI JarVis"},icons={"scan","box","tasks","alert","tag","arrowDown","arrowUp","chat"},routes={"5:331","5:780","48:244","5:1029","5:450","5:935","14:387","5:1216"};
-                string[] desc={"Tra mã vạch và QR","Sản phẩm, lô và vị trí","Theo dõi việc được giao","Ghi nhận vấn đề tại kho","Mã hàng và tem vị trí","Kiểm đếm hàng nhận","Xác nhận hàng xuất","Hỗ trợ vận hành kho"},descEn={"Read barcodes and QR","Products, lots and locations","Track your assigned work","Record warehouse issues","Product and location labels","Check received stock","Confirm goods issue","Warehouse assistance"};
+                vi[4]="Sản phẩm & tem";en[4]="Products & labels";
+                string[] desc={"Tra mã vạch và QR","Sản phẩm, lô và vị trí","Theo dõi việc được giao","Ghi nhận vấn đề tại kho","Tìm hàng, soạn nháp, xem mã gốc","Kiểm đếm hàng nhận","Xác nhận hàng xuất","Hỗ trợ vận hành kho"},descEn={"Read barcodes and QR","Products, lots and locations","Track your assigned work","Record warehouse issues","Find items, prepare drafts, view original codes","Check received stock","Confirm goods issue","Warehouse assistance"};
                 PrototypeUi.Text(content,font,T("Một công cụ, một mục đích rõ ràng.","One tool, one clear purpose."),0,0,366,30,12,dark,false,true);
                 for(int i=0;i<vi.Length;i++)Tool(content,En?en[i]:vi[i],En?descEn[i]:desc[i],icons[i],42+i*89,routes[i]);content.sizeDelta=new Vector2(366,42+vi.Length*89);
             }

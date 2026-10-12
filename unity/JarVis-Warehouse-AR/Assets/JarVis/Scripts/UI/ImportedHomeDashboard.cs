@@ -83,12 +83,12 @@ namespace JarVis.Warehouse.UI
             streakTitle=PrototypeUi.Text(streak,font,"",54,17,295,42,16,dark,true);streakTitle.enableAutoSizing=true;streakTitle.fontSizeMax=16*ImportedSettings.TextScale;streakTitle.fontSizeMin=13;
             var mascot=JarVisUi.Rect(streak,"Approved JarVis encouragement",266,55,84,82).gameObject.AddComponent<PrototypeMascot>();mascot.Configure();
             days=new UnityEngine.UI.Image[7];checks=new ImportedUtilityIcon[7];
-            string[] vi={"T2","T3","T4","T5","T6","T7","CN"},en={"M","T","W","T","F","S","S"};
+            string[] vi={"T2","T3","T4","T5","T6","T7","CN"},en={"Mon","Tue","Wed","Thu","Fri","Sat","Sun"};
             for(int i=0;i<7;i++)
             {
                 var d=JarVisUi.Rect(streak,"Activity day "+i,17+i*33,72,26,26);days[i]=d.gameObject.AddComponent<UnityEngine.UI.Image>();
                 checks[i]=JarVisUi.Icon(d,"check",5,5,16);checks[i].color=Color.white;
-                var caption=PrototypeUi.Text(streak,font,En?en[i]:vi[i],12+i*33,106,36,18,10,dark,false,true);caption.alignment=TextAlignmentOptions.Center;
+                var caption=PrototypeUi.Text(streak,font,En?en[i]:vi[i],15+i*33,106,30,18,10.5f,dark,true);caption.alignment=TextAlignmentOptions.Center;
             }
             var encouragement=PrototypeUi.Panel(streak,"Praise",17,135,332,55+extra,dark,15,dark?"273b54":"ffffff",dark?"405773":"dbeaff");
             praise=PrototypeUi.Text(encouragement,font,"",12,8,308,43+extra,12,dark);praise.richText=true;
@@ -123,7 +123,7 @@ namespace JarVis.Warehouse.UI
             if(streakTitle==null)return;
             streakTitle.text=streak==null?T("Chưa có dữ liệu chuỗi hoạt động","Activity streak unavailable"):
                 streak.currentStreak==0?T("Bắt đầu chuỗi hoạt động","Start your activity streak"):
-                T(streak.currentStreak+" ngày hoạt động liên tiếp",streak.currentStreak+" consecutive active days");
+                T(streak.currentStreak+" ngày hoạt động liên tiếp",streak.currentStreak+(streak.currentStreak==1?" consecutive active day":" consecutive active days"));
             praise.text=streak==null?T("Bật trực tuyến để ghi nhận hoạt động.","Go online to record your activity."):
                 streak.todayQualified?T("<b>Rất tốt, Justin!</b>\nBạn đang giữ nhịp làm việc đều đặn.","<b>Well done, Justin!</b>\nYou're keeping a steady working rhythm."):
                 T("Một bước nhỏ hôm nay, giữ nhịp ngày mai.","A small step today keeps your momentum going.");
