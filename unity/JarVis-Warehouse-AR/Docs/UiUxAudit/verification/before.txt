@@ -1,0 +1,48 @@
+PASS
+2026-10-12T18:03:24.9095338Z
+Unauthenticated Editor-only fixture. No API/model/database mutation/camera/physical microphone.
+PASS Native route 5:11
+PASS Native route 5:36
+PASS Native route 85:14
+PASS Native route 126:8
+PASS Native route 48:244
+PASS Native route 83:89
+PASS Native route 14:130
+PASS Native route 14:215
+PASS Native route 14:300
+PASS Native route 32:149
+PASS Native route 5:331
+PASS Native route 5:375
+PASS Native route 5:450
+PASS Native route 5:780
+PASS Native route 182:2
+PASS Native route 5:935
+PASS Native route 14:387
+PASS Native route 5:1029
+PASS Native route 215:2
+PASS Native route 5:1216
+PASS Native route 182:151
+PASS Native route 5:1308
+PASS Native route prototype:profile
+PASS Native route prototype:activity
+PASS Native route prototype:tools
+PASS Native route prototype:transactions
+PASS Runtime route prototype:profile
+PASS Runtime route prototype:activity
+PASS Runtime route prototype:tools
+PASS Runtime route prototype:transactions
+PASS Four operational Home shortcuts, no additional marketing actions
+PASS Home shortcut callback prototype:transactions
+PASS Home shortcut callback 5:780
+PASS Home shortcut callback 48:244
+PASS Home shortcut callback 5:1029
+PASS Dock real click handler 126:8
+PASS Dock real click handler 48:244
+PASS Dock real click handler 215:2
+PASS Dock real click handler 5:1216
+Observations (inspect visually, not automatic failures):
+5:11 text overflow: JarVis
+126:8 text overflow: Quick actions
+126:8 text overflow: Today's tasks
+5:1216 text overflow: ​
+Errors:

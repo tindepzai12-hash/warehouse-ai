@@ -62,10 +62,12 @@ namespace JarVis.Warehouse.UI
                 foreach(var screen in screens)if(screen.id=="48:244"||screen.id=="5:780"||screen.id=="182:2")screen.root.AddComponent<ImportedWarehouseLists>().Configure(this,screen.id=="48:244");
                 var offline=lookup["85:14"].AddComponent<ImportedOfflineBlur>();offline.Configure(this);
                 gameObject.AddComponent<PrototypeWorkspace>().Configure(this);
+                WarehouseExcelExport.Attach(this);
                 Settings.BuildPrototypeMain();
                 lookup["5:36"].AddComponent<PrototypeLoginPresentation>().Configure(this);
             }
             Show(initialScreen, false);
+            if(Application.isPlaying && OmsMobileSession.TryLoadEndpoint(out var warmEndpoint)) StartCoroutine(OmsMobileApi.Warmup(warmEndpoint));
         }
         public void Show(string id, bool remember = true)
         {
@@ -90,8 +92,19 @@ namespace JarVis.Warehouse.UI
         public void Back()
         {
             if(CurrentScreen=="5:36"||CurrentScreen=="5:11")return;
+            if(CurrentScreen=="5:1216")
+            {
+                var chat=lookup[CurrentScreen].GetComponent<ImportedJarvisChat>();
+                if(chat?.Input!=null&&chat.Input.isFocused){chat.Input.DeactivateInputField();chat.SetKeyboardMode(false);return;}
+            }
+            if(CurrentScreen!=null)
+            {
+                var dialog=lookup[CurrentScreen].GetComponentInChildren<PrototypeDialog>();
+                if(dialog!=null){dialog.gameObject.SetActive(false);Destroy(dialog.gameObject);return;}
+            }
             if(Settings!=null&&Settings.Panel!=null){Settings.Close();return;}
             if(CurrentScreen!=null&&lookup[CurrentScreen].GetComponent<ImportedWarehouseLists>()?.CloseDetail()==true)return;
+            if(CurrentScreen=="5:450"&&lookup[CurrentScreen].GetComponent<WarehouseProductWorkspace>()?.TryBack()==true)return;
             if (history.Count > 0) Show(history.Pop(), false);
             else Home();
         }
@@ -168,7 +181,7 @@ namespace JarVis.Warehouse.UI
                 if((node.nodeName??"").StartsWith("tab-"))
                 {
                     Color color=node.nodeName==active?(dark?new Color(.45f,.7f,1):JarVisDesignTokens.Accent):(dark?new Color(.65f,.7f,.78f):new Color(.43f,.42f,.41f));
-                    foreach(var text in node.GetComponentsInChildren<TMP_Text>(true)){text.color=color;text.fontStyle=node.nodeName==active?FontStyles.Bold:FontStyles.Normal;}
+                    foreach(var text in node.GetComponentsInChildren<TMP_Text>(true)){text.color=color;text.fontStyle=FontStyles.Bold;}
                     foreach(var icon in node.GetComponentsInChildren<ImportedUtilityIcon>(true))icon.color=color;
                     foreach(var image in node.GetComponentsInChildren<UnityEngine.UI.Image>(true))
                         if(image.gameObject!=node.gameObject && image.sprite!=null)image.color=image.name=="Canonical JarVis mascot"?Color.white:color;
@@ -326,21 +339,42 @@ namespace JarVis.Warehouse.UI
         }
         System.Collections.IEnumerator SignIn(string endpoint,string code,TMP_InputField password)
         {
-            signingIn=true; Notice("Đang đăng nhập…",false,0);
+            signingIn=true; Notice(ImportedAppLocalization.IsEnglish?"Checking server connection…":"Đang kiểm tra kết nối máy chủ…",false,0);
+            var feedback=StartCoroutine(LoginProgress());
             OmsMobileApi.LoginReply reply=null;string error=null;
             yield return OmsMobileApi.Login(endpoint,code,password.text,value=>reply=value,value=>error=value);
-            signingIn=false;password.text="";
+            signingIn=false;if(feedback!=null)StopCoroutine(feedback);
+            if(error==null||!error.StartsWith("OMS network request failed",StringComparison.Ordinal))password.text="";
             if(CurrentScreen!="5:36")yield break;
             if(reply==null)
             {
-                string message=error!=null&&error.StartsWith("OMS network request failed (0)",StringComparison.Ordinal)?"Không kết nối được máy chủ. Kiểm tra mạng rồi thử lại.":"Không đăng nhập được. Kiểm tra tài khoản và thử lại.";
-                Notice(message,true);yield break;
+                Notice(LoginFailureMessage(error),true);yield break;
             }
             bool valid=true;
             try { OmsMobileSession.Set(endpoint,reply.accessToken,reply.user.employeeCode,reply.expiresAt); }
             catch(ArgumentException){valid=false;}
             if(!valid){Notice("Phiên đăng nhập không hợp lệ. Vui lòng thử lại.");yield break;}
             history.Clear();Show("85:14",false);Presence?.Restore();
+        }
+        System.Collections.IEnumerator LoginProgress()
+        {
+            yield return new WaitForSecondsRealtime(8);
+            if(signingIn&&CurrentScreen=="5:36")Notice(OmsMobileApi.CheckingServer?(ImportedAppLocalization.IsEnglish?"Waiting for the server to become available…":"Đang chờ máy chủ sẵn sàng…"):(ImportedAppLocalization.IsEnglish?"Connected · checking your account…":"Đã kết nối · đang xác thực tài khoản…"),false,0);
+            yield return new WaitForSecondsRealtime(22);
+            if(signingIn&&CurrentScreen=="5:36")Notice(ImportedAppLocalization.IsEnglish?"Server is still responding slowly. Please keep this screen open.":"Máy chủ vẫn phản hồi chậm. Giữ màn hình này để nhận kết quả.",false,0);
+        }
+        public static string LoginFailureMessage(string error)
+        {
+            if(error=="OMS login response is invalid")return "Máy chủ trả phản hồi không hợp lệ. Vui lòng thử lại sau.";
+            if(error!=null&&error.StartsWith("OMS network request failed (0)",StringComparison.Ordinal))
+            {
+                if(error.Contains("[TIMEOUT]"))return "Máy chủ phản hồi chậm. Chờ một phút rồi thử lại.";
+                if(error.Contains("[DNS]"))return "Không tìm được máy chủ. Kiểm tra Wi-Fi/4G hoặc DNS riêng.";
+                if(error.Contains("[TLS]"))return "Lỗi kết nối bảo mật. Kiểm tra ngày giờ tự động; không bỏ qua chứng chỉ.";
+                return "Không kết nối được máy chủ. Kiểm tra mạng rồi thử lại.";
+            }
+            if(error!=null&&(error.StartsWith("OMS network request failed (502)",StringComparison.Ordinal)||error.StartsWith("OMS network request failed (503)",StringComparison.Ordinal)||error.StartsWith("OMS network request failed (504)",StringComparison.Ordinal)))return "Máy chủ tạm thời chưa sẵn sàng. Chờ một phút rồi thử lại.";
+            return "Không đăng nhập được. Kiểm tra tài khoản và thử lại.";
         }
         void SelectTaskFilter(GameObject root, TMP_Text selected)
         {
@@ -385,8 +419,9 @@ namespace JarVis.Warehouse.UI
                 var rect = text.rectTransform; rect.anchorMin = Vector2.zero; rect.anchorMax = Vector2.one; rect.offsetMin = new Vector2(34,0); rect.offsetMax = new Vector2(-40,0);
                 field = container.gameObject.AddComponent<TMP_InputField>(); field.textComponent = text; field.textViewport = container.rectTransform; field.placeholder = placeholder;
                 field.contentType = password ? TMP_InputField.ContentType.Password : TMP_InputField.ContentType.Standard;
-                field.characterLimit = password ? 64 : 32; field.text = "";
+                field.text = "";
             }
+            field.characterLimit = password ? 256 : 32;
             var copiedNode=field.textComponent.GetComponent<FigmaNode>();
             if(copiedNode!=null)
             {

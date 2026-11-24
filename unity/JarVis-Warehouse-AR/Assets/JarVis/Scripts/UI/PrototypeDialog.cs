@@ -34,14 +34,27 @@ namespace JarVis.Warehouse.UI
             PrototypeUi.Action(card,font,confirm,24,253,312,44,nav.Settings.Dark,()=>{Close();action();},true);
             return veil.gameObject;
         }
-        public static GameObject Details(ImportedFigmaNavigation nav,string title,string summary,string[] facts,string actionLabel,Action action,string mapLabel=null,Action mapAction=null)
+        public static GameObject Details(ImportedFigmaNavigation nav,string title,string summary,string[] facts,string actionLabel,Action action,string mapLabel=null,Action mapAction=null,bool bulletFacts=false)
         {
             var root=nav.screens.First(s=>s.id==nav.CurrentScreen).root;bool dark=nav.Settings.Dark;
             var veil=PrototypeUi.Panel(root.transform,"Prototype details",0,0,412,915,dark,0,"182b4099","00000000");veil.GetComponent<Image>().raycastTarget=true;veil.gameObject.AddComponent<PrototypeDialog>();
             var font=root.GetComponentInChildren<TMP_Text>(true).font;var card=PrototypeUi.Panel(veil,"Detail card",26,196,360,522,dark,24);
             PrototypeUi.Text(card,font,title,24,24,274,38,21,dark,true);PrototypeUi.Text(card,font,summary,24,76,312,64,13,dark,false,true);
             JarVisUi.Scroll(card,24,149,312,278,out var content);float y=0;
-            foreach(string fact in facts){PrototypeUi.Text(content,font,fact,12,y,288,44,12,dark,false,true);y+=48;}content.sizeDelta=new Vector2(312,y);
+            foreach(string fact in facts)
+            {
+                if(!bulletFacts){PrototypeUi.Text(content,font,fact,12,y,288,44,12,dark,false,true);y+=48;continue;}
+                // Separate dot and text keep wrapped lines aligned with the text, not the bullet.
+                int colon=fact.IndexOf(':');
+                string copy=colon>0?"<b>"+fact.Substring(0,colon+1)+"</b>"+fact.Substring(colon+1):fact;
+                var label=PrototypeUi.Text(content,font,copy,24,y,276,44,13.5f,dark);
+                label.richText=true;
+                float height=Mathf.Max(24,label.GetPreferredValues(copy,276,1000).y);
+                label.rectTransform.sizeDelta=new Vector2(276,height);
+                PrototypeUi.Panel(content,"Fact bullet",8,y+6,5,5,dark,2.5f,dark?"83b4ff":"1255d5","00000000");
+                y+=height+12;
+            }
+            content.sizeDelta=new Vector2(312,Mathf.Max(0,y-12));
             void Close(){veil.gameObject.SetActive(false);Destroy(veil.gameObject);}
             var close=JarVisUi.Rect(card,"Close detail",302,18,40,40);PrototypeUi.Button(close,Close);PrototypeUi.Icon(close,"close",10,10,20,PrototypeUi.Muted(dark));
             bool en=ImportedAppLocalization.IsEnglish;

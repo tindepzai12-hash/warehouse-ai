@@ -1,0 +1,150 @@
+ARCore handheld position binding
+ARCore handheld rotation binding
+no unsupported handheld tracking-state binding
+exactly one AR camera pose driver
+reject invalid QR 
+reject invalid QR https://example.org
+reject invalid QR JWM:MAIN:
+reject invalid QR JWM:MAIN:A:B
+reject invalid QR JWM:MAIN:../A
+reject invalid QR JWM:MAIN:Anewline
+reject invalid QR JWM: MAIN:A
+reject invalid QR JWM:MAIN:🎉
+reject invalid QR jwm:MAIN:A
+valid QR A
+warehouse/marker identifiers
+marker length bound
+start requires tracking
+start requires marker
+reject NaN pose
+start valid route
+cannot overwrite active route
+observe forward 1
+observe forward 2
+observe forward 3
+observe forward 4
+observe forward 5
+observe forward 6
+observe forward 7
+observe forward 8
+observe forward 9
+observe forward 10
+observe forward 11
+observe forward 12
+observe forward 13
+observe forward 14
+observe forward 15
+observe forward 16
+observe forward 17
+observe forward 18
+observe forward 19
+observe forward 20
+observe forward 21
+observe forward 22
+observe forward 23
+observe forward 24
+observe forward 25
+observe forward 26
+observe forward 27
+observe forward 28
+observe forward 29
+observe forward 30
+observe forward 31
+observe forward 32
+observe forward 33
+observe forward 34
+observe forward 35
+observe forward 36
+observe forward 37
+observe forward 38
+observe forward 39
+observe forward 40
+observe forward 41
+observe forward 42
+observe forward 43
+observe forward 44
+observe forward 45
+observe forward 46
+observe forward 47
+observe forward 48
+observe forward 49
+observe forward 50
+observe forward 51
+observe forward 52
+observe forward 53
+observe forward 54
+observe forward 55
+observe forward 56
+observe forward 57
+observe forward 58
+observe forward 59
+observe forward 60
+observe forward 61
+observe forward 62
+observe forward 63
+observe forward 64
+observe forward 65
+observe forward 66
+observe forward 67
+observe forward 68
+observe forward 69
+observe forward 70
+observe forward 71
+observe forward 72
+observe forward 73
+observe forward 74
+observe forward 75
+observe forward 76
+observe forward 77
+observe forward 78
+observe forward 79
+observe forward 80
+observe forward 81
+observe forward 82
+observe forward 83
+observe forward 84
+observe forward 85
+observe forward 86
+observe forward 87
+observe forward 88
+observe forward 89
+observe forward 90
+observe forward 91
+observe forward 92
+observe forward 93
+observe forward 94
+observe forward 95
+observe forward 96
+observe forward 97
+observe forward 98
+observe forward 99
+observe forward 100
+start heading normalized / camera-relative height
+10m synthetic distance estimate
+end requires intentional scan mode
+same QR cannot end
+different warehouse cannot end
+end B completes A to B
+completed state terminal
+cannot append completed route
+JSON saved
+JSON roundtrip
+ZIP contains only trajectory and schema notes
+tracking loss interrupts without bridging
+lost route cannot become complete
+position jump rejected
+time gap rejected
+backwards clock rejected
+infinite pose rejected
+zero length cannot complete
+background cannot resume silently
+point cap stops safely
+30 minute limit enforced
+small stationary jitter not counted
+process restart cannot resume AR frame
+recover previous snapshot if latest corrupted
+production grayscale QR decoder at 0
+production grayscale QR decoder at 90
+production grayscale QR decoder at 180
+production grayscale QR decoder at 270
+invalid camera buffer rejected

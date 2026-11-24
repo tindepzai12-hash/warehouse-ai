@@ -1,0 +1,34 @@
+[
+  {
+    "relative": "Assets/JarVis/Scripts/RouteRecording/RoomEnvironmentReadiness.cs",
+    "sha256": "5A558A51F52240858BACFB9302D0D3474E63632386DA0F77630D0A2476E0A86C"
+  },
+  {
+    "relative": "Assets/JarVis/Scripts/RouteRecording/RoomRoutePresentation.cs",
+    "sha256": "EB7B8CE51CFACB88E16F25C8BB51802E91895C2144C6AEFF36EACE887A0F8BB5"
+  },
+  {
+    "relative": "Assets/JarVis/Scripts/RouteRecording/WalkingRouteLiveView.cs",
+    "sha256": "C581ABA28CD3F6DB3E59EF44AF518F88D5CEC80C061A2D93A21DA6281EC73BE9"
+  },
+  {
+    "relative": "Assets/JarVis/Scripts/RouteRecording/WalkingRouteRecorderUi.cs",
+    "sha256": "81E474137A78C8578348E7F47988C78E427EE372C5CF7D9133485C53DB7C0BF3"
+  },
+  {
+    "relative": "Assets/Editor/ProjectBootstrap/RoomRoutePresentationReview.cs",
+    "sha256": "F29F4A6E925FB41563C2CA303C7E9B835711A46DB2E96666B65D6EAE7036832D"
+  },
+  {
+    "relative": "Assets/Editor/ProjectBootstrap/RoomRouteUiReview.cs",
+    "sha256": "5242AE2D48146FA825A45C3FC01BE1950BCFA4AEB9023066975945F0C1F95E03"
+  },
+  {
+    "relative": "Assets/Editor/ProjectBootstrap/WalkingRouteBuild.cs",
+    "sha256": "B8E044F82B1A5AABCA51507F9DC654B92877B100CE51E98588618E00DADE8037"
+  },
+  {
+    "relative": "Assets/Editor/ProjectBootstrap/RoomRoute034Review.cs",
+    "sha256": "499B96A799E9E316F3CB75295E8B4ED6409BEE48826A02B172262D48B3E482CC"
+  }
+]

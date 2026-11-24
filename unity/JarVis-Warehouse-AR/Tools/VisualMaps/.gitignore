@@ -1,0 +1,11 @@
+.venv/
+vendor/
+data/
+tests-output/
+__pycache__/
+.pytest_cache/
+*.log
+*.apk
+Review/
+*-result.json
+object-real-photo-review.json

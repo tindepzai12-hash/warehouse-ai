@@ -1,0 +1,317 @@
+{
+  "schema": 1,
+  "id": "LAB-KNOWLEDGE-20261104-R2",
+  "mapId": "LAB-GLB-20261028",
+  "floorHash": "319d0c83dec1b7317a67164122bf14d743e58cc159c5454159c0bcc2698d489f",
+  "graphHash": "1b56bee1f51a6d7196f96327227176f242170c7675b10a5d843e10646b98b39b",
+  "generatedUtc": "2026-11-04",
+  "physicalAccuracyVerified": false,
+  "globalVisualLocalizationReady": false,
+  "authority": "Owner confirmed topology and approximate pins; 3D metric reference; newest diagnostics never override geometry automatically.",
+  "sources": [
+    {
+      "id": "iphone-glb-20261027",
+      "date": "2026-10-27",
+      "status": "reference",
+      "role": "scale-and-previous-layout",
+      "reason": "Older scan, furniture/layout may differ; cannot override owner-confirmed arranged aisles.",
+      "file": "Scaniverse 2026-10-27 122711.glb",
+      "available": true,
+      "sha256": "66b67189afc64891cfc4a82a42b65c1f020794faad2a9f3a9d3d8c8abfa33592"
+    },
+    {
+      "id": "iphone-glb-20261028",
+      "date": "2026-10-28",
+      "status": "reference",
+      "role": "metric-geometry",
+      "reason": "Latest supplied 3D scan; scan surface holes do not prove a wall.",
+      "file": "Scaniverse 2026-10-28 121814.glb",
+      "available": true,
+      "sha256": "ea6ff8c9866e84f85653446b00f5af2142210e474acff53759eb7c515f0e3bb9"
+    },
+    {
+      "id": "20261027-043758-32608e.zip",
+      "date": "2026-10-27",
+      "status": "reference",
+      "role": "samsung-capture",
+      "reason": "Independent capture reference; no unverified rigid alignment promoted to truth.",
+      "file": "20261027-043758-32608e.zip",
+      "available": true,
+      "sha256": "e08f17b6a688efcd7b68ed01944a311f73b1474631ef509e5d4b14d2d8313ab7"
+    },
+    {
+      "id": "20261027-043609-daf924.zip",
+      "date": "2026-10-27",
+      "status": "reference",
+      "role": "samsung-capture",
+      "reason": "Independent capture reference; no unverified rigid alignment promoted to truth.",
+      "file": "20261027-043609-daf924.zip",
+      "available": true,
+      "sha256": "4648c234c9550043f2336e1cdc58a4e42c59a82a0d9ed8137e16c87944af5ae4"
+    },
+    {
+      "id": "arranged-layout",
+      "date": "2026-10-28",
+      "status": "accepted-topology",
+      "role": "aisles-and-obstacles",
+      "reason": "Owner confirmed desks/chairs already arranged like sketch; white space is traversable topology, not a metric survey.",
+      "file": "codex-clipboard-b6d7ea52-21f4-4a9b-96a0-13a6d36f2d8d.png",
+      "available": true,
+      "sha256": "9f5df35aa9795135f98284ac4efc46fa4f261c269d27c56c406a9e256e632527"
+    },
+    {
+      "id": "owner-AE-pins",
+      "date": "2026-11-03",
+      "status": "accepted-approximate",
+      "role": "marker-positions",
+      "reason": "Latest owner annotated A-E positions; A/B/C unchanged from previous physical locations.",
+      "file": "codex-clipboard-ed1ca7f1-1a4a-4566-befb-5fb4d8e9df07.png",
+      "available": true,
+      "sha256": "2bf93bb4de6560144d7d0c38f82822750ae44410723987f8a4cc51472e0c8256"
+    },
+    {
+      "id": "owner-distance-review",
+      "date": "2026-11-03",
+      "status": "accepted-approximate",
+      "role": "distance-review",
+      "reason": "Owner accepted trial alignment; measured C/D/E outside floor were not promoted to published map.",
+      "file": "codex-clipboard-e378db67-1e9b-415c-8e14-f6443ec3392b.png",
+      "available": true,
+      "sha256": "b5b00b5254947d3a45dcfba57b31fc329fd2d9d6a5df01c879ee11bfdbfed9de"
+    },
+    {
+      "id": "measure-1619",
+      "date": "2026-11-03",
+      "status": "reference",
+      "role": "scale-check",
+      "reason": "16.19m shown by phone Measure; endpoints not proven to coincide with a GLB baseline.",
+      "file": "codex-clipboard-a51d78de-98ba-4824-a1cf-58be7b321e7f.png",
+      "available": false,
+      "sha256": ""
+    },
+    {
+      "id": "JarVis-Lab-fixed-draft-20261102065321-072934.zip",
+      "date": "2026-11-02",
+      "status": "rejected-position",
+      "role": "survey-diagnostics",
+      "reason": "Rejected raw A/B position baseline: physically distinct points measured about 3mm apart.",
+      "file": "JarVis-Lab-fixed-draft-20261102065321-072934.zip",
+      "available": true,
+      "sha256": "0a0fc1aa7226af2fdae1b6afa4e294d6f80f84592a9712c607a10bd26cae5307"
+    },
+    {
+      "id": "JarVis-Lab-fixed-draft-20261102082243-082505.zip",
+      "date": "2026-11-03",
+      "status": "reference",
+      "role": "survey-diagnostics",
+      "reason": "Reference survey only; owner 2D locations take precedence over drifting raw coordinates.",
+      "file": "JarVis-Lab-fixed-draft-20261102082243-082505.zip",
+      "available": true,
+      "sha256": "2b38b35b3434bcdd282fce1f2524d4c96a1989c73b78e89905aaa09eb092b12a"
+    },
+    {
+      "id": "JarVis-Lab-fixed-draft-20261102082243-063541.zip",
+      "date": "2026-11-03",
+      "status": "reference",
+      "role": "survey-diagnostics",
+      "reason": "Reference measured distances/rotations; trial rotations still need confirmation.",
+      "file": "JarVis-Lab-fixed-draft-20261102082243-063541.zip",
+      "available": true,
+      "sha256": "80ccb6683dbb093cc1c3a5d66eaf6e8b1b922c5a1df98fad8a0063190d243d2b"
+    },
+    {
+      "id": "nav-latest",
+      "date": "2026-11-04",
+      "status": "diagnostic",
+      "role": "runtime-trace",
+      "reason": "Latest snapshot of the same session; diagnose pose failures, do not move obstacles to match drifting trace.",
+      "file": "JarVis-Navigation-20261104-054454-816-1f603e18-0f003431.zip",
+      "available": true,
+      "sha256": "c3df8f278e5827cc4e22f436f0da65e8e737809ed14d34fe80da9d6be8b348ec"
+    },
+    {
+      "id": "nav-prefix",
+      "date": "2026-11-04",
+      "status": "superseded",
+      "role": "runtime-trace",
+      "reason": "Earlier export from the same session; excluded from combined sample counts.",
+      "file": "JarVis-Navigation-20261104-054454-816-1f603e18-acaa4e0d.zip",
+      "available": true,
+      "sha256": "12a5f49e47a4dffdf2a0d2e7522e7b425940989e49b6c121f5ca23ebae263958"
+    },
+    {
+      "id": "floor-current",
+      "date": "2026-11-03",
+      "status": "accepted-approximate",
+      "role": "runtime-static-floor",
+      "reason": "Derived from 3D scan and owner-confirmed layout; remains approximate, not current camera evidence.",
+      "file": "LabFloorPlanNew.json",
+      "available": true,
+      "sha256": "f8dcbdbc8a71cb8f612c9e7ddc11cae25e3020848cd083292d9aedfcbb77a57e"
+    },
+    {
+      "id": "graph-current",
+      "date": "2026-11-03",
+      "status": "accepted-approximate",
+      "role": "multi-route-topology",
+      "reason": "All segments must stay inside walkable floor; live camera may temporarily block them.",
+      "file": "LabCorridorsNew.json",
+      "available": true,
+      "sha256": "9ce3c54040b2236b3d8d1a4f059e1caa805879178acd465763c366f6f00c6508"
+    },
+    {
+      "id": "trial-current",
+      "date": "2026-11-03",
+      "status": "accepted-approximate",
+      "role": "runtime-marker-prior",
+      "reason": "Owner accepted A-E approximate positions. Old marker rotations are unverified.",
+      "file": "LabTrialNavigation.json",
+      "available": true,
+      "sha256": "31687884e00b01e76403cf48206ae05d715524c3a59fe21caf5fd63eedc7352d"
+    }
+  ],
+  "markers": [
+    {
+      "id": "A",
+      "centre": {
+        "x": -5.82,
+        "y": 0.9537131190299988,
+        "z": 3.42
+      },
+      "access": {
+        "x": -4.941544283415988,
+        "y": 0,
+        "z": 3.131600425650066
+      },
+      "positionConfidence": "OWNER_ACCEPTED_APPROXIMATE",
+      "orientationVerified": false
+    },
+    {
+      "id": "B",
+      "centre": {
+        "x": 8.05,
+        "y": 0.7234385013580322,
+        "z": -0.8
+      },
+      "access": {
+        "x": 7.529141791689196,
+        "y": 0,
+        "z": -0.5236655325740536
+      },
+      "positionConfidence": "OWNER_ACCEPTED_APPROXIMATE",
+      "orientationVerified": false
+    },
+    {
+      "id": "C",
+      "centre": {
+        "x": 7.5,
+        "y": 0.6760606169700623,
+        "z": -4.12
+      },
+      "access": {
+        "x": 6.730974358701848,
+        "y": 0,
+        "z": -3.894591932576179
+      },
+      "positionConfidence": "OWNER_ACCEPTED_APPROXIMATE",
+      "orientationVerified": false
+    },
+    {
+      "id": "D",
+      "centre": {
+        "x": 3.6689768299104766,
+        "y": 0.623908519744873,
+        "z": -3.1799994734070567
+      },
+      "access": {
+        "x": 4.124999986961484,
+        "y": 0,
+        "z": -2.6750000547617674
+      },
+      "positionConfidence": "OWNER_ACCEPTED_APPROXIMATE",
+      "orientationVerified": false
+    },
+    {
+      "id": "E",
+      "centre": {
+        "x": -6.437086361242761,
+        "y": 0.8706246018409729,
+        "z": -0.14981621906266485
+      },
+      "access": {
+        "x": -5.925000162795186,
+        "y": 0,
+        "z": -0.12500001676380634
+      },
+      "positionConfidence": "OWNER_ACCEPTED_APPROXIMATE",
+      "orientationVerified": false
+    }
+  ],
+  "distances": [
+    {
+      "pair": "AB",
+      "measured": 14.32,
+      "reference": 14.5,
+      "unit": "m",
+      "metricCertified": false
+    },
+    {
+      "pair": "AC",
+      "measured": 15.13,
+      "reference": 15.31,
+      "unit": "m",
+      "metricCertified": false
+    },
+    {
+      "pair": "BC",
+      "measured": 5.14,
+      "reference": 3.37,
+      "unit": "m",
+      "metricCertified": false
+    },
+    {
+      "pair": "AE",
+      "measured": 6.25,
+      "reference": 3.62,
+      "unit": "m",
+      "metricCertified": false
+    },
+    {
+      "pair": "DE",
+      "measured": 10.47,
+      "reference": 10.55,
+      "unit": "m",
+      "metricCertified": false
+    }
+  ],
+  "qrWidth": 0.1,
+  "referenceImageWidth": 0.1976284534,
+  "rules": [
+    "Never train or infer a global pose from object labels.",
+    "Do not erase static obstacles or open unknown cells from missing detections.",
+    "Navigation may start at any saved A-E marker.",
+    "Verify trial heading after scanning; retain selected destination.",
+    "Fresh multi-frame depth may block known graph edges temporarily.",
+    "Preserve manual blocks when camera observations expire.",
+    "Record map mismatch separately from AR tracking loss."
+  ],
+  "depth": {
+    "cellSize": 0.2,
+    "minHeight": 0.18,
+    "maxHeight": 1.8,
+    "minRange": 0.35,
+    "maxRange": 3.0,
+    "confirmFrames": 3,
+    "minPixels": 2,
+    "ttl": 3.0,
+    "edgeRadius": 0.38
+  },
+  "localPlanning": {
+    "bodyRadius": 0.3,
+    "obstacleRadius": 0.18,
+    "frontEvidenceLength": 1.8,
+    "floorEvidenceTtl": 3.0,
+    "minimumCoverage": 0.7,
+    "scope": "Within approved static floor only; current depth obstacles inflate clearance; new local bypass needs fresh floor support ahead."
+  }
+}

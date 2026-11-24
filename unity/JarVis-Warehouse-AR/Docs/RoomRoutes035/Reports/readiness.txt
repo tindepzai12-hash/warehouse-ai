@@ -1,0 +1,40 @@
+PASS No image cannot pass preparation from tracking/time alone
+PASS Still phone never auto-passes preparation
+PASS Rotation alone asks for gentle translation
+PASS Translation alone asks for additional view change
+PASS Repeated frame timestamp is not fresh video
+PASS Real-frame continuous stable translation plus view change unlocks A
+PASS Tracking loss revokes preparation before A lock
+PASS Stalled camera revokes preparation
+PASS Pose jump restarts preparation rather than completing motion criteria
+PASS Sudden orientation jump cannot masquerade as environment observation
+PASS Each recording/navigation attempt starts a fresh preparation
+PASS Pause invalidates stale camera freshness
+PASS New camera session may restart its timestamp after pause
+PASS Non-finite pose never passes preparation
+PASS First out-of-corridor frame is caution, not confirmed off-route
+PASS Threshold oscillation does not flash between normal and off-route
+PASS One near-route frame cannot flicker arrows back on
+PASS Continuous return inside 0.55m clears caution after dwell
+PASS Outside less than 0.6s is not confirmed
+PASS Sustained outside corridor confirms off-route
+PASS Different exit threshold prevents off-route blinking
+PASS Stable return clears confirmed off-route
+PASS Large deviation still warns immediately
+PASS Rescan resets deviation history
+PASS Test alignment succeeds
+PASS Caution suppresses misleading navigation arrows immediately
+PASS Deviation freezes progress and cannot fake arrival
+PASS Invalidated alignment hides guidance and clears old caution
+PASS Test alignment succeeds
+PASS Small ordinary corner cut progresses to adjacent segment -1
+PASS Test alignment succeeds
+PASS Small ordinary corner cut progresses to adjacent segment 1
+PASS Test alignment succeeds
+PASS Small initial hand offset cannot trap follower on first short segment
+PASS Test alignment succeeds
+PASS Nearby return leg of U-turn is not selected before endpoint
+PASS Test alignment succeeds
+PASS Crossing a future leg never skips to it
+PASS Correct QR cannot bypass preparation controller gate
+PASS Cancel preparation returns to existing home without extra screen

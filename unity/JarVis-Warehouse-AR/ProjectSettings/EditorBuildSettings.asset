@@ -17,6 +17,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WarehouseScene.unity
     guid: f537e2f16adcedb49bb1046a34cd7d78
+  - enabled: 1
+    path: Assets/Scenes/AtlasAR.unity
+    guid: 9e7ee9a7c66278b4dbb0e26cef3d4f0d
+  - enabled: 1
+    path: Assets/Scenes/ARNavigation_Immersal_Video.unity
+    guid: 596aa2c63abd82b468faf235c9ca6ffb
+  - enabled: 1
+    path: Assets/Scenes/SmallRoom_AR_225317.unity
+    guid: 6e4b25c76cacea847827a80239de3a05
+  - enabled: 1
+    path: Assets/Scenes/Roompresent_AR_QuickTest.unity
+    guid: 00676a485da9e8049ba348b187c2b637
+  - enabled: 1
+    path: Assets/Scenes/Roompresent_VPS.unity
+    guid: c3fbbd736ba602c47a1330b7776fea2f
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 24370500c4f45594db52e96a333a2797, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

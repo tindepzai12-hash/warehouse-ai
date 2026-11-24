@@ -1,0 +1,50 @@
+PASS Complete A/B room map accepted
+PASS New-session origin from marker yaw=0
+PASS New-session heading yaw=0
+PASS Scan automatically starts guidance, no manual confirmation
+PASS Measured marker alignment selected
+PASS Dense samples do not leave progress stuck
+PASS Destination uses recorded B marker, not camera center
+PASS New-session origin from marker yaw=90
+PASS New-session heading yaw=90
+PASS Scan automatically starts guidance, no manual confirmation
+PASS Measured marker alignment selected
+PASS Dense samples do not leave progress stuck
+PASS Destination uses recorded B marker, not camera center
+PASS New-session origin from marker yaw=-90
+PASS New-session heading yaw=-90
+PASS Scan automatically starts guidance, no manual confirmation
+PASS Measured marker alignment selected
+PASS Dense samples do not leave progress stuck
+PASS Destination uses recorded B marker, not camera center
+PASS New-session origin from marker yaw=179
+PASS New-session heading yaw=179
+PASS Scan automatically starts guidance, no manual confirmation
+PASS Measured marker alignment selected
+PASS Dense samples do not leave progress stuck
+PASS Destination uses recorded B marker, not camera center
+PASS One current map survives serialization/reload
+PASS Interrupted replacement cannot destroy previous map
+PASS Replacement leaves exactly one selectable current map
+PASS Corrupt current file recovers previous good map
+PASS A cannot be the destination
+PASS Invalid marker transform rejected
+PASS Old camera-only route cannot masquerade as room map
+PASS L-route starts along first segment, not through wall to B
+PASS L-route announces actual right turn at corner independently of camera steering
+PASS L-route reaches recorded endpoint sequentially
+PASS B before A cannot complete recording
+PASS A cannot finish recording
+PASS Stationary route under 1m rejected
+PASS Navigation rejects B instead of A
+PASS Draft cannot start marker-aligned navigation
+PASS Unstable AR cannot auto-start
+PASS Brief tracking loss freezes guidance and hides arrows
+PASS Long tracking loss returns directly to A scanner
+PASS Two measured 18cm reference cards included
+PASS QR decodes inside textured Room-A
+PASS QR decodes inside textured Room-B
+PASS No measured image means no fabricated pose
+PASS Fresh stable marker accepted
+PASS Limited/lost image rejected
+PASS Stale marker pose rejected

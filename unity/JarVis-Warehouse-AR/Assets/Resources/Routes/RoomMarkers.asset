@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: RoomMarkers
+  m_EditorClassIdentifier: Unity.XR.ARSubsystems::UnityEngine.XR.ARSubsystems.XRReferenceImageLibrary
+  m_GuidLow: 5569453712614567470
+  m_GuidHigh: 4406581601347084966
+  m_DataStore:
+    m_Storage: []
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 4983731547678906706
+      m_GuidHigh: 6955353595277745069
+    m_SerializedTextureGuid:
+      m_GuidLow: 2532363272555373129
+      m_GuidHigh: 27382634095891371
+    m_Size: {x: 0.18, y: 0.18}
+    m_SpecifySize: 1
+    m_Name: Room-A
+    m_Texture: {fileID: 2800000, guid: b6e8a249c2fa2324abd34c525c486100, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5213121916194257832
+      m_GuidHigh: 16774644674660234417
+    m_SerializedTextureGuid:
+      m_GuidLow: 17268068954017427515
+      m_GuidHigh: 6953208429446103673
+    m_Size: {x: 0.18, y: 0.18}
+    m_SpecifySize: 1
+    m_Name: Room-B
+    m_Texture: {fileID: 2800000, guid: 3928f03b8139efa4790263163ac27e60, type: 3}

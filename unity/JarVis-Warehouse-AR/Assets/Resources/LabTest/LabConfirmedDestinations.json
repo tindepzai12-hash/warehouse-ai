@@ -1,0 +1,140 @@
+{
+  "mapId": "LAB-GLB-20261028",
+  "geometrySha256": "319d0c83dec1b7317a67164122bf14d743e58cc159c5454159c0bcc2698d489f",
+  "revision": 3,
+  "pins": [
+    {
+      "id": "A",
+      "position": {
+        "x": -5.82,
+        "y": 0.73,
+        "z": 3.42
+      },
+      "approximate": false
+    },
+    {
+      "id": "B",
+      "position": {
+        "x": 8.05,
+        "y": 0.8,
+        "z": -0.8
+      },
+      "approximate": false
+    },
+    {
+      "id": "C",
+      "position": {
+        "x": 7.5,
+        "y": 0.69,
+        "z": -4.12
+      },
+      "approximate": false
+    },
+    {
+      "id": "D",
+      "position": {
+        "x": 3.6689768299104766,
+        "y": 0,
+        "z": -3.1799994734070567
+      },
+      "approximate": true
+    },
+    {
+      "id": "E",
+      "position": {
+        "x": -6.437086361242761,
+        "y": 0,
+        "z": -0.14981621906266485
+      },
+      "approximate": true
+    }
+  ],
+  "source": "Owner marked A-E on physical-layout map 2026-11-02",
+  "annotation": "codex-clipboard-ed1ca7f1-1a4a-4566-befb-5fb4d8e9df07.png",
+  "destinations": [
+    {
+      "id": "A",
+      "position": {
+        "x": -5.82,
+        "y": 0.73,
+        "z": 3.42
+      },
+      "access": {
+        "x": -4.941544283415988,
+        "y": 0,
+        "z": 3.131600425650066
+      },
+      "source": "existing map; owner reconfirmed unchanged"
+    },
+    {
+      "id": "B",
+      "position": {
+        "x": 8.05,
+        "y": 0.8,
+        "z": -0.8
+      },
+      "access": {
+        "x": 7.529141791689196,
+        "y": 0,
+        "z": -0.5236655325740536
+      },
+      "source": "existing map; owner reconfirmed unchanged"
+    },
+    {
+      "id": "C",
+      "position": {
+        "x": 7.5,
+        "y": 0.69,
+        "z": -4.12
+      },
+      "access": {
+        "x": 6.730974358701848,
+        "y": 0,
+        "z": -3.894591932576179
+      },
+      "source": "existing map; owner reconfirmed unchanged"
+    },
+    {
+      "id": "D",
+      "position": {
+        "x": 3.6689768299104766,
+        "y": 0,
+        "z": -3.1799994734070567
+      },
+      "access": {
+        "x": 4.124999986961484,
+        "y": 0,
+        "z": -2.6750000547617674
+      },
+      "source": "owner annotated letter position; 2D only; height/rotation not inferred",
+      "annotationPixel": [
+        321,
+        257
+      ],
+      "accessOffsetMetres": 0.6804274631427276,
+      "horizontalUncertaintyMetres": 0.6
+    },
+    {
+      "id": "E",
+      "position": {
+        "x": -6.437086361242761,
+        "y": 0,
+        "z": -0.14981621906266485
+      },
+      "access": {
+        "x": -5.925000162795186,
+        "y": 0,
+        "z": -0.12500001676380634
+      },
+      "source": "owner annotated letter position; 2D only; height/rotation not inferred",
+      "annotationPixel": [
+        39,
+        173
+      ],
+      "accessOffsetMetres": 0.5126871546440644,
+      "horizontalUncertaintyMetres": 0.6
+    }
+  ],
+  "physicalAcceptance": false,
+  "note": "D/E are 2D targets, not measured marker poses. Only A/B/C participate in rigid registration until independently checked."
+}

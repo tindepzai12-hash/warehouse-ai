@@ -1,0 +1,73 @@
+PASS
+2026-10-12T18:07:48.6759984Z
+Editor-only fixture, no DB/model/mutation/printing.
+PASS Existing label route now uses native product workspace
+PASS No competing label presentation
+PASS All 134 source templates imported
+PASS Inbound owner preserved
+PASS Editor review has no authenticated backend session
+PASS Two lots become one product entry without stock mutation
+PASS Product identity and label action share one compact 88px row
+PASS Novice search ignores accents and spaces
+PASS Similar-product inspection shows both variants, not just the first SKU
+PASS System back exits related-product inspection inside draft
+PASS Inspecting similar items preserves current draft input
+PASS Related-product label inspection exposes an explicit draft return
+PASS Hardware Back from inspected label returns to draft
+PASS Selecting a related row preserves draft flow and entered values
+PASS Missing required content rejected
+PASS Zero measure rejected
+PASS Valid milk draft reaches confirmation
+PASS Back keeps entered measurement
+PASS Duplicate warehouse SKU blocked
+PASS Fractional pack count rejected
+PASS Native unit conversion preserves physical amount
+PASS Invalid GTIN check digit rejected without ownership claim
+PASS Touch target Back
+PASS Touch target Tools plus
+PASS Touch target Sản phẩm
+PASS Touch target Tem sản phẩm
+PASS Touch target Quản lý
+PASS Touch target Có hàng tương tự · kiểm tra trước
+PASS Touch target Product choice unit
+PASS Touch target Product choice volumeUnit
+PASS Touch target Product choice flavour
+PASS Touch target Product choice sugar
+PASS Touch target Thu gọn thông tin bổ sung
+PASS Touch target Product choice expiryPolicy
+PASS Touch target Mã & quy cách · thu gọn
+PASS Touch target Product choice pack
+PASS Touch target Product choice skuMode
+PASS Touch target Product choice barcodeMode
+PASS Touch target Kiểm tra bản nháp
+PASS Touch target Quay lại chọn mẫu
+PASS Shared dock not replaced
+PASS No generated mock barcode in production workspace
+PASS Compact search across descriptive words
+PASS Exact original barcode prioritized
+PASS Choice returns to previous form scroll position
+PASS Leaving screen clears interrupted loading flag
+PASS Returning to cached products does not stick loading
+PASS System back returns inside product flow before leaving module
+PASS All schema category/family/template/field/option/unit captions have English displays
+PASS Specific English warehouse terminology
+PASS English search finds the same canonical milk template
+PASS Existing Vietnamese draft name is never silently translated
+PASS Optional brand collapsed by default
+PASS Default code settings collapsed but accessible
+PASS Measure and unit share one accessible row
+PASS English validation uses translated attribute name
+PASS Validation message follows locale switch
+PASS English draft keeps canonical unit values valid
+PASS Confirmation preserves user-authored product name
+PASS New English template draft is initially named in English
+PASS English option click stores original canonical enum, not display text
+PASS API product names remain Vietnamese in English interface
+PASS Mascot is the actual first pointer raycast target
+PASS One pointer tap makes JarVis happy immediately without a frame delay
+PASS Happy tap animates a gentle hop
+PASS English streak singular grammar
+PASS Repeated taps restart happy feedback
+PASS Reduced motion keeps immediate static smile without hop
+PASS Tap feedback expires cleanly back to preview idle
+Errors:

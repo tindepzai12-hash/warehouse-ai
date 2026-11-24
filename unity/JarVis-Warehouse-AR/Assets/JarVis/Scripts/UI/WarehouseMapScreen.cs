@@ -19,6 +19,7 @@ namespace JarVis.Warehouse.UI
         Texture2D floorTexture;
         string textureFloorId, floorId, destinationCode, destinationDraft, markerId, message;
         int markerMapVersion, generation;
+        bool showLegacyTests;
         bool configured, loading;
 
         bool En => ImportedAppLocalization.IsEnglish;
@@ -74,40 +75,23 @@ namespace JarVis.Warehouse.UI
             textureFloorId = null;
         }
 
-        IEnumerator Load()
-        {
-            int request = ++generation;
-            loading = true;
-            message = null;
-            Render();
-            OmsMobileApi.WarehouseMapReply received = null;
-            string error = null;
-            yield return OmsMobileApi.GetWarehouseMap(value => received = value, value => error = value);
-            if (request != generation) yield break;
-            loading = false;
-            if (received == null)
-            {
-                message = !OmsMobileSession.IsReady
-                    ? T("Đăng nhập để xem bản đồ kho.", "Sign in to view the warehouse map.")
-                    : T("Không tải được bản đồ. Kiểm tra kết nối rồi thử lại.", "Map unavailable. Check the connection and retry.");
-                if (!string.IsNullOrEmpty(error)) Debug.LogWarning("[JarVis] Warehouse map request failed.");
-                map = null;
-            }
-            else
-            {
-                if (markerMapVersion > 0 && received.version != markerMapVersion)
-                {
-                    markerId = null;
-                    markerMapVersion = 0;
-                    message = T("Bản đồ đã đổi phiên bản. Quét lại mốc trước khi đi.", "The map changed. Scan the checkpoint again.");
-                }
-                if (map?.version != received.version) ReleaseTexture();
-                map = received;
-            }
-            Render();
-        }
+        IEnumerator Load() { Render(); yield break; }
 
         void Render()
+        {
+            if (!configured || nav?.Settings == null) return;
+            foreach (Transform child in transform)
+            {
+                if (!child.name.StartsWith("Prototype ")) continue;
+                child.gameObject.SetActive(false); Destroy(child.gameObject);
+            }
+            PrototypeUi.Shell(transform,font,T("Bản đồ kho","Warehouse map"),nav.Settings.Dark,nav.Back,
+                ()=>nav.Show("prototype:tools"),out var content);
+            RoompresentMapPanel.Create(content,font,nav.Settings.Dark,En);
+            content.sizeDelta=new Vector2(366,500);
+        }
+
+        void RenderPublishedMapLegacy()
         {
             if (!configured || nav?.Settings == null) return;
             foreach (Transform child in transform)
@@ -119,6 +103,36 @@ namespace JarVis.Warehouse.UI
             bool dark = nav.Settings.Dark;
             PrototypeUi.Shell(transform, font, T("Bản đồ kho", "Warehouse map"), dark, nav.Back,
                 () => nav.Show("prototype:tools"), out var content);
+            RoompresentMapPanel.Create(content,font,dark,En);
+            var roomControls=new GameObject("Roompresent map controls",typeof(RectTransform)).GetComponent<RectTransform>();roomControls.SetParent(content,false);
+            roomControls.anchorMin=roomControls.anchorMax=roomControls.pivot=new Vector2(0,1);roomControls.anchoredPosition=new Vector2(0,-616);roomControls.sizeDelta=new Vector2(366,0);
+            var pageContent=content;content=roomControls;
+            var presentation = PrototypeUi.Panel(content, "Roompresent presentation", 0, 0, 366, 208, dark);
+            PrototypeUi.Text(presentation, font, T("HƯỚNG DẪN AR","AR GUIDANCE"), 18, 12, 330, 28, 18, dark, true);
+            PrototypeUi.Text(presentation, font, T("B: xe trái · C: xe phải.\nCăn B/C một lần; dùng QR A cố định để mở AR.", "B: left cart · C: right cart.\nRegister B/C once; show fixed QR A to start AR."), 18, 46, 330, 52, 13, dark, false, true);
+            PrototypeUi.Action(presentation, font, T("Nhiệm vụ · A1 → B, A2 → C", "Mission · A1 → B, A2 → C"), 18, 108, 330, 38, dark, () => RoompresentDeliveryMission.Open(nav), true);
+            PrototypeUi.Action(presentation,font,T("Kiểm tra định vị phòng","Check room localization"),18,154,190,36,dark,()=>RoompresentQuickMapLauncher.Open(nav));
+            PrototypeUi.Action(presentation,font,T("Thiết lập map","Room setup"),218,154,130,36,dark,()=>RoompresentQuickMapLauncher.OpenSetup(nav));
+            PrototypeUi.Action(content,font,T("Bài test cũ / nâng cao","Old tests / advanced"),0,224,366,38,dark,()=>{showLegacyTests=!showLegacyTests;Render();});
+            if(showLegacyTests)
+            {
+            var small = PrototypeUi.Panel(content, "Small room test", 0, 278, 366, 142, dark);
+            PrototypeUi.Text(small, font, T("Phòng nhỏ · bài test tại cửa", "Small room · door test"), 18, 12, 330, 28, 18, dark, true);
+            PrototypeUi.Text(small, font, T("A: trước cửa · B: chậu · C: túi đen.\nQuét hai sách để mở AR của phòng nhỏ.", "A: door · B: basin · C: black bag.\nScan both books to open the small room AR."), 18, 44, 330, 43, 12, dark, false, true);
+            PrototypeUi.Action(small, font, T("Mở bài test phòng nhỏ", "Open small room test"), 18, 94, 330, 36, dark, () => SmallRoomDeliveryMission.Open(nav));
+            var immersal = PrototypeUi.Panel(content, "Immersal advanced", 0, 436, 366, 94, dark);
+            PrototypeUi.Text(immersal, font, T("Immersal · cấu hình nâng cao", "Immersal · advanced setup"), 18, 8, 330, 24, 14, dark, true);
+            PrototypeUi.Action(immersal, font, T("Mở scene Immersal cũ", "Open original Immersal scene"), 18, 43, 330, 36, dark, () => ImmersalMapLauncher.Open(nav));
+            }
+            var mapContent = new GameObject("Published map content", typeof(RectTransform));
+            pageContent.sizeDelta = new Vector2(366,(showLegacyTests?1324:1056)+616);
+            mapContent.transform.SetParent(content, false);
+            var mapRect = mapContent.GetComponent<RectTransform>();
+            mapRect.anchorMin = mapRect.anchorMax = new Vector2(0,1);
+            mapRect.pivot = new Vector2(0,1);
+            mapRect.anchoredPosition = new Vector2(0,showLegacyTests?-546:-278);
+            mapRect.sizeDelta = new Vector2(366,0);
+            content = mapRect;
             if (loading)
             {
                 var waiting = PrototypeUi.Panel(content, "Loading map", 0, 0, 366, 200, dark);
@@ -255,6 +269,7 @@ namespace JarVis.Warehouse.UI
                 "Checkpoint QR identifies the mapped start point; it does not measure camera heading or enable AR guidance."),
                 0, y, 366, 62, 11, dark, false, true);
             content.sizeDelta = new Vector2(366, y + 80);
+            ((RectTransform)content.parent).sizeDelta = new Vector2(366,y + 238);
             nav.Settings.ApplyTheme();
         }
 

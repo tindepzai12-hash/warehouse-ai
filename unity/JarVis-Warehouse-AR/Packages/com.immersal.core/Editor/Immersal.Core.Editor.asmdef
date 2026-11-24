@@ -1,0 +1,31 @@
+{
+  "name": "Immersal.Core.Editor",
+  "references": [
+    "Immersal.Core",
+    "Unity.EditorCoroutines.Editor",
+    "Unity.XR.Management",
+    "Unity.XR.Management.Editor"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": true,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [
+    {
+      "name": "com.magicleap.unitysdk",
+      "expression": "1.7.0",
+      "define": "IMMERSAL_MAGIC_LEAP_ENABLED"
+    },
+    {
+      "name": "com.immersal.xreal",
+      "expression": "",
+      "define": "IMMERSAL_XREAL_ENABLED"
+    }
+  ],
+  "noEngineReferences": false
+}

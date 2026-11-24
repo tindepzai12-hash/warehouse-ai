@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5325319546242371400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 447522144321926811}
+  - component: {fileID: 1933942281816846495}
+  m_Layer: 5
+  m_Name: JarVisGrokCard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &447522144321926811
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5325319546242371400}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &1933942281816846495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5325319546242371400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c72e081216b86db48930d60413141ca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JarVis.Warehouse.Preview.JarVisGrokCard
+  Font: {fileID: 11400000, guid: 0d530f45860e5d64fa7d5e62dc55a42e, type: 2}
+  Logo: {fileID: 21300000, guid: f765335d7e3ab9f4680e4a2859540f91, type: 3}
+  Expression: {fileID: 21300000, guid: 6bff419ba03eefd44a70ec4e81db9500, type: 3}
+  Map: {fileID: 2800000, guid: 65ad89130a707b4499cee524ca743c77, type: 3}
+  Context: "A1 \u2192 B \xB7 A2 \u2192 C"
+  ReducedMotion: 0
+  AudioLevels: []

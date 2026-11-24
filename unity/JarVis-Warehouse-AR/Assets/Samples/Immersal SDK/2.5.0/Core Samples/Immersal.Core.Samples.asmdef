@@ -1,0 +1,6 @@
+{
+  "name": "Immersal.Core.Samples",
+  "references": ["Immersal.Core", "Unity.TextMeshPro", "Unity.ugui", "Unity.XR.ARFoundation", "Unity.XR.ARSubsystems", "Unity.XR.CoreUtils", "Unity.InputSystem"],
+  "allowUnsafeCode": true,
+  "autoReferenced": true
+}

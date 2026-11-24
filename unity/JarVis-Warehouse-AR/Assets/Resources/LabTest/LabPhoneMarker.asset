@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: LabPhoneMarker
+  m_EditorClassIdentifier: Unity.XR.ARSubsystems::UnityEngine.XR.ARSubsystems.XRReferenceImageLibrary
+  m_GuidLow: 4626080832241806949
+  m_GuidHigh: 3153502978428844987
+  m_DataStore:
+    m_Storage: []
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 5610590480391248849
+      m_GuidHigh: 13147770072871778433
+    m_SerializedTextureGuid:
+      m_GuidLow: 8940913539594599816
+      m_GuidHigh: 8933981301970797033
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: A
+    m_Texture: {fileID: 2800000, guid: 47043d88817e7c14e981f3eda8e0fb7b, type: 3}

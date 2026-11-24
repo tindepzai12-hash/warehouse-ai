@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.IO;
 using JarVis.Warehouse.Backend;
@@ -168,7 +168,7 @@ namespace JarVis.Warehouse.UI
             if(!string.IsNullOrEmpty(path))LoadPhoto(path);
 #elif UNITY_ANDROID
             picking=true;Refresh();chat.RefreshComposer();
-            try {using(var bridge=new AndroidJavaClass("com.jarvis.warehouse.ChatPhotoPicker"))bridge.CallStatic("pick",gameObject.name,"OnPhotoPicked",Application.temporaryCachePath);}
+            try {using(var bridge=new AndroidJavaClass("com.jarvis.warehouse.ChatPhotoPicker"))bridge.CallStatic("pick",gameObject.name,"OnPhotoPicked",Application.temporaryCachePath,ImportedAppLocalization.IsEnglish?"en":"vi");}
             catch(Exception){picking=false;chat.MediaStatus("Không mở được trình chọn ảnh Android");Refresh();}
 #else
             chat.MediaStatus("Chọn ảnh hiện hỗ trợ Android và Unity Editor");
@@ -179,13 +179,13 @@ namespace JarVis.Warehouse.UI
         {
             picking=false;
             if(!isActiveAndEnabled){if(path.StartsWith(Application.temporaryCachePath,StringComparison.Ordinal)&&File.Exists(path))File.Delete(path);return;}
-            if(path=="ERROR")chat.MediaStatus("Không đọc được ảnh. Hãy chọn JPG/PNG khác.");
+            if(path=="ERROR")chat.MediaStatus(ImportedAppLocalization.IsEnglish?"Couldn't open the camera or read that photo. Try again or choose another JPG/PNG.":"Không mở được camera hoặc đọc ảnh. Hãy thử lại hay chọn JPG/PNG khác.");
             else if(!string.IsNullOrEmpty(path))
             {
                 // Native plugin produces only a file in this app's cache, not an arbitrary path.
                 if(path.StartsWith(Application.temporaryCachePath+Path.DirectorySeparatorChar,StringComparison.Ordinal))
                 {LoadPhoto(path);if(File.Exists(path))File.Delete(path);}
-                else chat.MediaStatus("Đường dẫn ảnh không hợp lệ");
+                else chat.MediaStatus(ImportedAppLocalization.IsEnglish?"The selected image path is invalid.":"Đường dẫn ảnh không hợp lệ");
             }
             Refresh();chat.RefreshComposer();
         }
@@ -209,7 +209,7 @@ namespace JarVis.Warehouse.UI
                 var r=thumbnail.rectTransform;float aspect=(float)width/height;r.sizeDelta=aspect>=1?new Vector2(36,36/aspect):new Vector2(36*aspect,36);
                 remove.gameObject.SetActive(true);chat.MediaStatus("Ảnh đã đính kèm — nhấn Gửi để hỏi JarVis");
             }
-            catch(Exception){chat.MediaStatus("Không đọc được ảnh. Chọn JPG/PNG dưới 8 MB.");}
+            catch(Exception){chat.MediaStatus(ImportedAppLocalization.IsEnglish?"Couldn't read that photo. Choose a JPG/PNG under 8 MB.":"Không đọc được ảnh. Chọn JPG/PNG dưới 8 MB.");}
             finally {RenderTexture.active=previous;if(target!=null)RenderTexture.ReleaseTemporary(target);if(source!=null)Destroy(source);if(scaled!=null)Destroy(scaled);}
             Refresh();chat.RefreshComposer();
         }
@@ -217,7 +217,7 @@ namespace JarVis.Warehouse.UI
         {
             if(IsRecording){StopRecording();return;}
             if(IsBusy||chat.IsSending||!OmsMobileSession.IsReady)return;
-            if(Photo!=null){chat.MediaStatus("Gửi hoặc bỏ ảnh đính kèm trước khi hỏi bằng giọng nói");return;}
+            // A spoken question may accompany the selected photo; the API preserves both.
 #if UNITY_ANDROID && !UNITY_EDITOR
             if(!UnityEngine.Android.Permission.HasUserAuthorizedPermission(UnityEngine.Android.Permission.Microphone))
             {
@@ -256,8 +256,15 @@ namespace JarVis.Warehouse.UI
         }
         void SubmitVoice(VoiceMessage message)
         {
-            StopSpeech();Playback.Stop();chat.AddVoiceMessage(message,Playback,RetryVoice);
+            CommitVoiceMessage(message);
             StartUpload(message);
+        }
+        void CommitVoiceMessage(VoiceMessage message)
+        {
+            message.CapturePhoto(Photo);
+            StopSpeech();Playback.Stop();chat.AddVoiceMessage(message,Playback,RetryVoice);
+            // The conversation now owns this image, including failed/retried sends.
+            ClearPhoto();
         }
         public void RetryVoice(VoiceMessage message)
         {
@@ -276,13 +283,14 @@ namespace JarVis.Warehouse.UI
             byte[] wav=null;string readError=null;
             try{wav=File.ReadAllBytes(message.AudioPath);}catch(Exception){readError="LOCAL_AUDIO: Không đọc được bản ghi âm";}
             OmsMobileApi.VoiceReply reply=null;string error=null;voiceUpload=new OmsMobileApi.VoiceUpload();
-            if(readError==null)yield return voiceUpload.Send(wav,value=>reply=value,value=>error=value,()=>{message.Status=VoiceMessageStatus.Processing;SetState(VoiceState.WaitingForAI,"JarVis đang nghe và trả lời…");},message.Id);
+            if(readError==null)yield return voiceUpload.Send(wav,value=>reply=value,value=>error=value,()=>{message.Status=VoiceMessageStatus.Processing;SetState(VoiceState.WaitingForAI,"JarVis đang nghe và trả lời…");},message.Id,message.AttachedPhoto);
             else error=readError;
             wav=null;
             bool retryAllowed=voiceUpload.RetryAllowed;voiceUpload.Dispose();voiceUpload=null;
             transcribing=false;transcription=null;activeVoice=null;chat.SetVoicePending(false);
             if(reply!=null){message.Status=VoiceMessageStatus.Completed;message.Transcript=reply.transcript;State=VoiceState.Completed;chat.AcceptVoice(reply);}
-            else{FailVoice(message,error??"NETWORK_ERROR");message.Retryable&=retryAllowed;SetState(VoiceState.Error,error?.StartsWith("SERVER_UPDATE_REQUIRED",StringComparison.Ordinal)==true?(ImportedAppLocalization.IsEnglish?"Server needs the voice update. Audio has not been sent.":"Cần cập nhật máy chủ voice. Audio chưa được gửi."):(ImportedAppLocalization.IsEnglish?"Voice failed. Recording kept; check connection or server.":"Gửi giọng nói lỗi. Bản ghi được giữ; kiểm tra mạng hoặc máy chủ."));}
+            else{FailVoice(message,error??"NETWORK_ERROR");message.Retryable&=retryAllowed;SetState(VoiceState.Error,error?.StartsWith("SERVER_UPDATE_REQUIRED",StringComparison.Ordinal)==true?(ImportedAppLocalization.IsEnglish?"Server needs the voice update. Your recording is kept.":"Cần cập nhật máy chủ voice. Bản ghi vẫn được giữ."):OmsMobileApi.FriendlyError(error,ImportedAppLocalization.IsEnglish));}
+            if(reply==null)chat.AddMessage((ImportedAppLocalization.IsEnglish?"Voice was not sent. Your recording is kept.\n":"Chưa gửi được giọng nói. Bản ghi vẫn được giữ.\n")+OmsMobileApi.FriendlyError(error,ImportedAppLocalization.IsEnglish),false);
             Refresh();chat.RefreshComposer();
         }
         static void FailVoice(VoiceMessage message,string error)
@@ -322,8 +330,8 @@ namespace JarVis.Warehouse.UI
             yield return OmsMobileApi.Speak(lastAnswer.Substring(0,Mathf.Min(4000,lastAnswer.Length)),value=>clip=value,value=>error=value,speechDownload);
             speechDownload.Dispose();speechDownload=null;
             speech=null;
-                if(clip==null){chat.MediaStatus(error??"Không tải được giọng đọc");listenLabel.text="Nghe";yield break;}
-            speaker.clip=clip;speaker.Play();chat.MediaStatus("Đang phát giọng AI của JarVis");
+                if(clip==null){string friendly=OmsMobileApi.FriendlyError(error,ImportedAppLocalization.IsEnglish);chat.MediaStatus(friendly);chat.AddMessage(friendly,false);listenLabel.text="Nghe";yield break;}
+            speaker.clip=clip;speaker.Play();chat.MediaStatus(ImportedAppLocalization.IsEnglish?"Playing JarVis AI voice":"Đang phát giọng AI của JarVis");
         }
         public void StopSpeech()
         {

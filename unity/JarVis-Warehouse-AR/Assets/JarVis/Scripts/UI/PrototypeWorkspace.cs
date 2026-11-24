@@ -16,7 +16,8 @@ namespace JarVis.Warehouse.UI
             nav=owner;font=nav.screens[0].root.GetComponentInChildren<TMP_Text>(true).font;
             foreach(string id in new[]{"profile","activity","tools","transactions"})nav.RegisterPrototypeScreen("prototype:"+id,JarVisUi.Rect(nav.screens[0].root.transform.parent,"Prototype "+id,0,0,412,915).gameObject);
             nav.screens.First(s=>s.id=="215:2").root.AddComponent<WarehouseMapScreen>().Configure(nav);
-            string[] ids={"5:935","14:387","5:450","5:1029"},kinds={"inbound","outbound","label","incident"};
+            nav.screens.First(s=>s.id=="5:450").root.AddComponent<WarehouseProductWorkspace>().Configure(nav);
+            string[] ids={"5:935","14:387","5:1029"},kinds={"inbound","outbound","incident"};
             for(int i=0;i<ids.Length;i++)nav.screens.First(s=>s.id==ids[i]).root.AddComponent<PrototypeOperationPresentation>().Configure(nav,kinds[i]);
             nav.screens.First(s=>s.id=="5:331").root.AddComponent<PrototypeScannerPresentation>().Configure(nav);
             nav.IncludePrototypeNavigation("5:331");
@@ -45,17 +46,18 @@ namespace JarVis.Warehouse.UI
             else if(kind=="activity")
             {
                 PrototypeUi.Text(content,font,T("Một nơi riêng để xem thời gian hoạt động.","A dedicated place to view activity time."),0,0,366,32,12,dark,false,true);
-                var card=PrototypeUi.Panel(content,"Daily activity",0,42,366,282,dark,24);PrototypeUi.Text(card,font,T("Hôm nay","Today"),24,24,120,24,14,dark,true);
+                var card=PrototypeUi.Panel(content,"Daily activity",0,42,366,238,dark,24);PrototypeUi.Text(card,font,T("Hôm nay","Today"),24,24,120,24,14,dark,true);
                 badge=PrototypeUi.Text(card,font,"",160,24,182,24,12,dark,false,true);badge.alignment=TextAlignmentOptions.TopRight;
                 PrototypeUi.Text(card,font,T("Thời gian trực tuyến","Online time"),24,67,318,22,12,dark,false,true);
                 clock=PrototypeUi.Text(card,font,nav.Presence.TodayClock,24,94,318,65,43,dark,true);
-                PrototypeUi.Text(card,font,T("Đặt lại lúc 00:00 · Đài Loan (UTC+8)","Resets at 00:00 · Taiwan (UTC+8)"),24,174,318,48,12,dark,false,true);
-                PrototypeUi.Action(card,font,nav.Presence.CanWork?T("Tắt trực tuyến","Go offline"):T("Bật trực tuyến","Go online"),24,222,318,42,dark,()=>PrototypeDialog.Presence(nav),true,"power");
-                PrototypeUi.Text(content,font,T("Cách thời gian được ghi nhận","How time is recorded"),0,348,366,35,19,dark,true);
-                var rules=PrototypeUi.Panel(content,"Counting rules",0,380,366,182,dark);
-                string[] vi={"Bật trực tuyến: bắt đầu đếm.","Tắt trực tuyến: tạm dừng.","Bật lại: cộng tiếp thời gian hôm nay.","Qua 00:00 Đài Loan: bắt đầu ngày mới."},en={"Go online: start counting.","Go offline: pause.","Go online again: continue today's total.","After 00:00 Taiwan: start a new day."},symbols={"check","power","refresh","moon"};
-                for(int i=0;i<4;i++){PrototypeUi.Icon(rules,symbols[i],18,21+i*38,16,PrototypeUi.Hex("087b50"));PrototypeUi.Text(rules,font,En?en[i]:vi[i],45,17+i*38,299,36,12,dark);}
-                PrototypeUi.Text(content,font,T("Thời gian Online hỗ trợ theo dõi hoạt động, không phải bảng chấm công tính lương.","Online time supports activity tracking; it is not payroll attendance."),0,583,366,65,12,dark,false,true);
+                clock.color=PrototypeUi.Hex(dark?"68e6bb":"008755");
+                var toggle=PrototypeUi.Action(card,font,nav.Presence.CanWork?T("Tắt trực tuyến","Go offline"):T("Bật trực tuyến","Go online"),24,178,318,48,dark,()=>PrototypeDialog.Presence(nav),true,"power");
+                var toggleText=toggle.GetComponentInChildren<TMP_Text>();toggleText.rectTransform.anchoredPosition=new Vector2(44,0);toggleText.rectTransform.sizeDelta=new Vector2(260,48);
+                var power=toggle.transform.Find("power");if(power!=null)((RectTransform)power).anchoredPosition=new Vector2(18,-14);
+                PrototypeUi.Text(content,font,T("Cách thời gian được ghi nhận","How time is recorded"),0,304,366,35,19,dark,true);
+                var rules=PrototypeUi.Panel(content,"Counting rules",0,344,366,144,dark);
+                string[] vi={"Bật trực tuyến: bắt đầu đếm.","Tắt trực tuyến: tạm dừng.","Bật lại: cộng tiếp thời gian hôm nay."},en={"Go online: start counting.","Go offline: pause.","Go online again: continue today's total."},symbols={"check","power","refresh"};
+                for(int i=0;i<vi.Length;i++){PrototypeUi.Icon(rules,symbols[i],18,21+i*38,16,PrototypeUi.Hex("087b50"));PrototypeUi.Text(rules,font,En?en[i]:vi[i],45,17+i*38,299,36,12,dark);}
             }
             else if(kind=="transactions")
             {
@@ -66,7 +68,8 @@ namespace JarVis.Warehouse.UI
             else
             {
                 string[] vi={"Quét mã","Tra tồn kho","Nhiệm vụ","Báo cáo sự cố","Tạo tem hàng","Nhập kho","Xuất kho","AI JarVis"},en={"Scan code","Check inventory","Tasks","Report issue","Create label","Inbound","Outbound","AI JarVis"},icons={"scan","box","tasks","alert","tag","arrowDown","arrowUp","chat"},routes={"5:331","5:780","48:244","5:1029","5:450","5:935","14:387","5:1216"};
-                string[] desc={"Tra mã vạch và QR","Sản phẩm, lô và vị trí","Theo dõi việc được giao","Ghi nhận vấn đề tại kho","Mã hàng và tem vị trí","Kiểm đếm hàng nhận","Xác nhận hàng xuất","Hỗ trợ vận hành kho"},descEn={"Read barcodes and QR","Products, lots and locations","Track your assigned work","Record warehouse issues","Product and location labels","Check received stock","Confirm goods issue","Warehouse assistance"};
+                vi[4]="Sản phẩm & tem";en[4]="Products & labels";
+                string[] desc={"Tra mã vạch và QR","Sản phẩm, lô và vị trí","Theo dõi việc được giao","Ghi nhận vấn đề tại kho","Tìm hàng, soạn nháp, xem mã gốc","Kiểm đếm hàng nhận","Xác nhận hàng xuất","Hỗ trợ vận hành kho"},descEn={"Read barcodes and QR","Products, lots and locations","Track your assigned work","Record warehouse issues","Find items, prepare drafts, view original codes","Check received stock","Confirm goods issue","Warehouse assistance"};
                 PrototypeUi.Text(content,font,T("Một công cụ, một mục đích rõ ràng.","One tool, one clear purpose."),0,0,366,30,12,dark,false,true);
                 for(int i=0;i<vi.Length;i++)Tool(content,En?en[i]:vi[i],En?descEn[i]:desc[i],icons[i],42+i*89,routes[i]);content.sizeDelta=new Vector2(366,42+vi.Length*89);
             }

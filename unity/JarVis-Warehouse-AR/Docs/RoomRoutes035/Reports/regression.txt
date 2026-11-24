@@ -1,0 +1,41 @@
+PASS Measured A alignment succeeds
+PASS 3.5cm lateral scan/walking jitter does not create false corners
+PASS Raw saved route remains byte-equivalent after guidance preparation
+PASS Camera yaw 0 does not fabricate right/left road turn
+PASS Camera yaw 90 does not fabricate right/left road turn
+PASS Camera yaw -90 does not fabricate right/left road turn
+PASS Camera yaw 179 does not fabricate right/left road turn
+PASS Long straight segment is not off-route merely because waypoint is far
+PASS Straight route with simplified long segment arrives
+PASS Measured A alignment succeeds
+PASS Real right-angle corner is preserved
+PASS Preserved corner progresses sequentially
+PASS Measured A alignment succeeds
+PASS Real left-angle corner is not forced into the reference right turn
+PASS Measured A alignment succeeds
+PASS U/loop returning to A cannot skip directly to a later nearby endpoint
+PASS Measured A alignment succeeds
+PASS Short loss freezes progress and hides guidance
+PASS One good frame does not instantly resume guidance
+PASS Continuous near-identical pose and stable tracking can resume after short loss
+PASS Tracking timeout opens A rescan within navigation, not a dead state
+PASS Recovery accepts A again without leaving the navigation screen
+PASS Measured A alignment succeeds
+PASS Intermittent good frames cannot count as continuous stable recovery
+PASS Stable recovery restarts its timer after another lost frame
+PASS Measured A alignment succeeds
+PASS Rescan at A resets travelled progress instead of hiding first arrows
+PASS Measured A alignment succeeds
+PASS Real pose jump still invalidates alignment and names the cause
+PASS Measured A alignment succeeds
+PASS Movement during tracking loss is not silently bridged
+PASS No camera frame cannot pretend scanner is running
+PASS Fresh camera frames drive scanning animation
+PASS Wrong QR is visually distinct even with a marker pose
+PASS Read QR is distinct from measured pose lock
+PASS Pose progress alone cannot fake controller success
+PASS Successful controller transition gets green acknowledgement
+PASS Tracking loss cancels stale green acknowledgement
+PASS Camera stall stops scan animation
+PASS Old decoded payload cannot remain recognized forever
+PASS Pause requests rescan and preserves stored route

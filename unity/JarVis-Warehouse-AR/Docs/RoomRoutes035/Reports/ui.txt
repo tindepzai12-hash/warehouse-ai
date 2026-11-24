@@ -1,0 +1,1401 @@
+PASS Visible version fingerprint empty
+PASS Native font empty
+PASS No clipped label (412, 915) empty JarVis Routes needs=27 available=46
+PASS Native font empty
+PASS No clipped label (412, 915) empty Đang tìm lại môi trường… · v0.3.5 needs=14 available=26
+PASS Native font empty
+PASS No clipped label (412, 915) empty Ghi tuyến đầu tiên needs=27 available=32
+PASS Native font empty
+PASS No clipped label (412, 915) empty Chọn Ghi tuyến → quét A → đi tới B → quét B. Ứng dụng chỉ giữ một tuyến hiện hành. needs=32 available=58
+PASS Native font empty
+PASS No clipped label (412, 915) empty Ghi tuyến needs=18 available=48
+PASS Native font empty
+PASS No clipped label (412, 915) empty Chỉ đường needs=18 available=48
+PASS Native font empty
+PASS No clipped label (412, 915) empty Thẻ 18 cm · cùng tầng · quan sát lối đi needs=13 available=22
+PASS Touch target >=44 empty
+PASS Touch target >=44 empty
+PASS No redundant buttons empty
+PASS Clear camera area between cards empty(412, 915)
+PASS Visible version fingerprint saved
+PASS Native font saved
+PASS No clipped label (412, 915) saved JarVis Routes needs=27 available=46
+PASS Native font saved
+PASS No clipped label (412, 915) saved Đang tìm lại môi trường… · v0.3.5 needs=14 available=26
+PASS Native font saved
+PASS No clipped label (412, 915) saved Tuyến A → B đã sẵn sàng needs=27 available=32
+PASS Native font saved
+PASS No clipped label (412, 915) saved 4.0 m đã ghi. Quay về A, chọn Chỉ đường rồi quét toàn bộ thẻ A. needs=32 available=58
+PASS Native font saved
+PASS No clipped label (412, 915) saved Ghi tuyến needs=18 available=48
+PASS Native font saved
+PASS No clipped label (412, 915) saved Chỉ đường needs=18 available=48
+PASS Native font saved
+PASS No clipped label (412, 915) saved Thẻ 18 cm · cùng tầng · quan sát lối đi needs=13 available=22
+PASS Touch target >=44 saved
+PASS Touch target >=44 saved
+PASS No redundant buttons saved
+PASS Clear camera area between cards saved(412, 915)
+PASS Record asks before replacing current route
+PASS Keep current cancels replacement
+PASS Cancel new recording preserves current route
+PASS Visible version fingerprint saved-ack
+PASS Native font saved-ack
+PASS No clipped label (412, 915) saved-ack JarVis Routes needs=27 available=46
+PASS Native font saved-ack
+PASS No clipped label (412, 915) saved-ack Đã khóa B · 100% · v0.3.5 needs=14 available=26
+PASS Native font saved-ack
+PASS No clipped label (412, 915) saved-ack Tuyến A → B đã sẵn sàng needs=27 available=32
+PASS Native font saved-ack
+PASS No clipped label (412, 915) saved-ack 4.0 m đã ghi. Quay về A, chọn Chỉ đường rồi quét toàn bộ thẻ A. needs=32 available=58
+PASS Native font saved-ack
+PASS No clipped label (412, 915) saved-ack Ghi tuyến needs=18 available=48
+PASS Native font saved-ack
+PASS No clipped label (412, 915) saved-ack Chỉ đường needs=18 available=48
+PASS Native font saved-ack
+PASS No clipped label (412, 915) saved-ack Thẻ 18 cm · cùng tầng · quan sát lối đi needs=13 available=22
+PASS Touch target >=44 saved-ack
+PASS Touch target >=44 saved-ack
+PASS No redundant buttons saved-ack
+PASS Clear camera area between cards saved-ack(412, 915)
+PASS No obsolete QR frame after scanning saved-ack
+PASS Visible version fingerprint confirm
+PASS Native font confirm
+PASS No clipped label (412, 915) confirm JarVis Routes needs=27 available=46
+PASS Native font confirm
+PASS No clipped label (412, 915) confirm Đang tìm lại môi trường… · v0.3.5 needs=14 available=26
+PASS Native font confirm
+PASS No clipped label (412, 915) confirm Ghi lại tuyến A → B? needs=27 available=32
+PASS Native font confirm
+PASS No clipped label (412, 915) confirm Tuyến hiện tại chỉ được thay khi lượt ghi mới kết thúc tại B và lưu thành công. needs=32 available=58
+PASS Native font confirm
+PASS No clipped label (412, 915) confirm Ghi lại tuyến needs=18 available=48
+PASS Native font confirm
+PASS No clipped label (412, 915) confirm Giữ tuyến hiện tại needs=18 available=48
+PASS Native font confirm
+PASS No clipped label (412, 915) confirm Thẻ 18 cm · cùng tầng · quan sát lối đi needs=13 available=22
+PASS Touch target >=44 confirm
+PASS Touch target >=44 confirm
+PASS No redundant buttons confirm
+PASS Clear camera area between cards confirm(412, 915)
+PASS Visible version fingerprint scan-A
+PASS Numeric progress survives in always-visible header scan-A
+PASS Inline progress visible independent of reticle scan-A
+PASS Progress bar bounded scan-A
+PASS Native font scan-A
+PASS No clipped label (412, 915) scan-A Ghi tuyến · A → B needs=27 available=46
+PASS Native font scan-A
+PASS No clipped label (412, 915) scan-A 2/2 · Khóa vị trí A · 80% · v0.3.5 needs=14 available=26
+PASS Native font scan-A
+PASS No clipped label (412, 915) scan-A ‹ needs=38 available=48
+PASS Native font scan-A
+PASS No clipped label (412, 915) scan-A Quét thẻ A để ghi needs=27 available=32
+PASS Native font scan-A
+PASS No clipped label (412, 915) scan-A 2/2 · Khóa vị trí A · 80% needs=15 available=18
+PASS Native font scan-A
+PASS No clipped label (412, 915) scan-A Quét toàn bộ thẻ A mới, dán thẳng đứng và in đúng 18 × 18 cm. needs=32 available=66
+PASS Native font scan-A
+PASS No clipped label (412, 915) scan-A Hủy ghi needs=18 available=48
+PASS Native font scan-A
+PASS No clipped label (412, 915) scan-A Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font scan-A
+PASS No clipped label (412, 915) scan-A Chuẩn bị 80% · quét thẻ A needs=16 available=38
+PASS Touch target >=44 scan-A
+PASS Touch target >=44 scan-A
+PASS No redundant buttons scan-A
+PASS Clear camera area between cards scan-A(412, 915)
+PASS Scanner/status do not overlap actions scan-A(412, 915)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint recording
+PASS Numeric progress survives in always-visible header recording
+PASS Inline progress visible independent of reticle recording
+PASS Progress bar bounded recording
+PASS Native font recording
+PASS No clipped label (412, 915) recording Ghi tuyến · A → B needs=27 available=46
+PASS Native font recording
+PASS No clipped label (412, 915) recording Chờ quét thẻ B · 0% · v0.3.5 needs=14 available=26
+PASS Native font recording
+PASS No clipped label (412, 915) recording ‹ needs=38 available=48
+PASS Native font recording
+PASS No clipped label (412, 915) recording Đi tới B needs=27 available=32
+PASS Native font recording
+PASS No clipped label (412, 915) recording Chờ quét thẻ B · 0% needs=15 available=18
+PASS Native font recording
+PASS No clipped label (412, 915) recording Đang chuẩn bị camera AR… needs=16 available=66
+PASS Native font recording
+PASS No clipped label (412, 915) recording Hủy ghi needs=18 available=48
+PASS Native font recording
+PASS No clipped label (412, 915) recording Tiến độ khóa thẻ B · không phải % quãng đường needs=13 available=22
+PASS Native font recording
+PASS No clipped label (412, 915) recording Đang chờ ảnh camera… · 0% needs=16 available=38
+PASS Touch target >=44 recording
+PASS Touch target >=44 recording
+PASS No redundant buttons recording
+PASS Clear camera area between cards recording(412, 915)
+PASS Scanner/status do not overlap actions recording(412, 915)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint navigate-scan
+PASS Numeric progress survives in always-visible header navigate-scan
+PASS Inline progress visible independent of reticle navigate-scan
+PASS Progress bar bounded navigate-scan
+PASS Native font navigate-scan
+PASS No clipped label (412, 915) navigate-scan Chỉ đường · A → B needs=27 available=46
+PASS Native font navigate-scan
+PASS No clipped label (412, 915) navigate-scan 2/2 · Khóa vị trí A · 80% · v0.3.5 needs=14 available=26
+PASS Native font navigate-scan
+PASS No clipped label (412, 915) navigate-scan ‹ needs=38 available=48
+PASS Native font navigate-scan
+PASS No clipped label (412, 915) navigate-scan Quét thẻ A để đi needs=27 available=32
+PASS Native font navigate-scan
+PASS No clipped label (412, 915) navigate-scan 2/2 · Khóa vị trí A · 80% needs=15 available=18
+PASS Native font navigate-scan
+PASS No clipped label (412, 915) navigate-scan Quét toàn bộ thẻ A. Khóa vị trí xong, bấm Bắt đầu đi. needs=16 available=66
+PASS Native font navigate-scan
+PASS No clipped label (412, 915) navigate-scan Dừng chỉ đường needs=18 available=48
+PASS Native font navigate-scan
+PASS No clipped label (412, 915) navigate-scan Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font navigate-scan
+PASS No clipped label (412, 915) navigate-scan Chuẩn bị 80% · quét thẻ A needs=16 available=38
+PASS Touch target >=44 navigate-scan
+PASS Touch target >=44 navigate-scan
+PASS No redundant buttons navigate-scan
+PASS Clear camera area between cards navigate-scan(412, 915)
+PASS Scanner/status do not overlap actions navigate-scan(412, 915)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint guiding
+PASS Native font guiding
+PASS No clipped label (412, 915) guiding Chỉ đường · A → B needs=27 available=46
+PASS Native font guiding
+PASS No clipped label (412, 915) guiding Đang tìm lại môi trường… · v0.3.5 needs=14 available=26
+PASS Native font guiding
+PASS No clipped label (412, 915) guiding ‹ needs=38 available=48
+PASS Native font guiding
+PASS No clipped label (412, 915) guiding B · còn ~4.0 m needs=27 available=32
+PASS Native font guiding
+PASS No clipped label (412, 915) guiding ĐI THẲNG · đi theo tuyến đã ghi needs=16 available=58
+PASS Native font guiding
+PASS No clipped label (412, 915) guiding Dừng chỉ đường needs=18 available=48
+PASS Native font guiding
+PASS No clipped label (412, 915) guiding Quan sát lối đi thật · không phát hiện vật cản needs=13 available=22
+PASS Touch target >=44 guiding
+PASS Touch target >=44 guiding
+PASS No redundant buttons guiding
+PASS Clear camera area between cards guiding(412, 915)
+PASS No obsolete QR frame after scanning guiding
+PASS Visible version fingerprint camera-hint
+PASS Native font camera-hint
+PASS No clipped label (412, 915) camera-hint Chỉ đường · A → B needs=27 available=46
+PASS Native font camera-hint
+PASS No clipped label (412, 915) camera-hint Đang tìm lại môi trường… · v0.3.5 needs=14 available=26
+PASS Native font camera-hint
+PASS No clipped label (412, 915) camera-hint ‹ needs=38 available=48
+PASS Native font camera-hint
+PASS No clipped label (412, 915) camera-hint B · còn ~4.0 m needs=27 available=32
+PASS Native font camera-hint
+PASS No clipped label (412, 915) camera-hint ĐI THẲNG · Quay máy về phía tuyến để thấy mũi tên needs=16 available=58
+PASS Native font camera-hint
+PASS No clipped label (412, 915) camera-hint Dừng chỉ đường needs=18 available=48
+PASS Native font camera-hint
+PASS No clipped label (412, 915) camera-hint Quan sát lối đi thật · không phát hiện vật cản needs=13 available=22
+PASS Touch target >=44 camera-hint
+PASS Touch target >=44 camera-hint
+PASS No redundant buttons camera-hint
+PASS Clear camera area between cards camera-hint(412, 915)
+PASS No obsolete QR frame after scanning camera-hint
+PASS Visible version fingerprint off-route
+PASS Native font off-route
+PASS No clipped label (412, 915) off-route Chỉ đường · A → B needs=27 available=46
+PASS Native font off-route
+PASS No clipped label (412, 915) off-route Dừng · cần đối chiếu vị trí · v0.3.5 needs=14 available=26
+PASS Native font off-route
+PASS No clipped label (412, 915) off-route ‹ needs=38 available=48
+PASS Native font off-route
+PASS No clipped label (412, 915) off-route Dừng · đang lệch tuyến needs=27 available=32
+PASS Native font off-route
+PASS No clipped label (412, 915) off-route Lệch ước lượng ~3.6 m. Dừng, đối chiếu lối thật; B màu cam chỉ là vị trí ước lượng. needs=32 available=58
+PASS Native font off-route
+PASS No clipped label (412, 915) off-route Quét A lại · về vị trí A trước needs=18 available=48
+PASS Native font off-route
+PASS No clipped label (412, 915) off-route Quan sát lối đi thật · không phát hiện vật cản needs=13 available=22
+PASS Touch target >=44 off-route
+PASS Touch target >=44 off-route
+PASS No redundant buttons off-route
+PASS Clear camera area between cards off-route(412, 915)
+PASS No obsolete QR frame after scanning off-route
+PASS Existing primary action restarts A preparation without deleting route
+PASS Visible version fingerprint lost
+PASS Native font lost
+PASS No clipped label (412, 915) lost Chỉ đường · A → B needs=27 available=46
+PASS Native font lost
+PASS No clipped label (412, 915) lost AR tạm dừng · đứng yên · v0.3.5 needs=14 available=26
+PASS Native font lost
+PASS No clipped label (412, 915) lost ‹ needs=38 available=48
+PASS Native font lost
+PASS No clipped label (412, 915) lost Đang tìm lại vị trí needs=27 available=32
+PASS Native font lost
+PASS No clipped label (412, 915) lost Đang tìm lại vị trí. Đứng yên; tạm ẩn mũi tên. needs=16 available=58
+PASS Native font lost
+PASS No clipped label (412, 915) lost Dừng chỉ đường needs=18 available=48
+PASS Native font lost
+PASS No clipped label (412, 915) lost Quan sát lối đi thật · không phát hiện vật cản needs=13 available=22
+PASS Touch target >=44 lost
+PASS Touch target >=44 lost
+PASS No redundant buttons lost
+PASS Clear camera area between cards lost(412, 915)
+PASS Visible version fingerprint arrived
+PASS Native font arrived
+PASS No clipped label (412, 915) arrived Chỉ đường · A → B needs=27 available=46
+PASS Native font arrived
+PASS No clipped label (412, 915) arrived Đang tìm lại môi trường… · v0.3.5 needs=14 available=26
+PASS Native font arrived
+PASS No clipped label (412, 915) arrived ‹ needs=38 available=48
+PASS Native font arrived
+PASS No clipped label (412, 915) arrived Đã tới gần B needs=27 available=32
+PASS Native font arrived
+PASS No clipped label (412, 915) arrived Đích B màu xanh dương là vị trí đã ghi. Kiểm tra vị trí thật; khoảng cách AR là ước lượng. needs=32 available=58
+PASS Native font arrived
+PASS No clipped label (412, 915) arrived Về hai chức năng needs=18 available=48
+PASS Native font arrived
+PASS No clipped label (412, 915) arrived Thẻ 18 cm · cùng tầng · quan sát lối đi needs=13 available=22
+PASS Touch target >=44 arrived
+PASS Touch target >=44 arrived
+PASS No redundant buttons arrived
+PASS Clear camera area between cards arrived(412, 915)
+PASS No obsolete QR frame after scanning arrived
+PASS Visible version fingerprint save-error
+PASS Native font save-error
+PASS No clipped label (412, 915) save-error JarVis Routes needs=27 available=46
+PASS Native font save-error
+PASS No clipped label (412, 915) save-error Đang tìm lại môi trường… · v0.3.5 needs=14 available=26
+PASS Native font save-error
+PASS No clipped label (412, 915) save-error Tuyến A → B đã sẵn sàng needs=27 available=32
+PASS Native font save-error
+PASS No clipped label (412, 915) save-error Chưa lưu được tuyến mới. Bản hoàn chỉnh trước vẫn được giữ. Kiểm tra dung lượng rồi thử lưu lại. needs=32 available=58
+PASS Native font save-error
+PASS No clipped label (412, 915) save-error Thử lưu lại needs=18 available=48
+PASS Native font save-error
+PASS No clipped label (412, 915) save-error Chỉ đường needs=18 available=48
+PASS Native font save-error
+PASS No clipped label (412, 915) save-error Thẻ 18 cm · cùng tầng · quan sát lối đi needs=13 available=22
+PASS Touch target >=44 save-error
+PASS Touch target >=44 save-error
+PASS No redundant buttons save-error
+PASS Clear camera area between cards save-error(412, 915)
+PASS Visible version fingerprint camera-error
+PASS Native font camera-error
+PASS No clipped label (412, 915) camera-error JarVis Routes needs=27 available=46
+PASS Native font camera-error
+PASS No clipped label (412, 915) camera-error Camera AR chưa sẵn sàng · v0.3.5 needs=14 available=26
+PASS Native font camera-error
+PASS No clipped label (412, 915) camera-error Ghi tuyến đầu tiên needs=27 available=32
+PASS Native font camera-error
+PASS No clipped label (412, 915) camera-error Cần quyền Camera. Vào Cài đặt điện thoại → Ứng dụng → JarVis Routes → Quyền → Camera, rồi bấm Thử lại. needs=48 available=58
+PASS Native font camera-error
+PASS No clipped label (412, 915) camera-error Thử lại camera AR needs=18 available=48
+PASS Native font camera-error
+PASS No clipped label (412, 915) camera-error Chỉ đường needs=18 available=48
+PASS Native font camera-error
+PASS No clipped label (412, 915) camera-error Thẻ 18 cm · cùng tầng · quan sát lối đi needs=13 available=22
+PASS Touch target >=44 camera-error
+PASS Touch target >=44 camera-error
+PASS No redundant buttons camera-error
+PASS Clear camera area between cards camera-error(412, 915)
+PASS Permission instructions remain visible
+PASS Visible version fingerprint qr-search
+PASS Numeric progress survives in always-visible header qr-search
+PASS Inline progress visible independent of reticle qr-search
+PASS Progress bar bounded qr-search
+PASS Native font qr-search
+PASS No clipped label (412, 915) qr-search Chỉ đường · A → B needs=27 available=46
+PASS Native font qr-search
+PASS No clipped label (412, 915) qr-search 2/2 · Khóa vị trí A · 80% · v0.3.5 needs=14 available=26
+PASS Native font qr-search
+PASS No clipped label (412, 915) qr-search ‹ needs=38 available=48
+PASS Native font qr-search
+PASS No clipped label (412, 915) qr-search Quét thẻ A để đi needs=27 available=32
+PASS Native font qr-search
+PASS No clipped label (412, 915) qr-search 2/2 · Khóa vị trí A · 80% needs=15 available=18
+PASS Native font qr-search
+PASS No clipped label (412, 915) qr-search Quét toàn bộ thẻ A. Khóa vị trí xong, bấm Bắt đầu đi. needs=16 available=66
+PASS Native font qr-search
+PASS No clipped label (412, 915) qr-search Dừng chỉ đường needs=18 available=48
+PASS Native font qr-search
+PASS No clipped label (412, 915) qr-search Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font qr-search
+PASS No clipped label (412, 915) qr-search Chuẩn bị 80% · quét thẻ A needs=16 available=38
+PASS Touch target >=44 qr-search
+PASS Touch target >=44 qr-search
+PASS No redundant buttons qr-search
+PASS Clear camera area between cards qr-search(412, 915)
+PASS Scanner/status do not overlap actions qr-search(412, 915)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint qr-locating
+PASS Numeric progress survives in always-visible header qr-locating
+PASS Inline progress visible independent of reticle qr-locating
+PASS Progress bar bounded qr-locating
+PASS Native font qr-locating
+PASS No clipped label (412, 915) qr-locating Chỉ đường · A → B needs=27 available=46
+PASS Native font qr-locating
+PASS No clipped label (412, 915) qr-locating 2/2 · Khóa vị trí A · 93% · v0.3.5 needs=14 available=26
+PASS Native font qr-locating
+PASS No clipped label (412, 915) qr-locating ‹ needs=38 available=48
+PASS Native font qr-locating
+PASS No clipped label (412, 915) qr-locating Quét thẻ A để đi needs=27 available=32
+PASS Native font qr-locating
+PASS No clipped label (412, 915) qr-locating 2/2 · Khóa vị trí A · 93% needs=15 available=18
+PASS Native font qr-locating
+PASS No clipped label (412, 915) qr-locating Quét toàn bộ thẻ A. Khóa vị trí xong, bấm Bắt đầu đi. needs=16 available=66
+PASS Native font qr-locating
+PASS No clipped label (412, 915) qr-locating Dừng chỉ đường needs=18 available=48
+PASS Native font qr-locating
+PASS No clipped label (412, 915) qr-locating Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font qr-locating
+PASS No clipped label (412, 915) qr-locating Khóa vị trí A · 93% needs=16 available=38
+PASS Touch target >=44 qr-locating
+PASS Touch target >=44 qr-locating
+PASS No redundant buttons qr-locating
+PASS Clear camera area between cards qr-locating(412, 915)
+PASS Scanner/status do not overlap actions qr-locating(412, 915)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint qr-wrong
+PASS Numeric progress survives in always-visible header qr-wrong
+PASS Inline progress visible independent of reticle qr-wrong
+PASS Progress bar bounded qr-wrong
+PASS Native font qr-wrong
+PASS No clipped label (412, 915) qr-wrong Chỉ đường · A → B needs=27 available=46
+PASS Native font qr-wrong
+PASS No clipped label (412, 915) qr-wrong 2/2 · Khóa vị trí A · 80% · v0.3.5 needs=14 available=26
+PASS Native font qr-wrong
+PASS No clipped label (412, 915) qr-wrong ‹ needs=38 available=48
+PASS Native font qr-wrong
+PASS No clipped label (412, 915) qr-wrong Quét thẻ A để đi needs=27 available=32
+PASS Native font qr-wrong
+PASS No clipped label (412, 915) qr-wrong 2/2 · Khóa vị trí A · 80% needs=15 available=18
+PASS Native font qr-wrong
+PASS No clipped label (412, 915) qr-wrong Quét toàn bộ thẻ A. Khóa vị trí xong, bấm Bắt đầu đi. needs=16 available=66
+PASS Native font qr-wrong
+PASS No clipped label (412, 915) qr-wrong Dừng chỉ đường needs=18 available=48
+PASS Native font qr-wrong
+PASS No clipped label (412, 915) qr-wrong Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font qr-wrong
+PASS No clipped label (412, 915) qr-wrong Sai mã · cần thẻ A · 80% needs=16 available=38
+PASS Touch target >=44 qr-wrong
+PASS Touch target >=44 qr-wrong
+PASS No redundant buttons qr-wrong
+PASS Clear camera area between cards qr-wrong(412, 915)
+PASS Progress never conceals wrong-code or stale-camera reason qr-wrong
+PASS Scanner/status do not overlap actions qr-wrong(412, 915)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint qr-locked
+PASS Native font qr-locked
+PASS No clipped label (412, 915) qr-locked Chỉ đường · A → B needs=27 available=46
+PASS Native font qr-locked
+PASS No clipped label (412, 915) qr-locked Đang tìm lại môi trường… · v0.3.5 needs=14 available=26
+PASS Native font qr-locked
+PASS No clipped label (412, 915) qr-locked ‹ needs=38 available=48
+PASS Native font qr-locked
+PASS No clipped label (412, 915) qr-locked B · còn ~4.0 m needs=27 available=32
+PASS Native font qr-locked
+PASS No clipped label (412, 915) qr-locked ĐI THẲNG · đi theo tuyến đã ghi needs=16 available=58
+PASS Native font qr-locked
+PASS No clipped label (412, 915) qr-locked Dừng chỉ đường needs=18 available=48
+PASS Native font qr-locked
+PASS No clipped label (412, 915) qr-locked Quan sát lối đi thật · không phát hiện vật cản needs=13 available=22
+PASS Native font qr-locked
+PASS No clipped label (412, 915) qr-locked Đã khóa A · 100% needs=16 available=38
+PASS Touch target >=44 qr-locked
+PASS Touch target >=44 qr-locked
+PASS No redundant buttons qr-locked
+PASS Clear camera area between cards qr-locked(412, 915)
+PASS Scanner/status do not overlap actions qr-locked(412, 915)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint qr-stale
+PASS Numeric progress survives in always-visible header qr-stale
+PASS Inline progress visible independent of reticle qr-stale
+PASS Progress bar bounded qr-stale
+PASS Native font qr-stale
+PASS No clipped label (412, 915) qr-stale Chỉ đường · A → B needs=27 available=46
+PASS Native font qr-stale
+PASS No clipped label (412, 915) qr-stale 2/2 · Khóa vị trí A · 80% · v0.3.5 needs=14 available=26
+PASS Native font qr-stale
+PASS No clipped label (412, 915) qr-stale ‹ needs=38 available=48
+PASS Native font qr-stale
+PASS No clipped label (412, 915) qr-stale Quét thẻ A để đi needs=27 available=32
+PASS Native font qr-stale
+PASS No clipped label (412, 915) qr-stale 2/2 · Khóa vị trí A · 80% needs=15 available=18
+PASS Native font qr-stale
+PASS No clipped label (412, 915) qr-stale Quét toàn bộ thẻ A. Khóa vị trí xong, bấm Bắt đầu đi. needs=16 available=66
+PASS Native font qr-stale
+PASS No clipped label (412, 915) qr-stale Dừng chỉ đường needs=18 available=48
+PASS Native font qr-stale
+PASS No clipped label (412, 915) qr-stale Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font qr-stale
+PASS No clipped label (412, 915) qr-stale Đang chờ ảnh camera… · 80% needs=16 available=38
+PASS Touch target >=44 qr-stale
+PASS Touch target >=44 qr-stale
+PASS No redundant buttons qr-stale
+PASS Clear camera area between cards qr-stale(412, 915)
+PASS Progress never conceals wrong-code or stale-camera reason qr-stale
+PASS Scanner/status do not overlap actions qr-stale(412, 915)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint rescan
+PASS Numeric progress survives in always-visible header rescan
+PASS Inline progress visible independent of reticle rescan
+PASS Progress bar bounded rescan
+PASS Native font rescan
+PASS No clipped label (412, 915) rescan Chỉ đường · A → B needs=27 available=46
+PASS Native font rescan
+PASS No clipped label (412, 915) rescan 1/2 · Quan sát môi trường · 0% · v0.3.5 needs=14 available=26
+PASS Native font rescan
+PASS No clipped label (412, 915) rescan ‹ needs=38 available=48
+PASS Native font rescan
+PASS No clipped label (412, 915) rescan Quan sát xung quanh needs=27 available=32
+PASS Native font rescan
+PASS No clipped label (412, 915) rescan 1/2 · Quan sát môi trường · 0% needs=15 available=18
+PASS Native font rescan
+PASS No clipped label (412, 915) rescan Di chuyển máy nhẹ, nhìn sàn và đồ vật có chi tiết. needs=16 available=66
+PASS Native font rescan
+PASS No clipped label (412, 915) rescan Dừng chỉ đường needs=18 available=48
+PASS Native font rescan
+PASS No clipped label (412, 915) rescan Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font rescan
+PASS No clipped label (412, 915) rescan Môi trường · 0% needs=16 available=38
+PASS Touch target >=44 rescan
+PASS Touch target >=44 rescan
+PASS No redundant buttons rescan
+PASS Clear camera area between cards rescan(412, 915)
+PASS Preparation is distinct from QR scanning rescan
+PASS Scanner/status do not overlap actions rescan(412, 915)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint prepare-record
+PASS Numeric progress survives in always-visible header prepare-record
+PASS Inline progress visible independent of reticle prepare-record
+PASS Progress bar bounded prepare-record
+PASS Native font prepare-record
+PASS No clipped label (412, 915) prepare-record Ghi tuyến · A → B needs=27 available=46
+PASS Native font prepare-record
+PASS No clipped label (412, 915) prepare-record 1/2 · Quan sát môi trường · 0% · v0.3.5 needs=14 available=26
+PASS Native font prepare-record
+PASS No clipped label (412, 915) prepare-record ‹ needs=38 available=48
+PASS Native font prepare-record
+PASS No clipped label (412, 915) prepare-record Quan sát xung quanh needs=27 available=32
+PASS Native font prepare-record
+PASS No clipped label (412, 915) prepare-record 1/2 · Quan sát môi trường · 0% needs=15 available=18
+PASS Native font prepare-record
+PASS No clipped label (412, 915) prepare-record Di chuyển máy nhẹ, nhìn sàn và đồ vật có chi tiết. needs=16 available=66
+PASS Native font prepare-record
+PASS No clipped label (412, 915) prepare-record Hủy ghi needs=18 available=48
+PASS Native font prepare-record
+PASS No clipped label (412, 915) prepare-record Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font prepare-record
+PASS No clipped label (412, 915) prepare-record Môi trường · 0% needs=16 available=38
+PASS Touch target >=44 prepare-record
+PASS Touch target >=44 prepare-record
+PASS No redundant buttons prepare-record
+PASS Clear camera area between cards prepare-record(412, 915)
+PASS Preparation is distinct from QR scanning prepare-record
+PASS Scanner/status do not overlap actions prepare-record(412, 915)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint prepare-navigate
+PASS Numeric progress survives in always-visible header prepare-navigate
+PASS Inline progress visible independent of reticle prepare-navigate
+PASS Progress bar bounded prepare-navigate
+PASS Native font prepare-navigate
+PASS No clipped label (412, 915) prepare-navigate Chỉ đường · A → B needs=27 available=46
+PASS Native font prepare-navigate
+PASS No clipped label (412, 915) prepare-navigate 1/2 · Quan sát môi trường · 0% · v0.3.5 needs=14 available=26
+PASS Native font prepare-navigate
+PASS No clipped label (412, 915) prepare-navigate ‹ needs=38 available=48
+PASS Native font prepare-navigate
+PASS No clipped label (412, 915) prepare-navigate Quan sát xung quanh needs=27 available=32
+PASS Native font prepare-navigate
+PASS No clipped label (412, 915) prepare-navigate 1/2 · Quan sát môi trường · 0% needs=15 available=18
+PASS Native font prepare-navigate
+PASS No clipped label (412, 915) prepare-navigate Di chuyển máy nhẹ, nhìn sàn và đồ vật có chi tiết. needs=16 available=66
+PASS Native font prepare-navigate
+PASS No clipped label (412, 915) prepare-navigate Dừng chỉ đường needs=18 available=48
+PASS Native font prepare-navigate
+PASS No clipped label (412, 915) prepare-navigate Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font prepare-navigate
+PASS No clipped label (412, 915) prepare-navigate Môi trường · 0% needs=16 available=38
+PASS Touch target >=44 prepare-navigate
+PASS Touch target >=44 prepare-navigate
+PASS No redundant buttons prepare-navigate
+PASS Clear camera area between cards prepare-navigate(412, 915)
+PASS Preparation is distinct from QR scanning prepare-navigate
+PASS Scanner/status do not overlap actions prepare-navigate(412, 915)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint prepare-camera
+PASS Numeric progress survives in always-visible header prepare-camera
+PASS Inline progress visible independent of reticle prepare-camera
+PASS Progress bar bounded prepare-camera
+PASS Native font prepare-camera
+PASS No clipped label (412, 915) prepare-camera Chỉ đường · A → B needs=27 available=46
+PASS Native font prepare-camera
+PASS No clipped label (412, 915) prepare-camera 1/2 · Quan sát môi trường · 0% · v0.3.5 needs=14 available=26
+PASS Native font prepare-camera
+PASS No clipped label (412, 915) prepare-camera ‹ needs=38 available=48
+PASS Native font prepare-camera
+PASS No clipped label (412, 915) prepare-camera Quan sát xung quanh needs=27 available=32
+PASS Native font prepare-camera
+PASS No clipped label (412, 915) prepare-camera 1/2 · Quan sát môi trường · 0% needs=15 available=18
+PASS Native font prepare-camera
+PASS No clipped label (412, 915) prepare-camera Chưa đủ điều kiện. Đang chờ camera AR. Chưa quét QR. needs=32 available=66
+PASS Native font prepare-camera
+PASS No clipped label (412, 915) prepare-camera Dừng chỉ đường needs=18 available=48
+PASS Native font prepare-camera
+PASS No clipped label (412, 915) prepare-camera Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font prepare-camera
+PASS No clipped label (412, 915) prepare-camera Môi trường · 0% needs=16 available=38
+PASS Touch target >=44 prepare-camera
+PASS Touch target >=44 prepare-camera
+PASS No redundant buttons prepare-camera
+PASS Clear camera area between cards prepare-camera(412, 915)
+PASS Preparation is distinct from QR scanning prepare-camera
+PASS Scanner/status do not overlap actions prepare-camera(412, 915)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint prepare-tracking
+PASS Numeric progress survives in always-visible header prepare-tracking
+PASS Inline progress visible independent of reticle prepare-tracking
+PASS Progress bar bounded prepare-tracking
+PASS Native font prepare-tracking
+PASS No clipped label (412, 915) prepare-tracking Chỉ đường · A → B needs=27 available=46
+PASS Native font prepare-tracking
+PASS No clipped label (412, 915) prepare-tracking 1/2 · Quan sát môi trường · 0% · v0.3.5 needs=14 available=26
+PASS Native font prepare-tracking
+PASS No clipped label (412, 915) prepare-tracking ‹ needs=38 available=48
+PASS Native font prepare-tracking
+PASS No clipped label (412, 915) prepare-tracking Quan sát xung quanh needs=27 available=32
+PASS Native font prepare-tracking
+PASS No clipped label (412, 915) prepare-tracking 1/2 · Quan sát môi trường · 0% needs=15 available=18
+PASS Native font prepare-tracking
+PASS No clipped label (412, 915) prepare-tracking Chưa đủ điều kiện. AR chưa bắt vị trí. Lia máy chậm ở nơi đủ sáng. needs=32 available=66
+PASS Native font prepare-tracking
+PASS No clipped label (412, 915) prepare-tracking Dừng chỉ đường needs=18 available=48
+PASS Native font prepare-tracking
+PASS No clipped label (412, 915) prepare-tracking Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font prepare-tracking
+PASS No clipped label (412, 915) prepare-tracking Môi trường · 0% needs=16 available=38
+PASS Touch target >=44 prepare-tracking
+PASS Touch target >=44 prepare-tracking
+PASS No redundant buttons prepare-tracking
+PASS Clear camera area between cards prepare-tracking(412, 915)
+PASS Preparation is distinct from QR scanning prepare-tracking
+PASS Scanner/status do not overlap actions prepare-tracking(412, 915)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint route-checking
+PASS Native font route-checking
+PASS No clipped label (412, 915) route-checking Chỉ đường · A → B needs=27 available=46
+PASS Native font route-checking
+PASS No clipped label (412, 915) route-checking Dừng · cần đối chiếu vị trí · v0.3.5 needs=14 available=26
+PASS Native font route-checking
+PASS No clipped label (412, 915) route-checking ‹ needs=38 available=48
+PASS Native font route-checking
+PASS No clipped label (412, 915) route-checking Dừng · đang đối chiếu tuyến needs=27 available=32
+PASS Native font route-checking
+PASS No clipped label (412, 915) route-checking Lệch ước lượng ~1.0 m. Dừng, đối chiếu lối thật; B màu cam chỉ là vị trí ước lượng. needs=32 available=58
+PASS Native font route-checking
+PASS No clipped label (412, 915) route-checking Dừng chỉ đường needs=18 available=48
+PASS Native font route-checking
+PASS No clipped label (412, 915) route-checking Quan sát lối đi thật · không phát hiện vật cản needs=13 available=22
+PASS Touch target >=44 route-checking
+PASS Touch target >=44 route-checking
+PASS No redundant buttons route-checking
+PASS Clear camera area between cards route-checking(412, 915)
+PASS No obsolete QR frame after scanning route-checking
+PASS Visible version fingerprint prepare-features
+PASS Numeric progress survives in always-visible header prepare-features
+PASS Inline progress visible independent of reticle prepare-features
+PASS Progress bar bounded prepare-features
+PASS Native font prepare-features
+PASS No clipped label (412, 915) prepare-features Chỉ đường · A → B needs=27 available=46
+PASS Native font prepare-features
+PASS No clipped label (412, 915) prepare-features 1/2 · Quan sát môi trường · 66% · v0.3.5 needs=14 available=26
+PASS Native font prepare-features
+PASS No clipped label (412, 915) prepare-features ‹ needs=38 available=48
+PASS Native font prepare-features
+PASS No clipped label (412, 915) prepare-features Quan sát xung quanh needs=27 available=32
+PASS Native font prepare-features
+PASS No clipped label (412, 915) prepare-features 1/2 · Quan sát môi trường · 66% needs=15 available=18
+PASS Native font prepare-features
+PASS No clipped label (412, 915) prepare-features Chưa đủ điều kiện. Chi tiết: 6/20 điểm · 1/3 vùng. Giữ máy chậm ở nơi đủ sáng. needs=32 available=66
+PASS Native font prepare-features
+PASS No clipped label (412, 915) prepare-features Dừng chỉ đường needs=18 available=48
+PASS Native font prepare-features
+PASS No clipped label (412, 915) prepare-features Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font prepare-features
+PASS No clipped label (412, 915) prepare-features Môi trường · 66% needs=16 available=38
+PASS Touch target >=44 prepare-features
+PASS Touch target >=44 prepare-features
+PASS No redundant buttons prepare-features
+PASS Clear camera area between cards prepare-features(412, 915)
+PASS Preparation is distinct from QR scanning prepare-features
+PASS Scanner/status do not overlap actions prepare-features(412, 915)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint departure
+PASS Numeric progress survives in always-visible header departure
+PASS Inline progress visible independent of reticle departure
+PASS Progress bar bounded departure
+PASS Native font departure
+PASS No clipped label (412, 915) departure Chỉ đường · A → B needs=27 available=46
+PASS Native font departure
+PASS No clipped label (412, 915) departure 2/2 · Khóa vị trí A · 100% · v0.3.5 needs=14 available=26
+PASS Native font departure
+PASS No clipped label (412, 915) departure ‹ needs=38 available=48
+PASS Native font departure
+PASS No clipped label (412, 915) departure Sẵn sàng đi · 100% needs=27 available=32
+PASS Native font departure
+PASS No clipped label (412, 915) departure 2/2 · Khóa vị trí A · 100% needs=15 available=18
+PASS Native font departure
+PASS No clipped label (412, 915) departure Tuyến đã lưu: ~4.0 m. Nếu đổi phòng hoặc vị trí A/B, hãy ghi lại tuyến. Cùng vị trí thì bấm Bắt đầu đi. needs=32 available=66
+PASS Native font departure
+PASS No clipped label (412, 915) departure Bắt đầu đi needs=18 available=48
+PASS Native font departure
+PASS No clipped label (412, 915) departure Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Touch target >=44 departure
+PASS Touch target >=44 departure
+PASS No redundant buttons departure
+PASS Clear camera area between cards departure(412, 915)
+PASS Explicit Start is visible before navigation begins
+PASS Visible version fingerprint departure-wait
+PASS Numeric progress survives in always-visible header departure-wait
+PASS Inline progress visible independent of reticle departure-wait
+PASS Progress bar bounded departure-wait
+PASS Native font departure-wait
+PASS No clipped label (412, 915) departure-wait Chỉ đường · A → B needs=27 available=46
+PASS Native font departure-wait
+PASS No clipped label (412, 915) departure-wait 1/2 · Quan sát môi trường · 20% · v0.3.5 needs=14 available=26
+PASS Native font departure-wait
+PASS No clipped label (412, 915) departure-wait ‹ needs=38 available=48
+PASS Native font departure-wait
+PASS No clipped label (412, 915) departure-wait Quan sát xung quanh needs=27 available=32
+PASS Native font departure-wait
+PASS No clipped label (412, 915) departure-wait 1/2 · Quan sát môi trường · 20% needs=15 available=18
+PASS Native font departure-wait
+PASS No clipped label (412, 915) departure-wait Di chuyển máy nhẹ, nhìn sàn và đồ vật có chi tiết. needs=16 available=66
+PASS Native font departure-wait
+PASS No clipped label (412, 915) departure-wait Đang quan sát môi trường… needs=18 available=48
+PASS Native font departure-wait
+PASS No clipped label (412, 915) departure-wait Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font departure-wait
+PASS No clipped label (412, 915) departure-wait Môi trường · 20% needs=16 available=38
+PASS Touch target >=44 departure-wait
+PASS Touch target >=44 departure-wait
+PASS No redundant buttons departure-wait
+PASS Clear camera area between cards departure-wait(412, 915)
+PASS Missing environment evidence disables departure
+PASS Scanner/status do not overlap actions departure-wait(412, 915)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint empty
+PASS Native font empty
+PASS No clipped label (412, 732) empty JarVis Routes needs=27 available=46
+PASS Native font empty
+PASS No clipped label (412, 732) empty Đang tìm lại môi trường… · v0.3.5 needs=14 available=26
+PASS Native font empty
+PASS No clipped label (412, 732) empty Ghi tuyến đầu tiên needs=27 available=32
+PASS Native font empty
+PASS No clipped label (412, 732) empty Chọn Ghi tuyến → quét A → đi tới B → quét B. Ứng dụng chỉ giữ một tuyến hiện hành. needs=32 available=58
+PASS Native font empty
+PASS No clipped label (412, 732) empty Ghi tuyến needs=18 available=48
+PASS Native font empty
+PASS No clipped label (412, 732) empty Chỉ đường needs=18 available=48
+PASS Native font empty
+PASS No clipped label (412, 732) empty Thẻ 18 cm · cùng tầng · quan sát lối đi needs=13 available=22
+PASS Touch target >=44 empty
+PASS Touch target >=44 empty
+PASS No redundant buttons empty
+PASS Clear camera area between cards empty(412, 732)
+PASS Visible version fingerprint saved
+PASS Native font saved
+PASS No clipped label (412, 732) saved JarVis Routes needs=27 available=46
+PASS Native font saved
+PASS No clipped label (412, 732) saved Đang tìm lại môi trường… · v0.3.5 needs=14 available=26
+PASS Native font saved
+PASS No clipped label (412, 732) saved Tuyến A → B đã sẵn sàng needs=27 available=32
+PASS Native font saved
+PASS No clipped label (412, 732) saved 4.0 m đã ghi. Quay về A, chọn Chỉ đường rồi quét toàn bộ thẻ A. needs=32 available=58
+PASS Native font saved
+PASS No clipped label (412, 732) saved Ghi tuyến needs=18 available=48
+PASS Native font saved
+PASS No clipped label (412, 732) saved Chỉ đường needs=18 available=48
+PASS Native font saved
+PASS No clipped label (412, 732) saved Thẻ 18 cm · cùng tầng · quan sát lối đi needs=13 available=22
+PASS Touch target >=44 saved
+PASS Touch target >=44 saved
+PASS No redundant buttons saved
+PASS Clear camera area between cards saved(412, 732)
+PASS Record asks before replacing current route
+PASS Keep current cancels replacement
+PASS Cancel new recording preserves current route
+PASS Visible version fingerprint saved-ack
+PASS Native font saved-ack
+PASS No clipped label (412, 732) saved-ack JarVis Routes needs=27 available=46
+PASS Native font saved-ack
+PASS No clipped label (412, 732) saved-ack Đã khóa B · 100% · v0.3.5 needs=14 available=26
+PASS Native font saved-ack
+PASS No clipped label (412, 732) saved-ack Tuyến A → B đã sẵn sàng needs=27 available=32
+PASS Native font saved-ack
+PASS No clipped label (412, 732) saved-ack 4.0 m đã ghi. Quay về A, chọn Chỉ đường rồi quét toàn bộ thẻ A. needs=32 available=58
+PASS Native font saved-ack
+PASS No clipped label (412, 732) saved-ack Ghi tuyến needs=18 available=48
+PASS Native font saved-ack
+PASS No clipped label (412, 732) saved-ack Chỉ đường needs=18 available=48
+PASS Native font saved-ack
+PASS No clipped label (412, 732) saved-ack Thẻ 18 cm · cùng tầng · quan sát lối đi needs=13 available=22
+PASS Touch target >=44 saved-ack
+PASS Touch target >=44 saved-ack
+PASS No redundant buttons saved-ack
+PASS Clear camera area between cards saved-ack(412, 732)
+PASS No obsolete QR frame after scanning saved-ack
+PASS Visible version fingerprint confirm
+PASS Native font confirm
+PASS No clipped label (412, 732) confirm JarVis Routes needs=27 available=46
+PASS Native font confirm
+PASS No clipped label (412, 732) confirm Đang tìm lại môi trường… · v0.3.5 needs=14 available=26
+PASS Native font confirm
+PASS No clipped label (412, 732) confirm Ghi lại tuyến A → B? needs=27 available=32
+PASS Native font confirm
+PASS No clipped label (412, 732) confirm Tuyến hiện tại chỉ được thay khi lượt ghi mới kết thúc tại B và lưu thành công. needs=32 available=58
+PASS Native font confirm
+PASS No clipped label (412, 732) confirm Ghi lại tuyến needs=18 available=48
+PASS Native font confirm
+PASS No clipped label (412, 732) confirm Giữ tuyến hiện tại needs=18 available=48
+PASS Native font confirm
+PASS No clipped label (412, 732) confirm Thẻ 18 cm · cùng tầng · quan sát lối đi needs=13 available=22
+PASS Touch target >=44 confirm
+PASS Touch target >=44 confirm
+PASS No redundant buttons confirm
+PASS Clear camera area between cards confirm(412, 732)
+PASS Visible version fingerprint scan-A
+PASS Numeric progress survives in always-visible header scan-A
+PASS Inline progress visible independent of reticle scan-A
+PASS Progress bar bounded scan-A
+PASS Native font scan-A
+PASS No clipped label (412, 732) scan-A Ghi tuyến · A → B needs=27 available=46
+PASS Native font scan-A
+PASS No clipped label (412, 732) scan-A 2/2 · Khóa vị trí A · 80% · v0.3.5 needs=14 available=26
+PASS Native font scan-A
+PASS No clipped label (412, 732) scan-A ‹ needs=38 available=48
+PASS Native font scan-A
+PASS No clipped label (412, 732) scan-A Quét thẻ A để ghi needs=27 available=32
+PASS Native font scan-A
+PASS No clipped label (412, 732) scan-A 2/2 · Khóa vị trí A · 80% needs=15 available=18
+PASS Native font scan-A
+PASS No clipped label (412, 732) scan-A Quét toàn bộ thẻ A mới, dán thẳng đứng và in đúng 18 × 18 cm. needs=32 available=66
+PASS Native font scan-A
+PASS No clipped label (412, 732) scan-A Hủy ghi needs=18 available=48
+PASS Native font scan-A
+PASS No clipped label (412, 732) scan-A Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font scan-A
+PASS No clipped label (412, 732) scan-A Chuẩn bị 80% · quét thẻ A needs=16 available=38
+PASS Touch target >=44 scan-A
+PASS Touch target >=44 scan-A
+PASS No redundant buttons scan-A
+PASS Clear camera area between cards scan-A(412, 732)
+PASS Scanner/status do not overlap actions scan-A(412, 732)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint recording
+PASS Numeric progress survives in always-visible header recording
+PASS Inline progress visible independent of reticle recording
+PASS Progress bar bounded recording
+PASS Native font recording
+PASS No clipped label (412, 732) recording Ghi tuyến · A → B needs=27 available=46
+PASS Native font recording
+PASS No clipped label (412, 732) recording Chờ quét thẻ B · 0% · v0.3.5 needs=14 available=26
+PASS Native font recording
+PASS No clipped label (412, 732) recording ‹ needs=38 available=48
+PASS Native font recording
+PASS No clipped label (412, 732) recording Đi tới B needs=27 available=32
+PASS Native font recording
+PASS No clipped label (412, 732) recording Chờ quét thẻ B · 0% needs=15 available=18
+PASS Native font recording
+PASS No clipped label (412, 732) recording Đang chuẩn bị camera AR… needs=16 available=66
+PASS Native font recording
+PASS No clipped label (412, 732) recording Hủy ghi needs=18 available=48
+PASS Native font recording
+PASS No clipped label (412, 732) recording Tiến độ khóa thẻ B · không phải % quãng đường needs=13 available=22
+PASS Native font recording
+PASS No clipped label (412, 732) recording Đang chờ ảnh camera… · 0% needs=16 available=38
+PASS Touch target >=44 recording
+PASS Touch target >=44 recording
+PASS No redundant buttons recording
+PASS Clear camera area between cards recording(412, 732)
+PASS Scanner/status do not overlap actions recording(412, 732)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint navigate-scan
+PASS Numeric progress survives in always-visible header navigate-scan
+PASS Inline progress visible independent of reticle navigate-scan
+PASS Progress bar bounded navigate-scan
+PASS Native font navigate-scan
+PASS No clipped label (412, 732) navigate-scan Chỉ đường · A → B needs=27 available=46
+PASS Native font navigate-scan
+PASS No clipped label (412, 732) navigate-scan 2/2 · Khóa vị trí A · 80% · v0.3.5 needs=14 available=26
+PASS Native font navigate-scan
+PASS No clipped label (412, 732) navigate-scan ‹ needs=38 available=48
+PASS Native font navigate-scan
+PASS No clipped label (412, 732) navigate-scan Quét thẻ A để đi needs=27 available=32
+PASS Native font navigate-scan
+PASS No clipped label (412, 732) navigate-scan 2/2 · Khóa vị trí A · 80% needs=15 available=18
+PASS Native font navigate-scan
+PASS No clipped label (412, 732) navigate-scan Quét toàn bộ thẻ A. Khóa vị trí xong, bấm Bắt đầu đi. needs=16 available=66
+PASS Native font navigate-scan
+PASS No clipped label (412, 732) navigate-scan Dừng chỉ đường needs=18 available=48
+PASS Native font navigate-scan
+PASS No clipped label (412, 732) navigate-scan Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font navigate-scan
+PASS No clipped label (412, 732) navigate-scan Chuẩn bị 80% · quét thẻ A needs=16 available=38
+PASS Touch target >=44 navigate-scan
+PASS Touch target >=44 navigate-scan
+PASS No redundant buttons navigate-scan
+PASS Clear camera area between cards navigate-scan(412, 732)
+PASS Scanner/status do not overlap actions navigate-scan(412, 732)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint guiding
+PASS Native font guiding
+PASS No clipped label (412, 732) guiding Chỉ đường · A → B needs=27 available=46
+PASS Native font guiding
+PASS No clipped label (412, 732) guiding Đang tìm lại môi trường… · v0.3.5 needs=14 available=26
+PASS Native font guiding
+PASS No clipped label (412, 732) guiding ‹ needs=38 available=48
+PASS Native font guiding
+PASS No clipped label (412, 732) guiding B · còn ~4.0 m needs=27 available=32
+PASS Native font guiding
+PASS No clipped label (412, 732) guiding ĐI THẲNG · đi theo tuyến đã ghi needs=16 available=58
+PASS Native font guiding
+PASS No clipped label (412, 732) guiding Dừng chỉ đường needs=18 available=48
+PASS Native font guiding
+PASS No clipped label (412, 732) guiding Quan sát lối đi thật · không phát hiện vật cản needs=13 available=22
+PASS Touch target >=44 guiding
+PASS Touch target >=44 guiding
+PASS No redundant buttons guiding
+PASS Clear camera area between cards guiding(412, 732)
+PASS No obsolete QR frame after scanning guiding
+PASS Visible version fingerprint camera-hint
+PASS Native font camera-hint
+PASS No clipped label (412, 732) camera-hint Chỉ đường · A → B needs=27 available=46
+PASS Native font camera-hint
+PASS No clipped label (412, 732) camera-hint Đang tìm lại môi trường… · v0.3.5 needs=14 available=26
+PASS Native font camera-hint
+PASS No clipped label (412, 732) camera-hint ‹ needs=38 available=48
+PASS Native font camera-hint
+PASS No clipped label (412, 732) camera-hint B · còn ~4.0 m needs=27 available=32
+PASS Native font camera-hint
+PASS No clipped label (412, 732) camera-hint ĐI THẲNG · Quay máy về phía tuyến để thấy mũi tên needs=16 available=58
+PASS Native font camera-hint
+PASS No clipped label (412, 732) camera-hint Dừng chỉ đường needs=18 available=48
+PASS Native font camera-hint
+PASS No clipped label (412, 732) camera-hint Quan sát lối đi thật · không phát hiện vật cản needs=13 available=22
+PASS Touch target >=44 camera-hint
+PASS Touch target >=44 camera-hint
+PASS No redundant buttons camera-hint
+PASS Clear camera area between cards camera-hint(412, 732)
+PASS No obsolete QR frame after scanning camera-hint
+PASS Visible version fingerprint off-route
+PASS Native font off-route
+PASS No clipped label (412, 732) off-route Chỉ đường · A → B needs=27 available=46
+PASS Native font off-route
+PASS No clipped label (412, 732) off-route Dừng · cần đối chiếu vị trí · v0.3.5 needs=14 available=26
+PASS Native font off-route
+PASS No clipped label (412, 732) off-route ‹ needs=38 available=48
+PASS Native font off-route
+PASS No clipped label (412, 732) off-route Dừng · đang lệch tuyến needs=27 available=32
+PASS Native font off-route
+PASS No clipped label (412, 732) off-route Lệch ước lượng ~3.6 m. Dừng, đối chiếu lối thật; B màu cam chỉ là vị trí ước lượng. needs=32 available=58
+PASS Native font off-route
+PASS No clipped label (412, 732) off-route Quét A lại · về vị trí A trước needs=18 available=48
+PASS Native font off-route
+PASS No clipped label (412, 732) off-route Quan sát lối đi thật · không phát hiện vật cản needs=13 available=22
+PASS Touch target >=44 off-route
+PASS Touch target >=44 off-route
+PASS No redundant buttons off-route
+PASS Clear camera area between cards off-route(412, 732)
+PASS No obsolete QR frame after scanning off-route
+PASS Existing primary action restarts A preparation without deleting route
+PASS Visible version fingerprint lost
+PASS Native font lost
+PASS No clipped label (412, 732) lost Chỉ đường · A → B needs=27 available=46
+PASS Native font lost
+PASS No clipped label (412, 732) lost AR tạm dừng · đứng yên · v0.3.5 needs=14 available=26
+PASS Native font lost
+PASS No clipped label (412, 732) lost ‹ needs=38 available=48
+PASS Native font lost
+PASS No clipped label (412, 732) lost Đang tìm lại vị trí needs=27 available=32
+PASS Native font lost
+PASS No clipped label (412, 732) lost Đang tìm lại vị trí. Đứng yên; tạm ẩn mũi tên. needs=16 available=58
+PASS Native font lost
+PASS No clipped label (412, 732) lost Dừng chỉ đường needs=18 available=48
+PASS Native font lost
+PASS No clipped label (412, 732) lost Quan sát lối đi thật · không phát hiện vật cản needs=13 available=22
+PASS Touch target >=44 lost
+PASS Touch target >=44 lost
+PASS No redundant buttons lost
+PASS Clear camera area between cards lost(412, 732)
+PASS Visible version fingerprint arrived
+PASS Native font arrived
+PASS No clipped label (412, 732) arrived Chỉ đường · A → B needs=27 available=46
+PASS Native font arrived
+PASS No clipped label (412, 732) arrived Đang tìm lại môi trường… · v0.3.5 needs=14 available=26
+PASS Native font arrived
+PASS No clipped label (412, 732) arrived ‹ needs=38 available=48
+PASS Native font arrived
+PASS No clipped label (412, 732) arrived Đã tới gần B needs=27 available=32
+PASS Native font arrived
+PASS No clipped label (412, 732) arrived Đích B màu xanh dương là vị trí đã ghi. Kiểm tra vị trí thật; khoảng cách AR là ước lượng. needs=32 available=58
+PASS Native font arrived
+PASS No clipped label (412, 732) arrived Về hai chức năng needs=18 available=48
+PASS Native font arrived
+PASS No clipped label (412, 732) arrived Thẻ 18 cm · cùng tầng · quan sát lối đi needs=13 available=22
+PASS Touch target >=44 arrived
+PASS Touch target >=44 arrived
+PASS No redundant buttons arrived
+PASS Clear camera area between cards arrived(412, 732)
+PASS No obsolete QR frame after scanning arrived
+PASS Visible version fingerprint save-error
+PASS Native font save-error
+PASS No clipped label (412, 732) save-error JarVis Routes needs=27 available=46
+PASS Native font save-error
+PASS No clipped label (412, 732) save-error Đang tìm lại môi trường… · v0.3.5 needs=14 available=26
+PASS Native font save-error
+PASS No clipped label (412, 732) save-error Tuyến A → B đã sẵn sàng needs=27 available=32
+PASS Native font save-error
+PASS No clipped label (412, 732) save-error Chưa lưu được tuyến mới. Bản hoàn chỉnh trước vẫn được giữ. Kiểm tra dung lượng rồi thử lưu lại. needs=32 available=58
+PASS Native font save-error
+PASS No clipped label (412, 732) save-error Thử lưu lại needs=18 available=48
+PASS Native font save-error
+PASS No clipped label (412, 732) save-error Chỉ đường needs=18 available=48
+PASS Native font save-error
+PASS No clipped label (412, 732) save-error Thẻ 18 cm · cùng tầng · quan sát lối đi needs=13 available=22
+PASS Touch target >=44 save-error
+PASS Touch target >=44 save-error
+PASS No redundant buttons save-error
+PASS Clear camera area between cards save-error(412, 732)
+PASS Visible version fingerprint camera-error
+PASS Native font camera-error
+PASS No clipped label (412, 732) camera-error JarVis Routes needs=27 available=46
+PASS Native font camera-error
+PASS No clipped label (412, 732) camera-error Camera AR chưa sẵn sàng · v0.3.5 needs=14 available=26
+PASS Native font camera-error
+PASS No clipped label (412, 732) camera-error Ghi tuyến đầu tiên needs=27 available=32
+PASS Native font camera-error
+PASS No clipped label (412, 732) camera-error Cần quyền Camera. Vào Cài đặt điện thoại → Ứng dụng → JarVis Routes → Quyền → Camera, rồi bấm Thử lại. needs=48 available=58
+PASS Native font camera-error
+PASS No clipped label (412, 732) camera-error Thử lại camera AR needs=18 available=48
+PASS Native font camera-error
+PASS No clipped label (412, 732) camera-error Chỉ đường needs=18 available=48
+PASS Native font camera-error
+PASS No clipped label (412, 732) camera-error Thẻ 18 cm · cùng tầng · quan sát lối đi needs=13 available=22
+PASS Touch target >=44 camera-error
+PASS Touch target >=44 camera-error
+PASS No redundant buttons camera-error
+PASS Clear camera area between cards camera-error(412, 732)
+PASS Permission instructions remain visible
+PASS Visible version fingerprint qr-search
+PASS Numeric progress survives in always-visible header qr-search
+PASS Inline progress visible independent of reticle qr-search
+PASS Progress bar bounded qr-search
+PASS Native font qr-search
+PASS No clipped label (412, 732) qr-search Chỉ đường · A → B needs=27 available=46
+PASS Native font qr-search
+PASS No clipped label (412, 732) qr-search 2/2 · Khóa vị trí A · 80% · v0.3.5 needs=14 available=26
+PASS Native font qr-search
+PASS No clipped label (412, 732) qr-search ‹ needs=38 available=48
+PASS Native font qr-search
+PASS No clipped label (412, 732) qr-search Quét thẻ A để đi needs=27 available=32
+PASS Native font qr-search
+PASS No clipped label (412, 732) qr-search 2/2 · Khóa vị trí A · 80% needs=15 available=18
+PASS Native font qr-search
+PASS No clipped label (412, 732) qr-search Quét toàn bộ thẻ A. Khóa vị trí xong, bấm Bắt đầu đi. needs=16 available=66
+PASS Native font qr-search
+PASS No clipped label (412, 732) qr-search Dừng chỉ đường needs=18 available=48
+PASS Native font qr-search
+PASS No clipped label (412, 732) qr-search Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font qr-search
+PASS No clipped label (412, 732) qr-search Chuẩn bị 80% · quét thẻ A needs=16 available=38
+PASS Touch target >=44 qr-search
+PASS Touch target >=44 qr-search
+PASS No redundant buttons qr-search
+PASS Clear camera area between cards qr-search(412, 732)
+PASS Scanner/status do not overlap actions qr-search(412, 732)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint qr-locating
+PASS Numeric progress survives in always-visible header qr-locating
+PASS Inline progress visible independent of reticle qr-locating
+PASS Progress bar bounded qr-locating
+PASS Native font qr-locating
+PASS No clipped label (412, 732) qr-locating Chỉ đường · A → B needs=27 available=46
+PASS Native font qr-locating
+PASS No clipped label (412, 732) qr-locating 2/2 · Khóa vị trí A · 93% · v0.3.5 needs=14 available=26
+PASS Native font qr-locating
+PASS No clipped label (412, 732) qr-locating ‹ needs=38 available=48
+PASS Native font qr-locating
+PASS No clipped label (412, 732) qr-locating Quét thẻ A để đi needs=27 available=32
+PASS Native font qr-locating
+PASS No clipped label (412, 732) qr-locating 2/2 · Khóa vị trí A · 93% needs=15 available=18
+PASS Native font qr-locating
+PASS No clipped label (412, 732) qr-locating Quét toàn bộ thẻ A. Khóa vị trí xong, bấm Bắt đầu đi. needs=16 available=66
+PASS Native font qr-locating
+PASS No clipped label (412, 732) qr-locating Dừng chỉ đường needs=18 available=48
+PASS Native font qr-locating
+PASS No clipped label (412, 732) qr-locating Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font qr-locating
+PASS No clipped label (412, 732) qr-locating Khóa vị trí A · 93% needs=16 available=38
+PASS Touch target >=44 qr-locating
+PASS Touch target >=44 qr-locating
+PASS No redundant buttons qr-locating
+PASS Clear camera area between cards qr-locating(412, 732)
+PASS Scanner/status do not overlap actions qr-locating(412, 732)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint qr-wrong
+PASS Numeric progress survives in always-visible header qr-wrong
+PASS Inline progress visible independent of reticle qr-wrong
+PASS Progress bar bounded qr-wrong
+PASS Native font qr-wrong
+PASS No clipped label (412, 732) qr-wrong Chỉ đường · A → B needs=27 available=46
+PASS Native font qr-wrong
+PASS No clipped label (412, 732) qr-wrong 2/2 · Khóa vị trí A · 80% · v0.3.5 needs=14 available=26
+PASS Native font qr-wrong
+PASS No clipped label (412, 732) qr-wrong ‹ needs=38 available=48
+PASS Native font qr-wrong
+PASS No clipped label (412, 732) qr-wrong Quét thẻ A để đi needs=27 available=32
+PASS Native font qr-wrong
+PASS No clipped label (412, 732) qr-wrong 2/2 · Khóa vị trí A · 80% needs=15 available=18
+PASS Native font qr-wrong
+PASS No clipped label (412, 732) qr-wrong Quét toàn bộ thẻ A. Khóa vị trí xong, bấm Bắt đầu đi. needs=16 available=66
+PASS Native font qr-wrong
+PASS No clipped label (412, 732) qr-wrong Dừng chỉ đường needs=18 available=48
+PASS Native font qr-wrong
+PASS No clipped label (412, 732) qr-wrong Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font qr-wrong
+PASS No clipped label (412, 732) qr-wrong Sai mã · cần thẻ A · 80% needs=16 available=38
+PASS Touch target >=44 qr-wrong
+PASS Touch target >=44 qr-wrong
+PASS No redundant buttons qr-wrong
+PASS Clear camera area between cards qr-wrong(412, 732)
+PASS Progress never conceals wrong-code or stale-camera reason qr-wrong
+PASS Scanner/status do not overlap actions qr-wrong(412, 732)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint qr-locked
+PASS Native font qr-locked
+PASS No clipped label (412, 732) qr-locked Chỉ đường · A → B needs=27 available=46
+PASS Native font qr-locked
+PASS No clipped label (412, 732) qr-locked Đang tìm lại môi trường… · v0.3.5 needs=14 available=26
+PASS Native font qr-locked
+PASS No clipped label (412, 732) qr-locked ‹ needs=38 available=48
+PASS Native font qr-locked
+PASS No clipped label (412, 732) qr-locked B · còn ~4.0 m needs=27 available=32
+PASS Native font qr-locked
+PASS No clipped label (412, 732) qr-locked ĐI THẲNG · đi theo tuyến đã ghi needs=16 available=58
+PASS Native font qr-locked
+PASS No clipped label (412, 732) qr-locked Dừng chỉ đường needs=18 available=48
+PASS Native font qr-locked
+PASS No clipped label (412, 732) qr-locked Quan sát lối đi thật · không phát hiện vật cản needs=13 available=22
+PASS Native font qr-locked
+PASS No clipped label (412, 732) qr-locked Đã khóa A · 100% needs=16 available=38
+PASS Touch target >=44 qr-locked
+PASS Touch target >=44 qr-locked
+PASS No redundant buttons qr-locked
+PASS Clear camera area between cards qr-locked(412, 732)
+PASS Scanner/status do not overlap actions qr-locked(412, 732)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint qr-stale
+PASS Numeric progress survives in always-visible header qr-stale
+PASS Inline progress visible independent of reticle qr-stale
+PASS Progress bar bounded qr-stale
+PASS Native font qr-stale
+PASS No clipped label (412, 732) qr-stale Chỉ đường · A → B needs=27 available=46
+PASS Native font qr-stale
+PASS No clipped label (412, 732) qr-stale 2/2 · Khóa vị trí A · 80% · v0.3.5 needs=14 available=26
+PASS Native font qr-stale
+PASS No clipped label (412, 732) qr-stale ‹ needs=38 available=48
+PASS Native font qr-stale
+PASS No clipped label (412, 732) qr-stale Quét thẻ A để đi needs=27 available=32
+PASS Native font qr-stale
+PASS No clipped label (412, 732) qr-stale 2/2 · Khóa vị trí A · 80% needs=15 available=18
+PASS Native font qr-stale
+PASS No clipped label (412, 732) qr-stale Quét toàn bộ thẻ A. Khóa vị trí xong, bấm Bắt đầu đi. needs=16 available=66
+PASS Native font qr-stale
+PASS No clipped label (412, 732) qr-stale Dừng chỉ đường needs=18 available=48
+PASS Native font qr-stale
+PASS No clipped label (412, 732) qr-stale Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font qr-stale
+PASS No clipped label (412, 732) qr-stale Đang chờ ảnh camera… · 80% needs=16 available=38
+PASS Touch target >=44 qr-stale
+PASS Touch target >=44 qr-stale
+PASS No redundant buttons qr-stale
+PASS Clear camera area between cards qr-stale(412, 732)
+PASS Progress never conceals wrong-code or stale-camera reason qr-stale
+PASS Scanner/status do not overlap actions qr-stale(412, 732)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint rescan
+PASS Numeric progress survives in always-visible header rescan
+PASS Inline progress visible independent of reticle rescan
+PASS Progress bar bounded rescan
+PASS Native font rescan
+PASS No clipped label (412, 732) rescan Chỉ đường · A → B needs=27 available=46
+PASS Native font rescan
+PASS No clipped label (412, 732) rescan 1/2 · Quan sát môi trường · 0% · v0.3.5 needs=14 available=26
+PASS Native font rescan
+PASS No clipped label (412, 732) rescan ‹ needs=38 available=48
+PASS Native font rescan
+PASS No clipped label (412, 732) rescan Quan sát xung quanh needs=27 available=32
+PASS Native font rescan
+PASS No clipped label (412, 732) rescan 1/2 · Quan sát môi trường · 0% needs=15 available=18
+PASS Native font rescan
+PASS No clipped label (412, 732) rescan Di chuyển máy nhẹ, nhìn sàn và đồ vật có chi tiết. needs=16 available=66
+PASS Native font rescan
+PASS No clipped label (412, 732) rescan Dừng chỉ đường needs=18 available=48
+PASS Native font rescan
+PASS No clipped label (412, 732) rescan Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font rescan
+PASS No clipped label (412, 732) rescan Môi trường · 0% needs=16 available=38
+PASS Touch target >=44 rescan
+PASS Touch target >=44 rescan
+PASS No redundant buttons rescan
+PASS Clear camera area between cards rescan(412, 732)
+PASS Preparation is distinct from QR scanning rescan
+PASS Scanner/status do not overlap actions rescan(412, 732)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint prepare-record
+PASS Numeric progress survives in always-visible header prepare-record
+PASS Inline progress visible independent of reticle prepare-record
+PASS Progress bar bounded prepare-record
+PASS Native font prepare-record
+PASS No clipped label (412, 732) prepare-record Ghi tuyến · A → B needs=27 available=46
+PASS Native font prepare-record
+PASS No clipped label (412, 732) prepare-record 1/2 · Quan sát môi trường · 0% · v0.3.5 needs=14 available=26
+PASS Native font prepare-record
+PASS No clipped label (412, 732) prepare-record ‹ needs=38 available=48
+PASS Native font prepare-record
+PASS No clipped label (412, 732) prepare-record Quan sát xung quanh needs=27 available=32
+PASS Native font prepare-record
+PASS No clipped label (412, 732) prepare-record 1/2 · Quan sát môi trường · 0% needs=15 available=18
+PASS Native font prepare-record
+PASS No clipped label (412, 732) prepare-record Di chuyển máy nhẹ, nhìn sàn và đồ vật có chi tiết. needs=16 available=66
+PASS Native font prepare-record
+PASS No clipped label (412, 732) prepare-record Hủy ghi needs=18 available=48
+PASS Native font prepare-record
+PASS No clipped label (412, 732) prepare-record Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font prepare-record
+PASS No clipped label (412, 732) prepare-record Môi trường · 0% needs=16 available=38
+PASS Touch target >=44 prepare-record
+PASS Touch target >=44 prepare-record
+PASS No redundant buttons prepare-record
+PASS Clear camera area between cards prepare-record(412, 732)
+PASS Preparation is distinct from QR scanning prepare-record
+PASS Scanner/status do not overlap actions prepare-record(412, 732)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint prepare-navigate
+PASS Numeric progress survives in always-visible header prepare-navigate
+PASS Inline progress visible independent of reticle prepare-navigate
+PASS Progress bar bounded prepare-navigate
+PASS Native font prepare-navigate
+PASS No clipped label (412, 732) prepare-navigate Chỉ đường · A → B needs=27 available=46
+PASS Native font prepare-navigate
+PASS No clipped label (412, 732) prepare-navigate 1/2 · Quan sát môi trường · 0% · v0.3.5 needs=14 available=26
+PASS Native font prepare-navigate
+PASS No clipped label (412, 732) prepare-navigate ‹ needs=38 available=48
+PASS Native font prepare-navigate
+PASS No clipped label (412, 732) prepare-navigate Quan sát xung quanh needs=27 available=32
+PASS Native font prepare-navigate
+PASS No clipped label (412, 732) prepare-navigate 1/2 · Quan sát môi trường · 0% needs=15 available=18
+PASS Native font prepare-navigate
+PASS No clipped label (412, 732) prepare-navigate Di chuyển máy nhẹ, nhìn sàn và đồ vật có chi tiết. needs=16 available=66
+PASS Native font prepare-navigate
+PASS No clipped label (412, 732) prepare-navigate Dừng chỉ đường needs=18 available=48
+PASS Native font prepare-navigate
+PASS No clipped label (412, 732) prepare-navigate Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font prepare-navigate
+PASS No clipped label (412, 732) prepare-navigate Môi trường · 0% needs=16 available=38
+PASS Touch target >=44 prepare-navigate
+PASS Touch target >=44 prepare-navigate
+PASS No redundant buttons prepare-navigate
+PASS Clear camera area between cards prepare-navigate(412, 732)
+PASS Preparation is distinct from QR scanning prepare-navigate
+PASS Scanner/status do not overlap actions prepare-navigate(412, 732)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint prepare-camera
+PASS Numeric progress survives in always-visible header prepare-camera
+PASS Inline progress visible independent of reticle prepare-camera
+PASS Progress bar bounded prepare-camera
+PASS Native font prepare-camera
+PASS No clipped label (412, 732) prepare-camera Chỉ đường · A → B needs=27 available=46
+PASS Native font prepare-camera
+PASS No clipped label (412, 732) prepare-camera 1/2 · Quan sát môi trường · 0% · v0.3.5 needs=14 available=26
+PASS Native font prepare-camera
+PASS No clipped label (412, 732) prepare-camera ‹ needs=38 available=48
+PASS Native font prepare-camera
+PASS No clipped label (412, 732) prepare-camera Quan sát xung quanh needs=27 available=32
+PASS Native font prepare-camera
+PASS No clipped label (412, 732) prepare-camera 1/2 · Quan sát môi trường · 0% needs=15 available=18
+PASS Native font prepare-camera
+PASS No clipped label (412, 732) prepare-camera Chưa đủ điều kiện. Đang chờ camera AR. Chưa quét QR. needs=32 available=66
+PASS Native font prepare-camera
+PASS No clipped label (412, 732) prepare-camera Dừng chỉ đường needs=18 available=48
+PASS Native font prepare-camera
+PASS No clipped label (412, 732) prepare-camera Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font prepare-camera
+PASS No clipped label (412, 732) prepare-camera Môi trường · 0% needs=16 available=38
+PASS Touch target >=44 prepare-camera
+PASS Touch target >=44 prepare-camera
+PASS No redundant buttons prepare-camera
+PASS Clear camera area between cards prepare-camera(412, 732)
+PASS Preparation is distinct from QR scanning prepare-camera
+PASS Scanner/status do not overlap actions prepare-camera(412, 732)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint prepare-tracking
+PASS Numeric progress survives in always-visible header prepare-tracking
+PASS Inline progress visible independent of reticle prepare-tracking
+PASS Progress bar bounded prepare-tracking
+PASS Native font prepare-tracking
+PASS No clipped label (412, 732) prepare-tracking Chỉ đường · A → B needs=27 available=46
+PASS Native font prepare-tracking
+PASS No clipped label (412, 732) prepare-tracking 1/2 · Quan sát môi trường · 0% · v0.3.5 needs=14 available=26
+PASS Native font prepare-tracking
+PASS No clipped label (412, 732) prepare-tracking ‹ needs=38 available=48
+PASS Native font prepare-tracking
+PASS No clipped label (412, 732) prepare-tracking Quan sát xung quanh needs=27 available=32
+PASS Native font prepare-tracking
+PASS No clipped label (412, 732) prepare-tracking 1/2 · Quan sát môi trường · 0% needs=15 available=18
+PASS Native font prepare-tracking
+PASS No clipped label (412, 732) prepare-tracking Chưa đủ điều kiện. AR chưa bắt vị trí. Lia máy chậm ở nơi đủ sáng. needs=32 available=66
+PASS Native font prepare-tracking
+PASS No clipped label (412, 732) prepare-tracking Dừng chỉ đường needs=18 available=48
+PASS Native font prepare-tracking
+PASS No clipped label (412, 732) prepare-tracking Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font prepare-tracking
+PASS No clipped label (412, 732) prepare-tracking Môi trường · 0% needs=16 available=38
+PASS Touch target >=44 prepare-tracking
+PASS Touch target >=44 prepare-tracking
+PASS No redundant buttons prepare-tracking
+PASS Clear camera area between cards prepare-tracking(412, 732)
+PASS Preparation is distinct from QR scanning prepare-tracking
+PASS Scanner/status do not overlap actions prepare-tracking(412, 732)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint route-checking
+PASS Native font route-checking
+PASS No clipped label (412, 732) route-checking Chỉ đường · A → B needs=27 available=46
+PASS Native font route-checking
+PASS No clipped label (412, 732) route-checking Dừng · cần đối chiếu vị trí · v0.3.5 needs=14 available=26
+PASS Native font route-checking
+PASS No clipped label (412, 732) route-checking ‹ needs=38 available=48
+PASS Native font route-checking
+PASS No clipped label (412, 732) route-checking Dừng · đang đối chiếu tuyến needs=27 available=32
+PASS Native font route-checking
+PASS No clipped label (412, 732) route-checking Lệch ước lượng ~1.0 m. Dừng, đối chiếu lối thật; B màu cam chỉ là vị trí ước lượng. needs=32 available=58
+PASS Native font route-checking
+PASS No clipped label (412, 732) route-checking Dừng chỉ đường needs=18 available=48
+PASS Native font route-checking
+PASS No clipped label (412, 732) route-checking Quan sát lối đi thật · không phát hiện vật cản needs=13 available=22
+PASS Touch target >=44 route-checking
+PASS Touch target >=44 route-checking
+PASS No redundant buttons route-checking
+PASS Clear camera area between cards route-checking(412, 732)
+PASS No obsolete QR frame after scanning route-checking
+PASS Visible version fingerprint prepare-features
+PASS Numeric progress survives in always-visible header prepare-features
+PASS Inline progress visible independent of reticle prepare-features
+PASS Progress bar bounded prepare-features
+PASS Native font prepare-features
+PASS No clipped label (412, 732) prepare-features Chỉ đường · A → B needs=27 available=46
+PASS Native font prepare-features
+PASS No clipped label (412, 732) prepare-features 1/2 · Quan sát môi trường · 66% · v0.3.5 needs=14 available=26
+PASS Native font prepare-features
+PASS No clipped label (412, 732) prepare-features ‹ needs=38 available=48
+PASS Native font prepare-features
+PASS No clipped label (412, 732) prepare-features Quan sát xung quanh needs=27 available=32
+PASS Native font prepare-features
+PASS No clipped label (412, 732) prepare-features 1/2 · Quan sát môi trường · 66% needs=15 available=18
+PASS Native font prepare-features
+PASS No clipped label (412, 732) prepare-features Chưa đủ điều kiện. Chi tiết: 6/20 điểm · 1/3 vùng. Giữ máy chậm ở nơi đủ sáng. needs=32 available=66
+PASS Native font prepare-features
+PASS No clipped label (412, 732) prepare-features Dừng chỉ đường needs=18 available=48
+PASS Native font prepare-features
+PASS No clipped label (412, 732) prepare-features Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font prepare-features
+PASS No clipped label (412, 732) prepare-features Môi trường · 66% needs=16 available=38
+PASS Touch target >=44 prepare-features
+PASS Touch target >=44 prepare-features
+PASS No redundant buttons prepare-features
+PASS Clear camera area between cards prepare-features(412, 732)
+PASS Preparation is distinct from QR scanning prepare-features
+PASS Scanner/status do not overlap actions prepare-features(412, 732)
+PASS Scanner never blocks taps
+PASS Visible version fingerprint departure
+PASS Numeric progress survives in always-visible header departure
+PASS Inline progress visible independent of reticle departure
+PASS Progress bar bounded departure
+PASS Native font departure
+PASS No clipped label (412, 732) departure Chỉ đường · A → B needs=27 available=46
+PASS Native font departure
+PASS No clipped label (412, 732) departure 2/2 · Khóa vị trí A · 100% · v0.3.5 needs=14 available=26
+PASS Native font departure
+PASS No clipped label (412, 732) departure ‹ needs=38 available=48
+PASS Native font departure
+PASS No clipped label (412, 732) departure Sẵn sàng đi · 100% needs=27 available=32
+PASS Native font departure
+PASS No clipped label (412, 732) departure 2/2 · Khóa vị trí A · 100% needs=15 available=18
+PASS Native font departure
+PASS No clipped label (412, 732) departure Tuyến đã lưu: ~4.0 m. Nếu đổi phòng hoặc vị trí A/B, hãy ghi lại tuyến. Cùng vị trí thì bấm Bắt đầu đi. needs=32 available=66
+PASS Native font departure
+PASS No clipped label (412, 732) departure Bắt đầu đi needs=18 available=48
+PASS Native font departure
+PASS No clipped label (412, 732) departure Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Touch target >=44 departure
+PASS Touch target >=44 departure
+PASS No redundant buttons departure
+PASS Clear camera area between cards departure(412, 732)
+PASS Explicit Start is visible before navigation begins
+PASS Visible version fingerprint departure-wait
+PASS Numeric progress survives in always-visible header departure-wait
+PASS Inline progress visible independent of reticle departure-wait
+PASS Progress bar bounded departure-wait
+PASS Native font departure-wait
+PASS No clipped label (412, 732) departure-wait Chỉ đường · A → B needs=27 available=46
+PASS Native font departure-wait
+PASS No clipped label (412, 732) departure-wait 1/2 · Quan sát môi trường · 20% · v0.3.5 needs=14 available=26
+PASS Native font departure-wait
+PASS No clipped label (412, 732) departure-wait ‹ needs=38 available=48
+PASS Native font departure-wait
+PASS No clipped label (412, 732) departure-wait Quan sát xung quanh needs=27 available=32
+PASS Native font departure-wait
+PASS No clipped label (412, 732) departure-wait 1/2 · Quan sát môi trường · 20% needs=15 available=18
+PASS Native font departure-wait
+PASS No clipped label (412, 732) departure-wait Di chuyển máy nhẹ, nhìn sàn và đồ vật có chi tiết. needs=16 available=66
+PASS Native font departure-wait
+PASS No clipped label (412, 732) departure-wait Đang quan sát môi trường… needs=18 available=48
+PASS Native font departure-wait
+PASS No clipped label (412, 732) departure-wait Tiến độ chuẩn bị · không phải % diện tích phòng needs=13 available=22
+PASS Native font departure-wait
+PASS No clipped label (412, 732) departure-wait Môi trường · 20% needs=16 available=38
+PASS Touch target >=44 departure-wait
+PASS Touch target >=44 departure-wait
+PASS No redundant buttons departure-wait
+PASS Clear camera area between cards departure-wait(412, 732)
+PASS Missing environment evidence disables departure
+PASS Scanner/status do not overlap actions departure-wait(412, 732)
+PASS Scanner never blocks taps
+PASS No arrows while tracking unavailable
+PASS Measured route appears without waiting for a plane
+PASS Blue B pin and B label present, no stacked green arrows
+PASS Thin cyan floor arrow geometry
+PASS Thin cyan floor arrow geometry
+PASS Only two reusable arrow objects exist, independent of total route length
+PASS Phone height does not drag destination
+PASS Purposeful forward then back motion bounded to 3.5cm
+PASS Reduced motion disables movement
+PASS Four-metre route renders at most one arrow
+PASS Animation never moves destination anchor
+PASS Caution retains destination only with valid tracking/alignment
+PASS Caution hides every arrow while retaining B
+PASS Caution hides every arrow while retaining B
+PASS B pin still identifiable during caution
+PASS Sustained off-route does not blink B away
+PASS B pin remains compact at camera distance 0.5
+PASS B pin remains compact at camera distance 1
+PASS B pin remains compact at camera distance 2
+PASS B pin remains compact at camera distance 5
+PASS Missing camera/tracking hides destination as well as arrows
+PASS Suspension hides all AR even if external tracking flag is stale
+PASS Invalidated A alignment never leaves an old B onscreen
+PASS Thousand-metre presentation fixture aligns
+PASS Thousand-metre map still uses only two pooled glyphs and bounded visible budget

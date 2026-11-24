@@ -1,0 +1,1 @@
+PASS Samsung Internal storage/Download/JarVis-Routes-0.3.5.apk bytes=50389747 SHA256=95EC40FF1145A4DEB3F46D5EA8E76CFB573FEF5BBE19A93B18CAC047F9C512AD Readback=PASS UTC=2026-10-24T11:24:19.2080179Z Installation/physical AR acceptance not performed.

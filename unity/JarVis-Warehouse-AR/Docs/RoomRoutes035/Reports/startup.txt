@@ -1,0 +1,1 @@
+PASS native Unity PlayMode startup across advancing frames; two-mode HUD, image library and real-feature sampler wired. AR camera / physical navigation NOT tested.

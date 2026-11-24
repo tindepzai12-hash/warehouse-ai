@@ -1,8 +1,9 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cdm.Figma.UI;
 using JarVis.Warehouse.Backend;
+using JarVis.Warehouse.Navigation;
 using JarVis.Warehouse.Localization;
 using TMPro;
 using UnityEngine;
@@ -26,10 +27,13 @@ namespace JarVis.Warehouse.UI
         RectTransform mascot;
         RectTransform screenRect,composer,fieldRect,conversation,quickActions;
         ImportedFigmaNavigation navigation;
-        bool keyboardMode;
-        bool voiceSending;
+        bool keyboardMode, sawNativeKeyboard;
+        float keyboardGoneAt;
+        bool voiceSending,mapSent;
+        Texture2D mapPreviewTexture;
         float lastComposerY=-1;
         float lastFocusedAt;
+        bool scrollQueued;
         public bool ActionsCollapsed => false; // Compact inline controls share one flexible composer row.
         readonly List<UnityEngine.UI.Image> thinkingDots=new List<UnityEngine.UI.Image>();
 
@@ -45,7 +49,7 @@ return OmsMobileSession.IsReady;
         public int MessageCount => rows.Count;
         public string LastReplyText { get; private set; }
         public string LastReplyLanguage { get; private set; }
-        string sessionToken, lastQuestion;
+        string sessionToken, lastQuestion, productBarcode;
         readonly List<GameObject> rows=new List<GameObject>();
         readonly Dictionary<GameObject,Texture2D> imageTextures=new Dictionary<GameObject,Texture2D>();
         static readonly Color Ink=new Color(.09f,.17f,.29f);
@@ -171,6 +175,14 @@ return OmsMobileSession.IsReady;
                 if(keyboardMode&&keyboardHeight<=0)
                     try {using(var native=new AndroidJavaClass("com.jarvis.warehouse.ChatPhotoPicker"))keyboardHeight=native.CallStatic<int>("keyboardHeight");}catch(AndroidJavaException){ }
 #endif
+                if(keyboardMode&&keyboardHeight>0){sawNativeKeyboard=true;keyboardGoneAt=0;}
+#if UNITY_ANDROID && !UNITY_EDITOR
+                else if(keyboardMode&&sawNativeKeyboard&&!TouchScreenKeyboard.visible)
+                {
+                    if(keyboardGoneAt==0)keyboardGoneAt=Time.unscaledTime;
+                    if(Time.unscaledTime-keyboardGoneAt>.25f){Input.DeactivateInputField();SetKeyboardMode(false);}
+                }
+#endif
                 if(keyboardMode&&keyboardHeight>0)
                 {
                     var canvas=GetComponentInParent<Canvas>();
@@ -193,7 +205,7 @@ return OmsMobileSession.IsReady;
         }
         public void SetKeyboardMode(bool active)
         {
-            keyboardMode=active;
+            keyboardMode=active;if(!active){sawNativeKeyboard=false;keyboardGoneAt=0;}
             lastFocusedAt=Time.unscaledTime;
             if(navigation!=null)navigation.SetChatKeyboardVisible(active);
             ApplyComposerLayout(lastComposerY>0?lastComposerY:738);
@@ -212,6 +224,7 @@ return OmsMobileSession.IsReady;
         void OnEnable(){if(Input!=null)UpdateSession();}
         void OnDisable()
         {
+            scrollQueued=false;
             if(Input!=null){Input.DeactivateInputField();SetKeyboardMode(false);}
             if(request!=null){StopCoroutine(request);request=null;}
             if(IsSending){IsSending=false;RemovePending();if(!voiceSending)Input.text=lastQuestion??"";status.text="Đã dừng gửi — gửi lại khi cần";UpdateSend();}
@@ -222,7 +235,7 @@ return OmsMobileSession.IsReady;
             {
                 foreach(var row in rows)RemoveRow(row);rows.Clear();Input.text="";lastQuestion=null;
                 Media?.ResetSession();
-                LastReplyText=null;LastReplyLanguage=null;
+                LastReplyText=null;LastReplyLanguage=null;mapSent=false;productBarcode=null;CloseMapPreview();
                 sessionToken=OmsMobileSession.AccessToken;empty.gameObject.SetActive(true);
 
             }
@@ -248,6 +261,8 @@ return OmsMobileSession.IsReady;
             byte[] photo=Media?.Photo;
             empty.gameObject.SetActive(false);
             if(!string.IsNullOrEmpty(question))AddMessage(question,true);
+            if(photo==null&&RoompresentMap2D.IsRequest(question,mapSent))
+            {SendReferenceMap(JarvisChatLanguage.English(question,ImportedAppLocalization.IsEnglish));UpdateSend();return;}
             if(photo!=null)AddImageMessage(photo);
             IsSending=true;status.text="JarVis đang trả lời…";UpdateSend();
             pending=Label("JarVis replying",content,"JarVis đang suy nghĩ…",13,new Color(.4f,.49f,.6f));
@@ -262,17 +277,42 @@ return OmsMobileSession.IsReady;
         }
         IEnumerator Ask(string question,byte[] photo)
         {
-            OmsMobileApi.JarvisReply reply=null;string error=null;
+            OmsMobileApi.JarvisReply reply=null;string error=null;string originalQuestion=question;
+            bool english=JarvisChatLanguage.English(question,ImportedAppLocalization.IsEnglish);
+            var explicitCode=System.Text.RegularExpressions.Regex.Match(question??"",@"(?<!\d)\d{13}(?!\d)");
+            if(explicitCode.Success)productBarcode=JarvisLocalCatalogue.Find(explicitCode.Value)!=null?explicitCode.Value:null;
+            else if(System.Text.RegularExpressions.Regex.IsMatch(question??"",@"\bA1\b",System.Text.RegularExpressions.RegexOptions.IgnoreCase))productBarcode=RoompresentDeliveryRecord.A1;
+            else if(System.Text.RegularExpressions.Regex.IsMatch(question??"",@"\bA2\b",System.Text.RegularExpressions.RegexOptions.IgnoreCase))productBarcode=RoompresentDeliveryRecord.A2;
+            if(photo!=null)
+            {
+                productBarcode=null; // A different attachment must not inherit the previous product.
+                // Decode the actual attachment locally; never infer a barcode from the filename.
+                var texture=new Texture2D(2,2,TextureFormat.RGB24,false);
+                if(ImageConversion.LoadImage(texture,photo))
+                {
+                    var frame=texture.GetPixels32();int width=texture.width,height=texture.height;
+                    Destroy(texture);
+                    var task=System.Threading.Tasks.Task.Run(()=>ImportedCameraScanner.Decode(frame,width,height));
+                    while(!task.IsCompleted)yield return null;
+                    if(task.IsFaulted){_=task.Exception;}
+                    else if(task.Result!=null&&JarvisLocalCatalogue.Find(task.Result.Text)!=null)
+                    {
+                        productBarcode=task.Result.Text;AddProductMessage(productBarcode);
+                        question=(string.IsNullOrWhiteSpace(question)?(english?"Read the label and describe the product in this photo.":"Đọc nhãn và mô tả sản phẩm trong ảnh."):question)+(english?"\n[The local decoder read barcode "+productBarcode+" from this attachment.]":"\n[Máy giải mã cục bộ đã đọc barcode "+productBarcode+" từ chính ảnh đính kèm.]");
+                    }
+                }
+                else Destroy(texture);
+            }
             if(OmsMobileSession.IsReady)
-                yield return OmsMobileApi.AskJarvis(question,photo,value=>reply=value,value=>error=value);
+                yield return OmsMobileApi.AskJarvisForProduct(question,photo,productBarcode,value=>reply=value,value=>error=value);
 
             RemovePending();IsSending=false;request=null;
             if(reply==null)
             {
-                AddMessage(ImportedAppLocalization.Text("Không nhận được câu trả lời. Kiểm tra kết nối hoặc phiên đăng nhập, rồi nhấn Gửi để thử lại."),false);
+                AddMessage(OmsMobileApi.FriendlyError(error,ImportedAppLocalization.IsEnglish),false);
                 status.text=CanChat?"Kết nối AI gặp lỗi":"Phiên đăng nhập đã hết";
                 if(statusDot!=null)statusDot.color=new Color(.83f,.36f,.16f);
-                Input.text=question; // Preserve draft; do not fabricate an answer or auto-spend on retries.
+                Input.text=originalQuestion; // Preserve draft; do not fabricate an answer or auto-spend on retries.
                 Debug.LogWarning("[JarVis chat] Request failed: "+error);
             }
             else
@@ -284,13 +324,26 @@ return OmsMobileSession.IsReady;
         // Typed, photo and voice replies share rendering, source disclosure and auto-read behavior.
         public void AcceptVoice(OmsMobileApi.VoiceReply reply)
         {
-            AcceptReply(reply.Answer);Bottom();
+            AcceptReply(reply.Answer);
+            if(RoompresentMap2D.IsRequest(reply.transcript,mapSent))SendReferenceMap(JarvisChatLanguage.English(reply.transcript,ImportedAppLocalization.IsEnglish));
+            Bottom();
         }
         public VoiceMessageView AddVoiceMessage(VoiceMessage message,VoicePlayback playback,Action<VoiceMessage> retry)
         {
             empty.gameObject.SetActive(false);
             var row=Rect("User voice message",content);
-            var view=row.gameObject.AddComponent<VoiceMessageView>();view.Configure(message,playback,font,retry);
+            RectTransform voiceRow=row;
+            if(message.AttachedPhoto!=null)
+            {
+                // One retained conversation item owns both the photo and recording.
+                var group=row.gameObject.AddComponent<VerticalLayoutGroup>();group.spacing=8;
+                group.childControlWidth=group.childControlHeight=group.childForceExpandWidth=true;
+                group.childForceExpandHeight=false;
+                var photoRow=CreateImageRow(message.AttachedPhoto,true,row,out var texture);
+                if(photoRow!=null)imageTextures[row.gameObject]=texture;
+                voiceRow=Rect("Attached voice",row);
+            }
+            var view=voiceRow.gameObject.AddComponent<VoiceMessageView>();view.Configure(message,playback,font,retry);
             rows.Add(row.gameObject);TrimRows();Bottom();return view;
         }
         public void SetVoicePending(bool active)
@@ -316,7 +369,7 @@ return OmsMobileSession.IsReady;
                 if(reply.synthetic)answer+=reply.language=="en"?"\n\nNote: warehouse data is in demo mode.":"\n\nLưu ý: dữ liệu kho đang ở chế độ mẫu.";
                 AddMessage(answer,false);
                 Media?.SetAnswer(reply.message);
-                status.text=reply.mode=="openai"?"OpenAI • Đã kết nối":reply.mode=="openai-preview"?"OpenAI • Chế độ kiểm thử":"Tra cứu cục bộ";
+                status.text=reply.mode=="openai"?(ImportedAppLocalization.IsEnglish?"OpenAI • Connected":"OpenAI • Đã kết nối"):reply.mode=="openai-preview"?(ImportedAppLocalization.IsEnglish?"OpenAI • Test mode":"OpenAI • Chế độ kiểm thử"):(ImportedAppLocalization.IsEnglish?"Local lookup":"Tra cứu cục bộ");
                 if(statusDot!=null)statusDot.color=new Color(.02f,.57f,.37f);
         }
         void RemovePending(){thinkingDots.Clear();if(mascot!=null)mascot.localScale=Vector3.one;if(pending!=null){pending.gameObject.SetActive(false);Destroy(pending.gameObject);pending=null;}}
@@ -341,6 +394,7 @@ return OmsMobileSession.IsReady;
             var sizing=row.gameObject.AddComponent<LayoutElement>();sizing.preferredHeight=total;sizing.minHeight=total;
             rows.Add(row.gameObject);
             TrimRows();
+            navigation?.Settings.ApplyTheme();
             Bottom();
         }
         public void ReflowMessages()
@@ -355,26 +409,87 @@ return OmsMobileSession.IsReady;
             }
             if(content!=null)LayoutRebuilder.MarkLayoutForRebuild(content);
         }
-        public void AddImageMessage(byte[] jpeg)
+        void SendReferenceMap(bool english)
         {
-            var texture=new Texture2D(2,2,TextureFormat.RGB24,false);
-            if(!ImageConversion.LoadImage(texture,jpeg)){Destroy(texture);return;}
-            var row=Rect("User photo",content);var bubble=Rect("Photo bubble",row);
-            bubble.anchorMin=bubble.anchorMax=bubble.pivot=new Vector2(1,1);
+            var bytes=RoompresentMap2D.ReferenceBytes();
+            if(bytes==null){AddMessage(english?"The saved schematic is unavailable.":"Chưa có sơ đồ đã lưu.",false);return;}
+            AddMessage(english?"Roompresent schematic · A: table, B: left cart, C: right cart. Tap the image to enlarge. Reference only, not live positioning.":"Sơ đồ Roompresent · A: bàn, B: kệ trái, C: kệ phải. Chạm ảnh để phóng to. Sơ đồ tham khảo, không phải vị trí trực tiếp.",false);
+            AddImageMessage(bytes,false);mapSent=true;
+            status.text=english?"Saved schematic · Available offline":"Sơ đồ đã lưu · Xem được ngoại tuyến";
+        }
+        void ShowMapPreview()
+        {
+            var existing=screenRect.Find("Roompresent map preview");if(existing!=null){existing.SetAsLastSibling();return;}
+            var overlay=Rect("Roompresent map preview",screenRect);Stretch(overlay,0);overlay.SetAsLastSibling();
+            var shade=overlay.gameObject.AddComponent<Image>();shade.color=new Color(.03f,.07f,.12f,.96f);
+            var card=PrototypeUi.Panel(overlay,"Schematic",0,0,346,480,true,20);card.anchorMin=card.anchorMax=card.pivot=new Vector2(.5f,.5f);card.anchoredPosition=Vector2.zero;
+            PrototypeUi.Text(card,font,"Roompresent · A / B / C",16,14,250,28,17,true,true);
+            mapPreviewTexture=RoompresentMap2D.LoadReference();
+            var view=Rect("Saved map",card);Place(view,card,47,58,252,336);view.gameObject.AddComponent<RawImage>().texture=mapPreviewTexture;
+            PrototypeUi.Text(card,font,ImportedAppLocalization.IsEnglish?"Reference schematic · Not live positioning":"Sơ đồ tham khảo · Không phải vị trí trực tiếp",16,410,314,50,13,true);
+            PrototypeUi.Action(card,font,"×",282,4,48,48,true,CloseMapPreview);
+        }
+        void CloseMapPreview()
+        {
+            if(mapPreviewTexture!=null){if(Application.isPlaying)Destroy(mapPreviewTexture);else DestroyImmediate(mapPreviewTexture);mapPreviewTexture=null;}
+            var view=screenRect!=null?screenRect.Find("Roompresent map preview"):null;
+            if(view!=null){view.gameObject.SetActive(false);if(Application.isPlaying)Destroy(view.gameObject);else DestroyImmediate(view.gameObject);}
+        }
+        public void AddImageMessage(byte[] jpeg,bool user=true)
+        {
+            var row=CreateImageRow(jpeg,user,content,out var texture);
+            if(row==null)return;
+            imageTextures[row.gameObject]=texture;rows.Add(row.gameObject);TrimRows();Bottom();
+        }
+        RectTransform CreateImageRow(byte[] jpeg,bool user,Transform parent,out Texture2D texture)
+        {
+            texture=new Texture2D(2,2,TextureFormat.RGB24,false);
+            if(!ImageConversion.LoadImage(texture,jpeg)){Destroy(texture);texture=null;return null;}
+            var row=Rect(user?"User photo":"JarVis map attachment",parent);var bubble=Rect("Photo bubble",row);
+            bubble.anchorMin=bubble.anchorMax=bubble.pivot=new Vector2(user?1:0,1);
             float width=260,height=Mathf.Min(220,width*texture.height/texture.width);
             width=Mathf.Min(width,height*texture.width/texture.height);
             bubble.sizeDelta=new Vector2(width+16,height+16);
             var background=bubble.gameObject.AddComponent<UnityEngine.UI.Image>();background.sprite=ImportedUiQuality.RoundedCard(14);background.type=UnityEngine.UI.Image.Type.Sliced;background.color=new Color(.9f,.95f,1);background.raycastTarget=false;
             var rect=Rect("Actual attached photo",bubble);Place(rect,bubble,8,8,width,height);
             var photo=rect.gameObject.AddComponent<UnityEngine.UI.RawImage>();photo.texture=texture;photo.raycastTarget=false;
+            if(!user){background.raycastTarget=true;PrototypeUi.Button(bubble,ShowMapPreview);}
             row.gameObject.AddComponent<LayoutElement>().preferredHeight=height+16;
-            imageTextures[row.gameObject]=texture;rows.Add(row.gameObject);TrimRows();Bottom();
+            return row;
+        }
+        void AddProductMessage(string barcode)
+        {
+            bool en=ImportedAppLocalization.IsEnglish,dark=navigation.Settings.Dark;
+            var p=JarvisLocalCatalogue.Find(barcode);if(p==null)return;
+            var row=Rect("Verified attachment barcode",content);
+            var card=PrototypeUi.Panel(row,"Local product match",0,0,316,154,dark,16);
+            PrototypeUi.Text(card,font,en?"Barcode read from your photo":"Đã đọc barcode từ ảnh",16,12,284,24,12,dark,true);
+            PrototypeUi.Text(card,font,JarvisLocalCatalogue.Name(p,en),16,42,284,38,14,dark,true);
+            PrototypeUi.Text(card,font,(en?"Location: ":"Vị trí: ")+JarvisLocalCatalogue.Location(p,en)+(en?" · Stock: ":" · Tồn kho: ")+p.quantity,16,81,284,24,11,dark,false,true);
+            PrototypeUi.Action(card,font,en?"Product details":"Xem thông tin",16,109,284,36,dark,()=>JarvisLocalCatalogue.Show(navigation,p),true);
+            row.gameObject.AddComponent<LayoutElement>().preferredHeight=154;
+            rows.Add(row.gameObject);TrimRows();Bottom();
         }
         void TrimRows(){if(rows.Count>60){RemoveRow(rows[0]);rows.RemoveAt(0);}}
-        void RemoveRow(GameObject row){if(imageTextures.TryGetValue(row,out var texture)){Destroy(texture);imageTextures.Remove(row);}row.SetActive(false);Destroy(row);}
-        void OnDestroy(){foreach(var texture in imageTextures.Values)if(texture!=null)Destroy(texture);imageTextures.Clear();}
-        void Bottom(){if(isActiveAndEnabled)StartCoroutine(ScrollBottom());}
-        IEnumerator ScrollBottom(){yield return null;Canvas.ForceUpdateCanvases();scroll.verticalNormalizedPosition=0;}
+        void RemoveRow(GameObject row)
+        {
+            if(imageTextures.TryGetValue(row,out var texture))
+            {
+                if(Application.isPlaying)Destroy(texture);else DestroyImmediate(texture);
+                imageTextures.Remove(row);
+            }
+            foreach(var voice in row.GetComponentsInChildren<VoiceMessageView>(true))voice.Message?.Dispose();
+            row.SetActive(false);
+            if(Application.isPlaying)Destroy(row);else DestroyImmediate(row);
+        }
+        void OnDestroy()
+        {
+            CloseMapPreview();
+            foreach(var texture in imageTextures.Values)if(texture!=null){if(Application.isPlaying)Destroy(texture);else DestroyImmediate(texture);}
+            imageTextures.Clear();
+        }
+        void Bottom(){if(isActiveAndEnabled&&!scrollQueued){scrollQueued=true;StartCoroutine(ScrollBottom());}}
+        IEnumerator ScrollBottom(){yield return null;scrollQueued=false;if(scroll!=null)scroll.verticalNormalizedPosition=0;}
         TMP_Text Label(string name,Transform parent,string value,float size,Color color)
         {
             var rect=Rect(name,parent);var text=rect.gameObject.AddComponent<TextMeshProUGUI>();

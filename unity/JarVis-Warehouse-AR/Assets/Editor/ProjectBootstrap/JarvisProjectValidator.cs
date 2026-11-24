@@ -53,8 +53,10 @@ namespace ProjectBootstrap
                 .Select(scene => scene.path)
                 .ToArray();
 
-            if(scenePaths.Length==4&&scenePaths[0]==ImportedScenePath
-                &&scenePaths[1]==SplashScenePath&&scenePaths[2]==LoginScenePath&&scenePaths[3]==WarehouseScenePath)
+            if(scenePaths.Length>=4 && scenePaths[0]==ImportedScenePath
+                &&scenePaths[1]==SplashScenePath&&scenePaths[2]==LoginScenePath&&scenePaths[3]==WarehouseScenePath
+                && scenePaths.Skip(4).All(path => path=="Assets/Scenes/AtlasAR.unity" || path==ImmersalVideoSetup.ScenePath || path==SmallRoomSceneBuild.ScenePath || path==RoompresentQuickBuild.ScenePath || path==RoompresentVpsBuild.ScenePath)
+                && scenePaths.Distinct().Count()==scenePaths.Length)
                 return;
 
             if (scenePaths.Length != 3

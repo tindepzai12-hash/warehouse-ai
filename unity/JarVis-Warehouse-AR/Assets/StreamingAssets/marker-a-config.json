@@ -1,0 +1,134 @@
+{
+  "schema": 1,
+  "startupMarker": "A",
+  "payload": "JWM:MAIN:A",
+  "mapId": "lab-owner-approved-20261106",
+  "mapSha256": "5ba0fbec4e609b6ae4ba010c481dfe7f761d6d6f9bc4d4f2ae21fbcd88190cad",
+  "databaseSha256": "523d62839c4f5eda63fa0bcc1ea063deefb6276ee50982740bf389958f076908",
+  "databaseBytes": 3383957,
+  "centreUnity": [
+    -5.82,
+    0.87354,
+    3.42
+  ],
+  "basisRhRowMajor": [
+    -0.09026933776079551,
+    -0.9959173894757675,
+    -0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.9959173894757674,
+    -0.09026933776079553,
+    0.0
+  ],
+  "widthMetres": 0.2,
+  "heightMetres": 0.24,
+  "metresPerTemplatePixel": 0.0002,
+  "templateCentrePixels": [
+    500.0,
+    600.0
+  ],
+  "axisPolicy": "Horizontal tabletop at approved centre.Y; TL/TR/BR/BL averaged opposite edges projected to XZ, Gram-Schmidt right then down in RH (Unity z negated); normal=right cross down; visible front local camera z<0",
+  "originPolicy": "Map revision 2: owner requested Navigation Target A on orange computer desk; historic A XZ and current registered scan surface; exact paper-centre acceptance pending",
+  "scalePolicy": "Full printed card width exactly 0.200 m, height 0.240 m; QR is NOT 0.200 m; scan edge lengths do not set scale",
+  "reviewCardWidthMetres": 0.20016571487409193,
+  "reviewCardHeightMetres": 0.24351997933107306,
+  "reviewCentreMinusApprovedMetres": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "reviewCornerAverageMinusApprovedMetres": [
+    0.00034118652343728684,
+    0.005872055888175964,
+    -0.0010069274902342329
+  ],
+  "reviewSha256": "776858e89e5570e7eb882177facc4121f932a17daedbf6b0f8a5d7579adccb75",
+  "cameraPolicy": "Packed raw luma and synchronized K in identical optical pixel axes; zero distortion (rectified input required); no screen rotation or mirroring; camera C=-R^T t, forward=R^T(0,0,1), up=R^T(0,-1,0), then card basis and RH-to-Unity z flip",
+  "physicalVerified": false,
+  "limitations": [
+    "Scan-derived A directions and registration are not physically verified.",
+    "PnP assumes the existing print is flat and 20 cm wide without rescaling.",
+    "Unity must check gravity, exposure pose synchronization and independent pose consensus before AR tracking.",
+    "No marker pose is applied as a camera pose. No scene correction is implied by this database.",
+    "A desk position corrected on 2026-11-09; exact printed centre and inherited in-plane card orientation still require physical acceptance."
+  ],
+  "templates": [
+    {
+      "id": "A",
+      "payload": "JWM:MAIN:A",
+      "source": "RouteRecorder\\VisualMaps\\MissionWorkflow\\cards\\Lab-A.png",
+      "sha256": "58a8cb6d66e8ed0a6ec25a7a77091b69ab4a101a8b87dd2cbf3175eac1bfaa5f",
+      "features": 1338,
+      "qrDataFeatures": 250,
+      "qrBoundsPixels": [
+        247.0,
+        397.0,
+        752.0,
+        902.0
+      ],
+      "qrWidthMetres": 0.101
+    },
+    {
+      "id": "B",
+      "payload": "JWM:MAIN:B",
+      "source": "RouteRecorder\\VisualMaps\\MissionWorkflow\\cards\\Lab-B.png",
+      "sha256": "9668c0134e8c76d25dc563d46ef5635326c19f3c80b21223f59d3b02256dd8f2",
+      "features": 1286,
+      "qrDataFeatures": 262,
+      "qrBoundsPixels": [
+        247.0,
+        397.0,
+        752.0,
+        902.0
+      ],
+      "qrWidthMetres": 0.101
+    },
+    {
+      "id": "C",
+      "payload": "JWM:MAIN:C",
+      "source": "RouteRecorder\\VisualMaps\\MissionWorkflow\\cards\\Lab-C.png",
+      "sha256": "e5f745fde47521731bdaedb3f0904cd0632e6a8e38a59680fe9af024e9d18bef",
+      "features": 1316,
+      "qrDataFeatures": 241,
+      "qrBoundsPixels": [
+        247.0,
+        397.0,
+        752.0,
+        902.0
+      ],
+      "qrWidthMetres": 0.101
+    },
+    {
+      "id": "D",
+      "payload": "JWM:MAIN:D",
+      "source": "RouteRecorder\\VisualMaps\\MissionWorkflow\\cards\\Lab-D.png",
+      "sha256": "e0cdd3a87be421e9f12f593be14affeb3294a8dd7b196986bea4241ab53c564c",
+      "features": 1295,
+      "qrDataFeatures": 222,
+      "qrBoundsPixels": [
+        247.0,
+        397.0,
+        752.0,
+        902.0
+      ],
+      "qrWidthMetres": 0.101
+    },
+    {
+      "id": "E",
+      "payload": "JWM:MAIN:E",
+      "source": "RouteRecorder\\VisualMaps\\MissionWorkflow\\cards\\Lab-E.png",
+      "sha256": "98502b3191f5610c4036864de31dee94a54bbe3ecc496130cad4fb2f31fe1e99",
+      "features": 1268,
+      "qrDataFeatures": 241,
+      "qrBoundsPixels": [
+        247.0,
+        397.0,
+        752.0,
+        902.0
+      ],
+      "qrWidthMetres": 0.101
+    }
+  ]
+}

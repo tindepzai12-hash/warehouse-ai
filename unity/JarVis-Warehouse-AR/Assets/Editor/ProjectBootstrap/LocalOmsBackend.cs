@@ -9,10 +9,12 @@ namespace ProjectBootstrap
     // Editor-only convenience for the owner's local live backend; never runs in an APK or batch QA.
     [InitializeOnLoad] public static class LocalOmsBackend
     {
-        [Serializable] sealed class Endpoint { public string baseUrl; }
+        [Serializable] sealed class Endpoint { public string baseUrl; public string backendPath; }
         static LocalOmsBackend(){EditorApplication.playModeStateChanged+=state=>{if(state==PlayModeStateChange.ExitingEditMode&&!Application.isBatchMode)Ensure();};}
         static void Ensure()
         {
+            // Presentation-only scene must never start the live backend while reviewing UI.
+            if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().path=="Assets/JarVis/Demos/SystemReview/JarVisSystemDemo.unity")return;
             try
             {
                 var project=Directory.GetParent(Application.dataPath).FullName;
@@ -24,7 +26,7 @@ namespace ProjectBootstrap
                 {
                     try{var connect=client.ConnectAsync("127.0.0.1",8000);if(connect.Wait(250)&&client.Connected)return;}catch{ }
                 }
-                var backend=Path.GetFullPath(Path.Combine(project,"..","..","warehouse-ai"));
+                var backend=Path.GetFullPath(string.IsNullOrWhiteSpace(config.backendPath)?Path.Combine(project,"..","..","warehouse-ai"):config.backendPath);
                 var database=Path.Combine(backend,"data","warehouse-live.sqlite3");
                 if(!File.Exists(database)||!File.Exists(Path.Combine(backend,"server.js")))return;
                 var node=Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles),"nodejs","node.exe");
@@ -35,7 +37,7 @@ namespace ProjectBootstrap
                 Process.Start(start);
                 UnityEngine.Debug.Log("[JarVis] Started the existing local live OMS backend on port 8000.");
             }
-            catch{UnityEngine.Debug.LogWarning("[JarVis] Local backend could not start. Start E:/warehouse-ai with npm start.");}
+            catch{UnityEngine.Debug.LogWarning("[JarVis] Local backend could not start. Check backendPath in Library/JarvisBackend.local.json and start the existing live server.");}
         }
     }
 }

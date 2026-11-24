@@ -1,0 +1,473 @@
+{
+  "schema": 1,
+  "sourceZipSha256": "80ccb6683dbb093cc1c3a5d66eaf6e8b1b922c5a1df98fad8a0063190d243d2b",
+  "positionBasis": "Owner accepted reference 2D pin positions, not raw measured C/D/E projected outside floor. Measured rotations aligned by rigid AB yaw, no scale. Heights remain estimated. Source poses retained below. No physical acceptance or loop check claimed.",
+  "map": {
+    "schema": 2,
+    "generation": 0,
+    "snapshotId": "trial-owner-layout-20261103",
+    "mapId": "LAB-GLB-20261028",
+    "floorHash": "319d0c83dec1b7317a67164122bf14d743e58cc159c5454159c0bcc2698d489f",
+    "utc": "",
+    "device": "samsung SM-G988N",
+    "floorRevision": 3,
+    "loopChecked": false,
+    "physicalAccepted": false,
+    "heightSource": "Estimated phone height 1.35m; field verification pending",
+    "loopError": 0,
+    "loopAngle": 0,
+    "survey": {
+      "schema": 1,
+      "id": "trial-owner-layout-20261103",
+      "utc": "2026-11-02T08:22:43.8529100Z",
+      "device": "samsung SM-G988N",
+      "coordinateSystem": "glTF RH to Unity LH: (x,y,z)->(x,y,-z)",
+      "purpose": "OWNER_ACCEPTED_APPROXIMATE_TRIAL_NOT_FIELD_VERIFIED",
+      "markerWidthMetres": 0.197628453373909,
+      "automaticMarkerSize": true,
+      "interrupted": false,
+      "loopChecked": false,
+      "markers": [
+        {
+          "id": "A",
+          "centre": {
+            "x": -5.82,
+            "y": 0.9537131190299988,
+            "z": 3.42
+          },
+          "access": {
+            "x": -4.941544283415988,
+            "y": 0,
+            "z": 3.131600425650066
+          },
+          "yaw": 0
+        },
+        {
+          "id": "B",
+          "centre": {
+            "x": 8.05,
+            "y": 0.7234385013580322,
+            "z": -0.8
+          },
+          "access": {
+            "x": 7.529141791689196,
+            "y": 0,
+            "z": -0.5236655325740536
+          },
+          "yaw": 0
+        },
+        {
+          "id": "C",
+          "centre": {
+            "x": 7.5,
+            "y": 0.6760606169700623,
+            "z": -4.12
+          },
+          "access": {
+            "x": 6.730974358701848,
+            "y": 0,
+            "z": -3.894591932576179
+          },
+          "yaw": 0
+        },
+        {
+          "id": "D",
+          "centre": {
+            "x": 3.6689768299104766,
+            "y": 0.623908519744873,
+            "z": -3.1799994734070567
+          },
+          "access": {
+            "x": 4.124999986961484,
+            "y": 0,
+            "z": -2.6750000547617674
+          },
+          "yaw": 0
+        },
+        {
+          "id": "E",
+          "centre": {
+            "x": -6.437086361242761,
+            "y": 0.8706246018409729,
+            "z": -0.14981621906266485
+          },
+          "access": {
+            "x": -5.925000162795186,
+            "y": 0,
+            "z": -0.12500001676380634
+          },
+          "yaw": 0
+        }
+      ],
+      "legs": [],
+      "observations": [],
+      "photos": [],
+      "placement": {
+        "mapId": "LAB-GLB-20261028",
+        "geometrySha256": "319d0c83dec1b7317a67164122bf14d743e58cc159c5454159c0bcc2698d489f",
+        "revision": 3,
+        "pins": [
+          {
+            "id": "A",
+            "position": {
+              "x": -5.82,
+              "y": 0,
+              "z": 3.42
+            },
+            "approximate": false
+          },
+          {
+            "id": "B",
+            "position": {
+              "x": 8.05,
+              "y": 0,
+              "z": -0.8
+            },
+            "approximate": false
+          },
+          {
+            "id": "C",
+            "position": {
+              "x": 7.5,
+              "y": 0,
+              "z": -4.12
+            },
+            "approximate": false
+          },
+          {
+            "id": "D",
+            "position": {
+              "x": 3.6689768299104766,
+              "y": 0,
+              "z": -3.1799994734070567
+            },
+            "approximate": false
+          },
+          {
+            "id": "E",
+            "position": {
+              "x": -6.437086361242761,
+              "y": 0,
+              "z": -0.14981621906266485
+            },
+            "approximate": false
+          }
+        ]
+      }
+    },
+    "markers": [
+      {
+        "id": "A",
+        "utc": "2026-11-02T08:22:53.1382170Z",
+        "template": "jarvis-pattern-1000x1200-qr506-v1",
+        "centre": {
+          "x": -5.82,
+          "y": 0.9537131190299988,
+          "z": 3.42
+        },
+        "access": {
+          "x": -4.941544283415988,
+          "y": 0,
+          "z": 3.131600425650066
+        },
+        "observedAccess": null,
+        "accessSource": "OWNER_CONFIRMED_LAYOUT_TRIAL",
+        "captureIssue": "APPROXIMATE_OWNER_LAYOUT",
+        "rotation": [
+          0.0075683342710433045,
+          0.8199986576949266,
+          0.0113272004978289,
+          0.5722033534393114
+        ],
+        "imageWidth": 0.197628453373909,
+        "qrWidth": 0.10000000149011612,
+        "revision": 1,
+        "samples": 8,
+        "verified": false
+      },
+      {
+        "id": "B",
+        "utc": "2026-11-02T08:23:11.6895190Z",
+        "template": "jarvis-pattern-1000x1200-qr506-v1",
+        "centre": {
+          "x": 8.05,
+          "y": 0.7234385013580322,
+          "z": -0.8
+        },
+        "access": {
+          "x": 7.529141791689196,
+          "y": 0,
+          "z": -0.5236655325740536
+        },
+        "observedAccess": null,
+        "accessSource": "OWNER_CONFIRMED_LAYOUT_TRIAL",
+        "captureIssue": "APPROXIMATE_OWNER_LAYOUT",
+        "rotation": [
+          0.017564005908430227,
+          0.8014435450309936,
+          0.011446690492749972,
+          0.5977031312612242
+        ],
+        "imageWidth": 0.197628453373909,
+        "qrWidth": 0.10000000149011612,
+        "revision": 1,
+        "samples": 8,
+        "verified": false
+      },
+      {
+        "id": "C",
+        "utc": "2026-11-03T06:34:51.0954380Z",
+        "template": "jarvis-pattern-1000x1200-qr506-v1",
+        "centre": {
+          "x": 7.5,
+          "y": 0.6760606169700623,
+          "z": -4.12
+        },
+        "access": {
+          "x": 6.730974358701848,
+          "y": 0,
+          "z": -3.894591932576179
+        },
+        "observedAccess": null,
+        "accessSource": "OWNER_CONFIRMED_LAYOUT_TRIAL",
+        "captureIssue": "APPROXIMATE_OWNER_LAYOUT",
+        "rotation": [
+          -0.0006908028146601674,
+          -0.807048749672296,
+          0.014326801370852769,
+          -0.5903106003102064
+        ],
+        "imageWidth": 0.197628453373909,
+        "qrWidth": 0.10000000149011612,
+        "revision": 1,
+        "samples": 8,
+        "verified": false
+      },
+      {
+        "id": "D",
+        "utc": "2026-11-03T06:35:05.9712240Z",
+        "template": "jarvis-pattern-1000x1200-qr506-v1",
+        "centre": {
+          "x": 3.6689768299104766,
+          "y": 0.623908519744873,
+          "z": -3.1799994734070567
+        },
+        "access": {
+          "x": 4.124999986961484,
+          "y": 0,
+          "z": -2.6750000547617674
+        },
+        "observedAccess": null,
+        "accessSource": "OWNER_CONFIRMED_LAYOUT_TRIAL",
+        "captureIssue": "APPROXIMATE_OWNER_LAYOUT",
+        "rotation": [
+          0.002449733935281804,
+          -0.8120827877938399,
+          -0.005289213523642566,
+          -0.5835133238576974
+        ],
+        "imageWidth": 0.197628453373909,
+        "qrWidth": 0.10000000149011612,
+        "revision": 1,
+        "samples": 8,
+        "verified": false
+      },
+      {
+        "id": "E",
+        "utc": "2026-11-03T06:35:23.7863210Z",
+        "template": "jarvis-pattern-1000x1200-qr506-v1",
+        "centre": {
+          "x": -6.437086361242761,
+          "y": 0.8706246018409729,
+          "z": -0.14981621906266485
+        },
+        "access": {
+          "x": -5.925000162795186,
+          "y": 0,
+          "z": -0.12500001676380634
+        },
+        "observedAccess": null,
+        "accessSource": "OWNER_CONFIRMED_LAYOUT_TRIAL",
+        "captureIssue": "APPROXIMATE_OWNER_LAYOUT",
+        "rotation": [
+          -0.004895920442862821,
+          -0.9897921940925001,
+          -0.006060582063044985,
+          0.14230526692915868
+        ],
+        "imageWidth": 0.197628453373909,
+        "qrWidth": 0.10000000149011612,
+        "revision": 1,
+        "samples": 8,
+        "verified": false
+      }
+    ]
+  },
+  "sourceRawMarkers": [
+    {
+      "id": "A",
+      "utc": "2026-11-02T08:22:53.1382170Z",
+      "template": "jarvis-pattern-1000x1200-qr506-v1",
+      "centre": {
+        "x": 0,
+        "y": 0.9537131190299988,
+        "z": 0
+      },
+      "access": {
+        "x": -0.04193039983510971,
+        "y": 0,
+        "z": -0.07868743687868118
+      },
+      "observedAccess": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "accessSource": "",
+      "captureIssue": "",
+      "rotation": [
+        0.0002200542949140072,
+        0.37891602516174316,
+        0.013621186837553978,
+        0.9253308176994324
+      ],
+      "imageWidth": 0.197628453373909,
+      "qrWidth": 0.10000000149011612,
+      "revision": 1,
+      "samples": 8,
+      "verified": false
+    },
+    {
+      "id": "B",
+      "utc": "2026-11-02T08:23:11.6895190Z",
+      "template": "jarvis-pattern-1000x1200-qr506-v1",
+      "centre": {
+        "x": 9.444189071655273,
+        "y": 0.7234385013580322,
+        "z": 10.75937271118164
+      },
+      "access": {
+        "x": 9.391596794128418,
+        "y": 0,
+        "z": 10.693558692932129
+      },
+      "observedAccess": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "accessSource": "",
+      "captureIssue": "",
+      "rotation": [
+        0.008555086329579353,
+        0.3495011031627655,
+        0.019139789044857025,
+        0.9367015361785889
+      ],
+      "imageWidth": 0.197628453373909,
+      "qrWidth": 0.10000000149011612,
+      "revision": 1,
+      "samples": 8,
+      "verified": false
+    },
+    {
+      "id": "C",
+      "utc": "2026-11-03T06:34:51.0954380Z",
+      "template": "jarvis-pattern-1000x1200-qr506-v1",
+      "centre": {
+        "x": 13.250572204589844,
+        "y": 0.6760606169700623,
+        "z": 7.31101655960083
+      },
+      "access": {
+        "x": 13.124967575073242,
+        "y": 0,
+        "z": 7.181171417236328
+      },
+      "observedAccess": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "accessSource": "",
+      "captureIssue": "CONTROL_DISTANCE_B_C",
+      "rotation": [
+        -0.008346405811607838,
+        -0.35821855068206787,
+        0.011664988473057747,
+        -0.9335275888442993
+      ],
+      "imageWidth": 0.197628453373909,
+      "qrWidth": 0.10000000149011612,
+      "revision": 1,
+      "samples": 8,
+      "verified": false
+    },
+    {
+      "id": "D",
+      "utc": "2026-11-03T06:35:05.9712240Z",
+      "template": "jarvis-pattern-1000x1200-qr506-v1",
+      "centre": {
+        "x": 10.286669731140137,
+        "y": 0.623908519744873,
+        "z": 3.580498695373535
+      },
+      "access": {
+        "x": 10.153765678405762,
+        "y": 0,
+        "z": 3.493330478668213
+      },
+      "observedAccess": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "accessSource": "",
+      "captureIssue": "CONTROL_DISTANCE_B_C",
+      "rotation": [
+        0.004925656132400036,
+        -0.36613336205482483,
+        -0.003116871463134885,
+        -0.9305442571640015
+      ],
+      "imageWidth": 0.197628453373909,
+      "qrWidth": 0.10000000149011612,
+      "revision": 1,
+      "samples": 8,
+      "verified": false
+    },
+    {
+      "id": "E",
+      "utc": "2026-11-03T06:35:23.7863210Z",
+      "template": "jarvis-pattern-1000x1200-qr506-v1",
+      "centre": {
+        "x": 4.01192045211792,
+        "y": 0.8706246018409729,
+        "z": -4.797336101531982
+      },
+      "access": {
+        "x": 3.930682420730591,
+        "y": 0,
+        "z": -4.724517822265625
+      },
+      "observedAccess": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "accessSource": "",
+      "captureIssue": "CONTROL_DISTANCE_B_C",
+      "rotation": [
+        -0.0008290968835353851,
+        -0.9089029431343079,
+        -0.007746824529021978,
+        -0.4169350266456604
+      ],
+      "imageWidth": 0.197628453373909,
+      "qrWidth": 0.10000000149011612,
+      "revision": 1,
+      "samples": 8,
+      "verified": false
+    }
+  ]
+}

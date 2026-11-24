@@ -47,7 +47,7 @@ namespace JarVis.Warehouse.UI
             var profileButton=profile.gameObject.AddComponent<Button>();profileButton.onClick.AddListener(()=>nav.Show("prototype:profile"));
             greeting=JarVisUi.Text(bar,font,"",91,23.2f,242,27,18);greeting.fontStyle=FontStyles.Bold;
             role=JarVisUi.Text(bar,font,"",91,50.2f,242,22,12);
-            online=JarVisUi.Button(bar,font,"",23,97,366,()=>nav.Presence.Toggle());
+            online=JarVisUi.Button(bar,font,"",23,97,366,()=>{if(!JarVis.Warehouse.Backend.OmsMobileSession.IsReady)RoompresentDeliveryMission.Open(nav);else nav.Presence.Toggle();});
             var buttonRect=(RectTransform)online.transform;buttonRect.sizeDelta=new Vector2(366,44);
             UniformUiSurface.Use(online.GetComponent<Image>(),22,PrototypeUi.Accent,Color.clear,0,false,false);
             action=online.GetComponentInChildren<TMP_Text>();action.color=Color.white;action.fontSizeMax=14;action.fontSizeMin=11;action.rectTransform.sizeDelta=new Vector2(342,44);
@@ -76,6 +76,13 @@ namespace JarVis.Warehouse.UI
                 nav.Presence.State==PresenceState.ConnectionLost||nav.Presence.State==PresenceState.Reconnecting?(en?"Retry":"Thử lại"):(en?"Go online":"Bật trực tuyến");
             heading.text=en?"Features are locked.":"Tính năng đang bị khóa.";
             message.text=en?"Please go ONLINE\nto access these features.":"Vui lòng bật chế độ TRỰC TUYẾN\nđể truy cập các tính năng.";
+            if(!JarVis.Warehouse.Backend.OmsMobileSession.IsReady)
+            {
+                online.interactable=true;
+                action.text=en?"Try Roompresent AR":"Thử AR Roompresent";
+                heading.text=en?"Local AR trial":"Bài thử AR tại máy";
+                message.text=en?"Tap Try Roompresent AR above.\nWarehouse data requires sign-in.":"Bấm Thử AR Roompresent ở trên.\nDữ liệu kho cần đăng nhập.";
+            }
             var ink=nav.Settings.Dark?JarVisDesignTokens.DarkInk:JarVisDesignTokens.Ink;
             greeting.color=ink;role.color=nav.Settings.Dark?new Color(.7f,.78f,.88f):JarVisDesignTokens.Secondary;action.color=Color.white;
             header.color=PrototypeUi.Surface(nav.Settings.Dark);

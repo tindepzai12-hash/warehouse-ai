@@ -1,0 +1,98 @@
+package com.jarvis.warehouse;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
+import android.hardware.camera2.CameraCharacteristics;
+import android.hardware.camera2.CameraManager;
+import android.app.Activity;
+import android.view.Surface;
+import com.google.mediapipe.framework.image.BitmapImageBuilder;
+import com.google.mediapipe.framework.image.MPImage;
+import com.google.mediapipe.tasks.core.BaseOptions;
+import com.google.mediapipe.tasks.vision.core.RunningMode;
+import com.google.mediapipe.tasks.vision.objectdetector.ObjectDetector;
+import com.google.mediapipe.tasks.components.containers.Detection;
+import com.google.mediapipe.tasks.components.containers.Category;
+import java.nio.ByteBuffer;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.RejectedExecutionException;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicReference;
+import org.json.JSONObject;
+import org.json.JSONArray;
+
+/** One CPU worker, no camera/network/storage access. Frames are borrowed only for submit. */
+public final class LabObjectDetector {
+    private final ExecutorService worker=Executors.newSingleThreadExecutor();
+    private final AtomicBoolean busy=new AtomicBoolean();
+    private final AtomicBoolean closing=new AtomicBoolean();
+    private final AtomicReference<String> latest=new AtomicReference<>("");
+    private volatile boolean closed=false,ready=false;
+    private volatile String state="STARTING";
+    private ObjectDetector detector;
+    private int rotation=90;
+    public LabObjectDetector(Context context) {
+        try {
+            CameraManager manager=(CameraManager)context.getSystemService(Context.CAMERA_SERVICE);
+            int display=context instanceof Activity?((Activity)context).getWindowManager().getDefaultDisplay().getRotation():Surface.ROTATION_0;
+            int degrees=display==Surface.ROTATION_90?90:display==Surface.ROTATION_180?180:display==Surface.ROTATION_270?270:0;
+            for(String id:manager.getCameraIdList()) {
+                CameraCharacteristics info=manager.getCameraCharacteristics(id);
+                Integer facing=info.get(CameraCharacteristics.LENS_FACING),sensor=info.get(CameraCharacteristics.SENSOR_ORIENTATION);
+                if(facing!=null&&facing==CameraCharacteristics.LENS_FACING_BACK&&sensor!=null){rotation=(sensor-degrees+360)%360;break;}
+            }
+        }catch(Exception ignored){}
+        worker.execute(()->{
+            try {
+                ObjectDetector.ObjectDetectorOptions options=ObjectDetector.ObjectDetectorOptions.builder()
+                    .setBaseOptions(BaseOptions.builder().setModelAssetPath("jarvis-ai/efficientdet_lite0.tflite").build())
+                    .setRunningMode(RunningMode.IMAGE).setMaxResults(4).setScoreThreshold(0.55f).build();
+                detector=ObjectDetector.createFromOptions(context.getApplicationContext(),options);
+                if(!closed){ready=true;state="READY";}
+            } catch(Exception e) { state="ERROR_"+e.getClass().getSimpleName(); }
+            catch(OutOfMemoryError e){state="ERROR_MEMORY";ready=false;}
+        });
+    }
+    public String status(){ return state; }
+    public boolean isBusy(){return !ready||closed||busy.get();}
+    public String poll(){return latest.getAndSet("");}
+    public synchronized void submit(byte[] rgba,int width,int height,long frame) {
+        if(!ready||closed||rgba==null||width<=0||height<=0||width>512||height>512||rgba.length!=width*height*4||!busy.compareAndSet(false,true))return;
+        final byte[] owned;
+        try{owned=rgba.clone();}catch(OutOfMemoryError e){busy.set(false);ready=false;state="ERROR_MEMORY";return;}
+        try{worker.execute(()->{
+            Bitmap bitmap=null; MPImage image=null;
+            try {
+                if(closed)return;
+                long began=android.os.SystemClock.elapsedRealtime();
+                bitmap=Bitmap.createBitmap(width,height,Bitmap.Config.ARGB_8888);
+                bitmap.copyPixelsFromBuffer(ByteBuffer.wrap(owned));
+                if(rotation!=0){Matrix transform=new Matrix();transform.postRotate(rotation);Bitmap upright=Bitmap.createBitmap(bitmap,0,0,width,height,transform,false);if(upright!=bitmap){bitmap.recycle();bitmap=upright;}}
+                image=new BitmapImageBuilder(bitmap).build();
+                JSONArray items=new JSONArray();
+                for(Detection detection:detector.detect(image).detections()) {
+                    if(detection.categories().isEmpty())continue;
+                    Category category=detection.categories().get(0);
+                    JSONObject item=new JSONObject();item.put("label",category.categoryName());item.put("score",category.score());items.put(item);
+                }
+                JSONObject result=new JSONObject();result.put("frame",frame);result.put("ms",android.os.SystemClock.elapsedRealtime()-began);result.put("items",items);
+                if(!closed)latest.set(result.toString());
+            }catch(Exception e){state="ERROR_"+e.getClass().getSimpleName();}
+            catch(OutOfMemoryError e){state="ERROR_MEMORY";ready=false;}
+            finally{
+                try{if(image!=null)image.close();}catch(RuntimeException e){state="ERROR_CLEANUP";}catch(OutOfMemoryError e){state="ERROR_MEMORY";ready=false;}
+                try{if(bitmap!=null&&!bitmap.isRecycled())bitmap.recycle();}catch(RuntimeException ignored){}
+                busy.set(false);
+            }
+        });}catch(RejectedExecutionException e){busy.set(false);}
+    }
+    public synchronized void close(){
+        if(!closing.compareAndSet(false,true))return;
+        closed=true;ready=false;latest.set("");
+        try{worker.execute(()->{if(detector!=null){try{detector.close();}catch(RuntimeException ignored){}catch(OutOfMemoryError ignored){}finally{detector=null;}}});}
+        catch(RejectedExecutionException ignored){}
+        finally{worker.shutdown();}
+    }
+}

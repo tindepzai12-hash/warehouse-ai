@@ -1,0 +1,29 @@
+package com.jarvis.warehouse;
+
+import android.app.ActivityManager;
+import android.app.ApplicationExitInfo;
+import android.content.Context;
+import android.os.Build;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+/** Own-package process metadata only; no new permission or network access. */
+public final class LabRuntimeDiagnostics {
+    public static String exits(Context context) {
+        JSONObject root=new JSONObject();
+        try {
+            root.put("api",Build.VERSION.SDK_INT);
+            if(Build.VERSION.SDK_INT<30){root.put("supported",false);return root.toString();}
+            root.put("supported",true);
+            ActivityManager manager=(ActivityManager)context.getSystemService(Context.ACTIVITY_SERVICE);
+            JSONArray items=new JSONArray();
+            for(ApplicationExitInfo info:manager.getHistoricalProcessExitReasons(context.getPackageName(),0,6)){
+                JSONObject item=new JSONObject();
+                item.put("timestampMs",info.getTimestamp());item.put("reason",info.getReason());item.put("status",info.getStatus());
+                item.put("pssKiB",info.getPss());item.put("rssKiB",info.getRss());items.put(item);
+            }
+            root.put("exits",items);
+        }catch(Exception e){try{root.put("errorType",e.getClass().getSimpleName());}catch(Exception ignored){}}
+        return root.toString();
+    }
+}

@@ -121,9 +121,9 @@ namespace JarVis.Warehouse.UI
                 var tab=tabs[i];tab.transform.SetParent(root,false);Place(tab.rectTransform,x[i],13.5f,75,60);
                 var hit=tab.GetComponent<Image>();if(hit!=null){hit.enabled=true;hit.color=new Color(1,1,1,.001f);}
                 foreach(var old in tab.GetComponentsInChildren<ImportedUtilityIcon>(true))old.enabled=false;
-                var label=tab.GetComponentInChildren<TMP_Text>(true);if(label!=null){Place(label.rectTransform,0,38,75,22);label.alignment=TextAlignmentOptions.Center;label.fontSize=10;Fit(label);}
+                var label=tab.GetComponentInChildren<TMP_Text>(true);if(label!=null){Place(label.rectTransform,0,38,75,22);label.alignment=TextAlignmentOptions.Center;label.fontSize=11;label.fontStyle=FontStyles.Bold;Fit(label);}
                 if(i==3){var art=new GameObject("Canonical JarVis mascot",typeof(RectTransform),typeof(Image)).GetComponent<Image>();art.transform.SetParent(tab.transform,false);Place(art.rectTransform,23.5f,5,28,28);art.sprite=Resources.Load<Sprite>("Figma/JarVisMascotApproved");BrandArtwork(art);}
-                else PrototypeUi.Icon(tab.transform,symbols[i],25.5f,7,24,JarVisDesignTokens.Ink);
+                else {var icon=new GameObject("Bold dock "+symbols[i],typeof(RectTransform),typeof(ImportedUtilityIcon)).GetComponent<ImportedUtilityIcon>();icon.transform.SetParent(tab.transform,false);Place(icon.rectTransform,25.5f,7,24,24);icon.symbol=symbols[i];icon.strokeWidth=2.4f;icon.color=JarVisDesignTokens.Ink;icon.raycastTarget=false;}
             }
             if(scan!=null)
             {

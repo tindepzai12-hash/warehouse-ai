@@ -16,7 +16,10 @@ namespace JarVis.Warehouse.UI
         TMP_FontAsset font;
         RectTransform page,content;
         ScrollRect scroll;
-        TMP_Text streakTitle,praise,rule,taskCopy;
+        TMP_Text streakTitle,praise,rule,taskCopy,taskMeta;
+        RectTransform streakHeading;
+        OmsMobileApi.TaskRow latestTask;
+        bool latestIsTrial;
         UnityEngine.UI.Image[] days;
         ImportedUtilityIcon[] checks;
         OmsMobileApi.TaskRow[] tasks;
@@ -78,19 +81,25 @@ namespace JarVis.Warehouse.UI
             nav.Presence.AttachCompactCard(content);
             var presence=content.Find("Online presence") as RectTransform;PrototypeUi.Flow(presence,70);
             float extra=Mathf.Max(0,ImportedSettings.TextScale-1)*180;
-            var streak=PrototypeUi.Panel(content,"Activity streak",0,0,366,226+extra,dark,22,dark?"213249":"eef6ff",dark?"3a516e":"d5e6fc");PrototypeUi.Flow(streak,226+extra);if(!dark)UniformUiSurface.Gradient(streak.GetComponent<UnityEngine.UI.Image>(),PrototypeUi.Hex("f5f9ff"));
-            var fire=JarVisUi.Rect(streak,"Living flame",16,16,28,34).gameObject.AddComponent<PrototypeFlame>();fire.raycastTarget=false;
-            streakTitle=PrototypeUi.Text(streak,font,"",54,17,295,42,16,dark,true);streakTitle.enableAutoSizing=true;streakTitle.fontSizeMax=16*ImportedSettings.TextScale;streakTitle.fontSizeMin=13;
+            var streak=PrototypeUi.Panel(content,"Activity streak",0,0,366,226+extra,dark,22,dark?"213249":"eef6ff","00000000");PrototypeUi.Flow(streak,226+extra);if(!dark)UniformUiSurface.Gradient(streak.GetComponent<UnityEngine.UI.Image>(),PrototypeUi.Hex("f5f9ff"));
+            streakHeading=JarVisUi.Rect(streak,"Left aligned streak heading",16,12,334,42);
+            var headingRow=streakHeading.gameObject.AddComponent<HorizontalLayoutGroup>();
+            headingRow.childAlignment=TextAnchor.MiddleLeft;headingRow.spacing=10;
+            headingRow.childControlWidth=false;headingRow.childControlHeight=false;headingRow.childForceExpandWidth=false;headingRow.childForceExpandHeight=false;
+            var fire=JarVisUi.Rect(streakHeading,"Living flame",0,0,28,34).gameObject.AddComponent<PrototypeFlame>();fire.raycastTarget=false;
+            streakTitle=PrototypeUi.Text(streakHeading,font,"",0,0,296,42,16,dark,true);
+            streakTitle.alignment=TextAlignmentOptions.MidlineLeft;streakTitle.textWrappingMode=TextWrappingModes.NoWrap;
+            streakTitle.enableAutoSizing=true;streakTitle.fontSizeMax=16*ImportedSettings.TextScale;streakTitle.fontSizeMin=13;
             var mascot=JarVisUi.Rect(streak,"Approved JarVis encouragement",266,55,84,82).gameObject.AddComponent<PrototypeMascot>();mascot.Configure();
             days=new UnityEngine.UI.Image[7];checks=new ImportedUtilityIcon[7];
-            string[] vi={"T2","T3","T4","T5","T6","T7","CN"},en={"M","T","W","T","F","S","S"};
+            string[] vi={"T2","T3","T4","T5","T6","T7","CN"},en={"Mon","Tue","Wed","Thu","Fri","Sat","Sun"};
             for(int i=0;i<7;i++)
             {
                 var d=JarVisUi.Rect(streak,"Activity day "+i,17+i*33,72,26,26);days[i]=d.gameObject.AddComponent<UnityEngine.UI.Image>();
                 checks[i]=JarVisUi.Icon(d,"check",5,5,16);checks[i].color=Color.white;
-                var caption=PrototypeUi.Text(streak,font,En?en[i]:vi[i],12+i*33,106,36,18,10,dark,false,true);caption.alignment=TextAlignmentOptions.Center;
+                var caption=PrototypeUi.Text(streak,font,En?en[i]:vi[i],15+i*33,106,30,18,10.5f,dark,true);caption.alignment=TextAlignmentOptions.Center;
             }
-            var encouragement=PrototypeUi.Panel(streak,"Praise",17,135,332,55+extra,dark,15,dark?"273b54":"ffffff",dark?"405773":"dbeaff");
+            var encouragement=PrototypeUi.Panel(streak,"Praise",17,135,332,55+extra,dark,15,dark?"273b54":"ffffff","00000000");
             praise=PrototypeUi.Text(encouragement,font,"",12,8,308,43+extra,12,dark);praise.richText=true;
             PrototypeUi.Icon(streak,"info",17,202+extra,14,PrototypeUi.Muted(dark));
             rule=PrototypeUi.Text(streak,font,"",37,199+extra,312,24,10,dark,false,true);
@@ -102,16 +111,23 @@ namespace JarVis.Warehouse.UI
             Shortcut(grid,"Nhiệm vụ","Tasks","tasks","dcf6f2","086c68",()=>nav.Show("48:244"));
             Shortcut(grid,"Báo cáo sự cố","Report issue","alert","ffe7ed","b82640",()=>nav.Show("5:1029"));
             var taskHeading=PrototypeUi.Text(content,font,T("Nhiệm vụ hôm nay","Today's tasks"),0,0,366,24,19,dark,true);PrototypeUi.Flow(taskHeading.rectTransform,24);taskHeading.overflowMode=TextOverflowModes.Overflow;
-            var taskCard=PrototypeUi.Panel(content,"Assigned tasks summary",0,0,366,68+extra,dark);PrototypeUi.Flow(taskCard,68+extra);
-            PrototypeUi.Icon(taskCard,"file",16,22,24,PrototypeUi.Muted(dark));taskCopy=PrototypeUi.Text(taskCard,font,"",56,12,275,46+extra,13,dark,false,true);
-            PrototypeUi.Icon(taskCard,"chevron",337,24,18,PrototypeUi.Muted(dark));PrototypeUi.Button(taskCard,()=>nav.Show("48:244"));
-            content.sizeDelta=new Vector2(366,660+extra*2);Canvas.ForceUpdateCanvases();scroll.verticalNormalizedPosition=previous;Paint();
+            var taskCard=PrototypeUi.Panel(content,"Assigned tasks summary",0,0,366,190+extra,dark,22,dark?"203b60":"edf4ff",dark?"5078aa":"a7c6f3");PrototypeUi.Flow(taskCard,190+extra);
+            var taskBadge=PrototypeUi.Panel(taskCard,"Task icon badge",18,14,32,32,dark,10,dark?"315786":"d5e5ff","00000000");
+            PrototypeUi.Icon(taskBadge,"tasks",6,6,20,PrototypeUi.Hex(dark?"bdd6ff":"1255d5"));
+            var taskKicker=PrototypeUi.Text(taskCard,font,T("NHIỆM VỤ GẦN NHẤT","LATEST TASK"),62,14,286,32,11,dark,true);
+            taskKicker.alignment=TextAlignmentOptions.MidlineLeft;taskKicker.color=PrototypeUi.Hex(dark?"bdd6ff":"254e8a");
+            taskCopy=PrototypeUi.Text(taskCard,font,"",18,55,330,48+extra,17,dark,true);taskCopy.alignment=TextAlignmentOptions.MidlineLeft;
+            taskMeta=PrototypeUi.Text(taskCard,font,"",18,108+extra,330,22,11,dark,false,true);taskMeta.alignment=TextAlignmentOptions.MidlineLeft;taskMeta.textWrappingMode=TextWrappingModes.NoWrap;
+            var taskAction=PrototypeUi.Panel(taskCard,"Open latest task action",18,132+extra,330,44,dark,13,"1255d5","00000000");
+            var actionText=PrototypeUi.Text(taskAction,font,T("Xem nhiệm vụ","View task"),14,0,270,44,13,dark,true);actionText.alignment=TextAlignmentOptions.MidlineLeft;actionText.color=Color.white;
+            PrototypeUi.Icon(taskAction,"chevron",298,13,18,Color.white);PrototypeUi.Button(taskCard,OpenLatestTask);
+            content.sizeDelta=new Vector2(366,850+extra*2);Canvas.ForceUpdateCanvases();scroll.verticalNormalizedPosition=previous;Paint();
         }
         void Shortcut(Transform parent,string vi,string en,string symbol,string fill,string accent,Action action)
         {
             bool dark=nav.Settings.Dark;string darkFill=symbol=="box"?"423326":symbol=="tasks"?"203b3b":symbol=="alert"?"442c37":"243a56";
             Color tone=PrototypeUi.Hex(accent);if(dark)tone=PrototypeUi.Hex(symbol=="box"?"ffc286":symbol=="tasks"?"82ded2":symbol=="alert"?"ffafbe":"9bc3ff");
-            var rect=PrototypeUi.Panel(parent,"Quick action "+symbol,0,0,177,63,dark,18,dark?darkFill:fill,dark?"526580":"ffffffcc",true);
+            var rect=PrototypeUi.Panel(parent,"Quick action "+symbol,0,0,177,63,dark,18,dark?darkFill:fill,"00000000",true);
             PrototypeUi.Button(rect,action);PrototypeUi.Icon(rect,symbol,13,20,24,tone);
             var text=PrototypeUi.Text(rect,font,T(vi,en),49,13,104,40,13,dark,true);text.alignment=TextAlignmentOptions.MidlineLeft;
             text.enableAutoSizing=true;text.fontSizeMax=13*ImportedSettings.TextScale;text.fontSizeMin=11;
@@ -123,30 +139,57 @@ namespace JarVis.Warehouse.UI
             if(streakTitle==null)return;
             streakTitle.text=streak==null?T("Chưa có dữ liệu chuỗi hoạt động","Activity streak unavailable"):
                 streak.currentStreak==0?T("Bắt đầu chuỗi hoạt động","Start your activity streak"):
-                T(streak.currentStreak+" ngày hoạt động liên tiếp",streak.currentStreak+" consecutive active days");
-            praise.text=streak==null?T("Bật trực tuyến để ghi nhận hoạt động.","Go online to record your activity."):
+                T(streak.currentStreak+" ngày hoạt động liên tiếp",streak.currentStreak+(streak.currentStreak==1?" consecutive active day":" consecutive active days"));
+            float headingWidth=Mathf.Min(296,Mathf.Ceil(streakTitle.GetPreferredValues(streakTitle.text).x));
+            if(Mathf.Abs(streakTitle.rectTransform.sizeDelta.x-headingWidth)>.5f){streakTitle.rectTransform.sizeDelta=new Vector2(headingWidth,42);LayoutRebuilder.MarkLayoutForRebuild(streakHeading);}
+            praise.text=streak==null?T("<b>Bạn đang làm rất tốt!</b>\nCứ bình tĩnh, từng việc một nhé.","<b>You are doing well!</b>\nTake it one task at a time."):
                 streak.todayQualified?T("<b>Rất tốt, Justin!</b>\nBạn đang giữ nhịp làm việc đều đặn.","<b>Well done, Justin!</b>\nYou're keeping a steady working rhythm."):
-                T("Một bước nhỏ hôm nay, giữ nhịp ngày mai.","A small step today keeps your momentum going.");
+                T("<b>Cố gắng của bạn rất đáng ghi nhận!</b>\nChúc bạn một ca làm việc thuận lợi.","<b>Your effort matters!</b>\nHave a steady and rewarding shift.");
             rule.text=T("Tính ngày khi Online đủ 1 phút · Đài Loan","Day counts after 1 minute online · Taiwan");
             for(int i=0;i<days.Length;i++)
             {
                 bool qualified=streak?.week!=null&&i<streak.week.Length&&streak.week[i].qualified;
                 UniformUiSurface.Use(days[i],14,qualified?JarVisDesignTokens.Accent:Fill(Color.white),Edge(new Color(.73f,.82f,.94f)),qualified?0:1,false,false);checks[i].enabled=qualified;
             }
-            taskCopy.text=OmsMobileSession.EmployeeCode=="admin"?T("Admin quản lý nhiệm vụ trên web.","Admin manages tasks on the web."):
-                failed?T("Chưa tải được nhiệm vụ. Chạm để xem lại.","Couldn't load tasks. Tap to retry in Tasks."):
-                !OmsMobileSession.IsReady?T("Đăng nhập để xem nhiệm vụ.","Sign in to view tasks."):
-                tasks==null?T("Đang tải nhiệm vụ…","Loading tasks…"):
-                tasks.Length==0?T("Chưa có nhiệm vụ được giao","No tasks assigned yet"):
-                T(tasks.Count(t=>t.status!="COMPLETED"&&t.status!="CANCELLED")+" nhiệm vụ cần xử lý · Xem danh sách",tasks.Count(t=>t.status!="COMPLETED"&&t.status!="CANCELLED")+" tasks to work on · View list");
+            latestTask=LatestTask(tasks);latestIsTrial=false;
+            if(!OmsMobileSession.IsReady){taskCopy.text=T("Đăng nhập để xem nhiệm vụ.","Sign in to view tasks.");taskMeta.text="";}
+            else if(latestTask!=null)
+            {
+                taskCopy.text=string.IsNullOrWhiteSpace(latestTask.title)?latestTask.task_code:latestTask.title;
+                taskMeta.text=TaskStatus(latestTask.status)+(string.IsNullOrWhiteSpace(latestTask.locationCode)?"":" · "+latestTask.locationCode)+(failed?T(" · Chưa làm mới"," · Refresh pending"):"");
+            }
+            else if(OmsMobileSession.EmployeeCode=="admin"||tasks!=null&&!failed)
+            {
+                latestIsTrial=true;taskCopy.text=T("Roompresent · A1 → B, A2 → C","Roompresent · A1 → B, A2 → C");
+                taskMeta.text=T("NHIỆM VỤ THỬ","TEST MISSION")+" · "+RoompresentDeliveryMission.Summary;
+            }
+            else{taskCopy.text=failed?T("Chưa tải được nhiệm vụ","Couldn't load tasks"):T("Đang tải nhiệm vụ…","Loading tasks…");taskMeta.text=failed?T("Chạm để thử lại trong Nhiệm vụ","Tap to retry in Tasks"):"";}
         }
+        // Prefer assignment time, then creation time. Keep server order when dates are absent/equal.
+        static OmsMobileApi.TaskRow LatestTask(OmsMobileApi.TaskRow[] rows)
+        {return rows?.Where(r=>r!=null).OrderByDescending(TaskTime).FirstOrDefault();}
+        static DateTimeOffset TaskTime(OmsMobileApi.TaskRow task)
+        {
+            foreach(string value in new[]{task.assignedAt,task.assigned_at,task.createdAt,task.created_at})
+                if(DateTimeOffset.TryParse(value,System.Globalization.CultureInfo.InvariantCulture,System.Globalization.DateTimeStyles.AssumeUniversal,out var date))return date;
+            return DateTimeOffset.MinValue;
+        }
+        string TaskStatus(string state)
+        {switch(state){case "ASSIGNED":return T("Được giao","Assigned");case "ACCEPTED":return T("Đã nhận","Accepted");case "IN_PROGRESS":return T("Đang làm","In progress");case "COMPLETED":return T("Hoàn thành","Completed");case "BLOCKED":return T("Tạm dừng","Blocked");case "CANCELLED":return T("Đã hủy","Cancelled");default:return state??"";}}
+        void OpenLatestTask()
+        {
+            if(latestIsTrial){RoompresentDeliveryMission.Open(nav);return;}
+            nav.Show("48:244");
+            if(latestTask!=null)nav.screens.First(s=>s.id=="48:244").root.GetComponent<ImportedWarehouseLists>()?.TaskDetail(latestTask);
+        }
+
         IEnumerator LoadTasks()
         {
             if(busy||!OmsMobileSession.IsReady)yield break;
             if(OmsMobileSession.EmployeeCode=="admin"){failed=true;tasks=null;Paint();yield break;}
-            busy=true;int version=generation;OmsMobileApi.TaskList reply=null;string error=null;
+            busy=true;int version=generation;string requestToken=OmsMobileSession.AccessToken;OmsMobileApi.TaskList reply=null;string error=null;
             yield return OmsMobileApi.GetTasks(r=>reply=r,e=>error=e);
-            if(version!=generation)yield break;busy=false;failed=error!=null||reply==null;
+            if(version!=generation)yield break;busy=false;if(requestToken!=OmsMobileSession.AccessToken){tasks=null;failed=false;Paint();yield break;}failed=error!=null||reply==null;
             if(!failed)tasks=reply.tasks??Array.Empty<OmsMobileApi.TaskRow>();Paint();
         }
     }

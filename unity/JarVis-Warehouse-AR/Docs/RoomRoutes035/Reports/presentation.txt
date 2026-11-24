@@ -1,0 +1,159 @@
+PASS Arrow budget boundary 0
+PASS Arrow budget boundary 1
+PASS Arrow budget boundary 2
+PASS Arrow budget boundary 2.01
+PASS Arrow budget boundary 5
+PASS Arrow budget boundary 5.5
+PASS Arrow budget boundary 8
+PASS Arrow budget boundary 8.01
+PASS Arrow budget boundary 10
+PASS Arrow budget boundary 1000
+PASS Invalid distance never spawns arrows
+PASS World-grid glyph stays ahead, not attached to camera 0
+PASS World-grid glyph stays ahead, not attached to camera 1
+PASS World-grid glyph stays ahead, not attached to camera 2
+PASS World-grid glyph stays ahead, not attached to camera 3
+PASS World-grid glyph stays ahead, not attached to camera 4
+PASS World-grid glyph stays ahead, not attached to camera 5
+PASS World-grid glyph stays ahead, not attached to camera 6
+PASS World-grid glyph stays ahead, not attached to camera 7
+PASS World-grid glyph stays ahead, not attached to camera 8
+PASS World-grid glyph stays ahead, not attached to camera 9
+PASS World-grid glyph stays ahead, not attached to camera 10
+PASS World-grid glyph stays ahead, not attached to camera 11
+PASS World-grid glyph stays ahead, not attached to camera 12
+PASS World-grid glyph stays ahead, not attached to camera 13
+PASS World-grid glyph stays ahead, not attached to camera 14
+PASS World-grid glyph stays ahead, not attached to camera 15
+PASS World-grid glyph stays ahead, not attached to camera 16
+PASS World-grid glyph stays ahead, not attached to camera 17
+PASS World-grid glyph stays ahead, not attached to camera 18
+PASS World-grid glyph stays ahead, not attached to camera 19
+PASS World-grid glyph stays ahead, not attached to camera 20
+PASS World-grid glyph stays ahead, not attached to camera 21
+PASS World-grid glyph stays ahead, not attached to camera 22
+PASS World-grid glyph stays ahead, not attached to camera 23
+PASS World-grid glyph stays ahead, not attached to camera 24
+PASS World-grid glyph stays ahead, not attached to camera 25
+PASS World-grid glyph stays ahead, not attached to camera 26
+PASS World-grid glyph stays ahead, not attached to camera 27
+PASS World-grid glyph stays ahead, not attached to camera 28
+PASS World-grid glyph stays ahead, not attached to camera 29
+PASS World-grid glyph stays ahead, not attached to camera 30
+PASS World-grid glyph stays ahead, not attached to camera 31
+PASS World-grid glyph stays ahead, not attached to camera 32
+PASS World-grid glyph stays ahead, not attached to camera 33
+PASS World-grid glyph stays ahead, not attached to camera 34
+PASS World-grid glyph stays ahead, not attached to camera 35
+PASS World-grid glyph stays ahead, not attached to camera 36
+PASS World-grid glyph stays ahead, not attached to camera 37
+PASS World-grid glyph stays ahead, not attached to camera 38
+PASS World-grid glyph stays ahead, not attached to camera 39
+PASS World-grid glyph stays ahead, not attached to camera 40
+PASS World-grid glyph stays ahead, not attached to camera 41
+PASS World-grid glyph stays ahead, not attached to camera 42
+PASS World-grid glyph stays ahead, not attached to camera 43
+PASS World-grid glyph stays ahead, not attached to camera 44
+PASS World-grid glyph stays ahead, not attached to camera 45
+PASS World-grid glyph stays ahead, not attached to camera 46
+PASS World-grid glyph stays ahead, not attached to camera 47
+PASS World-grid glyph stays ahead, not attached to camera 48
+PASS World-grid glyph stays ahead, not attached to camera 49
+PASS World-grid glyph stays ahead, not attached to camera 50
+PASS World-grid glyph stays ahead, not attached to camera 51
+PASS World-grid glyph stays ahead, not attached to camera 52
+PASS World-grid glyph stays ahead, not attached to camera 53
+PASS World-grid glyph stays ahead, not attached to camera 54
+PASS World-grid glyph stays ahead, not attached to camera 55
+PASS World-grid glyph stays ahead, not attached to camera 56
+PASS World-grid glyph stays ahead, not attached to camera 57
+PASS World-grid glyph stays ahead, not attached to camera 58
+PASS World-grid glyph stays ahead, not attached to camera 59
+PASS World-grid glyph stays ahead, not attached to camera 60
+PASS World-grid glyph stays ahead, not attached to camera 61
+PASS World-grid glyph stays ahead, not attached to camera 62
+PASS World-grid glyph stays ahead, not attached to camera 63
+PASS World-grid glyph stays ahead, not attached to camera 64
+PASS World-grid glyph stays ahead, not attached to camera 65
+PASS World-grid glyph stays ahead, not attached to camera 66
+PASS World-grid glyph stays ahead, not attached to camera 67
+PASS World-grid glyph stays ahead, not attached to camera 68
+PASS World-grid glyph stays ahead, not attached to camera 69
+PASS World-grid glyph stays ahead, not attached to camera 70
+PASS World-grid glyph stays ahead, not attached to camera 71
+PASS World-grid glyph stays ahead, not attached to camera 72
+PASS World-grid glyph stays ahead, not attached to camera 73
+PASS World-grid glyph stays ahead, not attached to camera 74
+PASS World-grid glyph stays ahead, not attached to camera 75
+PASS World-grid glyph stays ahead, not attached to camera 76
+PASS World-grid glyph stays ahead, not attached to camera 77
+PASS World-grid glyph stays ahead, not attached to camera 78
+PASS World-grid glyph stays ahead, not attached to camera 79
+PASS World-grid glyph stays ahead, not attached to camera 80
+PASS World-grid glyph stays ahead, not attached to camera 81
+PASS World-grid glyph stays ahead, not attached to camera 82
+PASS World-grid glyph stays ahead, not attached to camera 83
+PASS World-grid glyph stays ahead, not attached to camera 84
+PASS World-grid glyph stays ahead, not attached to camera 85
+PASS World-grid glyph stays ahead, not attached to camera 86
+PASS World-grid glyph stays ahead, not attached to camera 87
+PASS World-grid glyph stays ahead, not attached to camera 88
+PASS World-grid glyph stays ahead, not attached to camera 89
+PASS World-grid glyph stays ahead, not attached to camera 90
+PASS World-grid glyph stays ahead, not attached to camera 91
+PASS World-grid glyph stays ahead, not attached to camera 92
+PASS World-grid glyph stays ahead, not attached to camera 93
+PASS World-grid glyph stays ahead, not attached to camera 94
+PASS World-grid glyph stays ahead, not attached to camera 95
+PASS World-grid glyph stays ahead, not attached to camera 96
+PASS World-grid glyph stays ahead, not attached to camera 97
+PASS World-grid glyph stays ahead, not attached to camera 98
+PASS World-grid glyph stays ahead, not attached to camera 99
+PASS World-grid glyph stays ahead, not attached to camera 100
+PASS World-grid glyph stays ahead, not attached to camera 101
+PASS World-grid glyph stays ahead, not attached to camera 102
+PASS World-grid glyph stays ahead, not attached to camera 103
+PASS World-grid glyph stays ahead, not attached to camera 104
+PASS World-grid glyph stays ahead, not attached to camera 105
+PASS World-grid glyph stays ahead, not attached to camera 106
+PASS World-grid glyph stays ahead, not attached to camera 107
+PASS World-grid glyph stays ahead, not attached to camera 108
+PASS World-grid glyph stays ahead, not attached to camera 109
+PASS World-grid glyph stays ahead, not attached to camera 110
+PASS World-grid glyph stays ahead, not attached to camera 111
+PASS World-grid glyph stays ahead, not attached to camera 112
+PASS World-grid glyph stays ahead, not attached to camera 113
+PASS World-grid glyph stays ahead, not attached to camera 114
+PASS World-grid glyph stays ahead, not attached to camera 115
+PASS World-grid glyph stays ahead, not attached to camera 116
+PASS World-grid glyph stays ahead, not attached to camera 117
+PASS World-grid glyph stays ahead, not attached to camera 118
+PASS World-grid glyph stays ahead, not attached to camera 119
+PASS B projected height capped near and far 0.2
+PASS Arrow viewport width cap 0.2
+PASS B projected height capped near and far 0.5
+PASS Arrow viewport width cap 0.5
+PASS B projected height capped near and far 1
+PASS Arrow viewport width cap 1
+PASS B projected height capped near and far 2
+PASS Arrow viewport width cap 2
+PASS B projected height capped near and far 5
+PASS Arrow viewport width cap 5
+PASS B projected height capped near and far 10
+PASS Arrow viewport width cap 10
+PASS Behind-camera marker cannot grow backwards
+PASS Offscreen/invalid/behind-camera features excluded
+PASS Visible real-world feature accepted
+PASS Lookahead stops BEFORE first actual corner, even beyond collinear samples and future loop branches
+PASS Recorded straight segment keeps its own direction, not direct bearing to B
+PASS Only the recorded corner changes arrow direction
+PASS Movement and elapsed time without real feature samples never reach 100 percent
+PASS Many points in only one viewing cell do not pass environmental observation
+PASS Sustained real samples across cells can finish environment stage
+PASS Completed observation survives low-feature QR view while camera and pose remain continuous
+PASS Pre-departure observation keeps tracking guard but freezes route progress
+PASS Waiting for Start never disables tracking-loss protection
+PASS Environment ready is only 80 percent before A pose is locked
+PASS Locked A completes preparation but waits for explicit Start
+PASS Start cannot bypass stale/unprepared camera
+PASS Cancel pre-departure preserves map and clears session gate

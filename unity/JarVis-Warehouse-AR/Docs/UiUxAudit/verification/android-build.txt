@@ -1,0 +1,5 @@
+Succeeded
+2026-10-12T18:19:47.6743338Z
+E:\unity of teep\JarVis-Warehouse-AR\Builds\Android\JarVis-Warehouse.apk
+845487343 bytes
+Existing project settings retained; product writes/printing not connected; no device acceptance.

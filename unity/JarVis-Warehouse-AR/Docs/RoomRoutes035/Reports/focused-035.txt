@@ -1,0 +1,849 @@
+PASS Real observation moves from preparation to A scanner
+PASS Low-feature QR view does not restart completed preparation frame=33
+PASS Low-feature QR view does not restart completed preparation frame=34
+PASS Low-feature QR view does not restart completed preparation frame=35
+PASS Low-feature QR view does not restart completed preparation frame=36
+PASS Low-feature QR view does not restart completed preparation frame=37
+PASS Low-feature QR view does not restart completed preparation frame=38
+PASS Low-feature QR view does not restart completed preparation frame=39
+PASS Low-feature QR view does not restart completed preparation frame=40
+PASS Low-feature QR view does not restart completed preparation frame=41
+PASS Low-feature QR view does not restart completed preparation frame=42
+PASS Low-feature QR view does not restart completed preparation frame=43
+PASS Low-feature QR view does not restart completed preparation frame=44
+PASS Low-feature QR view does not restart completed preparation frame=45
+PASS Low-feature QR view does not restart completed preparation frame=46
+PASS Low-feature QR view does not restart completed preparation frame=47
+PASS Low-feature QR view does not restart completed preparation frame=48
+PASS Low-feature QR view does not restart completed preparation frame=49
+PASS Low-feature QR view does not restart completed preparation frame=50
+PASS Low-feature QR view does not restart completed preparation frame=51
+PASS Low-feature QR view does not restart completed preparation frame=52
+PASS Low-feature QR view does not restart completed preparation frame=53
+PASS Low-feature QR view does not restart completed preparation frame=54
+PASS Low-feature QR view does not restart completed preparation frame=55
+PASS Low-feature QR view does not restart completed preparation frame=56
+PASS Low-feature QR view does not restart completed preparation frame=57
+PASS Low-feature QR view does not restart completed preparation frame=58
+PASS Low-feature QR view does not restart completed preparation frame=59
+PASS Low-feature QR view does not restart completed preparation frame=60
+PASS Low-feature QR view does not restart completed preparation frame=61
+PASS Low-feature QR view does not restart completed preparation frame=62
+PASS Low-feature QR view does not restart completed preparation frame=63
+PASS Low-feature QR view does not restart completed preparation frame=64
+PASS Low-feature QR view does not restart completed preparation frame=65
+PASS Low-feature QR view does not restart completed preparation frame=66
+PASS Low-feature QR view does not restart completed preparation frame=67
+PASS Low-feature QR view does not restart completed preparation frame=68
+PASS Low-feature QR view does not restart completed preparation frame=69
+PASS Low-feature QR view does not restart completed preparation frame=70
+PASS Low-feature QR view does not restart completed preparation frame=71
+PASS Low-feature QR view does not restart completed preparation frame=72
+PASS Low-feature QR view does not restart completed preparation frame=73
+PASS Low-feature QR view does not restart completed preparation frame=74
+PASS Low-feature QR view does not restart completed preparation frame=75
+PASS Low-feature QR view does not restart completed preparation frame=76
+PASS Low-feature QR view does not restart completed preparation frame=77
+PASS Low-feature QR view does not restart completed preparation frame=78
+PASS Low-feature QR view does not restart completed preparation frame=79
+PASS Low-feature QR view does not restart completed preparation frame=80
+PASS Low-feature QR view does not restart completed preparation frame=81
+PASS Low-feature QR view does not restart completed preparation frame=82
+PASS Low-feature QR view does not restart completed preparation frame=83
+PASS Low-feature QR view does not restart completed preparation frame=84
+PASS Low-feature QR view does not restart completed preparation frame=85
+PASS Low-feature QR view does not restart completed preparation frame=86
+PASS Low-feature QR view does not restart completed preparation frame=87
+PASS Low-feature QR view does not restart completed preparation frame=88
+PASS Low-feature QR view does not restart completed preparation frame=89
+PASS Low-feature QR view does not restart completed preparation frame=90
+PASS Low-feature QR view does not restart completed preparation frame=91
+PASS Low-feature QR view does not restart completed preparation frame=92
+PASS Low-feature QR view does not restart completed preparation frame=93
+PASS Low-feature QR view does not restart completed preparation frame=94
+PASS Low-feature QR view does not restart completed preparation frame=95
+PASS Low-feature QR view does not restart completed preparation frame=96
+PASS Low-feature QR view does not restart completed preparation frame=97
+PASS Low-feature QR view does not restart completed preparation frame=98
+PASS Low-feature QR view does not restart completed preparation frame=99
+PASS Low-feature QR view does not restart completed preparation frame=100
+PASS Low-feature QR view does not restart completed preparation frame=101
+PASS Low-feature QR view does not restart completed preparation frame=102
+PASS Low-feature QR view does not restart completed preparation frame=103
+PASS Low-feature QR view does not restart completed preparation frame=104
+PASS Low-feature QR view does not restart completed preparation frame=105
+PASS Low-feature QR view does not restart completed preparation frame=106
+PASS Low-feature QR view does not restart completed preparation frame=107
+PASS Low-feature QR view does not restart completed preparation frame=108
+PASS Low-feature QR view does not restart completed preparation frame=109
+PASS Low-feature QR view does not restart completed preparation frame=110
+PASS Low-feature QR view does not restart completed preparation frame=111
+PASS Low-feature QR view does not restart completed preparation frame=112
+PASS Low-feature QR view does not restart completed preparation frame=113
+PASS Low-feature QR view does not restart completed preparation frame=114
+PASS Low-feature QR view does not restart completed preparation frame=115
+PASS Low-feature QR view does not restart completed preparation frame=116
+PASS Low-feature QR view does not restart completed preparation frame=117
+PASS Low-feature QR view does not restart completed preparation frame=118
+PASS Low-feature QR view does not restart completed preparation frame=119
+PASS Low-feature QR view does not restart completed preparation frame=120
+PASS Low-feature QR view does not restart completed preparation frame=121
+PASS Low-feature QR view does not restart completed preparation frame=122
+PASS Low-feature QR view does not restart completed preparation frame=123
+PASS Low-feature QR view does not restart completed preparation frame=124
+PASS Low-feature QR view does not restart completed preparation frame=125
+PASS Low-feature QR view does not restart completed preparation frame=126
+PASS Low-feature QR view does not restart completed preparation frame=127
+PASS Low-feature QR view does not restart completed preparation frame=128
+PASS Low-feature QR view does not restart completed preparation frame=129
+PASS Low-feature QR view does not restart completed preparation frame=130
+PASS Low-feature QR view does not restart completed preparation frame=131
+PASS Low-feature QR view does not restart completed preparation frame=132
+PASS Low-feature QR view does not restart completed preparation frame=133
+PASS Low-feature QR view does not restart completed preparation frame=134
+PASS Low-feature QR view does not restart completed preparation frame=135
+PASS Low-feature QR view does not restart completed preparation frame=136
+PASS Low-feature QR view does not restart completed preparation frame=137
+PASS Low-feature QR view does not restart completed preparation frame=138
+PASS Low-feature QR view does not restart completed preparation frame=139
+PASS Low-feature QR view does not restart completed preparation frame=140
+PASS Low-feature QR view does not restart completed preparation frame=141
+PASS Low-feature QR view does not restart completed preparation frame=142
+PASS Low-feature QR view does not restart completed preparation frame=143
+PASS Low-feature QR view does not restart completed preparation frame=144
+PASS Low-feature QR view does not restart completed preparation frame=145
+PASS Low-feature QR view does not restart completed preparation frame=146
+PASS Low-feature QR view does not restart completed preparation frame=147
+PASS Low-feature QR view does not restart completed preparation frame=148
+PASS Low-feature QR view does not restart completed preparation frame=149
+PASS Low-feature QR view does not restart completed preparation frame=150
+PASS Low-feature QR view does not restart completed preparation frame=151
+PASS Low-feature QR view does not restart completed preparation frame=152
+PASS Low-feature QR view does not restart completed preparation frame=153
+PASS Low-feature QR view does not restart completed preparation frame=154
+PASS Low-feature QR view does not restart completed preparation frame=155
+PASS Low-feature QR view does not restart completed preparation frame=156
+PASS Low-feature QR view does not restart completed preparation frame=157
+PASS Low-feature QR view does not restart completed preparation frame=158
+PASS Low-feature QR view does not restart completed preparation frame=159
+PASS Low-feature QR view does not restart completed preparation frame=160
+PASS Low-feature QR view does not restart completed preparation frame=161
+PASS Low-feature QR view does not restart completed preparation frame=162
+PASS Low-feature QR view does not restart completed preparation frame=163
+PASS Low-feature QR view does not restart completed preparation frame=164
+PASS Low-feature QR view does not restart completed preparation frame=165
+PASS Low-feature QR view does not restart completed preparation frame=166
+PASS Low-feature QR view does not restart completed preparation frame=167
+PASS Low-feature QR view does not restart completed preparation frame=168
+PASS Low-feature QR view does not restart completed preparation frame=169
+PASS Low-feature QR view does not restart completed preparation frame=170
+PASS Low-feature QR view does not restart completed preparation frame=171
+PASS Low-feature QR view does not restart completed preparation frame=172
+PASS Low-feature QR view does not restart completed preparation frame=173
+PASS Low-feature QR view does not restart completed preparation frame=174
+PASS Low-feature QR view does not restart completed preparation frame=175
+PASS Low-feature QR view does not restart completed preparation frame=176
+PASS Low-feature QR view does not restart completed preparation frame=177
+PASS Low-feature QR view does not restart completed preparation frame=178
+PASS Low-feature QR view does not restart completed preparation frame=179
+PASS Low-feature QR view does not restart completed preparation frame=180
+PASS Low-feature QR view does not restart completed preparation frame=181
+PASS Low-feature QR view does not restart completed preparation frame=182
+PASS Low-feature QR view does not restart completed preparation frame=183
+PASS Low-feature QR view does not restart completed preparation frame=184
+PASS Low-feature QR view does not restart completed preparation frame=185
+PASS Low-feature QR view does not restart completed preparation frame=186
+PASS Low-feature QR view does not restart completed preparation frame=187
+PASS Low-feature QR view does not restart completed preparation frame=188
+PASS Low-feature QR view does not restart completed preparation frame=189
+PASS Low-feature QR view does not restart completed preparation frame=190
+PASS Low-feature QR view does not restart completed preparation frame=191
+PASS Low-feature QR view does not restart completed preparation frame=192
+PASS Low-feature QR view does not restart completed preparation frame=193
+PASS Low-feature QR view does not restart completed preparation frame=194
+PASS Low-feature QR view does not restart completed preparation frame=195
+PASS Low-feature QR view does not restart completed preparation frame=196
+PASS Low-feature QR view does not restart completed preparation frame=197
+PASS Low-feature QR view does not restart completed preparation frame=198
+PASS Low-feature QR view does not restart completed preparation frame=199
+PASS Low-feature QR view does not restart completed preparation frame=200
+PASS Low-feature QR view does not restart completed preparation frame=201
+PASS Low-feature QR view does not restart completed preparation frame=202
+PASS Low-feature QR view does not restart completed preparation frame=203
+PASS Low-feature QR view does not restart completed preparation frame=204
+PASS Low-feature QR view does not restart completed preparation frame=205
+PASS Low-feature QR view does not restart completed preparation frame=206
+PASS Low-feature QR view does not restart completed preparation frame=207
+PASS Low-feature QR view does not restart completed preparation frame=208
+PASS Low-feature QR view does not restart completed preparation frame=209
+PASS Low-feature QR view does not restart completed preparation frame=210
+PASS Low-feature QR view does not restart completed preparation frame=211
+PASS Low-feature QR view does not restart completed preparation frame=212
+PASS Low-feature QR view does not restart completed preparation frame=213
+PASS Low-feature QR view does not restart completed preparation frame=214
+PASS Low-feature QR view does not restart completed preparation frame=215
+PASS Low-feature QR view does not restart completed preparation frame=216
+PASS Low-feature QR view does not restart completed preparation frame=217
+PASS Low-feature QR view does not restart completed preparation frame=218
+PASS Low-feature QR view does not restart completed preparation frame=219
+PASS Low-feature QR view does not restart completed preparation frame=220
+PASS Low-feature QR view does not restart completed preparation frame=221
+PASS Low-feature QR view does not restart completed preparation frame=222
+PASS Low-feature QR view does not restart completed preparation frame=223
+PASS Low-feature QR view does not restart completed preparation frame=224
+PASS Low-feature QR view does not restart completed preparation frame=225
+PASS Low-feature QR view does not restart completed preparation frame=226
+PASS Low-feature QR view does not restart completed preparation frame=227
+PASS Low-feature QR view does not restart completed preparation frame=228
+PASS Low-feature QR view does not restart completed preparation frame=229
+PASS Low-feature QR view does not restart completed preparation frame=230
+PASS Low-feature QR view does not restart completed preparation frame=231
+PASS Low-feature QR view does not restart completed preparation frame=232
+PASS Low-feature QR view does not restart completed preparation frame=233
+PASS Low-feature QR view does not restart completed preparation frame=234
+PASS Low-feature QR view does not restart completed preparation frame=235
+PASS Low-feature QR view does not restart completed preparation frame=236
+PASS Low-feature QR view does not restart completed preparation frame=237
+PASS Low-feature QR view does not restart completed preparation frame=238
+PASS Low-feature QR view does not restart completed preparation frame=239
+PASS Low-feature QR view does not restart completed preparation frame=240
+PASS QR still needs measured marker pose; no forced alignment
+PASS Actual tracking loss revokes preparation latch
+PASS One recovered frame cannot bypass real re-observation
+PASS Latch never accepts observation with no real features in the first place
+PASS Corner fixture aligns
+PASS Normal corner approach retains safe guidance 0
+PASS Corner approach always has a route-based candidate 0
+PASS Candidate never jumps to a future branch or shortcut
+PASS Cue changes to actual next leg only near recorded corner
+PASS Onscreen arrow conveys actual left/right maneuver
+PASS Visible footer cue survives offscreen/too-close AR at 0
+PASS Corner HUD text fits 915 Chỉ đường · A → B
+PASS Corner HUD text fits 915 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 915 ‹
+PASS Corner HUD text fits 915 B · còn ~5.8 m
+PASS Corner HUD text fits 915 ĐI THẲNG · đi theo tuyến đã ghi
+PASS Corner HUD text fits 915 Dừng chỉ đường
+PASS Corner HUD text fits 915 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 0
+PASS Corner HUD text fits 915 Chỉ đường · A → B
+PASS Corner HUD text fits 915 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 915 ‹
+PASS Corner HUD text fits 915 B · còn ~5.8 m
+PASS Corner HUD text fits 915 ĐI THẲNG · đi theo tuyến đã ghi
+PASS Corner HUD text fits 915 Dừng chỉ đường
+PASS Corner HUD text fits 915 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 0
+PASS Corner HUD text fits 732 Chỉ đường · A → B
+PASS Corner HUD text fits 732 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 732 ‹
+PASS Corner HUD text fits 732 B · còn ~5.8 m
+PASS Corner HUD text fits 732 ĐI THẲNG · đi theo tuyến đã ghi
+PASS Corner HUD text fits 732 Dừng chỉ đường
+PASS Corner HUD text fits 732 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 0
+PASS Corner HUD text fits 732 Chỉ đường · A → B
+PASS Corner HUD text fits 732 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 732 ‹
+PASS Corner HUD text fits 732 B · còn ~5.8 m
+PASS Corner HUD text fits 732 ĐI THẲNG · đi theo tuyến đã ghi
+PASS Corner HUD text fits 732 Dừng chỉ đường
+PASS Corner HUD text fits 732 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Tracking/caution gate hides footer cue too
+PASS Physically traversing corner advances to adjacent leg without losing guidance
+PASS After turn the world cue follows recorded next leg, not previous corner
+PASS Screen instruction returns to straight after completing actual turn
+PASS Corner fixture aligns
+PASS Normal corner approach retains safe guidance 0.4
+PASS Corner approach always has a route-based candidate 0.4
+PASS Candidate never jumps to a future branch or shortcut
+PASS Cue changes to actual next leg only near recorded corner
+PASS Onscreen arrow conveys actual left/right maneuver
+PASS Visible footer cue survives offscreen/too-close AR at 0.4
+PASS Corner HUD text fits 915 Chỉ đường · A → B
+PASS Corner HUD text fits 915 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 915 ‹
+PASS Corner HUD text fits 915 B · còn ~5.4 m
+PASS Corner HUD text fits 915 ĐI THẲNG · đi theo tuyến đã ghi
+PASS Corner HUD text fits 915 Dừng chỉ đường
+PASS Corner HUD text fits 915 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Previously blank world-grid gap now has a visible arrow
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 0.4
+PASS Corner HUD text fits 915 Chỉ đường · A → B
+PASS Corner HUD text fits 915 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 915 ‹
+PASS Corner HUD text fits 915 B · còn ~5.4 m
+PASS Corner HUD text fits 915 ĐI THẲNG · Ngẩng máy nhẹ để thấy đường phía trước.
+PASS Corner HUD text fits 915 Dừng chỉ đường
+PASS Corner HUD text fits 915 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Hidden world arrow explains why while footer cue remains visible
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 0.4
+PASS Corner HUD text fits 732 Chỉ đường · A → B
+PASS Corner HUD text fits 732 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 732 ‹
+PASS Corner HUD text fits 732 B · còn ~5.4 m
+PASS Corner HUD text fits 732 ĐI THẲNG · đi theo tuyến đã ghi
+PASS Corner HUD text fits 732 Dừng chỉ đường
+PASS Corner HUD text fits 732 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Previously blank world-grid gap now has a visible arrow
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 0.4
+PASS Corner HUD text fits 732 Chỉ đường · A → B
+PASS Corner HUD text fits 732 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 732 ‹
+PASS Corner HUD text fits 732 B · còn ~5.4 m
+PASS Corner HUD text fits 732 ĐI THẲNG · Ngẩng máy nhẹ để thấy đường phía trước.
+PASS Corner HUD text fits 732 Dừng chỉ đường
+PASS Corner HUD text fits 732 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Hidden world arrow explains why while footer cue remains visible
+PASS Tracking/caution gate hides footer cue too
+PASS Physically traversing corner advances to adjacent leg without losing guidance
+PASS After turn the world cue follows recorded next leg, not previous corner
+PASS Screen instruction returns to straight after completing actual turn
+PASS Corner fixture aligns
+PASS Normal corner approach retains safe guidance 1
+PASS Corner approach always has a route-based candidate 1
+PASS Candidate never jumps to a future branch or shortcut
+PASS Cue changes to actual next leg only near recorded corner
+PASS Onscreen arrow conveys actual left/right maneuver
+PASS Visible footer cue survives offscreen/too-close AR at 1
+PASS Corner HUD text fits 915 Chỉ đường · A → B
+PASS Corner HUD text fits 915 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 915 ‹
+PASS Corner HUD text fits 915 B · còn ~4.8 m
+PASS Corner HUD text fits 915 ĐI THẲNG · đi theo tuyến đã ghi
+PASS Corner HUD text fits 915 Dừng chỉ đường
+PASS Corner HUD text fits 915 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Previously blank world-grid gap now has a visible arrow
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 1
+PASS Corner HUD text fits 915 Chỉ đường · A → B
+PASS Corner HUD text fits 915 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 915 ‹
+PASS Corner HUD text fits 915 B · còn ~4.8 m
+PASS Corner HUD text fits 915 ĐI THẲNG · đi theo tuyến đã ghi
+PASS Corner HUD text fits 915 Dừng chỉ đường
+PASS Corner HUD text fits 915 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 1
+PASS Corner HUD text fits 732 Chỉ đường · A → B
+PASS Corner HUD text fits 732 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 732 ‹
+PASS Corner HUD text fits 732 B · còn ~4.8 m
+PASS Corner HUD text fits 732 ĐI THẲNG · đi theo tuyến đã ghi
+PASS Corner HUD text fits 732 Dừng chỉ đường
+PASS Corner HUD text fits 732 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Previously blank world-grid gap now has a visible arrow
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 1
+PASS Corner HUD text fits 732 Chỉ đường · A → B
+PASS Corner HUD text fits 732 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 732 ‹
+PASS Corner HUD text fits 732 B · còn ~4.8 m
+PASS Corner HUD text fits 732 ĐI THẲNG · đi theo tuyến đã ghi
+PASS Corner HUD text fits 732 Dừng chỉ đường
+PASS Corner HUD text fits 732 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Tracking/caution gate hides footer cue too
+PASS Physically traversing corner advances to adjacent leg without losing guidance
+PASS After turn the world cue follows recorded next leg, not previous corner
+PASS Screen instruction returns to straight after completing actual turn
+PASS Corner fixture aligns
+PASS Normal corner approach retains safe guidance 1.6
+PASS Corner approach always has a route-based candidate 1.6
+PASS Candidate never jumps to a future branch or shortcut
+PASS Cue changes to actual next leg only near recorded corner
+PASS Onscreen arrow conveys actual left/right maneuver
+PASS Instruction agrees with turn arrow
+PASS Looking around a real corner does not flip instruction back towards previous leg
+PASS Visible footer cue survives offscreen/too-close AR at 1.6
+PASS Corner HUD text fits 915 Chỉ đường · A → B
+PASS Corner HUD text fits 915 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 915 ‹
+PASS Corner HUD text fits 915 B · còn ~4.2 m
+PASS Corner HUD text fits 915 Rẽ trái sau ~1.2 m · Theo hướng rẽ trên thẻ dưới; mũi tên AR ở góc có thể nằm ngoài camera.
+PASS Corner HUD text fits 915 Dừng chỉ đường
+PASS Corner HUD text fits 915 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Hidden world arrow explains why while footer cue remains visible
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 1.6
+PASS Corner HUD text fits 915 Chỉ đường · A → B
+PASS Corner HUD text fits 915 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 915 ‹
+PASS Corner HUD text fits 915 B · còn ~4.2 m
+PASS Corner HUD text fits 915 Rẽ trái sau ~1.2 m · đi theo tuyến đã ghi
+PASS Corner HUD text fits 915 Dừng chỉ đường
+PASS Corner HUD text fits 915 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Looking at actual corner shows a real AR turn cue, not just screen fallback
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 1.6
+PASS Corner HUD text fits 732 Chỉ đường · A → B
+PASS Corner HUD text fits 732 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 732 ‹
+PASS Corner HUD text fits 732 B · còn ~4.2 m
+PASS Corner HUD text fits 732 Rẽ trái sau ~1.2 m · Theo hướng rẽ trên thẻ dưới; mũi tên AR ở góc có thể nằm ngoài camera.
+PASS Corner HUD text fits 732 Dừng chỉ đường
+PASS Corner HUD text fits 732 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Hidden world arrow explains why while footer cue remains visible
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 1.6
+PASS Corner HUD text fits 732 Chỉ đường · A → B
+PASS Corner HUD text fits 732 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 732 ‹
+PASS Corner HUD text fits 732 B · còn ~4.2 m
+PASS Corner HUD text fits 732 Rẽ trái sau ~1.2 m · đi theo tuyến đã ghi
+PASS Corner HUD text fits 732 Dừng chỉ đường
+PASS Corner HUD text fits 732 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Looking at actual corner shows a real AR turn cue, not just screen fallback
+PASS Tracking/caution gate hides footer cue too
+PASS Physically traversing corner advances to adjacent leg without losing guidance
+PASS After turn the world cue follows recorded next leg, not previous corner
+PASS Screen instruction returns to straight after completing actual turn
+PASS Corner fixture aligns
+PASS Normal corner approach retains safe guidance 2.1
+PASS Corner approach always has a route-based candidate 2.1
+PASS Candidate never jumps to a future branch or shortcut
+PASS Cue changes to actual next leg only near recorded corner
+PASS Onscreen arrow conveys actual left/right maneuver
+PASS Instruction agrees with turn arrow
+PASS Looking around a real corner does not flip instruction back towards previous leg
+PASS Visible footer cue survives offscreen/too-close AR at 2.1
+PASS Corner HUD text fits 915 Chỉ đường · A → B
+PASS Corner HUD text fits 915 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 915 ‹
+PASS Corner HUD text fits 915 B · còn ~3.7 m
+PASS Corner HUD text fits 915 Rẽ trái sau ~0.7 m · Theo hướng rẽ trên thẻ dưới; mũi tên AR ở góc có thể nằm ngoài camera.
+PASS Corner HUD text fits 915 Dừng chỉ đường
+PASS Corner HUD text fits 915 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Hidden world arrow explains why while footer cue remains visible
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 2.1
+PASS Corner HUD text fits 915 Chỉ đường · A → B
+PASS Corner HUD text fits 915 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 915 ‹
+PASS Corner HUD text fits 915 B · còn ~3.7 m
+PASS Corner HUD text fits 915 Rẽ trái sau ~0.7 m · đi theo tuyến đã ghi
+PASS Corner HUD text fits 915 Dừng chỉ đường
+PASS Corner HUD text fits 915 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Looking at actual corner shows a real AR turn cue, not just screen fallback
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 2.1
+PASS Corner HUD text fits 732 Chỉ đường · A → B
+PASS Corner HUD text fits 732 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 732 ‹
+PASS Corner HUD text fits 732 B · còn ~3.7 m
+PASS Corner HUD text fits 732 Rẽ trái sau ~0.7 m · Theo hướng rẽ trên thẻ dưới; mũi tên AR ở góc có thể nằm ngoài camera.
+PASS Corner HUD text fits 732 Dừng chỉ đường
+PASS Corner HUD text fits 732 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Hidden world arrow explains why while footer cue remains visible
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 2.1
+PASS Corner HUD text fits 732 Chỉ đường · A → B
+PASS Corner HUD text fits 732 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 732 ‹
+PASS Corner HUD text fits 732 B · còn ~3.7 m
+PASS Corner HUD text fits 732 Rẽ trái sau ~0.7 m · đi theo tuyến đã ghi
+PASS Corner HUD text fits 732 Dừng chỉ đường
+PASS Corner HUD text fits 732 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Looking at actual corner shows a real AR turn cue, not just screen fallback
+PASS Tracking/caution gate hides footer cue too
+PASS Physically traversing corner advances to adjacent leg without losing guidance
+PASS After turn the world cue follows recorded next leg, not previous corner
+PASS Screen instruction returns to straight after completing actual turn
+PASS Corner fixture aligns
+PASS Normal corner approach retains safe guidance 2.5
+PASS Corner approach always has a route-based candidate 2.5
+PASS Candidate never jumps to a future branch or shortcut
+PASS Cue changes to actual next leg only near recorded corner
+PASS Onscreen arrow conveys actual left/right maneuver
+PASS Instruction agrees with turn arrow
+PASS Looking around a real corner does not flip instruction back towards previous leg
+PASS Visible footer cue survives offscreen/too-close AR at 2.5
+PASS Corner HUD text fits 915 Chỉ đường · A → B
+PASS Corner HUD text fits 915 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 915 ‹
+PASS Corner HUD text fits 915 B · còn ~3.3 m
+PASS Corner HUD text fits 915 Rẽ trái tại góc đã ghi · Theo hướng rẽ trên thẻ dưới; mũi tên AR ở góc có thể nằm ngoài camera.
+PASS Corner HUD text fits 915 Dừng chỉ đường
+PASS Corner HUD text fits 915 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Hidden world arrow explains why while footer cue remains visible
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 2.5
+PASS Corner HUD text fits 915 Chỉ đường · A → B
+PASS Corner HUD text fits 915 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 915 ‹
+PASS Corner HUD text fits 915 B · còn ~3.3 m
+PASS Corner HUD text fits 915 Rẽ trái tại góc đã ghi · Theo hướng rẽ trên thẻ dưới; mũi tên AR ở góc có thể nằm ngoài camera.
+PASS Corner HUD text fits 915 Dừng chỉ đường
+PASS Corner HUD text fits 915 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Hidden world arrow explains why while footer cue remains visible
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 2.5
+PASS Corner HUD text fits 732 Chỉ đường · A → B
+PASS Corner HUD text fits 732 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 732 ‹
+PASS Corner HUD text fits 732 B · còn ~3.3 m
+PASS Corner HUD text fits 732 Rẽ trái tại góc đã ghi · Theo hướng rẽ trên thẻ dưới; mũi tên AR ở góc có thể nằm ngoài camera.
+PASS Corner HUD text fits 732 Dừng chỉ đường
+PASS Corner HUD text fits 732 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Hidden world arrow explains why while footer cue remains visible
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 2.5
+PASS Corner HUD text fits 732 Chỉ đường · A → B
+PASS Corner HUD text fits 732 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 732 ‹
+PASS Corner HUD text fits 732 B · còn ~3.3 m
+PASS Corner HUD text fits 732 Rẽ trái tại góc đã ghi · Theo hướng rẽ trên thẻ dưới; mũi tên AR ở góc có thể nằm ngoài camera.
+PASS Corner HUD text fits 732 Dừng chỉ đường
+PASS Corner HUD text fits 732 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Hidden world arrow explains why while footer cue remains visible
+PASS Tracking/caution gate hides footer cue too
+PASS Physically traversing corner advances to adjacent leg without losing guidance
+PASS After turn the world cue follows recorded next leg, not previous corner
+PASS Screen instruction returns to straight after completing actual turn
+PASS Corner fixture aligns
+PASS Normal corner approach retains safe guidance 0
+PASS Corner approach always has a route-based candidate 0
+PASS Candidate never jumps to a future branch or shortcut
+PASS Cue changes to actual next leg only near recorded corner
+PASS Onscreen arrow conveys actual left/right maneuver
+PASS Visible footer cue survives offscreen/too-close AR at 0
+PASS Corner HUD text fits 915 Chỉ đường · A → B
+PASS Corner HUD text fits 915 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 915 ‹
+PASS Corner HUD text fits 915 B · còn ~5.8 m
+PASS Corner HUD text fits 915 ĐI THẲNG · đi theo tuyến đã ghi
+PASS Corner HUD text fits 915 Dừng chỉ đường
+PASS Corner HUD text fits 915 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 0
+PASS Corner HUD text fits 915 Chỉ đường · A → B
+PASS Corner HUD text fits 915 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 915 ‹
+PASS Corner HUD text fits 915 B · còn ~5.8 m
+PASS Corner HUD text fits 915 ĐI THẲNG · đi theo tuyến đã ghi
+PASS Corner HUD text fits 915 Dừng chỉ đường
+PASS Corner HUD text fits 915 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 0
+PASS Corner HUD text fits 732 Chỉ đường · A → B
+PASS Corner HUD text fits 732 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 732 ‹
+PASS Corner HUD text fits 732 B · còn ~5.8 m
+PASS Corner HUD text fits 732 ĐI THẲNG · đi theo tuyến đã ghi
+PASS Corner HUD text fits 732 Dừng chỉ đường
+PASS Corner HUD text fits 732 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 0
+PASS Corner HUD text fits 732 Chỉ đường · A → B
+PASS Corner HUD text fits 732 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 732 ‹
+PASS Corner HUD text fits 732 B · còn ~5.8 m
+PASS Corner HUD text fits 732 ĐI THẲNG · đi theo tuyến đã ghi
+PASS Corner HUD text fits 732 Dừng chỉ đường
+PASS Corner HUD text fits 732 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Tracking/caution gate hides footer cue too
+PASS Physically traversing corner advances to adjacent leg without losing guidance
+PASS After turn the world cue follows recorded next leg, not previous corner
+PASS Screen instruction returns to straight after completing actual turn
+PASS Corner fixture aligns
+PASS Normal corner approach retains safe guidance 0.4
+PASS Corner approach always has a route-based candidate 0.4
+PASS Candidate never jumps to a future branch or shortcut
+PASS Cue changes to actual next leg only near recorded corner
+PASS Onscreen arrow conveys actual left/right maneuver
+PASS Visible footer cue survives offscreen/too-close AR at 0.4
+PASS Corner HUD text fits 915 Chỉ đường · A → B
+PASS Corner HUD text fits 915 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 915 ‹
+PASS Corner HUD text fits 915 B · còn ~5.4 m
+PASS Corner HUD text fits 915 ĐI THẲNG · đi theo tuyến đã ghi
+PASS Corner HUD text fits 915 Dừng chỉ đường
+PASS Corner HUD text fits 915 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Previously blank world-grid gap now has a visible arrow
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 0.4
+PASS Corner HUD text fits 915 Chỉ đường · A → B
+PASS Corner HUD text fits 915 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 915 ‹
+PASS Corner HUD text fits 915 B · còn ~5.4 m
+PASS Corner HUD text fits 915 ĐI THẲNG · Ngẩng máy nhẹ để thấy đường phía trước.
+PASS Corner HUD text fits 915 Dừng chỉ đường
+PASS Corner HUD text fits 915 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Hidden world arrow explains why while footer cue remains visible
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 0.4
+PASS Corner HUD text fits 732 Chỉ đường · A → B
+PASS Corner HUD text fits 732 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 732 ‹
+PASS Corner HUD text fits 732 B · còn ~5.4 m
+PASS Corner HUD text fits 732 ĐI THẲNG · đi theo tuyến đã ghi
+PASS Corner HUD text fits 732 Dừng chỉ đường
+PASS Corner HUD text fits 732 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Previously blank world-grid gap now has a visible arrow
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 0.4
+PASS Corner HUD text fits 732 Chỉ đường · A → B
+PASS Corner HUD text fits 732 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 732 ‹
+PASS Corner HUD text fits 732 B · còn ~5.4 m
+PASS Corner HUD text fits 732 ĐI THẲNG · Ngẩng máy nhẹ để thấy đường phía trước.
+PASS Corner HUD text fits 732 Dừng chỉ đường
+PASS Corner HUD text fits 732 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Hidden world arrow explains why while footer cue remains visible
+PASS Tracking/caution gate hides footer cue too
+PASS Physically traversing corner advances to adjacent leg without losing guidance
+PASS After turn the world cue follows recorded next leg, not previous corner
+PASS Screen instruction returns to straight after completing actual turn
+PASS Corner fixture aligns
+PASS Normal corner approach retains safe guidance 1
+PASS Corner approach always has a route-based candidate 1
+PASS Candidate never jumps to a future branch or shortcut
+PASS Cue changes to actual next leg only near recorded corner
+PASS Onscreen arrow conveys actual left/right maneuver
+PASS Visible footer cue survives offscreen/too-close AR at 1
+PASS Corner HUD text fits 915 Chỉ đường · A → B
+PASS Corner HUD text fits 915 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 915 ‹
+PASS Corner HUD text fits 915 B · còn ~4.8 m
+PASS Corner HUD text fits 915 ĐI THẲNG · đi theo tuyến đã ghi
+PASS Corner HUD text fits 915 Dừng chỉ đường
+PASS Corner HUD text fits 915 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Previously blank world-grid gap now has a visible arrow
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 1
+PASS Corner HUD text fits 915 Chỉ đường · A → B
+PASS Corner HUD text fits 915 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 915 ‹
+PASS Corner HUD text fits 915 B · còn ~4.8 m
+PASS Corner HUD text fits 915 ĐI THẲNG · đi theo tuyến đã ghi
+PASS Corner HUD text fits 915 Dừng chỉ đường
+PASS Corner HUD text fits 915 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 1
+PASS Corner HUD text fits 732 Chỉ đường · A → B
+PASS Corner HUD text fits 732 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 732 ‹
+PASS Corner HUD text fits 732 B · còn ~4.8 m
+PASS Corner HUD text fits 732 ĐI THẲNG · đi theo tuyến đã ghi
+PASS Corner HUD text fits 732 Dừng chỉ đường
+PASS Corner HUD text fits 732 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Previously blank world-grid gap now has a visible arrow
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 1
+PASS Corner HUD text fits 732 Chỉ đường · A → B
+PASS Corner HUD text fits 732 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 732 ‹
+PASS Corner HUD text fits 732 B · còn ~4.8 m
+PASS Corner HUD text fits 732 ĐI THẲNG · đi theo tuyến đã ghi
+PASS Corner HUD text fits 732 Dừng chỉ đường
+PASS Corner HUD text fits 732 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Tracking/caution gate hides footer cue too
+PASS Physically traversing corner advances to adjacent leg without losing guidance
+PASS After turn the world cue follows recorded next leg, not previous corner
+PASS Screen instruction returns to straight after completing actual turn
+PASS Corner fixture aligns
+PASS Normal corner approach retains safe guidance 1.6
+PASS Corner approach always has a route-based candidate 1.6
+PASS Candidate never jumps to a future branch or shortcut
+PASS Cue changes to actual next leg only near recorded corner
+PASS Onscreen arrow conveys actual left/right maneuver
+PASS Instruction agrees with turn arrow
+PASS Looking around a real corner does not flip instruction back towards previous leg
+PASS Visible footer cue survives offscreen/too-close AR at 1.6
+PASS Corner HUD text fits 915 Chỉ đường · A → B
+PASS Corner HUD text fits 915 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 915 ‹
+PASS Corner HUD text fits 915 B · còn ~4.2 m
+PASS Corner HUD text fits 915 Rẽ phải sau ~1.2 m · Theo hướng rẽ trên thẻ dưới; mũi tên AR ở góc có thể nằm ngoài camera.
+PASS Corner HUD text fits 915 Dừng chỉ đường
+PASS Corner HUD text fits 915 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Hidden world arrow explains why while footer cue remains visible
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 1.6
+PASS Corner HUD text fits 915 Chỉ đường · A → B
+PASS Corner HUD text fits 915 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 915 ‹
+PASS Corner HUD text fits 915 B · còn ~4.2 m
+PASS Corner HUD text fits 915 Rẽ phải sau ~1.2 m · đi theo tuyến đã ghi
+PASS Corner HUD text fits 915 Dừng chỉ đường
+PASS Corner HUD text fits 915 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Looking at actual corner shows a real AR turn cue, not just screen fallback
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 1.6
+PASS Corner HUD text fits 732 Chỉ đường · A → B
+PASS Corner HUD text fits 732 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 732 ‹
+PASS Corner HUD text fits 732 B · còn ~4.2 m
+PASS Corner HUD text fits 732 Rẽ phải sau ~1.2 m · Theo hướng rẽ trên thẻ dưới; mũi tên AR ở góc có thể nằm ngoài camera.
+PASS Corner HUD text fits 732 Dừng chỉ đường
+PASS Corner HUD text fits 732 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Hidden world arrow explains why while footer cue remains visible
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 1.6
+PASS Corner HUD text fits 732 Chỉ đường · A → B
+PASS Corner HUD text fits 732 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 732 ‹
+PASS Corner HUD text fits 732 B · còn ~4.2 m
+PASS Corner HUD text fits 732 Rẽ phải sau ~1.2 m · đi theo tuyến đã ghi
+PASS Corner HUD text fits 732 Dừng chỉ đường
+PASS Corner HUD text fits 732 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Looking at actual corner shows a real AR turn cue, not just screen fallback
+PASS Tracking/caution gate hides footer cue too
+PASS Physically traversing corner advances to adjacent leg without losing guidance
+PASS After turn the world cue follows recorded next leg, not previous corner
+PASS Screen instruction returns to straight after completing actual turn
+PASS Corner fixture aligns
+PASS Normal corner approach retains safe guidance 2.1
+PASS Corner approach always has a route-based candidate 2.1
+PASS Candidate never jumps to a future branch or shortcut
+PASS Cue changes to actual next leg only near recorded corner
+PASS Onscreen arrow conveys actual left/right maneuver
+PASS Instruction agrees with turn arrow
+PASS Looking around a real corner does not flip instruction back towards previous leg
+PASS Visible footer cue survives offscreen/too-close AR at 2.1
+PASS Corner HUD text fits 915 Chỉ đường · A → B
+PASS Corner HUD text fits 915 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 915 ‹
+PASS Corner HUD text fits 915 B · còn ~3.7 m
+PASS Corner HUD text fits 915 Rẽ phải sau ~0.7 m · Theo hướng rẽ trên thẻ dưới; mũi tên AR ở góc có thể nằm ngoài camera.
+PASS Corner HUD text fits 915 Dừng chỉ đường
+PASS Corner HUD text fits 915 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Hidden world arrow explains why while footer cue remains visible
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 2.1
+PASS Corner HUD text fits 915 Chỉ đường · A → B
+PASS Corner HUD text fits 915 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 915 ‹
+PASS Corner HUD text fits 915 B · còn ~3.7 m
+PASS Corner HUD text fits 915 Rẽ phải sau ~0.7 m · đi theo tuyến đã ghi
+PASS Corner HUD text fits 915 Dừng chỉ đường
+PASS Corner HUD text fits 915 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Looking at actual corner shows a real AR turn cue, not just screen fallback
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 2.1
+PASS Corner HUD text fits 732 Chỉ đường · A → B
+PASS Corner HUD text fits 732 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 732 ‹
+PASS Corner HUD text fits 732 B · còn ~3.7 m
+PASS Corner HUD text fits 732 Rẽ phải sau ~0.7 m · Theo hướng rẽ trên thẻ dưới; mũi tên AR ở góc có thể nằm ngoài camera.
+PASS Corner HUD text fits 732 Dừng chỉ đường
+PASS Corner HUD text fits 732 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Hidden world arrow explains why while footer cue remains visible
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 2.1
+PASS Corner HUD text fits 732 Chỉ đường · A → B
+PASS Corner HUD text fits 732 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 732 ‹
+PASS Corner HUD text fits 732 B · còn ~3.7 m
+PASS Corner HUD text fits 732 Rẽ phải sau ~0.7 m · đi theo tuyến đã ghi
+PASS Corner HUD text fits 732 Dừng chỉ đường
+PASS Corner HUD text fits 732 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Looking at actual corner shows a real AR turn cue, not just screen fallback
+PASS Tracking/caution gate hides footer cue too
+PASS Physically traversing corner advances to adjacent leg without losing guidance
+PASS After turn the world cue follows recorded next leg, not previous corner
+PASS Screen instruction returns to straight after completing actual turn
+PASS Corner fixture aligns
+PASS Normal corner approach retains safe guidance 2.5
+PASS Corner approach always has a route-based candidate 2.5
+PASS Candidate never jumps to a future branch or shortcut
+PASS Cue changes to actual next leg only near recorded corner
+PASS Onscreen arrow conveys actual left/right maneuver
+PASS Instruction agrees with turn arrow
+PASS Looking around a real corner does not flip instruction back towards previous leg
+PASS Visible footer cue survives offscreen/too-close AR at 2.5
+PASS Corner HUD text fits 915 Chỉ đường · A → B
+PASS Corner HUD text fits 915 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 915 ‹
+PASS Corner HUD text fits 915 B · còn ~3.3 m
+PASS Corner HUD text fits 915 Rẽ phải tại góc đã ghi · Theo hướng rẽ trên thẻ dưới; mũi tên AR ở góc có thể nằm ngoài camera.
+PASS Corner HUD text fits 915 Dừng chỉ đường
+PASS Corner HUD text fits 915 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Hidden world arrow explains why while footer cue remains visible
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 2.5
+PASS Corner HUD text fits 915 Chỉ đường · A → B
+PASS Corner HUD text fits 915 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 915 ‹
+PASS Corner HUD text fits 915 B · còn ~3.3 m
+PASS Corner HUD text fits 915 Rẽ phải tại góc đã ghi · Theo hướng rẽ trên thẻ dưới; mũi tên AR ở góc có thể nằm ngoài camera.
+PASS Corner HUD text fits 915 Dừng chỉ đường
+PASS Corner HUD text fits 915 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Hidden world arrow explains why while footer cue remains visible
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 2.5
+PASS Corner HUD text fits 732 Chỉ đường · A → B
+PASS Corner HUD text fits 732 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 732 ‹
+PASS Corner HUD text fits 732 B · còn ~3.3 m
+PASS Corner HUD text fits 732 Rẽ phải tại góc đã ghi · Theo hướng rẽ trên thẻ dưới; mũi tên AR ở góc có thể nằm ngoài camera.
+PASS Corner HUD text fits 732 Dừng chỉ đường
+PASS Corner HUD text fits 732 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Hidden world arrow explains why while footer cue remains visible
+PASS Tracking/caution gate hides footer cue too
+PASS Visible footer cue survives offscreen/too-close AR at 2.5
+PASS Corner HUD text fits 732 Chỉ đường · A → B
+PASS Corner HUD text fits 732 Mô phỏng Editor · v0.3.5
+PASS Corner HUD text fits 732 ‹
+PASS Corner HUD text fits 732 B · còn ~3.3 m
+PASS Corner HUD text fits 732 Rẽ phải tại góc đã ghi · Theo hướng rẽ trên thẻ dưới; mũi tên AR ở góc có thể nằm ngoài camera.
+PASS Corner HUD text fits 732 Dừng chỉ đường
+PASS Corner HUD text fits 732 Quan sát lối đi thật · không phát hiện vật cản
+PASS Short-room corner never floods camera with arrows
+PASS Hidden world arrow explains why while footer cue remains visible
+PASS Tracking/caution gate hides footer cue too
+PASS Physically traversing corner advances to adjacent leg without losing guidance
+PASS After turn the world cue follows recorded next leg, not previous corner
+PASS Screen instruction returns to straight after completing actual turn

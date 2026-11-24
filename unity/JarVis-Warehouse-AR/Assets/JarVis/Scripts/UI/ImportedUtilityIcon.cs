@@ -8,13 +8,14 @@ namespace JarVis.Warehouse.UI
     public sealed class ImportedUtilityIcon : MaskableGraphic
     {
         public string symbol;
+        public float strokeWidth = 1.7f;
         protected override void OnPopulateMesh(VertexHelper vh)
         {
             vh.Clear();var r=rectTransform.rect;float scale=Mathf.Min(r.width,r.height)/24f;
             Vector2 P(float x,float y)=>r.center+new Vector2(x-12,12-y)*scale;
             void L(float x,float y,float a,float b)
             {
-                var p=P(x,y);var q=P(a,b);var n=new Vector2(-(q-p).y,(q-p).x).normalized*scale*.85f;
+                var p=P(x,y);var q=P(a,b);var n=new Vector2(-(q-p).y,(q-p).x).normalized*scale*Mathf.Clamp(strokeWidth,1,3)/2;
                 int i=vh.currentVertCount;vh.AddVert(p-n,color,Vector2.zero);vh.AddVert(p+n,color,Vector2.zero);vh.AddVert(q+n,color,Vector2.zero);vh.AddVert(q-n,color,Vector2.zero);
                 vh.AddTriangle(i,i+1,i+2);vh.AddTriangle(i,i+2,i+3);
             }
@@ -23,6 +24,7 @@ namespace JarVis.Warehouse.UI
             void A(float x,float y,float radius,float start,float end){for(int i=0;i<16;i++){float a=Mathf.Lerp(start,end,i/16f)*Mathf.Deg2Rad,b=Mathf.Lerp(start,end,(i+1)/16f)*Mathf.Deg2Rad;L(x+Mathf.Cos(a)*radius,y+Mathf.Sin(a)*radius,x+Mathf.Cos(b)*radius,y+Mathf.Sin(b)*radius);}}
             switch(symbol)
             {
+                case "refresh-arrows": A(12,12,8,205,350);L(20,6,20,11);L(20,11,15,11);A(12,12,8,25,170);L(4,18,4,13);L(4,13,9,13);break;
                 case "qr-code": L(3,8,3,3);L(3,3,8,3);L(16,3,21,3);L(21,3,21,8);L(21,16,21,21);L(21,21,16,21);L(8,21,3,21);L(3,21,3,16);R(7,7,3,3);R(14,7,3,3);R(7,14,3,3);L(14,14,17,14);L(17,14,17,17);L(14,17,14,18);break;
                 case "bell": A(12,9,6,180,360);L(6,9,6,14);L(6,14,4,17);A(5,17,1,90,180);L(5,18,19,18);A(19,17,1,0,90);L(20,17,18,14);L(18,14,18,9);A(12,20,2,0,180);L(12,1,12,3);break;
                 case "power": A(12,13,8,220,500);L(12,2,12,12);break;

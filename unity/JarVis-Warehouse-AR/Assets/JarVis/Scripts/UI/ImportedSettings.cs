@@ -38,14 +38,13 @@ namespace JarVis.Warehouse.UI
             var shell=PrototypeUi.Shell(root.transform,font,E("Cài đặt","Settings"),Dark,()=>nav.Show("prototype:profile"),()=>nav.Show("prototype:tools"),out var content);prototypeMain=shell.gameObject;
             var card=PrototypeUi.Panel(content,"Appearance and account",0,0,366,368,Dark);
             PrototypeUi.Text(card,font,E("Cỡ chữ","Text size"),20,20,220,24,14,Dark,true);
-            var size=PrototypeUi.Text(card,font,(en?new[]{"Small","Medium","Large"}:new[]{"Nhỏ","Vừa","Lớn"})[PlayerPrefs.GetInt("JarVis.TextSize",1)],245,20,100,24,12,Dark,true);size.alignment=TextAlignmentOptions.TopRight;size.color=PrototypeUi.Accent;
             CreateSizeSlider(card,33,48,300);
             foreach(var item in new[]{new[]{E("Nhỏ","Small"),"20"},new[]{E("Vừa","Medium"),"155"},new[]{E("Lớn","Large"),"290"}})PrototypeUi.Text(card,font,item[0],int.Parse(item[1]),95,55,24,11,Dark,false,true);
-            PrototypeUi.Text(card,font,E("Chế độ buổi tối","Dark mode"),20,144,235,28,14,Dark,true);PrototypeUi.Text(card,font,E("Giao diện tối, dịu mắt","A calmer dark appearance"),20,175,235,26,11,Dark,false,true);CreateThemeSwitch(card,260,142);
+            PrototypeUi.Text(card,font,E("Chế độ buổi tối","Dark mode"),20,144,235,28,14,Dark,true);PrototypeUi.Text(card,font,E("Giao diện tối, dịu mắt","A calmer dark appearance"),20,175,235,26,11,Dark,false,true);CreateThemeSwitch(card,288,134);
             var language=JarVisUi.Rect(card,"Language",20,226,326,48);PrototypeUi.Button(language,()=>Open("language"));PrototypeUi.Text(language,font,E("Ngôn ngữ","Language"),0,10,170,28,14,Dark);
             PrototypeUi.Text(language,font,en?"English":"Tiếng Việt",186,10,110,28,12,Dark,false,true);PrototypeUi.Icon(language,"chevron",308,14,16,PrototypeUi.Muted(Dark));
             var password=JarVisUi.Rect(card,"Change password",20,300,326,48);PrototypeUi.Button(password,()=>Open("password"));PrototypeUi.Text(password,font,E("Đổi mật khẩu","Change password"),0,10,270,28,14,Dark);PrototypeUi.Icon(password,"chevron",308,14,16,PrototypeUi.Muted(Dark));
-            PrototypeUi.Text(content,font,E("Hiển thị & chuyển động","Display & motion"),0,395,366,35,19,Dark,true);
+            PrototypeUi.Text(content,font,E("Hiển thị & chuyển động","Display & motion"),20,395,326,24,14,Dark,true);
             var preferences=PrototypeUi.Panel(content,"Motion and transparency",0,424,366,185,Dark);
             Preference(preferences,E("Giảm hiệu ứng kính","Reduce transparency"),E("Ưu tiên nền đặc, dễ đọc","Prefer solid, readable surfaces"),"JarVis.ReduceGlass",16);
             Preference(preferences,E("Giảm chuyển động","Reduce motion"),E("Giữ phản hồi không dùng animation","Feedback without animation"),"JarVis.ReduceMotion",96);
@@ -54,12 +53,11 @@ namespace JarVis.Warehouse.UI
         }
         void Preference(Transform parent,string title,string subtitle,string preference,float y)
         {
-            PrototypeUi.Text(parent,font,title,20,y,246,30,13,Dark);PrototypeUi.Text(parent,font,subtitle,20,y+31,246,30,11,Dark,false,true);
-            bool active=PlayerPrefs.GetInt(preference,0)==1;var toggle=PrototypeUi.Panel(parent,title,287,y+10,58,34,Dark,17,active?"1255d5":Dark?"35445b":"dce5f0","00000000",true);
-            var thumb=PrototypeUi.Panel(toggle,"Thumb",active?27:3,3,28,28,Dark,14,"ffffff","dce5f0",true);
-            PrototypeUi.Button(toggle,()=>{PlayerPrefs.SetInt(preference,active?0:1);PlayerPrefs.Save();BuildPrototypeMain();});
+            PrototypeUi.Text(parent,font,title,20,y,246,30,14,Dark,true);PrototypeUi.Text(parent,font,subtitle,20,y+31,246,30,11,Dark,false,true);
+            CreateSwitch(parent,title,288,y-9,()=>PlayerPrefs.GetInt(preference,0)==1,()=>{PlayerPrefs.SetInt(preference,PlayerPrefs.GetInt(preference,0)==1?0:1);PlayerPrefs.Save();BuildPrototypeMain();});
         }
-        public bool Dark => Theme=="dark"||(Theme=="system"&&DeviceDark());
+        public static bool CurrentDark {get{string theme=PlayerPrefs.GetString("JarVis.Theme","light");return theme=="dark"||(theme=="system"&&DeviceDark());}}
+        public bool Dark => CurrentDark;
         Color Surface=>Dark?new Color(.07f,.1f,.16f):Color.white;
         Color Ink=>Dark?new Color(.9f,.94f,1):new Color(.09f,.16f,.28f);
         Color Card=>Dark?new Color(.13f,.18f,.27f):new Color(.95f,.97f,1);
@@ -167,9 +165,15 @@ namespace JarVis.Warehouse.UI
         }
         void CreateThemeSwitch(Transform parent,float x,float y)
         {
-            var root=Rect("Glass dark-mode switch",parent,x+16,y,60,48);var hit=root.gameObject.AddComponent<Image>();hit.color=new Color(1,1,1,.001f);var bg=Rect("Glass switch track",root,0,10,60,28).gameObject.AddComponent<Image>();bg.color=Card;bg.raycastTarget=false;UniformUiSurface.Use(bg,14,Color.white,new Color(.35f,.65f,1,.6f),1,true,false);
-            var thumb=Rect("Glass toggle thumb",root,2,12,24,24).gameObject.AddComponent<Image>();thumb.color=Color.white;UniformUiSurface.Use(thumb,12,Color.white,new Color(.35f,.65f,1,.65f),1,true,false);
-            var button=root.gameObject.AddComponent<Button>();button.targetGraphic=hit;button.transition=Selectable.Transition.None;button.onClick.AddListener(()=>SelectTheme(Dark?"light":"dark"));root.gameObject.AddComponent<UiGlassBackdrop>();root.gameObject.AddComponent<ThemeSwitchMotion>().Configure(this,thumb.rectTransform,bg);
+            CreateSwitch(parent,"Dark mode switch",x,y,()=>Dark,()=>SelectTheme(Dark?"light":"dark"));
+        }
+        void CreateSwitch(Transform parent,string name,float x,float y,Func<bool> value,Action changed)
+        {
+            var root=Rect(name,parent,x,y,58,48);var hit=root.gameObject.AddComponent<Image>();hit.color=new Color(1,1,1,.001f);
+            var track=Rect("Switch track",root,0,8,58,32).gameObject.AddComponent<Image>();track.raycastTarget=false;UniformUiSurface.Use(track,16,Color.white,Color.clear,0,false,false);
+            var thumb=Rect("Switch thumb",root,value()?29:3,11,26,26).gameObject.AddComponent<Image>();thumb.raycastTarget=false;UniformUiSurface.Use(thumb,13,Color.white,Color.clear,0,false,false);
+            var button=root.gameObject.AddComponent<Button>();button.targetGraphic=hit;button.transition=Selectable.Transition.None;button.onClick.AddListener(()=>changed());
+            root.gameObject.AddComponent<ThemeSwitchMotion>().Configure(value,()=>Dark,thumb.rectTransform,track);
         }
         void ApplyInputSizes(){foreach(var entry in inputSizes)if(entry.Key!=null)entry.Key.fontSize=entry.Value*TextScale;}
         public void SelectTheme(string value){if(value!="light"&&value!="dark"&&value!="system")return;PlayerPrefs.SetString("JarVis.Theme",value);PlayerPrefs.Save();ApplyTheme();RefreshRows();if(page=="theme")Open("theme");}
@@ -235,6 +239,22 @@ namespace JarVis.Warehouse.UI
             bool dark=Dark;
             if(!force&&lastTheme==dark)return;
             lastTheme=dark;
+            // Paint outside the fitted safe viewport without stretching any imported controls.
+            var canvas=nav.GetComponentInParent<Canvas>();
+            if(canvas!=null)
+            {
+                var existing=canvas.transform.Find("JarVis full screen backdrop");
+                Image backdrop;
+                if(existing==null)
+                {
+                    var go=new GameObject("JarVis full screen backdrop",typeof(RectTransform),typeof(Image),typeof(UiColourOwner));
+                    var rect=(RectTransform)go.transform;rect.SetParent(canvas.transform,false);rect.SetAsFirstSibling();
+                    rect.anchorMin=Vector2.zero;rect.anchorMax=Vector2.one;rect.offsetMin=rect.offsetMax=Vector2.zero;
+                    backdrop=go.GetComponent<Image>();backdrop.raycastTarget=false;
+                }
+                else backdrop=existing.GetComponent<Image>();
+                backdrop.color=dark?new Color(.07f,.1f,.16f):Color.white;
+            }
             foreach(var graphic in nav.transform.GetComponentsInChildren<Graphic>(false))
             {
                 if(graphic.GetComponent<UiColourOwner>()!=null)continue;

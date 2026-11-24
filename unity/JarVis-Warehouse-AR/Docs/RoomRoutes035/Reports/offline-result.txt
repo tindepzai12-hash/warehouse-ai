@@ -1,0 +1,3 @@
+PASS 150 assertions
+UTC=2026-10-24T11:18:58.5970348Z
+Synthetic/offline only. NOT a physical ARCore/camera acceptance test.

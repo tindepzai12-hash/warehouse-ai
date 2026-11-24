@@ -1,0 +1,59 @@
+{
+    "mapId": "lab-owner-approved-20261106",
+    "mapSha256": "5ba0fbec4e609b6ae4ba010c481dfe7f761d6d6f9bc4d4f2ae21fbcd88190cad",
+    "revision": 2,
+    "agentTypeId": 0,
+    "bodyRadius": 0.25,
+    "arrivals": [
+        {
+            "id": "A",
+            "approachEvidence": "Approved 2D layout: below computer desk; clearance checked; physical acceptance pending",
+            "position": {
+                "x": -5.920000076293945,
+                "y": 0.0,
+                "z": 2.4700000286102297
+            },
+            "physicalVerified": false
+        },
+        {
+            "id": "B",
+            "approachEvidence": "Approved 2D layout: inside room to left of wall table; clearance checked; physical acceptance pending",
+            "position": {
+                "x": 7.680562973022461,
+                "y": 0.0,
+                "z": 0.6014044284820557
+            },
+            "physicalVerified": false
+        },
+        {
+            "id": "C",
+            "approachEvidence": "Approved 2D layout: inside room to left of wall table; clearance checked; physical acceptance pending",
+            "position": {
+                "x": 6.470277309417725,
+                "y": 0.0,
+                "z": -4.469000816345215
+            },
+            "physicalVerified": false
+        },
+        {
+            "id": "D",
+            "approachEvidence": "Approved 2D layout: above lower table row; clearance checked; physical acceptance pending",
+            "position": {
+                "x": 1.891454815864563,
+                "y": 0.0,
+                "z": -3.3499233722686769
+            },
+            "physicalVerified": false
+        },
+        {
+            "id": "E",
+            "approachEvidence": "Approved 2D layout: inside room beside TV equipment; clearance checked; physical acceptance pending",
+            "position": {
+                "x": -7.350753307342529,
+                "y": 0.0,
+                "z": -1.7052088975906373
+            },
+            "physicalVerified": false
+        }
+    ]
+}

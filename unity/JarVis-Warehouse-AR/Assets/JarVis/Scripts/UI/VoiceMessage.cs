@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using UnityEngine;
 
@@ -13,6 +13,16 @@ namespace JarVis.Warehouse.UI
         public string AudioPath { get; private set; }
         public float Duration { get; private set; }
         public float[] Waveform { get; private set; }
+        // Bound once at submission; retries must not read the mutable photo composer.
+        public byte[] AttachedPhoto { get; private set; }
+        bool attachmentCaptured;
+        public void CapturePhoto(byte[] photo)
+        {
+            if (Disposed) throw new ObjectDisposedException(nameof(VoiceMessage));
+            if (attachmentCaptured) throw new InvalidOperationException("Voice attachment already captured");
+            AttachedPhoto = photo == null ? null : (byte[])photo.Clone();
+            attachmentCaptured = true;
+        }
         public string Transcript { get; set; }
         public string Error { get; set; }
         public bool Retryable { get; set; }
@@ -41,6 +51,7 @@ namespace JarVis.Warehouse.UI
             catch (UnauthorizedAccessException) { }
             AudioPath = null;
             Waveform = null;
+            AttachedPhoto = null;
         }
     }
 

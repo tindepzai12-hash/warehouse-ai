@@ -18,6 +18,7 @@ namespace JarVis.Warehouse.UI
         OmsMobileApi.InventoryRow[] stockRows=Array.Empty<OmsMobileApi.InventoryRow>();
         readonly List<Button> chips=new List<Button>();int selected,generation;
         string presentation;GameObject detail;bool configured;float selectedAt=-10;
+        string sessionUrl,sessionToken,sessionEmployee;bool loadFailed;
         bool En=>ImportedAppLocalization.IsEnglish;
         string T(string vi,string en)=>En?en:vi;
         public void Configure(ImportedFigmaNavigation owner,bool isTasks)
@@ -30,6 +31,7 @@ namespace JarVis.Warehouse.UI
         void OnDisable(){generation++;StopAllCoroutines();busy=false;if(detail!=null){detail.SetActive(false);Destroy(detail);detail=null;}}
         void Update()
         {
+            if(configured&&SynchronizeSession()){Render();if(OmsMobileSession.IsReady)StartCoroutine(Load());}
             string next=(En?"en":"vi")+ImportedSettings.TextScale+nav.Settings.Dark;
             if(configured&&presentation!=next&&!busy){Build();Render();nav.Settings.ApplyTheme();}
             for(int i=0;i<chips.Count;i++)
@@ -41,6 +43,21 @@ namespace JarVis.Warehouse.UI
                 rect.anchoredPosition=new Vector2(x-(scale-1)*rect.rect.width*.5f,-2+(scale-1)*24);
             }
         }
+        bool SynchronizeSession()
+        {
+            string token=OmsMobileSession.IsReady?OmsMobileSession.AccessToken:null;
+            string url=OmsMobileSession.IsReady?OmsMobileSession.BaseUrl:null;
+            string employee=OmsMobileSession.IsReady?OmsMobileSession.EmployeeCode:null;
+            if(sessionToken==token&&sessionUrl==url&&sessionEmployee==employee)return false;
+            generation++;busy=false;hasData=false;loadFailed=false;selected=0;
+            taskRows=Array.Empty<OmsMobileApi.TaskRow>();stockRows=Array.Empty<OmsMobileApi.InventoryRow>();
+            if(search!=null)search.SetTextWithoutNotify("");CloseDetail();
+            sessionToken=token;sessionUrl=url;sessionEmployee=employee;return true;
+        }
+        bool CurrentRequest(int version)=>version==generation&&OmsMobileSession.IsReady&&sessionToken==OmsMobileSession.AccessToken&&sessionUrl==OmsMobileSession.BaseUrl&&sessionEmployee==OmsMobileSession.EmployeeCode;
+        bool MatchesFilter(OmsMobileApi.TaskRow row,int filter)=>filter==0||filter==1&&(row.status=="ACCEPTED"||row.status=="IN_PROGRESS"||row.status=="BLOCKED")||filter==2&&row.status=="ASSIGNED"||filter==3&&row.status=="COMPLETED";
+        string ReloadLabel=>OmsMobileSession.IsReady?T("Tải lại","Refresh"):T("Đăng nhập","Sign in");
+        void ReloadOrSignIn(){if(OmsMobileSession.IsReady)StartCoroutine(Load());else nav.Show("5:36");}
         void Build()
         {
             presentation=(En?"en":"vi")+ImportedSettings.TextScale+nav.Settings.Dark;
@@ -49,12 +66,12 @@ namespace JarVis.Warehouse.UI
             PrototypeUi.Text(page,font,tasks?T("Nhiệm vụ","Tasks"):T("Tra tồn kho","Check inventory"),80,65,250,44,20,nav.Settings.Dark,true).alignment=TextAlignmentOptions.Midline;
             var back=JarVisUi.Rect(page,"Back",23,65,44,44);PrototypeUi.Button(back,nav.Back);PrototypeUi.Icon(back,"back",10,10,24,PrototypeUi.Ink(nav.Settings.Dark));
             var plus=JarVisUi.Rect(page,"Tools plus",345,65,44,44);PrototypeUi.Button(plus,()=>nav.Show("prototype:tools"));PrototypeUi.Icon(plus,"plus",10,10,24,PrototypeUi.Ink(nav.Settings.Dark));
-            feedback=PrototypeUi.Text(page,font,"",23,tasks?190:220,366,58,12,nav.Settings.Dark,false,true);
+            feedback=PrototypeUi.Text(page,font,"",23,tasks?190:220,366,tasks?58:28,12,nav.Settings.Dark,false,true);
             if(tasks)
             {
                 JarVisUi.Scroll(page,23,130,366,54,out filters,true);float[] widths={96,112,106,112};float x=0;
                 for(int i=0;i<4;i++){int choice=i;var rect=PrototypeUi.Panel(filters,"Task filter "+i,x,4,widths[i],38,nav.Settings.Dark,14,null,null,true);var button=PrototypeUi.Button(rect,()=>{selected=choice;selectedAt=Time.unscaledTime;Render();});var label=PrototypeUi.Text(rect,font,"",8,0,widths[i]-16,38,11,nav.Settings.Dark);label.alignment=TextAlignmentOptions.Center;chips.Add(button);x+=widths[i]+8;}
-                filters.sizeDelta=new Vector2(x-8,54);JarVisUi.Scroll(page,23,204,366,598,out content);
+                filters.sizeDelta=new Vector2(x-8,54);JarVisUi.Scroll(page,23,252,366,550,out content);
             }
             else
             {
@@ -64,22 +81,26 @@ namespace JarVis.Warehouse.UI
                 var value=PrototypeUi.Text(textArea,font,"",0,0,304,48,14,nav.Settings.Dark);value.alignment=TextAlignmentOptions.MidlineLeft;
                 var hint=PrototypeUi.Text(textArea,font,T("Tìm hàng hóa trong kho…","Search warehouse stock…"),0,0,304,48,13,nav.Settings.Dark,false,true);hint.alignment=TextAlignmentOptions.MidlineLeft;
                 string draft=search!=null?search.text:"";search=box.gameObject.AddComponent<TMP_InputField>();search.textComponent=value;search.placeholder=hint;search.textViewport=textArea;search.targetGraphic=box.GetComponent<Image>();search.targetGraphic.raycastTarget=true;search.characterLimit=200;search.lineType=TMP_InputField.LineType.SingleLine;search.text=draft;search.onSubmit.AddListener(_=>StartCoroutine(Load()));box.gameObject.AddComponent<ImportedInputCaretRepair>().Configure(search);
-                JarVisUi.Scroll(page,23,240,366,568,out content);
+                JarVisUi.Scroll(page,23,252,366,556,out content);
             }
         }
         IEnumerator Load()
         {
+            SynchronizeSession();
+            if(!tasks){busy=false;loadFailed=false;stockRows=Array.Empty<OmsMobileApi.InventoryRow>();Render();yield break;}
             if(!OmsMobileSession.IsReady)
             {
+                taskRows=Array.Empty<OmsMobileApi.TaskRow>();stockRows=Array.Empty<OmsMobileApi.InventoryRow>();hasData=false;
                 Render();feedback.text=T("Đăng nhập để xem dữ liệu kho của bạn.","Sign in to view your warehouse data.");yield break;
             }
-            if(busy)yield break;busy=true;int version=generation;
+            if(busy)yield break;busy=true;loadFailed=false;int version=generation;
             feedback.text=T("Đang tải dữ liệu kho…","Loading warehouse data…");
             string error=null;
-            if(tasks)yield return OmsMobileApi.GetTasks(r=>{taskRows=r.tasks??Array.Empty<OmsMobileApi.TaskRow>();hasData=true;},e=>error=e);
-            else if(!string.IsNullOrWhiteSpace(search.text))yield return OmsMobileApi.SearchInventory(search.text.Trim(),r=>{stockRows=r.items??Array.Empty<OmsMobileApi.InventoryRow>();hasData=true;},e=>error=e);
-            else yield return OmsMobileApi.GetInventory(r=>{stockRows=r.items??Array.Empty<OmsMobileApi.InventoryRow>();hasData=true;},e=>error=e);
-            if(version!=generation)yield break;busy=false;Render();
+            if(tasks)yield return OmsMobileApi.GetTasks(r=>{if(!CurrentRequest(version))return;taskRows=r.tasks??Array.Empty<OmsMobileApi.TaskRow>();hasData=true;},e=>error=e);
+            else if(!string.IsNullOrWhiteSpace(search.text))yield return OmsMobileApi.SearchInventory(search.text.Trim(),r=>{if(!CurrentRequest(version))return;stockRows=r.items??Array.Empty<OmsMobileApi.InventoryRow>();hasData=true;},e=>error=e);
+            else yield return OmsMobileApi.GetInventory(r=>{if(!CurrentRequest(version))return;stockRows=r.items??Array.Empty<OmsMobileApi.InventoryRow>();hasData=true;},e=>error=e);
+            if(version!=generation)yield break;
+            if(!CurrentRequest(version)){SynchronizeSession();Render();yield break;}busy=false;loadFailed=error!=null;Render();
             if(error!=null)feedback.text=!OmsMobileSession.IsReady?T("Đăng nhập để xem dữ liệu kho của bạn.","Sign in to view your warehouse data."):
                 OmsMobileSession.EmployeeCode=="admin"?T("Tài khoản admin quản lý dữ liệu trên web. App dành cho nhân viên kho.","Admin manages data on the web. This workspace is for warehouse employees."):
                 T("Chưa tải được dữ liệu. Kiểm tra kết nối và thử lại.","Couldn't load data. Check your connection and retry.");
@@ -89,18 +110,27 @@ namespace JarVis.Warehouse.UI
         void Render()
         {
             ClearContent();float y=0;
+            if(tasks&&(selected==0||selected==1&&!RoompresentDeliveryMission.Current.Complete||selected==3&&RoompresentDeliveryMission.Current.Complete)){RoompresentDeliveryMission.Card(content,font,nav,y);y+=RoompresentDeliveryMission.CardHeight+16;}
             if(tasks)
             {
-                string[] keys={null,"IN_PROGRESS","ASSIGNED","COMPLETED"};string[] names={T("Tất cả","All"),T("Đang làm","Working"),T("Đã giao","Assigned"),T("Hoàn tất","Completed")};
-                for(int i=0;i<chips.Count;i++){int count=i==0?taskRows.Length:taskRows.Count(r=>r.status==keys[i]);var label=chips[i].GetComponentInChildren<TMP_Text>();label.text=names[i]+" ("+(hasData?count.ToString():"—")+")";label.color=i==selected?PrototypeUi.Accent:PrototypeUi.Ink(nav.Settings.Dark);
-                    UniformUiSurface.Use(chips[i].GetComponent<Image>(),14,i==selected?PrototypeUi.Hex(nav.Settings.Dark?"28446b":"e1ecff"):PrototypeUi.Surface(nav.Settings.Dark),PrototypeUi.Hex(nav.Settings.Dark?"6689b5":"a4bfe9"),1,true,false);}
-                var rows=taskRows.Where(r=>selected==0||r.status==keys[selected]).ToArray();
+                string[] names={T("Tất cả","All"),T("Đang làm","Working"),T("Đã giao","Assigned"),T("Hoàn tất","Completed")};
+                for(int i=0;i<chips.Count;i++){int count=taskRows.Count(r=>MatchesFilter(r,i))+(i==0||i==1&&!RoompresentDeliveryMission.Current.Complete||i==3&&RoompresentDeliveryMission.Current.Complete?1:0);var label=chips[i].GetComponentInChildren<TMP_Text>();label.text=names[i]+" ("+count.ToString()+")";bool dark=nav.Settings.Dark; bool active=i==selected;
+                    string[] fills=dark?new[]{"28446b","4b3d22","293c49","24463b"}:new[]{"e1ecff","fff3ce","eaf0f4","ddf5e8"};
+                    string[] inks=dark?new[]{"b8d4ff","ffe29a","d0e1ec","a7edc9"}:new[]{"174bb5","805c08","405c70","176444"};
+                    string[] edges=dark?new[]{"6689b5","a98640","638299","509575"}:new[]{"a4bfe9","e3c679","c2d1dd","9ed3b7"};
+                    label.color=PrototypeUi.Hex(inks[i]);label.fontStyle=active?FontStyles.Bold:FontStyles.Normal;
+                    UniformUiSurface.Use(chips[i].GetComponent<Image>(),14,i==0&&!active?PrototypeUi.Surface(dark):PrototypeUi.Hex(fills[i]),PrototypeUi.Hex(edges[i]),active?2:1,false,false);}
+                var rows=taskRows.Where(r=>MatchesFilter(r,selected)).ToArray();
                 feedback.text=rows.Length==0?T("Chưa có nhiệm vụ ở mục này. Nhiệm vụ quản lý giao sẽ xuất hiện tại đây.","No tasks in this view. Tasks assigned by your manager appear here."):T("Chọn nhiệm vụ để xem nội dung và cập nhật tiến độ.","Select a task to review its instructions and update progress.");
                 foreach(var row in rows)
                 {
                     var item=PrototypeUi.Panel(content,"Task "+row.task_code,0,y,366,122,nav.Settings.Dark);
                     PrototypeUi.Text(item,font,row.task_code,20,20,174,22,11,nav.Settings.Dark,false,true);
-                    var badge=PrototypeUi.Panel(item,"Status",210,16,136,25,nav.Settings.Dark,10,nav.Settings.Dark?"294875":"e7effb","00000000");var stateLabel=PrototypeUi.Text(badge,font,Status(row.status),6,0,124,25,10,nav.Settings.Dark);stateLabel.alignment=TextAlignmentOptions.Center;
+                    bool accepted=row.status=="ACCEPTED",working=row.status=="IN_PROGRESS",dark=nav.Settings.Dark;
+                    string statusFill=accepted?(dark?"214b3d":"dff4e5"):working?(dark?"493d22":"fff0c2"):(dark?"303b49":"edf0f3");
+                    string statusInk=accepted?(dark?"a0e9c1":"187340"):working?(dark?"f4d987":"8a5a00"):(dark?"ced6e1":"546170");
+                    var badge=PrototypeUi.Panel(item,"Status",210,16,136,25,dark,10,statusFill,"00000000");var stateLabel=PrototypeUi.Text(badge,font,Status(row.status),6,0,124,25,10,dark);stateLabel.alignment=TextAlignmentOptions.Center;
+                    stateLabel.gameObject.AddComponent<UiColourOwner>();stateLabel.color=PrototypeUi.Hex(statusInk);
                     PrototypeUi.Text(item,font,row.title,20,49,326,40,15,nav.Settings.Dark,true);
                     PrototypeUi.Text(item,font,row.locationCode+" · "+row.task_type,20,93,297,24,12,nav.Settings.Dark,false,true);PrototypeUi.Icon(item,"chevron",326,94,16,PrototypeUi.Muted(nav.Settings.Dark));
                     PrototypeUi.Button(item,()=>TaskDetail(row));y+=134;
@@ -108,7 +138,9 @@ namespace JarVis.Warehouse.UI
             }
             else
             {
+                y=JarvisLocalCatalogue.Cards(content,font,nav,search!=null?search.text:"");
                 feedback.text=stockRows.Length==0?T("Chưa có hàng hóa phù hợp. Quản lý nhập hàng và số dư trên web trước.","No matching stock. Your manager must enter products and opening balances on the web."):stockRows.Length+T(" vị trí tồn kho"," stock locations");
+                feedback.text=y>0?T("Danh mục 3 sản phẩm · mỗi mã số lượng 1","Three-product catalogue · quantity 1 each"):T("Không có sản phẩm khớp tìm kiếm.","No matching product.");
                 foreach(var row in stockRows){var item=PrototypeUi.Panel(content,"Stock "+row.sku,0,y,366,118.8f,nav.Settings.Dark);
                     PrototypeUi.Text(item,font,row.sku,20,20,230,24,12,nav.Settings.Dark,false,true);
                     var badge=PrototypeUi.Panel(item,"Available",245,18,101,25,nav.Settings.Dark,10,nav.Settings.Dark?"214b3d":"dbf3e8","00000000");
@@ -117,10 +149,15 @@ namespace JarVis.Warehouse.UI
                     PrototypeUi.Text(item,font,row.lotCode+" · "+row.locationCode,20,91,326,26,12,nav.Settings.Dark,false,true);
                     PrototypeUi.Button(item,()=>StockDetail(row));y+=130.8f;}
             }
-            if(y==0){JarVisUi.Icon(content,tasks?"tasks":"package",161,36,44);JarVisUi.Text(content,font,T("Dữ liệu được đồng bộ từ OMS","Data is synchronized from OMS"),16,98,334,48,15).alignment=TextAlignmentOptions.Center;
-                JarVisUi.Button(content,font,T("Tải lại","Refresh"),73,170,220,()=>StartCoroutine(Load()));y=238;}
-            feedback.gameObject.SetActive(y==238);content.sizeDelta=new Vector2(366,Mathf.Max(598,y));nav.Settings.ApplyTheme();
-            if(!tasks){PrototypeUi.Action(content,font,T("Quét mã để tra cứu","Scan to look up stock"),0,y,366,44,nav.Settings.Dark,()=>nav.Show("5:331"),true,"scan");content.sizeDelta=new Vector2(366,Mathf.Max(568,y+66));}
+            if(y==0&&tasks){JarVisUi.Icon(content,tasks?"tasks":"package",161,36,44);JarVisUi.Text(content,font,T("Dữ liệu được đồng bộ từ OMS","Data is synchronized from OMS"),16,98,334,48,15).alignment=TextAlignmentOptions.Center;
+                JarVisUi.Button(content,font,ReloadLabel,73,170,220,ReloadOrSignIn);y=238;}
+            feedback.gameObject.SetActive(true);
+            if(busy&&tasks)feedback.text=T("Đang tải dữ liệu kho…","Loading warehouse data…");
+            else if(loadFailed&&tasks)feedback.text=T("Chưa tải lại được. Dữ liệu hiện có có thể đã cũ.","Refresh failed. Displayed data may be out of date.");
+            else if(!OmsMobileSession.IsReady&&tasks)feedback.text=T("Đăng nhập để xem dữ liệu kho của bạn.","Sign in to view your warehouse data.");
+            if(y!=238&&tasks){JarVisUi.Button(content,font,ReloadLabel,73,y+8,220,ReloadOrSignIn);y+=76;}
+            content.sizeDelta=new Vector2(366,Mathf.Max(550,y));nav.Settings.ApplyTheme();
+            // Local catalogue cards replace the old empty OMS/scan lookup prompt.
         }
         void Card(RectTransform rect){var image=rect.gameObject.AddComponent<Image>();image.color=Color.white;image.raycastTarget=false;UniformUiSurface.Use(image,22,PrototypeUi.Surface(nav.Settings.Dark),PrototypeUi.Line(nav.Settings.Dark),1,false,false);}
         public bool CloseDetail()
@@ -140,20 +177,22 @@ namespace JarVis.Warehouse.UI
                 T("Hư hỏng: ","Damaged: ")+row.damaged+" · "+T("Khả dụng: ","Available: ")+row.available+" "+row.unit},null,null,
                 T("Chỉ đường","Map"),()=>{CloseDetail();nav.OpenMap(row.locationCode);});
         }
-        void TaskDetail(OmsMobileApi.TaskRow row)
+        public void TaskDetail(OmsMobileApi.TaskRow row)
         {
             CloseDetail();string next=row.status=="ASSIGNED"?"ACCEPTED":row.status=="ACCEPTED"||row.status=="BLOCKED"?"IN_PROGRESS":row.status=="IN_PROGRESS"?"COMPLETED":null;
             detail=PrototypeDialog.Details(nav,T("Chi tiết nhiệm vụ","Task details"),row.task_code+" · "+row.title,new[]{
                 T("Nhân viên: ","Employee: ")+row.employeeCode,T("Trạng thái: ","Status: ")+Status(row.status),
                 T("Loại: ","Type: ")+row.task_type+" · "+T("Vị trí: ","Location: ")+row.locationCode,
                 T("Hàng hóa: ","Product: ")+row.productName+" · "+row.sku,
-                T("Số lượng yêu cầu: ","Expected quantity: ")+row.expected_quantity+" "+row.unit},T("Tiếp tục","Continue"),next==null?null:(Action)(()=>StartCoroutine(Transition(row,next))),
+                T("Số lượng yêu cầu: ","Expected quantity: ")+row.expected_quantity+" "+row.unit},row.status=="ASSIGNED"?T("Nhận nhiệm vụ","Accept task"):row.status=="BLOCKED"?T("Tiếp tục nhiệm vụ","Resume task"):next=="IN_PROGRESS"?T("Bắt đầu làm","Start task"):T("Hoàn tất nhiệm vụ","Complete task"),next==null?null:(Action)(()=>StartCoroutine(Transition(row,next))),
                 T("Chỉ đường","Map"),()=>{CloseDetail();nav.OpenMap(row.locationCode);});
         }
         IEnumerator Transition(OmsMobileApi.TaskRow task,string next)
         {
-            if(busy)yield break;busy=true;string error=null;OmsMobileApi.TaskRow result=null;
-            yield return OmsMobileApi.ChangeTaskStatus(task.id,next,r=>result=r,e=>error=e);busy=false;
+            SynchronizeSession();if(busy||!OmsMobileSession.IsReady)yield break;busy=true;int version=generation;string error=null;OmsMobileApi.TaskRow result=null;
+            yield return OmsMobileApi.ChangeTaskStatus(task.id,next,r=>{if(CurrentRequest(version))result=r;},e=>error=e);
+            if(version!=generation)yield break;
+            if(!CurrentRequest(version)){SynchronizeSession();Render();yield break;}busy=false;
             if(result==null){nav.Notice(T("Chưa cập nhật được nhiệm vụ. Kiểm tra kết nối và thử lại.","Couldn't update the task. Check your connection and retry."));yield break;}
             task.status=result.status;Render();TaskDetail(task);nav.Notice(T("Đã cập nhật tiến độ nhiệm vụ.","Task progress updated."));
         }

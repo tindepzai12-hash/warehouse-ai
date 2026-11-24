@@ -1,0 +1,205 @@
+PASS Full projected chevron including motion fits screen pitch=0 yaw=-75 depth=1.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=0 yaw=-75 depth=2.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=0 yaw=-75 depth=4.5 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=0 yaw=-75 depth=6 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=0 yaw=0 depth=1.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=0 yaw=0 depth=2.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=0 yaw=0 depth=4.5 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=0 yaw=0 depth=6 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=0 yaw=75 depth=1.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=0 yaw=75 depth=2.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=0 yaw=75 depth=4.5 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=0 yaw=75 depth=6 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=20 yaw=-75 depth=1.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=20 yaw=-75 depth=2.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=20 yaw=-75 depth=4.5 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=20 yaw=-75 depth=6 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=20 yaw=0 depth=1.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=20 yaw=0 depth=2.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=20 yaw=0 depth=4.5 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=20 yaw=0 depth=6 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=20 yaw=75 depth=1.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=20 yaw=75 depth=2.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=20 yaw=75 depth=4.5 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=20 yaw=75 depth=6 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=35 yaw=-75 depth=1.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=35 yaw=-75 depth=2.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=35 yaw=-75 depth=4.5 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=35 yaw=-75 depth=6 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=35 yaw=0 depth=1.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=35 yaw=0 depth=2.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=35 yaw=0 depth=4.5 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=35 yaw=0 depth=6 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=35 yaw=75 depth=1.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=35 yaw=75 depth=2.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=35 yaw=75 depth=4.5 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=35 yaw=75 depth=6 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=55 yaw=-75 depth=1.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=55 yaw=-75 depth=2.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=55 yaw=-75 depth=4.5 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=55 yaw=-75 depth=6 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=55 yaw=0 depth=1.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=55 yaw=0 depth=2.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=55 yaw=0 depth=4.5 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=55 yaw=0 depth=6 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=55 yaw=75 depth=1.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=55 yaw=75 depth=2.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=55 yaw=75 depth=4.5 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=55 yaw=75 depth=6 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=75 yaw=-75 depth=1.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=75 yaw=-75 depth=2.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=75 yaw=-75 depth=4.5 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=75 yaw=-75 depth=6 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=75 yaw=0 depth=1.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=75 yaw=0 depth=2.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=75 yaw=0 depth=4.5 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=75 yaw=0 depth=6 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=75 yaw=75 depth=1.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=75 yaw=75 depth=2.2 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=75 yaw=75 depth=4.5 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=75 yaw=75 depth=6 aspect=0.4502732
+PASS Full projected chevron including motion fits screen pitch=0 yaw=-75 depth=1.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=0 yaw=-75 depth=2.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=0 yaw=-75 depth=4.5 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=0 yaw=-75 depth=6 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=0 yaw=0 depth=1.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=0 yaw=0 depth=2.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=0 yaw=0 depth=4.5 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=0 yaw=0 depth=6 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=0 yaw=75 depth=1.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=0 yaw=75 depth=2.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=0 yaw=75 depth=4.5 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=0 yaw=75 depth=6 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=20 yaw=-75 depth=1.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=20 yaw=-75 depth=2.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=20 yaw=-75 depth=4.5 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=20 yaw=-75 depth=6 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=20 yaw=0 depth=1.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=20 yaw=0 depth=2.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=20 yaw=0 depth=4.5 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=20 yaw=0 depth=6 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=20 yaw=75 depth=1.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=20 yaw=75 depth=2.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=20 yaw=75 depth=4.5 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=20 yaw=75 depth=6 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=35 yaw=-75 depth=1.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=35 yaw=-75 depth=2.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=35 yaw=-75 depth=4.5 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=35 yaw=-75 depth=6 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=35 yaw=0 depth=1.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=35 yaw=0 depth=2.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=35 yaw=0 depth=4.5 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=35 yaw=0 depth=6 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=35 yaw=75 depth=1.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=35 yaw=75 depth=2.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=35 yaw=75 depth=4.5 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=35 yaw=75 depth=6 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=55 yaw=-75 depth=1.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=55 yaw=-75 depth=2.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=55 yaw=-75 depth=4.5 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=55 yaw=-75 depth=6 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=55 yaw=0 depth=1.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=55 yaw=0 depth=2.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=55 yaw=0 depth=4.5 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=55 yaw=0 depth=6 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=55 yaw=75 depth=1.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=55 yaw=75 depth=2.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=55 yaw=75 depth=4.5 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=55 yaw=75 depth=6 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=75 yaw=-75 depth=1.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=75 yaw=-75 depth=2.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=75 yaw=-75 depth=4.5 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=75 yaw=-75 depth=6 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=75 yaw=0 depth=1.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=75 yaw=0 depth=2.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=75 yaw=0 depth=4.5 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=75 yaw=0 depth=6 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=75 yaw=75 depth=1.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=75 yaw=75 depth=2.2 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=75 yaw=75 depth=4.5 aspect=0.5628415
+PASS Full projected chevron including motion fits screen pitch=75 yaw=75 depth=6 aspect=0.5628415
+PASS Arrows cannot overlap action card
+PASS Arrows cannot overlap header
+PASS Overlapping glyphs excluded
+PASS Spaced glyphs accepted
+PASS Eight-second help threshold is not fake completion
+PASS Elapsed time alone never completes scan
+PASS Successful readiness does not retain timeout warning
+PASS Early correct QR cannot bypass environment or pose lock
+PASS Fixture aligns straight-5.5m
+PASS No conflicting future-branch arrow straight-5.5m
+PASS Entire moving arrow stays in guidance window straight-5.5m
+PASS Live arrow count respects actual remaining distance straight-5.5m
+PASS Visible count agrees with actual objects straight-5.5m
+PASS No conflicting future-branch arrow straight-5.5m
+PASS Entire moving arrow stays in guidance window straight-5.5m
+PASS Live arrow count respects actual remaining distance straight-5.5m
+PASS Visible count agrees with actual objects straight-5.5m
+PASS Useful arrow remains visible looking down route straight-5.5m
+PASS No conflicting future-branch arrow straight-5.5m
+PASS Entire moving arrow stays in guidance window straight-5.5m
+PASS Live arrow count respects actual remaining distance straight-5.5m
+PASS Visible count agrees with actual objects straight-5.5m
+PASS No conflicting future-branch arrow straight-5.5m
+PASS Entire moving arrow stays in guidance window straight-5.5m
+PASS Live arrow count respects actual remaining distance straight-5.5m
+PASS Visible count agrees with actual objects straight-5.5m
+PASS No conflicting future-branch arrow straight-5.5m
+PASS Entire moving arrow stays in guidance window straight-5.5m
+PASS Live arrow count respects actual remaining distance straight-5.5m
+PASS Visible count agrees with actual objects straight-5.5m
+PASS Useful arrow remains visible looking down route straight-5.5m
+PASS No conflicting future-branch arrow straight-5.5m
+PASS Entire moving arrow stays in guidance window straight-5.5m
+PASS Live arrow count respects actual remaining distance straight-5.5m
+PASS Visible count agrees with actual objects straight-5.5m
+PASS Fixture aligns corner-5.8m
+PASS Live arrow count respects actual remaining distance corner-5.8m
+PASS Visible count agrees with actual objects corner-5.8m
+PASS Offscreen floor gives actionable camera hint corner-5.8m
+PASS No conflicting future-branch arrow corner-5.8m
+PASS Entire moving arrow stays in guidance window corner-5.8m
+PASS Live arrow count respects actual remaining distance corner-5.8m
+PASS Visible count agrees with actual objects corner-5.8m
+PASS Useful arrow remains visible looking down route corner-5.8m
+PASS No conflicting future-branch arrow corner-5.8m
+PASS Entire moving arrow stays in guidance window corner-5.8m
+PASS Live arrow count respects actual remaining distance corner-5.8m
+PASS Visible count agrees with actual objects corner-5.8m
+PASS Live arrow count respects actual remaining distance corner-5.8m
+PASS Visible count agrees with actual objects corner-5.8m
+PASS Offscreen floor gives actionable camera hint corner-5.8m
+PASS No conflicting future-branch arrow corner-5.8m
+PASS Entire moving arrow stays in guidance window corner-5.8m
+PASS Live arrow count respects actual remaining distance corner-5.8m
+PASS Visible count agrees with actual objects corner-5.8m
+PASS Useful arrow remains visible looking down route corner-5.8m
+PASS No conflicting future-branch arrow corner-5.8m
+PASS Entire moving arrow stays in guidance window corner-5.8m
+PASS Live arrow count respects actual remaining distance corner-5.8m
+PASS Visible count agrees with actual objects corner-5.8m
+PASS Fixture aligns loop-12m
+PASS Live arrow count respects actual remaining distance loop-12m
+PASS Visible count agrees with actual objects loop-12m
+PASS Offscreen floor gives actionable camera hint loop-12m
+PASS No conflicting future-branch arrow loop-12m
+PASS Entire moving arrow stays in guidance window loop-12m
+PASS Live arrow count respects actual remaining distance loop-12m
+PASS Visible count agrees with actual objects loop-12m
+PASS Useful arrow remains visible looking down route loop-12m
+PASS No conflicting future-branch arrow loop-12m
+PASS Entire moving arrow stays in guidance window loop-12m
+PASS Live arrow count respects actual remaining distance loop-12m
+PASS Visible count agrees with actual objects loop-12m
+PASS Live arrow count respects actual remaining distance loop-12m
+PASS Visible count agrees with actual objects loop-12m
+PASS Offscreen floor gives actionable camera hint loop-12m
+PASS No conflicting future-branch arrow loop-12m
+PASS Entire moving arrow stays in guidance window loop-12m
+PASS Live arrow count respects actual remaining distance loop-12m
+PASS Visible count agrees with actual objects loop-12m
+PASS Useful arrow remains visible looking down route loop-12m
+PASS No conflicting future-branch arrow loop-12m
+PASS Entire moving arrow stays in guidance window loop-12m
+PASS Live arrow count respects actual remaining distance loop-12m
+PASS Visible count agrees with actual objects loop-12m
